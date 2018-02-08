@@ -663,7 +663,7 @@
     </branch>
 
     <branch name="evelikov_18_0" project="all-test-vulkan">
-      <mesa branch="evelikov/mesa_18_0/jenkins"/>
+      <mesa branch="evelikov/jenkins/18.0"/>
       <piglit branch="736496667"/>
       <deqp branch="a73c1d93"/>
       <vulkancts branch="5d30c13f5"/>
