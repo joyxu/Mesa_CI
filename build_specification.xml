@@ -335,7 +335,7 @@
       <remote name="chadv" repo="git://github.com/chadversary/mesa"/>
       <remote name="antognolli" repo="git://github.com/rantogno/mesa"/>
       <remote name="hakzsam" repo="git://people.freedesktop.org/~hakzsam/mesa"/>
-      <remote name="daniels" repo="git://git.collabora.com/git/user/daniels/mesa"/>
+      <remote name="daniels" repo="https://gitlab.collabora.com/daniels/mesa.git"/>
       <remote name="chrisf" repo="git://github.com/chrisforbes/mesa"/>
       <remote name="igalia_khronos" repo="git@gitlab.khronos.org:vulkan/mesa.git"/>
       <remote name="grigorig" repo="git://people.freedesktop.org/~grigorig/mesa"/>
