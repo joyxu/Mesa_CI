@@ -85,17 +85,17 @@
     <project name="glcts-test"
              bisect_hardware="snb,ivb,byt,hsw,bdw,skl,bsw,bxt,kbl,glk,cfl"
              bisect_arch="m64,m32">
-      <prerequisite name="glcts" hardware="builder-01"/>
-      <prerequisite name="mesa" hardware="builder-01"/>
-      <prerequisite name="waffle" hardware="builder-01"/>
+      <prerequisite name="glcts" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
+      <prerequisite name="waffle" hardware="builder"/>
     </project>
 
     <project name="glescts-test"
              bisect_hardware="g33,g45,ilk,g965,bxt,byt,bsw,skl,bdw,hsw,snb,ivb,kbl,glk,cfl"
              bisect_arch="m64">
-      <prerequisite name="mesa" hardware="builder-01"/>
-      <prerequisite name="glescts" hardware="builder-01"/>
-      <prerequisite name="waffle" hardware="builder-01"/>
+      <prerequisite name="mesa" hardware="builder"/>
+      <prerequisite name="glescts" hardware="builder"/>
+      <prerequisite name="waffle" hardware="builder"/>
     </project>
 
     <project name="glescts-full">
@@ -112,25 +112,25 @@
     </project>
 
     <project name="piglit">
-      <prerequisite name="waffle" hardware="builder-01"/>
-      <prerequisite name="mesa" hardware="builder-01"/>
+      <prerequisite name="waffle" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
     </project>
 
     <project name="piglit-test"
              bisect_hardware="bdw,skl,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,bxt,kbl,glk,cfl"
              bisect_arch="m64,m32">
-      <prerequisite name="piglit" hardware="builder-01"/>
-      <prerequisite name="mesa" hardware="builder-01"/>
+      <prerequisite name="piglit" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
     </project>
 
     <project name="piglit-cpu-test-1">
-      <prerequisite name="piglit" hardware="builder-01"/>
-      <prerequisite name="mesa" hardware="builder-01"/>
+      <prerequisite name="piglit" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
     </project>
 
     <project name="piglit-cpu-test-2">
-      <prerequisite name="piglit" hardware="builder-01"/>
-      <prerequisite name="mesa" hardware="builder-01"/>
+      <prerequisite name="piglit" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
     </project>
 
     <project name="piglit-cpu-test">
@@ -163,16 +163,16 @@
     <project name="crucible-test"
              bisect_hardware="bdw,skl,ivb,bsw,byt,hsw,bxt,kbl,glk,cfl"
              bisect_arch="m64">
-      <prerequisite name="crucible" hardware="builder-01"/>
-      <prerequisite name="mesa" hardware="builder-01"/>
+      <prerequisite name="crucible" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
     </project>
 
     <project name="vulkancts-test" src_dir="vulkancts"
              bisect_hardware="bdw,skl,bsw,kbl,hsw,bxt,glk,cfl"
              bisect_arch="m64">
-      <prerequisite name="vulkancts" hardware="builder-01"/>
-      <prerequisite name="mesa" hardware="builder-01"/>
-      <prerequisite name="waffle" hardware="builder-01"/>
+      <prerequisite name="vulkancts" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
+      <prerequisite name="waffle" hardware="builder"/>
     </project>
 
     <project name="vulkancts-full">
@@ -202,11 +202,11 @@
     <!-- all-test has no build.py, and exists only to provide
          dependency relationships. -->
     <project name="all-test">
-      <prerequisite name="scons-buildtest" hardware="builder-01"/>
-      <prerequisite name="meson-buildtest" hardware="builder-01"/>
+      <prerequisite name="scons-buildtest" hardware="builder"/>
+      <prerequisite name="meson-buildtest" hardware="builder"/>
       <prerequisite name="piglit-full"/>
       <prerequisite name="deqp-full"/>
-      <prerequisite name="mesa-buildtest" hardware="builder-01" arch="m64"/>
+      <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
     </project>
@@ -220,9 +220,9 @@
       <prerequisite name="piglit-test" hardware="g33,ilk,g45,g965,snb,ivb,hsw,bdw,skl"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,g33,bxt,glk,cfl"/>
       <prerequisite name="piglit-cpu-test" hardware="fastgpu"/>
-      <prerequisite name="scons-buildtest" hardware="builder-01" arch="m64"/>
-      <prerequisite name="meson-buildtest" hardware="builder-01" arch="m64"/>
-      <prerequisite name="mesa-buildtest" hardware="builder-01"/>
+      <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
+      <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
+      <prerequisite name="mesa-buildtest" hardware="builder"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
@@ -232,9 +232,9 @@
     <project name="test-single-arch-ben">
       <prerequisite name="piglit-test" hardware="g33,ilk,g45,g965,snb,ivb,hsw,bdw,skl,bsw,byt,bxt"/>
       <prerequisite name="piglit-cpu-test" hardware="fastgpu"/>
-      <prerequisite name="scons-buildtest" hardware="builder-01" arch="m64"/>
-      <prerequisite name="meson-buildtest" hardware="builder-01" arch="m64"/>
-      <prerequisite name="mesa-buildtest" hardware="builder-01"/>
+      <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
+      <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
+      <prerequisite name="mesa-buildtest" hardware="builder"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
@@ -244,9 +244,9 @@
       <prerequisite name="piglit-full"/>
       <prerequisite name="piglit-test" hardware="ilk,bsw,byt,g33,g45,g965,bxt,glk"/>
       <prerequisite name="piglit-cpu-test" hardware="fastgpu"/>
-      <prerequisite name="scons-buildtest" hardware="builder-01" arch="m64"/>
-      <prerequisite name="meson-buildtest" hardware="builder-01" arch="m64"/>
-      <prerequisite name="mesa-buildtest" hardware="builder-01"/>
+      <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
+      <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
+      <prerequisite name="mesa-buildtest" hardware="builder"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="deqp-test" hardware="byt,bsw,bxt,glk"/>
       <prerequisite name="glcts-full" hardware="hsw,bdw,skl,kbl"/>
