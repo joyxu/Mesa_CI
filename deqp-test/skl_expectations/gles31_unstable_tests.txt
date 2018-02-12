@@ -6,4 +6,4 @@ dEQP-GLES31.functional.copy_image.non_compressed
 # Disabled for https://bugs.freedesktop.org/show_bug.cgi?id=103746
 dEQP-GLES31.functional.copy_image.compressed
 # Disabled for https://bugs.freedesktop.org/show_bug.cgi?id=103746
-dEQP-GLES31.functional.copy_image.mixed.viewclass_128_bits_mixed
+dEQP-GLES31.functional.copy_image.mixed
