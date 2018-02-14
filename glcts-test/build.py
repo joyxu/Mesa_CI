@@ -40,6 +40,7 @@ class GLCTSList(object):
         else:
             all_tests.add_xml("KHR-GL46-cases.xml")
             all_tests.add_xml("GTF-GL46-cases.xml")
+            all_tests.add_xml("KHR-NoContext-cases.xml")
         os.chdir(savedir)
         return all_tests
 
