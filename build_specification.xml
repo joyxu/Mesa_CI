@@ -383,6 +383,7 @@
 
     <mesa_ci repo="git://github.com/janesma/mesa_ci.git">
       <remote name="craftyguy" repo="git://github.com/craftyguy/mesa_ci.git"/>
+      <remote name="dcbaker" repo="git://github.com/dcbaker/mesa_ci.git"/>
     </mesa_ci>
 
     <deqp repo="git://github.com/janesma/deqp.git"
