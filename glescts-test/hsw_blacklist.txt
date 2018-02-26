@@ -7,3 +7,5 @@ KHR-GLESEXT.tessellation_shader.tessellation_shader_tessellation.gl_InvocationID
 KHR-GLES31.core.tessellation_shader.tessellation_shader_tessellation.gl_InvocationID_PatchVerticesIn_PrimitiveID
 KHR-GLES3.functional.fragment_ops.random.7
 KHR-GLES31.core.sepshaderobjs.StateInteraction
+# https://bugs.freedesktop.org/show_bug.cgi?id=105261
+KHR-GLES31.core.tessellation_shader.tessellation_control_to_tessellation_evaluation.gl_tessLevel
