@@ -344,6 +344,7 @@
       <remote name="anholt" repo="git://github.com/anholt/mesa"/>
       <remote name="eric_engestrom" repo="git://github.com/1ace/mesa"/>
       <remote name="craftyguy" repo="git://github.com/craftyguy/mesa"/>
+      <remote name="cmarcelo" repo="git://github.com/cmarcelo/mesa"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
@@ -808,6 +809,15 @@
 
     <branch name="scott-ph_vulkan" project="vulkancts-full">
       <mesa branch="scott-ph/jenkins_vulkan"/>
+      <vulkancts branch="khronos/vulkan-cts-1.1.0" trigger="false"/>
+    </branch>
+
+    <branch name="cmarcelo_gl" project="test-single-arch">
+      <mesa branch="cmarcelo/jenkins_gl"/>
+    </branch>
+
+    <branch name="cmarcelo_vulkan" project="vulkancts-full">
+      <mesa branch="cmarcelo/jenkins_vk"/>
       <vulkancts branch="khronos/vulkan-cts-1.1.0" trigger="false"/>
     </branch>
 
