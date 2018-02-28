@@ -73,7 +73,7 @@ def main():
     for i in range(5):
         repos.fetch()
         try:
-            print("Checking out specified commit (try {}/10)".format(i+1))
+            print("Checking out specified commit (try {}/5)".format(i+1))
             bs.BuildSpecification().checkout(args.branch, args.commits)
         except git.GitCommandError:
             print("Unable to checkout specified commit, retrying in 5s..")
