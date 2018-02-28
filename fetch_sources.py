@@ -28,6 +28,7 @@ from __future__ import print_function
 import argparse
 import os
 import sys
+import time
 
 import git
 
@@ -69,8 +70,17 @@ def main():
 
     repos = bs.RepoSet()
     repos.clone()
-    repos.fetch()
-    bs.BuildSpecification().checkout(args.branch, args.commits)
+    for i in range(5):
+        repos.fetch()
+        try:
+            print("Checking out specified commit (try {}/10)".format(i+1))
+            bs.BuildSpecification().checkout(args.branch, args.commits)
+        except git.GitCommandError:
+            print("Unable to checkout specified commit, retrying in 5s..")
+            time.sleep(5)
+        else:
+            return
+    raise Exception("ERROR: Unable to checkout specified commit.")
 
 
 if __name__ == '__main__':
