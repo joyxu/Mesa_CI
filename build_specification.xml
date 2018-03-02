@@ -248,6 +248,22 @@
       <prerequisite name="glescts-full"/>
     </project>
 
+    <!-- this is used for ben's percheckin build -->
+    <project name="test-single-arch-nchery">
+      <prerequisite name="piglit-full"/>
+      <prerequisite name="piglit-test" hardware="bsw,bxt"/>
+      <prerequisite name="piglit-cpu-test" hardware="fastgpu"/>
+      <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
+      <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
+      <prerequisite name="mesa-buildtest" hardware="builder"/>
+      <prerequisite name="deqp-full"/>
+      <prerequisite name="glcts-full"/>
+      <prerequisite name="glescts-full"/>
+      <prerequisite name="deqp-test" hardware="bsw,bxt" shard="5"/>
+      <prerequisite name="glcts-full" hardware="bsw,bxt" shard="5"/>
+      <prerequisite name="glescts-full" hardware="bsw,bxt"/>
+    </project>
+
     <project name="test-single-arch-anholt">
       <prerequisite name="piglit-full"/>
       <prerequisite name="piglit-test" hardware="ilk,bsw,byt,g33,g45,g965,bxt,glk"/>
@@ -635,7 +651,7 @@
       <vulkancts branch="khronos/vulkan-cts-1.1.0" trigger="false"/>
     </branch>
 
-    <branch name="nchery" project="test-single-arch">
+    <branch name="nchery" project="test-single-arch-nchery">
       <mesa branch="nchery/jenkins"/>
     </branch>
 
