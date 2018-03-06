@@ -19,7 +19,7 @@ def main():
     options = [
         '-Dbuild-tests=true',
         '-Dgallium-drivers=r300,r600,radeonsi,nouveau,swrast,swr,freedreno,vc4,pl111,etnaviv,imx,svga,virgl',
-        '-Dgallium-omx=true',
+        '-Dgallium-omx=bellagio',
         '-Dgallium-vdpau=true',
         '-Dgallium-xvmc=true',
         '-Dgallium-xa=true',
