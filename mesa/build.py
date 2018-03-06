@@ -64,6 +64,7 @@ def meson_build():
         '-Ddri-drivers=i965,i915',
         '-Dvulkan-drivers=intel',
         '-Dplatforms=x11,drm',
+        '-Dgallium-omx=disabled',
     ]
     if global_opts.config != 'debug':
         options.extend(['-Dbuildtype=release', '-Db_ndebug=true'])
