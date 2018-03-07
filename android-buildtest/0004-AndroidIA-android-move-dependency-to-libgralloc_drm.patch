@@ -1,0 +1,40 @@
+From 76205fed394bba896364379d1dd36f68b75cccc6 Mon Sep 17 00:00:00 2001
+From: Marta Lofstedt <marta.lofstedt@intel.com>
+Date: Thu, 23 Mar 2017 08:37:31 +0200
+Subject: [PATCH] AndroidIA: android: move dependency to libgralloc_drm
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+drm_gralloc header files are only included under
+ENABLE_FLINK_SUPPORT, so should dependency to
+libgralloc_drm.
+
+Jira: None
+Test: Build without libgralloc_drm
+
+Signed-off-by: Marta Lofstedt <marta.lofstedt@intel.com>
+Reviewed-by: Tapani Pälli <tapani.palli@intel.com>
+---
+ src/egl/Android.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/egl/Android.mk b/src/egl/Android.mk
+index 834cad91e1..8b3b3549b1 100644
+--- a/src/egl/Android.mk
++++ b/src/egl/Android.mk
+@@ -57,10 +57,10 @@ LOCAL_SHARED_LIBRARIES := \
+ 	libhardware \
+ 	liblog \
+ 	libcutils \
+-	libgralloc_drm \
+ 	libsync
+ 
+ ifeq ($(ENABLE_FLINK_SUPPORT),1)
++LOCAL_SHARED_LIBRARIES += libgralloc_drm
+ LOCAL_CFLAGS += -DHAS_GRALLOC_DRM_HEADERS
+ endif
+ 
+-- 
+2.16.2
+

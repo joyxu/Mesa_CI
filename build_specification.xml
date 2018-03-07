@@ -35,6 +35,8 @@
     <!-- each project has a matching subdirectory with a build.py
          which automates the build.  -->
 
+    <project name="android-buildtest"/>
+
     <project name="drm"/>
 
     <project name="mesa">
@@ -231,6 +233,7 @@
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
+      <prerequisite only_for_type="daily" name="android-buildtest" hardware="builder"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
