@@ -487,7 +487,7 @@
       <piglit branch="84c528875"/>
       <deqp branch="03c395c6"/>
       <vulkancts branch="0e3c7aa3"/>
-      <cts branch="origin/opengl-es-cts-3.2.4"/>
+      <cts branch="ff5e186d"/>
       <crucible branch="3f26244"/>
       <shaderc branch="fb33022"/>
       <glslang branch="53863a3a"/>
@@ -498,7 +498,7 @@
       <piglit branch="68ec8d2a1"/>
       <deqp branch="e32e1433"/>
       <vulkancts branch="438ea088"/>
-      <cts branch="origin/opengl-es-cts-3.2.4"/>
+      <cts branch="ff5e186d"/>
       <crucible branch="40a9f10"/>
       <shaderc branch="bcadbc1"/>
       <glslang branch="9cfc1551"/>
