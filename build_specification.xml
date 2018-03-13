@@ -362,6 +362,7 @@
       <remote name="craftyguy" repo="git://github.com/craftyguy/mesa"/>
       <remote name="cmarcelo" repo="git://github.com/cmarcelo/mesa"/>
       <remote name="ldeks" repo="git://people.freedesktop.org/~ldeks/mesa"/>
+      <remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
@@ -856,6 +857,11 @@
     <branch name="ldeks" project="test-single-arch-vulkan">
       <mesa branch="ldeks/jenkins"/>
     </branch>
+
+    <branch name="frohlich" project="test-single-arch-vulkan">
+      <mesa branch="frohlich/for-CI"/>
+    </branch>
+
 
   </branches>
 
