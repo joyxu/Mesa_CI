@@ -363,6 +363,7 @@
       <remote name="cmarcelo" repo="git://github.com/cmarcelo/mesa"/>
       <remote name="ldeks" repo="git://people.freedesktop.org/~ldeks/mesa"/>
       <remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>
+      <remote name="airlied" repo="git://people.freedesktop.org/~airlied/mesa"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
@@ -862,6 +863,9 @@
       <mesa branch="frohlich/for-CI"/>
     </branch>
 
+    <branch name="airlied" project="test-single-arch-vulkan">
+      <mesa branch="airlied/jenkins"/>
+    </branch>
 
   </branches>
 
