@@ -217,6 +217,7 @@
       <prerequisite name="piglit-full"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
+      <prerequisite only_for_type="daily" name="android-buildtest" hardware="builder"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
     </project>
