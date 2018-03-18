@@ -9,9 +9,6 @@ import build_support as bs
 
 
 def main():
-    # Do not run on older Mesa versions
-    if "17" in bs.mesa_version():
-        return
     bs.build(bs.AndroidBuilder(src_location="~/android-ia",
                                module="libGLES_mesa"))
 
