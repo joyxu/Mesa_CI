@@ -330,7 +330,7 @@
   <repos>
     <mesa repo="git://github.com/mesa3d/mesa.git">
       <!-- todo: add support for remotes.  -->
-      <remote name="jekstrand" repo="git://people.freedesktop.org/~jekstrand/mesa"/>
+      <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
       <remote name="kwg" repo="git://people.freedesktop.org/~kwg/mesa"/>
       <remote name="bwidawsk" repo="git://people.freedesktop.org/~bwidawsk/mesa"/>
       <remote name="idr" repo="git://people.freedesktop.org/~idr/mesa"/>
