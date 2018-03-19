@@ -9,6 +9,13 @@ import build_support as bs
 
 
 def main():
+    # Disable test if using < Mesa 18.0
+    pm = bs.ProjectMap()
+    sd = pm.project_source_dir(pm.current_project())
+    if not os.path.exists(os.path.join(sd,
+                                       'src/mesa/drivers/osmesa/meson.build')):
+        return 0
+
     bs.build(bs.AndroidBuilder(src_location="~/android-ia",
                                module="libGLES_mesa"))
 
