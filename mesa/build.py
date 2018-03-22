@@ -66,9 +66,12 @@ def meson_build():
         '-Dplatforms=x11,drm',
     ]
 
-    if global_opts.config != 'debug':
+    cpp_args = None
+    if global_opts.config == 'debug':
+        cpp_args = "-DDEBUG"
+    else:
         options.extend(['-Dbuildtype=release', '-Db_ndebug=true'])
-    b = bs.builders.MesonBuilder(extra_definitions=options, install=True)
+    b = bs.builders.MesonBuilder(extra_definitions=options, install=True, cpp_args=cpp_args)
     bs.build(b)
 
 
