@@ -508,6 +508,10 @@
       <crucible branch="40a9f10"/>
       <shaderc branch="bcadbc1"/>
       <glslang branch="9cfc1551"/>
+      <drm branch="361d4bff"/>
+      <glcts branch="424529bbf"/>
+      <spirvheaders branch="b13b3be"/>
+      <waffle branch="1ded029"/>
     </branch>
 
     <branch name="mesa_18.0" project="all-test-vulkan">
@@ -519,6 +523,10 @@
       <crucible branch="d5916d1"/>
       <shaderc branch="773ec22"/>
       <glslang branch="82ead04c"/>
+      <drm branch="361d4bff"/>
+      <glcts branch="424529bbf"/>
+      <spirvheaders branch="b13b3be"/>
+      <waffle branch="1ded029"/>
     </branch>
 
     <branch name="vulkancts" project="vulkancts-full">
