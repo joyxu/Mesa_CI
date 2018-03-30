@@ -866,6 +866,17 @@
       <mesa branch="robclark/for_jenkins"/>
     </branch>
 
+    <branch name="wip_18" project="test-single-arch-vulkan">
+      <mesa branch="janesma/wip/18.0"/>
+      <piglit branch="736496667"/>
+      <deqp branch="a73c1d93"/>
+      <vulkancts branch="5d30c13f5"/>
+      <cts branch="ff5e186d"/>
+      <crucible branch="d5916d1"/>
+      <shaderc branch="773ec22"/>
+      <glslang branch="82ead04c"/>
+    </branch>
+
   </branches>
 
 </build_specification>
