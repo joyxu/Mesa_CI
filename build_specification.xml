@@ -877,6 +877,21 @@
       <glslang branch="82ead04c"/>
     </branch>
 
+    <branch name="mesa_17.3" project="test-single-arch-vulkan">
+      <mesa branch="janesma/wip/17.3"/>
+      <piglit branch="68ec8d2a1"/>
+      <deqp branch="e32e1433"/>
+      <vulkancts branch="438ea088"/>
+      <cts branch="ff5e186d"/>
+      <crucible branch="40a9f10"/>
+      <shaderc branch="bcadbc1"/>
+      <glslang branch="9cfc1551"/>
+      <drm branch="361d4bff"/>
+      <glcts branch="424529bbf"/>
+      <spirvheaders branch="b13b3be"/>
+      <waffle branch="1ded029"/>
+    </branch>
+
   </branches>
 
 </build_specification>
