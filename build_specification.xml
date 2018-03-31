@@ -877,7 +877,7 @@
       <glslang branch="82ead04c"/>
     </branch>
 
-    <branch name="mesa_17.3" project="test-single-arch-vulkan">
+    <branch name="wip_17.3" project="test-single-arch-vulkan">
       <mesa branch="janesma/wip/17.3"/>
       <piglit branch="68ec8d2a1"/>
       <deqp branch="e32e1433"/>
