@@ -75,6 +75,10 @@ rm /etc/network/interfaces
 mkdir -p /boot/efi/EFI/boot/
 cp /boot/efi/EFI/debian/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 
+# linux-image-amd64 does not generate an initrd in all cases, for some reason.
+update-initramfs -c -k $(apt show linux-image-amd64 2>/dev/null| grep Depends| awk -F'image-' '{print $2}')
+update-grub
+
 # Enable and disable some services
 systemctl enable systemd-networkd systemd-resolved avahi-daemon salt-minion
 systemctl disable networking
