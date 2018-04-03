@@ -63,6 +63,25 @@ Name=${name}
 DHCP=yes
 EOF
 
+# python-tornado in testing is >=5, which is incompatible with salt-minion
+proxy="http://proxy.jf.intel.com:911"
+cat > /etc/apt/apt.conf.d/99proxy << EOF
+Acquire::http::Proxy "http://proxy.jf.intel.com:911";
+Acquire::http::Proxy::linux-ftp.jf.intel.com DIRECT;
+EOF
+apt install gpg -y
+https_proxy=$proxy wget https://repo.saltstack.com/apt/debian/9/amd64/latest/SALTSTACK-GPG-KEY.pub
+apt-key add SALTSTACK-GPG-KEY.pub
+# use 2017.7 repo because latest repo is 'too new' with salt on the master
+echo "deb http://repo.saltstack.com/apt/debian/9/amd64/2017.7 stretch main" > /etc/apt/sources.list.d/saltstack.list
+http_proxy=$proxy wget http://ftp.cz.debian.org/debian/pool/main/p/python-tornado/python-tornado_4.4.3-1_amd64.deb
+apt update
+apt install gdebi-core -y
+gdebi -n python-tornado_4.4.3-1_amd64.deb
+apt install salt-minion salt-common -y
+rm -f python-tornado_4.4.3-1_amd64.deb SALTSTACK-GPG-KEY.pub
+unset proxy
+
 # setup resolve for systemd-resolved
 rm /etc/resolv.conf
 ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
