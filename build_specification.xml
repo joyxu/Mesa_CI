@@ -504,7 +504,7 @@
       <mesa branch="origin/17.3"/>
       <piglit branch="68ec8d2a1"/>
       <deqp branch="e32e1433"/>
-      <vulkancts branch="438ea088"/>
+      <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
       <crucible branch="40a9f10"/>
       <shaderc branch="bcadbc1"/>
@@ -519,7 +519,7 @@
       <mesa branch="origin/18.0"/>
       <piglit branch="736496667"/>
       <deqp branch="a73c1d93"/>
-      <vulkancts branch="5d30c13f5"/>
+      <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
       <crucible branch="d5916d1"/>
       <shaderc branch="773ec22"/>
@@ -687,7 +687,7 @@
       <mesa branch="evelikov/mesa_17_3/jenkins"/>
       <piglit branch="68ec8d2a1"/>
       <deqp branch="e32e1433"/>
-      <vulkancts branch="438ea088"/>
+      <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
       <crucible branch="40a9f10"/>
       <shaderc branch="bcadbc1"/>
@@ -698,7 +698,7 @@
       <mesa branch="evelikov/jenkins/18.0"/>
       <piglit branch="736496667"/>
       <deqp branch="a73c1d93"/>
-      <vulkancts branch="5d30c13f5"/>
+      <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
       <crucible branch="d5916d1"/>
       <shaderc branch="773ec22"/>
@@ -720,7 +720,7 @@
       <mesa branch="igalia_release/igalia/17.3"/>
       <piglit branch="68ec8d2a1"/>
       <deqp branch="e32e1433"/>
-      <vulkancts branch="438ea088"/>
+      <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
       <crucible branch="40a9f10"/>
       <shaderc branch="bcadbc1"/>
@@ -870,7 +870,7 @@
       <mesa branch="janesma/wip/18.0"/>
       <piglit branch="736496667"/>
       <deqp branch="a73c1d93"/>
-      <vulkancts branch="5d30c13f5"/>
+      <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
       <crucible branch="d5916d1"/>
       <shaderc branch="773ec22"/>
@@ -881,7 +881,7 @@
       <mesa branch="janesma/wip/17.3"/>
       <piglit branch="68ec8d2a1"/>
       <deqp branch="e32e1433"/>
-      <vulkancts branch="438ea088"/>
+      <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
       <crucible branch="40a9f10"/>
       <shaderc branch="bcadbc1"/>
