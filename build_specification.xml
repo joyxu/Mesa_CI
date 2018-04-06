@@ -377,7 +377,7 @@
     </drm>
 
     <piglit repo="git://github.com/mesa3d/piglit.git">
-      <remote name="jekstrand" repo="git://people.freedesktop.org/~jekstrand/piglit"/>
+      <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/piglit.git"/>
       <!-- Dylan's repository is more stable than the origin, and will
            not trigger builds unnecessarily -->
       <remote name="dcbaker" repo="git://github.com/dcbaker/piglit"/>
