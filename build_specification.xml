@@ -727,6 +727,16 @@
       <glslang branch="9cfc1551"/>
     </branch>
 
+    <branch name="igalia_18.0" project="all-test-vulkan">
+      <piglit branch="736496667"/>
+      <deqp branch="a73c1d93"/>
+      <vulkancts branch="bfa6f73d2"/>
+      <cts branch="ff5e186d"/>
+      <crucible branch="d5916d1"/>
+      <shaderc branch="773ec22"/>
+      <glslang branch="82ead04c"/>
+    </branch>
+
     <!-- These branches exists to separate build results from
          mesa_master on the server. -->
     <branch name="nir_torture_test" project="test-single-arch"/>
