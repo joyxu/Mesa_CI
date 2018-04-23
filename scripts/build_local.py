@@ -1,1 +1,1 @@
-/home/majanes/src/jenkins/repos/mesa_ci/scripts/build_local.py
+../repos/mesa_ci/scripts/build_local.py
