@@ -743,6 +743,7 @@
     </branch>
 
     <branch name="igalia_18.0" project="all-test-vulkan">
+      <mesa branch="igalia_release/igalia/18.0"/>
       <piglit branch="736496667"/>
       <deqp branch="a73c1d93"/>
       <vulkancts branch="bfa6f73d2"/>
