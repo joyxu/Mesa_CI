@@ -753,6 +753,21 @@
       <glslang branch="82ead04c"/>
     </branch>
 
+    <branch name="dcbaker_18.1" project="all-test-vulkan">
+      <mesa branch="dcbaker/18.1-proposed"/>
+      <piglit branch="a2f486679"/>
+      <vulkancts branch="8e891c0f5"/>
+      <shaderc branch="5fd1b25"/>
+      <cts branch="c693c85a5"/>
+      <glslang branch="c325f436"/>
+      <waffle branch="1ded029"/>
+      <spirvheaders branch="3a4dbdd"/>
+      <glcts branch="9f8092de1"/>
+      <drm branch="d4b4c514"/>
+      <deqp branch="1dfe5d68b"/>
+      <crucible branch="2bc742a"/>
+    </branch>
+
     <!-- These branches exists to separate build results from
          mesa_master on the server. -->
     <branch name="nir_torture_test" project="test-single-arch"/>
