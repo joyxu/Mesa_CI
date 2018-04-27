@@ -907,6 +907,21 @@
       <mesa branch="robclark/for_jenkins"/>
     </branch>
 
+    <branch name="wip_18.1" project="test-single-arch-vulkan">
+      <mesa branch="janesma/wip/18.1"/>
+      <piglit branch="a2f486679"/>
+      <vulkancts branch="8e891c0f5"/>
+      <shaderc branch="5fd1b25"/>
+      <cts branch="c693c85a5"/>
+      <glslang branch="c325f436"/>
+      <waffle branch="1ded029"/>
+      <spirvheaders branch="3a4dbdd"/>
+      <glcts branch="9f8092de1"/>
+      <drm branch="d4b4c514"/>
+      <deqp branch="1dfe5d68b"/>
+      <crucible branch="2bc742a"/>
+    </branch>
+
     <branch name="wip_18" project="test-single-arch-vulkan">
       <mesa branch="janesma/wip/18.0"/>
       <piglit branch="736496667"/>
