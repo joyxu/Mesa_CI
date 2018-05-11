@@ -391,6 +391,7 @@
       <remote name="hakzsam" repo="git://people.freedesktop.org/~hakzsam/piglit"/>
       <remote name="antognolli" repo="git://github.com/rantogno/piglit"/>
       <remote name="scott-ph" repo="git://github.com/scott-d-phillips/piglit"/>
+      <remote name="tpalli" repo="git://people.freedesktop.org:~tpalli/piglit"/>
     </piglit>
 
     <waffle repo="git://github.com/waffle-gl/waffle">
