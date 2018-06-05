@@ -438,7 +438,7 @@
 
     <gtest repo="git://github.com/google/googletest"
            branch="origin/release-1.7.0"/>
-    <crucible repo="http://anongit.freedesktop.org/git/mesa/crucible.git"
+    <crucible repo="https://gitlab.freedesktop.org/mesa/crucible.git"
               branch="origin/master">
       <remote name="janesma" repo="git://github.com/janesma/crucible.git"/>
     </crucible>
