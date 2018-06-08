@@ -364,7 +364,7 @@
       <remote name="anholt" repo="git://github.com/anholt/mesa"/>
       <remote name="eric_engestrom" repo="git://github.com/1ace/mesa"/>
       <remote name="craftyguy" repo="git://github.com/craftyguy/mesa"/>
-      <remote name="cmarcelo" repo="git://github.com/cmarcelo/mesa"/>
+      <remote name="cmarcelo" repo="https://gitlab.freedesktop.org/cmarcelo/mesa.git"/>
       <remote name="ldeks" repo="git://people.freedesktop.org/~ldeks/mesa"/>
       <remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>
       <remote name="airlied" repo="git://people.freedesktop.org/~airlied/mesa"/>
