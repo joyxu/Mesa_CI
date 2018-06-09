@@ -353,7 +353,7 @@
       <remote name="igalia_release" repo="git://github.com/Igalia/release-mesa"/>
       <remote name="internal" repo="ssh://majanes@git-amr-1.devtools.intel.com:29418/otc_gen_graphics-mesa.git"/>
       <remote name="chadv" repo="git://github.com/chadversary/mesa"/>
-      <remote name="antognolli" repo="git://github.com/rantogno/mesa"/>
+      <remote name="antognolli" repo="https://gitlab.freedesktop.org/rantogno/mesa.git"/>
       <remote name="hakzsam" repo="git://people.freedesktop.org/~hakzsam/mesa"/>
       <remote name="daniels" repo="https://gitlab.collabora.com/daniels/mesa.git"/>
       <remote name="chrisf" repo="git://github.com/chrisforbes/mesa"/>
