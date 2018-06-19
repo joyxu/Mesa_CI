@@ -51,7 +51,7 @@ if not os.path.exists(build_support_dir):
             try_clone("git://otc-mesa-ci.jf.intel.com/git/mesa_ci")
         except git.exc.GitCommandError:
             try:
-                try_clone("https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git")
+                try_clone("https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git")
             except git.exc.GitCommandError:
                 print("ERROR: could not clone sources")
                 sys.exit(1)
