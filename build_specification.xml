@@ -334,7 +334,7 @@
       <remote name="kwg" repo="https://gitlab.freedesktop.org/kwg/mesa.git"/>
       <remote name="idr" repo="git://people.freedesktop.org/~idr/mesa"/>
       <remote name="mattst88" repo="git://people.freedesktop.org/~mattst88/mesa"/>
-      <remote name="janesma" repo="git://github.com/janesma/mesa"/>
+      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa.git"/>
       <remote name="jljusten" repo="git://people.freedesktop.org/~jljusten/mesa"/>
       <remote name="mperes" repo="git://people.freedesktop.org/~mperes/mesa"/>
       <remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/mesa"/>
@@ -403,12 +403,14 @@
     <!-- just so the master can cache it for the builders -->
     <mesa_jenkins repo="https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git">
       <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa_jenkins.git"/>
+      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa_jenkins.git"/>
       <remote name="dcbaker" repo="https://github.com/dcbaker/mesa_jenkins.git"/>
     </mesa_jenkins>
 
     <mesa_ci repo="https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git">
       <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa_ci.git"/>
       <remote name="dcbaker" repo="git://github.com/dcbaker/mesa_ci.git"/>
+      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa-ci.git"/>
     </mesa_ci>
 
     <deqp repo="git://github.com/janesma/deqp.git"
