@@ -909,32 +909,6 @@
       <crucible branch="2bc742a"/>
     </branch>
 
-    <branch name="wip_18" project="test-single-arch-vulkan">
-      <mesa branch="janesma/wip/18.0"/>
-      <piglit branch="736496667"/>
-      <deqp branch="a73c1d93"/>
-      <vulkancts branch="bfa6f73d2"/>
-      <cts branch="ff5e186d"/>
-      <crucible branch="d5916d1"/>
-      <shaderc branch="773ec22"/>
-      <glslang branch="82ead04c"/>
-    </branch>
-
-    <branch name="wip_17.3" project="test-single-arch-vulkan">
-      <mesa branch="janesma/wip/17.3"/>
-      <piglit branch="68ec8d2a1"/>
-      <deqp branch="e32e1433"/>
-      <vulkancts branch="bfa6f73d2"/>
-      <cts branch="ff5e186d"/>
-      <crucible branch="40a9f10"/>
-      <shaderc branch="bcadbc1"/>
-      <glslang branch="9cfc1551"/>
-      <drm branch="361d4bff"/>
-      <glcts branch="424529bbf"/>
-      <spirvheaders branch="b13b3be"/>
-      <waffle branch="1ded029"/>
-    </branch>
-
   </branches>
 
 </build_specification>
