@@ -401,13 +401,13 @@
     </waffle>
 
     <!-- just so the master can cache it for the builders -->
-    <mesa_jenkins repo="git://github.com/janesma/mesa_jenkins.git">
-      <remote name="craftyguy" repo="git://github.com/craftyguy/mesa_jenkins"/>
+    <mesa_jenkins repo="https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git">
+      <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa_jenkins.git"/>
       <remote name="dcbaker" repo="https://github.com/dcbaker/mesa_jenkins.git"/>
     </mesa_jenkins>
 
-    <mesa_ci repo="git://github.com/janesma/mesa_ci.git">
-      <remote name="craftyguy" repo="git://github.com/craftyguy/mesa_ci.git"/>
+    <mesa_ci repo="https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git">
+      <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa_ci.git"/>
       <remote name="dcbaker" repo="git://github.com/dcbaker/mesa_ci.git"/>
     </mesa_ci>
 
