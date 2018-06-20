@@ -410,7 +410,7 @@
     <mesa_ci repo="https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git">
       <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa_ci.git"/>
       <remote name="dcbaker" repo="git://github.com/dcbaker/mesa_ci.git"/>
-      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa-ci.git"/>
+      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa_ci.git"/>
     </mesa_ci>
 
     <deqp repo="git://github.com/janesma/deqp.git"
