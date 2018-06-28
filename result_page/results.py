@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import g
+from flask import render_template
 import MySQLdb
 from functools import wraps
 
@@ -18,8 +19,15 @@ def after_request(response):
     return response
             
 @app.route("/")
-def hello():
-    return "Hello World!"
+def main():
+    g.cur.execute("show databases")
+    jobs = g.cur.fetchall()
+    job_names = []
+    for j in jobs:
+        j = str(j[0])
+        if j not in ["performance_schema", "information_schema", "mysql"]:
+            job_names.append(j)
+    return render_template('main.html', jobs=job_names)
 
 
 @app.route("/jobs")
@@ -38,11 +46,11 @@ def list_builds(job):
     g.cur.execute("use " + job)
     g.cur.execute("select * from build")
     builds = g.cur.fetchall()
-    outstring = ""
+    build_names = []
     for build in builds:
         (bid, name) = build
-        outstring += str(name) + "\n"
-    return outstring
+        build_names.append((bid, name))
+    return render_template('builds.html', job=job, builds=build_names)
 
 @app.route("/<job>/builds/<build_id>/fails")
 def list_fails(job, build_id):
