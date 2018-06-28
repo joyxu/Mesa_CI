@@ -1,0 +1,6 @@
+<!doctype html>
+<title>Mesa i965 CI results</title>
+<h1>Builds for {{ job }}:</h1>
+    {% for build in builds %}
+        <br><a href="{{ build[0] }}/fails">{{ build[1] }}</a>
+    {% endfor %}

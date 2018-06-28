@@ -1,0 +1,20 @@
+<!doctype html>
+<title>Mesa i965 CI results</title>
+<h1>Failures for {{ job }}/{{ build_name }}:</h1>
+
+<table style="width:100%">
+  <tr>
+    <th>Test Name</th>
+    <th>Status</th>
+    <th>Filtered Status</th>
+    <th>Time</th>
+  </tr>
+{% for result in results %}
+  <tr>
+    <td>{{ result[0] }}</td>
+    <td>{{ result[1] }}</td>
+    <td>{{ result[2] }}</td>
+    <td>{{ result[3] }}</td>
+  </tr>
+{% endfor %}
+</table>
