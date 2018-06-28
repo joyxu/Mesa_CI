@@ -55,9 +55,12 @@ def list_builds(job):
 @app.route("/<job>/builds/<build_id>/fails")
 def list_fails(job, build_id):
     g.cur.execute("use " + job)
-    g.cur.execute("select test_name, status from result join test using (test_id) where (status=\"fail\" and build_id={}) order by test_name".format(build_id))
-    fails = g.cur.fetchall()
-    return str(fails)
+    g.cur.execute("select build_name from build where build_id={}".format(build_id))
+    build_name = g.cur.fetchone()[0]
+    print("build_name: " + str(build_name))
+    g.cur.execute("select test_name, status, filtered_status, time from result join test using (test_id) where (filtered_status=\"fail\" and build_id={}) order by test_name".format(build_id))
+    results = g.cur.fetchall()
+    return render_template('results.html', job=job, build_name=build_name, results=results)
     outstring = ""
     for build in builds:
         (bid, name) = build
