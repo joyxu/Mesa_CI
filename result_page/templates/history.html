@@ -1,19 +1,20 @@
 <!doctype html>
 <title>Mesa i965 CI results</title>
-<h1>Output for {{ job }}/{{ build_name }}/{{ result[1] }}:</h1>
+<h1>hisory for {{ job }}/{{ test_name }}:</h1>
 
 <table style="width:100%">
   <tr>
+    <th>Build Name</th>
     <th>Status</th>
     <th>Filtered Status</th>
     <th>Time</th>
   </tr>
+{% for result in results %}
   <tr>
-    <td>{{ result[2] }}</td>
+    <td><a href="../../builds/{{ result[0] }}/results/{{ result[2] }}">{{ result[1] }}</a></td>
     <td>{{ result[3] }}</td>
     <td>{{ result[4] }}</td>
+    <td>{{ result[5] }}</td>
   </tr>
+{% endfor %}
 </table>
-<br>stdout<br>{{ result[5] }}
-<br>stderr<br>{{ result[6] }}
-<br><a href="../../../test/{{ result[0] }}/history">history</a>

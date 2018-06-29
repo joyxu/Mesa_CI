@@ -57,17 +57,33 @@ def list_fails(job, build_id):
     g.cur.execute("use " + job)
     g.cur.execute("select build_name from build where build_id={}".format(build_id))
     build_name = g.cur.fetchone()[0]
-    g.cur.execute("select result_id, test_name, status, filtered_status, time from result join test using (test_id) where (filtered_status=\"fail\" and build_id={}) order by test_name".format(build_id))
+    g.cur.execute("""select result_id, test_name, status, filtered_status, time """
+                  """from result join test using (test_id) """
+                  """where (filtered_status="fail" and build_id={}) """
+                  """order by test_name""".format(build_id))
     results = g.cur.fetchall()
     return render_template('results.html', job=job, build_name=build_name, results=results)
 
 
-@app.route("/<job>/builds/<build_id>/results/<test_id>")
-def result(job, build_id, test_id):
+@app.route("/<job>/builds/<build_id>/results/<result_id>")
+def result(job, build_id, result_id):
     g.cur.execute("use " + job)
     g.cur.execute("select build_name from build where build_id={}".format(build_id))
     build_name = g.cur.fetchone()[0]
-    g.cur.execute("select test_name, status, filtered_status, time, stdout, stderr from result join test using (test_id) where (result_id={})".format(test_id))
+    g.cur.execute("""select test_id, test_name, status, filtered_status, time, stdout, stderr """
+                  """from result join test using (test_id) """
+                  """where (result_id={})""".format(result_id))
     result = g.cur.fetchone()
-    print(str(result))
     return render_template('test.html', job=job, build_name=build_name, result=result)
+
+@app.route("/<job>/test/<test_id>/history")
+def history(job, test_id):
+    g.cur.execute("use " + job)
+    g.cur.execute("""select test_name from test where test_id="{}" """.format(test_id))
+    test_name = g.cur.fetchone()[0]
+    g.cur.execute("""select build_id, build_name, result_id, status, filtered_status, time """
+                  """from result join build using (build_id) """
+                  """where (test_id="{}") """
+                  """order by build_id""".format(test_id))
+    results = g.cur.fetchall()
+    return render_template("history.html", job=job, test_name=test_name, results=results)
