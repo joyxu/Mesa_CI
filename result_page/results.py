@@ -67,6 +67,7 @@ def result(job, build_id, test_id):
     g.cur.execute("use " + job)
     g.cur.execute("select build_name from build where build_id={}".format(build_id))
     build_name = g.cur.fetchone()[0]
-    g.cur.execute("select test_name, status, filtered_status, time, stdout, stderr from result join test using (test_id) where (test_id=\"{}\")".format(test_id))
+    g.cur.execute("select test_name, status, filtered_status, time, stdout, stderr from result join test using (test_id) where (result_id={})".format(test_id))
     result = g.cur.fetchone()
+    print(str(result))
     return render_template('test.html', job=job, build_name=build_name, result=result)
