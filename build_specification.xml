@@ -37,6 +37,8 @@
 
     <project name="android-buildtest"/>
 
+    <project name="sim-drm"/>
+
     <project name="drm"/>
 
     <project name="mesa">
@@ -129,6 +131,15 @@
     <project name="piglit-test"
              bisect_hardware="bdw,skl,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,bxt,kbl,glk,cfl"
              bisect_arch="m64,m32">
+      <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
+      <prerequisite name="piglit" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
+    </project>
+
+    <project name="piglit-test-internal"
+             bisect_hardware="tgl"
+             bisect_arch="m64">
+      <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
     </project>
@@ -137,6 +148,7 @@
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
     </project>
+
 
     <project name="piglit-full">
       <prerequisite name="piglit-test"
@@ -215,6 +227,10 @@
       <prerequisite name="android-buildtest" hardware="builder"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
+    </project>
+
+    <project name="test-single-arch-internal">
+        <prerequisite name="piglit-test-internal" hardware="tgl" shard="6" arch="m64"/>
     </project>
 
     <project name="test-single-arch-vulkan">
