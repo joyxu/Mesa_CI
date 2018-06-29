@@ -529,7 +529,7 @@
 
     <branch name="mesa_18.1" project="all-test-vulkan">
       <mesa branch="origin/18.1"/>
-      <piglit branch="a2f486679"/>
+      <piglit branch="e739c3c940"/>
       <vulkancts branch="8e891c0f5"/>
       <shaderc branch="5fd1b25"/>
       <cts branch="c693c85a5"/>
