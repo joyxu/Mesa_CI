@@ -1,20 +1,39 @@
-<!doctype html>
-<title>Mesa i965 CI results</title>
-<h1>hisory for {{ job }}/{{ test_name }}:</h1>
+<html xmlns="http://www.w3.org/TR/xhtml1/strict">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<table style="width:100%">
-  <tr>
-    <th>Build Name</th>
-    <th>Status</th>
-    <th>Filtered Status</th>
-    <th>Time</th>
-  </tr>
-{% for result in results %}
-  <tr>
-    <td><a href="../../builds/{{ result[0] }}/results/{{ result[2] }}">{{ result[1] }}</a></td>
-    <td>{{ result[3] }}</td>
-    <td>{{ result[4] }}</td>
-    <td>{{ result[5] }}</td>
-  </tr>
-{% endfor %}
-</table>
+    <title>Mesa i965 CI results</title>
+    <link rel="stylesheet" href="/static/main.css"/>
+    <link rel="stylesheet" href="/static/solarized-dark.css"/>
+  </head>
+  <body>
+    <h1>history for {{ job }}/{{ test_name }}:</h1>
+    <div class="content">
+
+      <table style="width:100%">
+        <colgroup>
+          <col/>
+          <col/>
+          <col/>
+          <col/>
+        </colgroup>
+        <tr>
+          <th>Build Name</th>
+          <th>Status</th>
+          <th>Filtered Status</th>
+          <th>Time</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+          <td><a href="../../builds/{{ result[0] }}/results/{{ result[2] }}">{{ result[1] }}</a></td>
+          <td class="{{ result[3] }}">{{ result[3] }}</td>
+          <td class="{{ result[4] }}">{{ result[4] }}</td>
+          <td>{{ result[5] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
+
