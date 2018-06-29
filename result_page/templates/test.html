@@ -1,19 +1,41 @@
-<!doctype html>
-<title>Mesa i965 CI results</title>
-<h1>Output for {{ job }}/{{ build_name }}/{{ result[1] }}:</h1>
+<html xmlns="http://www.w3.org/TR/xhtml1/strict">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Mesa i965 CI results</title>
+    <link rel="stylesheet" href="/static/main.css"/>
+    <link rel="stylesheet" href="/static/solarized-dark.css"/>
+  </head>
+  <body>
+    <h1>Output for {{ job }}/{{ build_name }}/{{ result[1] }}:</h1>
+    <h2><a href="../../../test/{{ result[0] }}/history">test history</a></h2>
+    <div class="content">
+      <table style="width:100%">
+        <colgroup>
+          <col/>
+          <col/>
+          <col/>
+        </colgroup>
+        <tr>
+          <th>Status</th>
+          <th>Filtered Status</th>
+          <th>Time</th>
+        </tr>
+        <tr>
+          <td class="{{ result[2] }}">{{ result[2] }}</td>
+          <td class="{{ result[3] }}">{{ result[3] }}</td>
+          <td>{{ result[4] }}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="content">
+      <h2>stdout</h2>
+      <pre>{{ result[5] }}</pre>
+    </div>
+    <div class="content">
+      <h2>stderr</h2>
+      <pre>{{ result[6] }}</pre>
+    </div>
+  </body>
+<html>
 
-<table style="width:100%">
-  <tr>
-    <th>Status</th>
-    <th>Filtered Status</th>
-    <th>Time</th>
-  </tr>
-  <tr>
-    <td>{{ result[2] }}</td>
-    <td>{{ result[3] }}</td>
-    <td>{{ result[4] }}</td>
-  </tr>
-</table>
-<br>stdout<br><pre>{{ result[5] }}</pre>
-<br>stderr<br><pre>{{ result[6] }}</pre>
-<br><a href="../../../test/{{ result[0] }}/history">history</a>
