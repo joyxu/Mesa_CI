@@ -1,6 +1,39 @@
-<!doctype html>
+<html xmlns="http://www.w3.org/TR/xhtml1/strict">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Mesa i965 CI results</title>
+    <link rel="stylesheet" href="/static/main.css"/>
+    <link rel="stylesheet" href="/static/solarized-dark.css"/>
+  </head>
+  <body>
 <title>Mesa i965 CI results</title>
 <h1>Builds for {{ job }}:</h1>
-    {% for build in builds %}
-        <br><a href="{{ build[0] }}/fails">{{ build[1] }}</a>
-    {% endfor %}
+    <div class="content">
+      <table style="width:100%">
+        <colgroup>
+          <col/>
+          <col/>
+          <col/>
+          <col/>
+        </colgroup>
+      <tr>
+        <th>Build Name</th>
+        <th>Pass Count</th>
+        <th>Filtered Pass Count</th>
+        <th>Fail Count</th>
+      </tr>
+      {% for build in builds %}
+        <tr>
+          <td><a href="{{ build[0] }}/fails">{{ build[1] }}</a></td>
+          <td>{{ build[2] }}</td>
+          <td>{{ build[3] }}</td>
+          <td>{{ build[4] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
+
