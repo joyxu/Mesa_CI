@@ -8,25 +8,23 @@
   </head>
   <body>
     <h1>Output for {{ job }}/{{ build_name }}/{{ result[1] }}:</h1>
-    <h2><a href="../../../test/{{ result[0] }}/history">test history</a></h2>
     <div class="content">
-      <table style="width:100%">
-        <colgroup>
-          <col/>
-          <col/>
-          <col/>
-        </colgroup>
+      <h2>Overview</h2>
+      <table class="sideways">
         <tr>
           <th>Status</th>
-          <th>Filtered Status</th>
-          <th>Time</th>
+          <td class="{{ result[2] }}">{{ result[2] }}</td>
         </tr>
         <tr>
-          <td class="{{ result[2] }}">{{ result[2] }}</td>
+          <th>Filtered Status</th>
           <td class="{{ result[3] }}">{{ result[3] }}</td>
+        </tr>
+        <tr>
+          <th>Time</th>
           <td>{{ result[4] }}</td>
         </tr>
       </table>
+      <p>See also <a href="../../../test/{{ result[0] }}/history">historical results</a> for this test.</p>
     </div>
     <div class="content">
       <h2>stdout</h2>
