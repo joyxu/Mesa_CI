@@ -53,7 +53,8 @@ def list_fails(job, build_id):
     g.cur.execute("use " + job)
     g.cur.execute("select build_name from build where build_id={}".format(build_id))
     build_name = g.cur.fetchone()[0]
-    g.cur.execute("""select result_id, test_name, status, filtered_status, time """
+    g.cur.execute("""select result_id, test_name, hardware, arch, """
+                  """status, filtered_status, time """
                   """from result join test using (test_id) """
                   """where (filtered_status="fail" and build_id={}) """
                   """order by test_name""".format(build_id))
@@ -66,7 +67,8 @@ def result(job, build_id, result_id):
     g.cur.execute("use " + job)
     g.cur.execute("select build_name from build where build_id={}".format(build_id))
     build_name = g.cur.fetchone()[0]
-    g.cur.execute("""select test_id, test_name, status, filtered_status, time, stdout, stderr """
+    g.cur.execute("""select test_id, test_name, hardware, arch, """
+                  """status, filtered_status, time, stdout, stderr """
                   """from result join test using (test_id) """
                   """where (result_id={})""".format(result_id))
     result = g.cur.fetchone()
@@ -77,7 +79,8 @@ def history(job, test_id):
     g.cur.execute("use " + job)
     g.cur.execute("""select test_name from test where test_id="{}" """.format(test_id))
     test_name = g.cur.fetchone()[0]
-    g.cur.execute("""select build_id, build_name, result_id, status, filtered_status, time """
+    g.cur.execute("""select build_id, build_name, result_id, """
+                  """hardware, arch, status, filtered_status, time """
                   """from result join build using (build_id) """
                   """where (test_id="{}") """
                   """order by build_id""".format(test_id))
