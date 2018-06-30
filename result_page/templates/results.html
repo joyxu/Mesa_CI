@@ -18,9 +18,13 @@
           <col/>
           <col/>
           <col/>
+          <col/>
+          <col/>
         </colgroup>
       <tr>
         <th>Test Name</th>
+        <th>Hardware</th>
+        <th>Architecture</th>
         <th>Status</th>
         <th>Filtered Status</th>
         <th>Time</th>
@@ -28,9 +32,11 @@
       {% for result in results %}
       <tr>
         <td><a href="results/{{ result[0] }}">{{ result[1] }}</a></td>
-        <td class="{{ result[2] }}">{{ result[2] }}</td>
-        <td class="{{ result[3] }}">{{ result[3] }}</td>
-        <td>{{ result[4] }}</td>
+        <td>{{ result[2] }}</td>
+        <td>{{ result[3] }}</td>
+        <td class="{{ result[4] }}">{{ result[4] }}</td>
+        <td class="{{ result[5] }}">{{ result[5] }}</td>
+        <td>{{ result[6] }}</td>
       </tr>
       {% endfor %}
     </table>
