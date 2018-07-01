@@ -10,8 +10,19 @@
   <body>
     <title>Mesa i965 CI results</title>
     <h1>Failures for {{ job }}/{{ build_name }}:</h1>
+    {% for subgroup in subgroups %}
     <div class="content">
+      <a href="{{ subgroup[1] }}">{{ subgroup[0] }}</a>
+    </div>
+    {% endfor %}
+    
+    {% for test_result in test_results %}
+    <div class="content">
+      Test output: <a href="../results/{{ test_result[0] }}">{{ test_result[1] }}</a>
+    </div>
+    {% endfor %}
 
+    <div class="content">
       <table style="width:100%">
         <colgroup>
           <col/>
@@ -29,14 +40,14 @@
         <th>Filtered Status</th>
         <th>Time</th>
       </tr>
-      {% for result in results %}
+      {% for fail in fails %}
       <tr>
-        <td><a href="results/{{ result[0] }}">{{ result[1] }}</a></td>
-        <td>{{ result[2] }}</td>
-        <td>{{ result[3] }}</td>
-        <td class="{{ result[4] }}">{{ result[4] }}</td>
-        <td class="{{ result[5] }}">{{ result[5] }}</td>
-        <td>{{ result[6] }}</td>
+        <td><a href="results/{{ fail[0] }}">{{ fail[1] }}</a></td>
+        <td>{{ fail[2] }}</td>
+        <td>{{ fail[3] }}</td>
+        <td class="{{ fail[4] }}">{{ fail[4] }}</td>
+        <td class="{{ fail[5] }}">{{ fail[5] }}</td>
+        <td>{{ fail[6] }}</td>
       </tr>
       {% endfor %}
     </table>
