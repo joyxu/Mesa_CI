@@ -48,8 +48,8 @@ def list_builds(job):
     builds = g.cur.fetchall()
     return render_template('builds.html', job=job, builds=builds)
 
-@app.route("/<job>/builds/<build_id>/fails")
-def list_fails(job, build_id):
+@app.route("/<job>/builds/<build_id>/group/<group_id>")
+def list_fails(job, build_id, group_id):
     g.cur.execute("use " + job)
     g.cur.execute("select build_name from build where build_id={}".format(build_id))
     build_name = g.cur.fetchone()[0]
@@ -58,8 +58,17 @@ def list_fails(job, build_id):
                   """from result join test using (test_id) """
                   """where (filtered_status="fail" and build_id={}) """
                   """order by test_name""".format(build_id))
-    results = g.cur.fetchall()
-    return render_template('results.html', job=job, build_name=build_name, results=results)
+    fails = g.cur.fetchall()
+    g.cur.execute("select test_name, test_id from test_group "
+                  "join test using(test_id) "
+                  "where parent_id=%s", [group_id])
+    subgroups = g.cur.fetchall()
+    g.cur.execute("""select result_id, test_name """
+                  """from result join test using (test_id) """
+                  """where (test_id=%s and build_id=%s) """, [group_id, build_id])
+    test_results = g.cur.fetchall()
+    return render_template('results.html', job=job, build_name=build_name,
+                           fails=fails, subgroups=subgroups, test_results=test_results)
 
 
 @app.route("/<job>/builds/<build_id>/results/<result_id>")
