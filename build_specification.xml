@@ -454,10 +454,10 @@
     
     <kc-cts repo="git@gitlab.khronos.org:opengl/kc-cts.git"/>
 
-    <mesa_ci_internal repo="https://gitlab.devtools.intel.com/mesa_ci/mesa_ci_internal.git"/>
+    <mesa_ci_internal repo="ssh://git@gitlab.devtools.intel.com:29418/mesa_ci/mesa_ci_internal.git"/>
 
-    <sim-drm repo="https://github.intel.com/Mesa/sim-drm.git">
-      <remote name="craftyguy" repo="https://github.intel.com/cacraft/sim-drm.git"/>
+    <sim-drm repo="git@github.intel.com:Mesa/sim-drm.git">
+      <remote name="craftyguy" repo="git@github.intel.com:cacraft/sim-drm.git"/>
     </sim-drm>
 
   </repos>
