@@ -59,14 +59,18 @@ def list_fails(job, build_id, group_id):
                   """where (filtered_status="fail" and build_id={}) """
                   """order by test_name""".format(build_id))
     fails = g.cur.fetchall()
+
     g.cur.execute("select test_name, test_id from test_group "
                   "join test using(test_id) "
-                  "where parent_id=%s", [group_id])
+                  "where parent_id=%s "
+                  "order by test_name", [group_id])
     subgroups = g.cur.fetchall()
+
     g.cur.execute("""select result_id, test_name """
                   """from result join test using (test_id) """
                   """where (test_id=%s and build_id=%s) """, [group_id, build_id])
     test_results = g.cur.fetchall()
+    
     return render_template('results.html', job=job, build_name=build_name,
                            fails=fails, subgroups=subgroups, test_results=test_results)
 
