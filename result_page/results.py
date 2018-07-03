@@ -51,28 +51,65 @@ def list_builds(job):
 @app.route("/<job>/builds/<build_id>/group/<group_id>")
 def list_fails(job, build_id, group_id):
     g.cur.execute("use " + job)
-    g.cur.execute("select build_name from build where build_id={}".format(build_id))
+    g.cur.execute("select build_name from build where build_id=%s", [build_id])
     build_name = g.cur.fetchone()[0]
-    g.cur.execute("""select result_id, test_name, hardware, arch, """
-                  """status, filtered_status, time """
-                  """from result join test using (test_id) """
-                  """where (filtered_status="fail" and build_id={}) """
-                  """order by test_name""".format(build_id))
+    g.cur.execute("select test_name from test where test_id=%s", [group_id])
+    group_name = g.cur.fetchone()[0]
+    
+    g.cur.execute("select result_id, test_name, hardware, arch, "
+                  "status, filtered_status, time "
+                  "from result join test using (test_id) "
+                  "join ancestor using (test_id)"
+                  """where (filtered_status="fail" and build_id=%s and ancestor_id=%s) """
+                  "order by test_name", [build_id, group_id])
     fails = g.cur.fetchall()
 
-    g.cur.execute("select test_name, test_id from test_group "
+    g.cur.execute("select test_name, test_id from parent "
                   "join test using(test_id) "
                   "where parent_id=%s "
                   "order by test_name", [group_id])
     subgroups = g.cur.fetchall()
 
-    g.cur.execute("""select result_id, test_name """
-                  """from result join test using (test_id) """
-                  """where (test_id=%s and build_id=%s) """, [group_id, build_id])
+    statistics = []
+    subgroup_dicts = []
+    for subgroup in subgroups:
+        g.cur.execute("select count(*) from result "
+                      "join test using (test_id) "
+                      "join ancestor using(test_id) "
+                      """where status="pass" and ancestor_id=%s""", [subgroup[1]])
+        pass_count = g.cur.fetchone()
+        g.cur.execute("select count(*) from result "
+                      "join test using (test_id) "
+                      "join ancestor using(test_id) "
+                      """where status="skip" and ancestor_id=%s""", [subgroup[1]])
+        skip_count = g.cur.fetchone()
+        g.cur.execute("select count(*) from result "
+                      "join test using (test_id) "
+                      "join ancestor using(test_id) "
+                      """where status="fail" and ancestor_id=%s""", [subgroup[1]])
+        fail_count = g.cur.fetchone()
+        subgroup_dicts.append({"subgroup_name" : subgroup[0],
+                              "subgroup_id" : subgroup[1],
+                              "pass_count" : pass_count[0],
+                              "skip_count" : skip_count[0],
+                              "fail_count" : fail_count[0] })
+        
+    g.cur.execute("select result_id, test_name, hardware, arch, "
+                  "status, filtered_status "
+                  "from result join test using (test_id) "
+                  "where (test_id=%s and build_id=%s) ", [group_id, build_id])
     test_results = g.cur.fetchall()
+    test_dicts = [{"result_id" : result[0],
+                   "test_name" : result[1],
+                   "hardware" : result[2],
+                   "arch" : result[3],
+                   "status": result[4],
+                   "filtered_status" : result[5] } for result in test_results]
     
     return render_template('results.html', job=job, build_name=build_name,
-                           fails=fails, subgroups=subgroups, test_results=test_results)
+                           group_name=group_name,
+                           fails=fails, subgroups=subgroup_dicts,
+                           test_results=test_dicts)
 
 
 @app.route("/<job>/builds/<build_id>/results/<result_id>")
