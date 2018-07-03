@@ -81,7 +81,7 @@ def list_fails(job, build_id, group_id):
         g.cur.execute("select count(*) from result "
                       "join test using (test_id) "
                       "join ancestor using(test_id) "
-                      """where status="skip" and ancestor_id=%s""", [subgroup[1]])
+                      """where filtered_status="skip" and ancestor_id=%s""", [subgroup[1]])
         skip_count = g.cur.fetchone()
         g.cur.execute("select count(*) from result "
                       "join test using (test_id) "
