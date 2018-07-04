@@ -157,7 +157,16 @@ def result(job, build_id, result_id):
                   """status, filtered_status, time, stdout, stderr """
                   """from result join test using (test_id) """
                   """where (result_id={})""".format(result_id))
-    result = g.cur.fetchone()
+    result_list = g.cur.fetchone()
+    result = {"test_id" : result_list[0],
+              "test_name" : result_list[1],
+              "hardware" : result_list[2],
+              "arch" : result_list[3],
+              "status" : result_list[4],
+              "filtered_status" : result_list[5],
+              "time" : result_list[6],
+              "stdout" : result_list[7],
+              "stderr" : result_list[8]}
     return render_template('test.html', job=job, build_name=build_name, result=result)
 
 @app.route("/<job>/test/<test_id>/history")
