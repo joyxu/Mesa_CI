@@ -10,7 +10,10 @@
   <body>
     <title>Mesa i965 CI results</title>
     <h1>Results for {{ job }}/{{ build_name }}/{{ group_name }}:</h1>
-
+    {% for link in top_links %}
+    <a href="{{ link["href"] }}">{{ link["text"] }}</a>
+    {% endfor %}
+    
     {% if subgroups %}
     <div class="content">
       <h2>Subgroups</h2>
