@@ -46,7 +46,13 @@ def list_jobs():
 def list_builds(job):
     g.cur.execute("use " + job)
     g.cur.execute("select build_id, build_name, pass_count, filtered_pass_count, fail_count from build")
-    builds = g.cur.fetchall()
+    builds = []
+    for b in g.cur.fetchall():
+        builds.append( { "build_id" : b[0],
+                         "build_name" : b[1],
+                         "pass_count" : b[2],
+                         "filtered_pass_count" : b[3],
+                         "fail_count" : b[4] } )
     return render_template('builds.html', job=job, builds=builds)
 
 @app.route("/<job>/builds/<build_id>/group/<group_id>")

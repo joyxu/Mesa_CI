@@ -26,10 +26,18 @@
       </tr>
       {% for build in builds %}
         <tr>
-          <td><a href="{{ build[0] }}/group/63a9f0ea7bb98050796b649e85481845">{{ build[1] }}</a></td>
-          <td>{{ build[2] }}</td>
-          <td>{{ build[3] }}</td>
-          <td>{{ build[4] }}</td>
+          <td><a href="{{ build["build_id"] }}/group/63a9f0ea7bb98050796b649e85481845">{{ build["build_name"] }}</a></td>
+          <td>{{ build["pass_count"] }}</td>
+          {% if build["filtered_pass_count"] %}
+          <td class="skip">{{ build["filtered_pass_count"] }}</td>
+          {% else %}
+          <td>{{ build["filtered_pass_count"] }}</td>
+          {% endif %}
+          {% if build["fail_count"] %}
+          <td class="fail">{{ build["fail_count"] }}</td>
+          {% else %}
+          <td>{{ build["fail_count"] }}</td>
+          {% endif %}
         </tr>
         {% endfor %}
       </table>
