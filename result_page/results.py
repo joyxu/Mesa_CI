@@ -63,7 +63,18 @@ def list_fails(job, build_id, group_id):
                   "join ancestor using (test_id)"
                   """where (filtered_status="fail" and build_id=%s and ancestor_id=%s) """
                   "order by test_name", [build_id, group_id])
-    fails = g.cur.fetchall()
+    fail_list = g.cur.fetchall()
+    fails = []
+    for f in fail_list:
+        fail = {}
+        (fail["result_id"],
+         fail["test_name"],
+         fail["hardware"],
+         fail["arch"],
+         fail["status"],
+         fail["filtered_status"],
+         fail["time"]) = f
+        fails.append(fail)
 
     g.cur.execute("select test_name, test_id from parent "
                   "join test using(test_id) "

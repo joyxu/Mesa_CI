@@ -100,12 +100,12 @@
         </tr>
         {% for fail in fails %}
         <tr>
-          <td><a href="../results/{{ fail[0] }}">{{ fail[1] }}</a></td>
-          <td>{{ fail[2] }}</td>
-          <td>{{ fail[3] }}</td>
-          <td class="{{ fail[4] }}">{{ fail[4] }}</td>
-          <td class="{{ fail[5] }}">{{ fail[5] }}</td>
-          <td>{{ fail[6] }}</td>
+          <td><a href="../results/{{ fail["result_id"] }}">{{ fail["test_name"] }}</a></td>
+          <td>{{ fail["hardware"] }}</td>
+          <td>{{ fail["arch"] }}</td>
+          <td class="{{ fail["status"] }}">{{ fail["status"] }}</td>
+          <td class="{{ fail["filtered_status"] }}">{{ fail["filtered_status"] }}</td>
+          <td>{{ fail["time"] }}</td>
         </tr>
         {% endfor %}
       </table>
