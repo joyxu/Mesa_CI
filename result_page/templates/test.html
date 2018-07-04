@@ -7,42 +7,42 @@
     <link rel="stylesheet" href="/static/solarized-dark.css"/>
   </head>
   <body>
-    <h1>Output for {{ job }}/{{ build_name }}/{{ result[1] }}:</h1>
+    <h1>Output for {{ job }}/{{ build_name }}/{{ result["test_name"] }}:</h1>
     <div class="content">
       <h2>Overview</h2>
       <table class="sideways">
         <tr>
           <th>Hardware</th>
-          <td class="{{ result[2] }}">{{ result[2] }}</td>
+          <td>{{ result["hardware"] }}</td>
         </tr>
         <tr>
         <tr>
           <th>Architecture</th>
-          <td class="{{ result[3] }}">{{ result[3] }}</td>
+          <td>{{ result["arch"] }}</td>
         </tr>
         <tr>
         <tr>
           <th>Status</th>
-          <td class="{{ result[4] }}">{{ result[4] }}</td>
+          <td class="{{ result["status"] }}">{{ result["status"] }}</td>
         </tr>
         <tr>
           <th>Filtered Status</th>
-          <td class="{{ result[5] }}">{{ result[5] }}</td>
+          <td class="{{ result["filtered_status"] }}">{{ result["filtered_status"] }}</td>
         </tr>
         <tr>
           <th>Time</th>
-          <td>{{ result[6] }}</td>
+          <td>{{ result["time"] }}</td>
         </tr>
       </table>
-      <p>See also <a href="../../../test/{{ result[0] }}/history">historical results</a> for this test.</p>
+      <p>See also <a href="../../../test/{{ result["test_id"] }}/history">historical results</a> for this test.</p>
     </div>
     <div class="content">
       <h2>stdout</h2>
-      <pre>{{ result[7] }}</pre>
+      <pre>{{ result["stdout"] }}</pre>
     </div>
     <div class="content">
       <h2>stderr</h2>
-      <pre>{{ result[8] }}</pre>
+      <pre>{{ result["stderr"] }}</pre>
     </div>
   </body>
 <html>
