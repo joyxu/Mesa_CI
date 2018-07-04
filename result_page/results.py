@@ -141,8 +141,21 @@ def list_fails(job, build_id, group_id):
                    "arch" : result[3],
                    "status": result[4],
                    "filtered_status" : result[5] } for result in test_results]
-    
-    return render_template('results.html', job=job, build_name=build_name,
+
+    top_links = [{"text": job,
+                  "href": "../../../builds/"},
+                 {"text": build_name,
+                  "href": "63a9f0ea7bb98050796b649e85481845"}]
+    uplink = ""
+    if group_name != "root":
+        for group in group_name.split("."):
+            uplink += group
+            g.cur.execute("select test_id from test where test_name=%s", [uplink])
+            top_links.append({"text": group, "href": g.cur.fetchone()[0]})
+            uplink += "."
+
+    return render_template('results.html', top_links=top_links,
+                           job=job, build_name=build_name,
                            group_name=group_name,
                            fails=fails, subgroups=subgroup_dicts,
                            test_results=test_dicts)
