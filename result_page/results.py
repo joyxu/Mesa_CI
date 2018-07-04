@@ -170,5 +170,14 @@ def history(job, test_id):
                   """from result join build using (build_id) """
                   """where (test_id="{}") """
                   """order by build_id""".format(test_id))
-    results = g.cur.fetchall()
+    results = []
+    for result in g.cur.fetchall():
+        results.append({"build_id" : result[0],
+                        "build_name" : result[1],
+                        "result_id" : result[2],
+                        "hardware" : result[3],
+                        "arch" : result[4],
+                        "status" : result[5],
+                        "filtered_status" : result[6],
+                        "time" : result[7]})
     return render_template("history.html", job=job, test_name=test_name, results=results)

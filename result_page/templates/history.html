@@ -30,12 +30,12 @@
         </tr>
         {% for result in results %}
         <tr>
-          <td><a href="../../builds/{{ result[0] }}/results/{{ result[2] }}">{{ result[1] }}</a></td>
-          <td>{{ result[3] }}</td>
-          <td>{{ result[4] }}</td>
-          <td class="{{ result[5] }}">{{ result[5] }}</td>
-          <td class="{{ result[6] }}">{{ result[6] }}</td>
-          <td>{{ result[7] }}</td>
+          <td><a href="../../builds/{{ result["build_id"] }}/results/{{ result["result_id"] }}">{{ result["build_name"] }}</a></td>
+          <td>{{ result["hardware"] }}</td>
+          <td>{{ result["arch"] }}</td>
+          <td class="{{ result["status"] }}">{{ result["status"] }}</td>
+          <td class="{{ result["filtered_status"] }}">{{ result["filtered_status"] }}</td>
+          <td>{{ result["time"] }}</td>
         </tr>
         {% endfor %}
       </table>
