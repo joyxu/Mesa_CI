@@ -74,7 +74,6 @@ def list_fails(job, build_id, group_id):
     statistics = []
     subgroup_dicts = []
     for subgroup in subgroups:
-        t = time.time()
         g.cur.execute("select count(*) from result "
                       "join test using (test_id) "
                       "join ancestor using(test_id) "
@@ -83,26 +82,20 @@ def list_fails(job, build_id, group_id):
         pass_count = g.cur.fetchone()[0]
         g.cur.execute("select count(*) from result "
                       "join test using (test_id) "
-                      "join ancestor using(test_id) "
                       """where build_id=%s and test_id=%s and status="pass" """,
                       [build_id, subgroup[1]])
         pass_count += g.cur.fetchone()[0]
-        print("pass count: " + str(time.time() - t))
-        t = time.time()
         g.cur.execute("select count(*) from result "
                       "join test using (test_id) "
                       "join ancestor using(test_id) "
-                      """where build_id=%s and filtered_status="skip" and ancestor_id=%s""",
+                      """where build_id=%s and filtered_status="fail" and ancestor_id=%s""",
                       [build_id, subgroup[1]])
-        skip_count = g.cur.fetchone()[0]
+        filtered_fail_count = g.cur.fetchone()[0]
         g.cur.execute("select count(*) from result "
                       "join test using (test_id) "
-                      "join ancestor using(test_id) "
-                      """where build_id=%s and test_id=%s and filtered_status="skip" """,
+                      """where build_id=%s and test_id=%s and filtered_status="fail" """,
                       [build_id, subgroup[1]])
-        skip_count += g.cur.fetchone()[0]
-        print("skip count: " + str(time.time() - t))
-        t = time.time()
+        filtered_fail_count += g.cur.fetchone()[0]
         g.cur.execute("select count(*) from result "
                       "join test using (test_id) "
                       "join ancestor using(test_id) "
@@ -111,16 +104,14 @@ def list_fails(job, build_id, group_id):
         fail_count = g.cur.fetchone()[0]
         g.cur.execute("select count(*) from result "
                       "join test using (test_id) "
-                      "join ancestor using(test_id) "
                       """where build_id=%s and test_id=%s and status="fail" """,
                       [build_id, subgroup[1]])
         fail_count += g.cur.fetchone()[0]
-        print("fail count: " + str(time.time() - t))
         subgroup_dicts.append({"subgroup_name" : subgroup[0],
-                              "subgroup_id" : subgroup[1],
-                              "pass_count" : pass_count,
-                              "skip_count" : skip_count,
-                              "fail_count" : fail_count })
+                               "subgroup_id" : subgroup[1],
+                               "pass_count" : pass_count,
+                               "fail_count" : fail_count,
+                               "filtered_fail_count" : filtered_fail_count})
         
     g.cur.execute("select result_id, test_name, hardware, arch, "
                   "status, filtered_status "
