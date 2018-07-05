@@ -743,7 +743,7 @@
     </branch>
 
     <branch name="dcbaker_18.1" project="all-test-vulkan">
-      <mesa branch="dcbaker/18.1-proposed"/>
+      <mesa branch="origin/staging/18.1"/>
       <piglit branch="a2f486679"/>
       <vulkancts branch="8e891c0f5"/>
       <shaderc branch="5fd1b25"/>
