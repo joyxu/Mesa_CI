@@ -27,22 +27,22 @@
         <tr>
           <th>Group Name</th>
           <th>Pass Count</th>
+          <th>Filtered Pass Count</th>
           <th>Fail Count</th>
-          <th>Filtered Fail Count</th>
         </tr>
         {% for subgroup in subgroups %}
         <tr>
           <td><a href="{{ subgroup["subgroup_id"] }}">{{ subgroup["subgroup_name"] }}</a></td>
           <td>{{ subgroup["pass_count"] }}</td>
+          {% if subgroup["filtered_pass_count"] %}
+          <td class="skip">{{ subgroup["filtered_fail_count"] }}</td>
+          {% else %}
+          <td>{{ subgroup["filtered_pass_count"] }}</td>
+          {% endif %}
           {% if subgroup["fail_count"] %}
           <td class="fail">{{ subgroup["fail_count"] }}</td>
           {% else %}
           <td>{{ subgroup["fail_count"] }}</td>
-          {% endif %}
-          {% if subgroup["filtered_fail_count"] %}
-          <td class="fail">{{ subgroup["filtered_fail_count"] }}</td>
-          {% else %}
-          <td>{{ subgroup["filtered_fail_count"] }}</td>
           {% endif %}
         </tr>
         {% endfor %}
