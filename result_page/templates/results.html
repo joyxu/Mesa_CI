@@ -23,9 +23,11 @@
           <col/>
           <col/>
           <col/>
+          <col/>
         </colgroup>
         <tr>
           <th>Group Name</th>
+          <th>Execution Time</th>
           <th>Pass Count</th>
           <th>Filtered Pass Count</th>
           <th>Fail Count</th>
@@ -33,9 +35,10 @@
         {% for subgroup in subgroups %}
         <tr>
           <td><a href="{{ subgroup["subgroup_id"] }}">{{ subgroup["subgroup_name"] }}</a></td>
+          <td>{{ subgroup["time"] }}</td>
           <td>{{ subgroup["pass_count"] }}</td>
           {% if subgroup["filtered_pass_count"] %}
-          <td class="skip">{{ subgroup["filtered_fail_count"] }}</td>
+          <td class="skip">{{ subgroup["filtered_pass_count"] }}</td>
           {% else %}
           <td>{{ subgroup["filtered_pass_count"] }}</td>
           {% endif %}

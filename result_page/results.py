@@ -2,8 +2,8 @@ from flask import Flask
 from flask import g
 from flask import render_template
 import MySQLdb
+import datetime
 from functools import wraps
-import time
 
 app = Flask(__name__)
 
@@ -62,12 +62,11 @@ def list_fails(job, build_id, group_id):
     build_name = g.cur.fetchone()[0]
     g.cur.execute("select test_name from test where test_id=%s", [group_id])
     group_name = g.cur.fetchone()[0]
-    
     g.cur.execute("select result_id, test_name, hardware, arch, "
                   "status, filtered_status, time "
                   "from result join test using (test_id) "
                   """where (filtered_status="fail" and build_id=%s) """
-                  "order by test_name limit 1000", [build_id])
+                  "limit 1000", [build_id])
     fail_list = g.cur.fetchall()
     fails = []
     for f in fail_list:
@@ -94,12 +93,13 @@ def list_fails(job, build_id, group_id):
         g.cur.execute("select pass_count, fail_count, filtered_pass_count, time from group_ "
                       """where build_id=%s and test_id=%s""",
                       [build_id, subgroup[1]])
-        (pass_count, fail_count, filtered_pass_count, time) = g.cur.fetchone()
+        (pass_count, fail_count, filtered_pass_count, t_time) = g.cur.fetchone()
         subgroup_dicts.append({"subgroup_name" : subgroup[0],
                                "subgroup_id" : subgroup[1],
                                "pass_count" : pass_count,
                                "fail_count" : fail_count,
-                               "filtered_pass_count" : filtered_pass_count})
+                               "filtered_pass_count" : filtered_pass_count,
+                               "time" : str(datetime.timedelta(seconds=float(t_time)))})
         
     g.cur.execute("select result_id, test_name, hardware, arch, "
                   "status, filtered_status "
