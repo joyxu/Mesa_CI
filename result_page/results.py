@@ -93,7 +93,10 @@ def list_fails(job, build_id, group_id):
         g.cur.execute("select pass_count, fail_count, filtered_pass_count, time from group_ "
                       """where build_id=%s and test_id=%s""",
                       [build_id, subgroup[1]])
-        (pass_count, fail_count, filtered_pass_count, t_time) = g.cur.fetchone()
+        statistics = g.cur.fetchone()
+        if not statistics:
+            continue
+        (pass_count, fail_count, filtered_pass_count, t_time) = statistics
         subgroup_dicts.append({"subgroup_name" : subgroup[0],
                                "subgroup_id" : subgroup[1],
                                "pass_count" : pass_count,
