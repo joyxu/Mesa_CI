@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<body>
   <title>Mesa i965 CI results</title>
   <h1>Builds for {{ job }}:</h1>
+  <div id="navbox">
+    {% for link in top_links %}
+    <span><a href="{{ link["href"] }}">{{ link["text"] }}</a></span>
+    {% endfor %}
+  </div>
   <div class="content">
     <table style="width:100%">
       <colgroup>
@@ -36,5 +40,4 @@
       {% endfor %}
     </table>
   </div>
-</body>
 {% endblock %}

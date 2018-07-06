@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    padding: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
     background-color: #f0f4ff;
 }
 
@@ -10,7 +11,7 @@ div.content {
 }
 
 a {
-    color: #164960;
+    color: #173360;
     background-color: inherit;
     font-weight: bold;
     text-decoration: none;
@@ -20,15 +21,18 @@ a:hover {
     text-decoration: underline;
 }
 
-/* h1 a, h1 a:hover, h2 a, h2 a:hover a, h3 a, h3 a:hover { */
-h1 a, h1 a:hover {
-          color: black;
-          text-decoration: none;
-      }
-h2 a, h2 a:hover a, h3 a, h3 a:hover {
-                              color: #888888;
-                              text-decoration: none;
-                          }
+h1 a, h1 a:hover
+{
+    color: black;
+    text-decoration: none;
+}
+
+h2 a, h2 a:hover a, h3 a, h3 a:hover
+{
+    color: #888888;
+    text-decoration: none;
+}
+
 h1 {
     clear: right;
     color: black;
@@ -124,3 +128,25 @@ tr:nth-child(even) td.timeout  { background-color: #4a9ef2; }
 
 tr:nth-child(odd)  td.crash { background-color: #111111; color: #ffffff; }
 tr:nth-child(even) td.crash { background-color: #000000; color: #ffffff; }
+
+#navbox {
+    margin-top: -1em;
+    margin-bottom: 2.0em;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#navbox a {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+#navbox span:after {
+    padding-left: 1em;
+    padding-right: 0.5em;
+    content: "\00bb";
+}
+
+#navbox span:last-child:after {
+    content: "";
+}
