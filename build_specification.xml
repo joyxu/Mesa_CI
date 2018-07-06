@@ -325,7 +325,7 @@
       <remote name="curro" repo="git://people.freedesktop.org/~currojerez/mesa"/>
       <remote name="aphogat" repo="git://github.com/aphogat/mesa"/>
       <remote name="tpohjola" repo="git://people.freedesktop.org/~tpohjola/mesa"/>
-      <remote name="dcbaker" repo="git://people.freedesktop.org/~dbaker/mesa"/>
+      <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/mesa.git"/>
       <remote name="nchery" repo="git://people.freedesktop.org/~nchery/mesa"/>
       <remote name="tarceri" repo="https://gitlab.freedesktop.org/tarceri/mesa.git"/>
       <remote name="evelikov" repo="git://github.com/evelikov/mesa"/>
@@ -363,7 +363,7 @@
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/piglit.git"/>
       <!-- Dylan's repository is more stable than the origin, and will
            not trigger builds unnecessarily -->
-      <remote name="dcbaker" repo="git://github.com/dcbaker/piglit"/>
+      <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/piglit.git"/>
       <remote name="janesma" repo="git://github.com/janesma/piglit"/>
       <remote name="nchery" repo="git://people.freedesktop.org/~nchery/piglit"/>
       <remote name="nchery-gitlab" repo="https://gitlab.freedesktop.org/nchery/piglit.git"/>
