@@ -28,19 +28,10 @@ def main():
         j = str(j[0])
         if j not in ["performance_schema", "information_schema", "mysql"]:
             job_names.append(j)
-    return render_template('main.html', jobs=job_names)
-
-
-@app.route("/jobs")
-def list_jobs():
-    g.cur.execute("show databases")
-    jobs = g.cur.fetchall()
-    outstring = ""
-    for j in jobs:
-        j = str(j[0])
-        if j != "information_schema":
-            outstring += j + "\n"
-    return outstring
+    return render_template('main.html',
+                           jobs=job_names,
+                           top_links=[{"text": "i965 Mesa CI",
+                                       "href": "."}])
 
 @app.route("/<job>/builds/")
 def list_builds(job):
@@ -53,7 +44,11 @@ def list_builds(job):
                          "pass_count" : b[2],
                          "filtered_pass_count" : b[3],
                          "fail_count" : b[4] } )
-    return render_template('builds.html', job=job, builds=builds)
+    return render_template('builds.html', job=job, builds=builds,
+                           top_links=[{"text": "i965 Mesa CI",
+                                       "href": "../.."},
+                                      {"text": job,
+                                       "href": "."}])
 
 @app.route("/<job>/builds/<build_id>/group/<group_id>")
 def list_fails(job, build_id, group_id):
@@ -116,7 +111,9 @@ def list_fails(job, build_id, group_id):
                    "status": result[4],
                    "filtered_status" : result[5] } for result in test_results]
 
-    top_links = [{"text": job,
+    top_links = [{"text": "i965 Mesa CI",
+                  "href": "../../../.."},
+                 {"text": job,
                   "href": "../../../builds/"},
                  {"text": build_name,
                   "href": "63a9f0ea7bb98050796b649e85481845"}]
@@ -145,6 +142,12 @@ def result(job, build_id, result_id):
                   """from result join test using (test_id) """
                   """where (result_id={})""".format(result_id))
     result_list = g.cur.fetchone()
+    top_links = [{"text": "i965 Mesa CI",
+                  "href": "../../../.."},
+                 {"text": job,
+                  "href": "../../../builds/"},
+                 {"text": build_name,
+                  "href": "../group/63a9f0ea7bb98050796b649e85481845"}]
     result = {"test_id" : result_list[0],
               "test_name" : result_list[1],
               "hardware" : result_list[2],
@@ -154,7 +157,14 @@ def result(job, build_id, result_id):
               "time" : result_list[6],
               "stdout" : result_list[7],
               "stderr" : result_list[8]}
-    return render_template('test.html', job=job, build_name=build_name, result=result)
+    uplink = ""
+    for group in result["test_name"].split("."):
+        uplink += group
+        g.cur.execute("select test_id from test where test_name=%s", [uplink])
+        top_links.append({"text": group, "href": "../group/" + g.cur.fetchone()[0]})
+        uplink += "."
+    return render_template('test.html', job=job, build_name=build_name, result=result,
+                           top_links=top_links)
 
 @app.route("/<job>/test/<test_id>/history")
 def history(job, test_id):
@@ -176,4 +186,9 @@ def history(job, test_id):
                         "status" : result[5],
                         "filtered_status" : result[6],
                         "time" : result[7]})
-    return render_template("history.html", job=job, test_name=test_name, results=results)
+    top_links = [{"text": "i965 Mesa CI",
+                  "href": "../../../.."},
+                 {"text": job,
+                  "href": "../../builds/"}]
+    return render_template("history.html", job=job, test_name=test_name, results=results,
+                           top_links=top_links)
