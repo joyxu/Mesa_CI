@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import Markup
 from flask import g
 from flask import render_template
 import MySQLdb
@@ -67,13 +68,14 @@ def list_fails(job, build_id, group_id):
     for f in fail_list:
         fail = {}
         (fail["result_id"],
-         fail["test_name"],
+         test_name,
          fail["hardware"],
          fail["arch"],
          fail["status"],
          fail["filtered_status"],
          fail["time"]) = f
-        if fail["test_name"].startswith(group_name) or group_name=="root":
+        fail["test_name"] = Markup(test_name.replace('.', '.&shy'))
+        if test_name.startswith(group_name) or group_name=="root":
             fails.append(fail)
 
     g.cur.execute("select test_name, test_id from parent "
@@ -92,7 +94,7 @@ def list_fails(job, build_id, group_id):
         if not statistics:
             continue
         (pass_count, fail_count, filtered_pass_count, t_time) = statistics
-        subgroup_dicts.append({"subgroup_name" : subgroup[0],
+        subgroup_dicts.append({"subgroup_name" : Markup(subgroup[0].replace('.', '.&shy')),
                                "subgroup_id" : subgroup[1],
                                "pass_count" : pass_count,
                                "fail_count" : fail_count,
@@ -105,7 +107,7 @@ def list_fails(job, build_id, group_id):
                   "where (test_id=%s and build_id=%s) ", [group_id, build_id])
     test_results = g.cur.fetchall()
     test_dicts = [{"result_id" : result[0],
-                   "test_name" : result[1],
+                   "test_name" : Markup(result[1].replace('.', '.&shy')),
                    "hardware" : result[2],
                    "arch" : result[3],
                    "status": result[4],
@@ -127,7 +129,7 @@ def list_fails(job, build_id, group_id):
 
     return render_template('results.html', top_links=top_links,
                            job=job, build_name=build_name,
-                           group_name=group_name,
+                           group_name=Markup(group_name.replace('.', '.&shy')),
                            fails=fails, subgroups=subgroup_dicts,
                            test_results=test_dicts)
 
@@ -148,8 +150,9 @@ def result(job, build_id, result_id):
                   "href": "../../../builds/"},
                  {"text": build_name,
                   "href": "../group/63a9f0ea7bb98050796b649e85481845"}]
+    test_name = result_list[1]
     result = {"test_id" : result_list[0],
-              "test_name" : result_list[1],
+              "test_name" : Markup(result_list[1].replace('.', '.&shy')),
               "hardware" : result_list[2],
               "arch" : result_list[3],
               "status" : result_list[4],
@@ -158,7 +161,7 @@ def result(job, build_id, result_id):
               "stdout" : result_list[7],
               "stderr" : result_list[8]}
     uplink = ""
-    for group in result["test_name"].split("."):
+    for group in test_name.split("."):
         uplink += group
         g.cur.execute("select test_id from test where test_name=%s", [uplink])
         top_links.append({"text": group, "href": "../group/" + g.cur.fetchone()[0]})
@@ -170,7 +173,7 @@ def result(job, build_id, result_id):
 def history(job, test_id):
     g.cur.execute("use " + job)
     g.cur.execute("""select test_name from test where test_id="{}" """.format(test_id))
-    test_name = g.cur.fetchone()[0]
+    test_name = Markup(g.cur.fetchone()[0].replace('.', '.&shy'))
     g.cur.execute("""select build_id, build_name, result_id, """
                   """hardware, arch, status, filtered_status, time """
                   """from result join build using (build_id) """
