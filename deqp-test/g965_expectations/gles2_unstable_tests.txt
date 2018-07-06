@@ -1,2 +1,2 @@
 dEQP-GLES2.functional.shaders.indexing.matrix_subscript
-
+dEQP-GLES2.functional.shaders.struct.local.struct_array_dynamic_index_vertex
