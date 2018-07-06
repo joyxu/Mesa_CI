@@ -1,6 +1,9 @@
-<!doctype html>
+{% extends 'base.html' %}
+
+{% block body %}
 <title>Mesa i965 CI results</title>
 <h1>Jobs displayed by this server:</h1>
     {% for job in jobs %}
         <br><a href="{{ job }}/builds/">{{ job }}</a>
     {% endfor %}
+{% endblock %}
