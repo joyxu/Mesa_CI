@@ -133,19 +133,9 @@
       <prerequisite name="mesa" hardware="builder"/>
     </project>
 
-    <project name="piglit-cpu-test-1">
-      <prerequisite name="piglit" hardware="builder"/>
-      <prerequisite name="mesa" hardware="builder"/>
-    </project>
-
-    <project name="piglit-cpu-test-2">
-      <prerequisite name="piglit" hardware="builder"/>
-      <prerequisite name="mesa" hardware="builder"/>
-    </project>
-
     <project name="piglit-cpu-test">
-      <prerequisite name="piglit-cpu-test-1"/>
-      <prerequisite name="piglit-cpu-test-2"/>
+      <prerequisite name="piglit" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
     </project>
 
     <project name="piglit-full">
@@ -164,7 +154,7 @@
       <!-- do not test 32 bit for limited platforms -->
       <prerequisite only_for_type="daily" name="piglit-test" hardware="cfl" arch="m64"/>
 
-      <prerequisite name="piglit-cpu-test" hardware="fastgpu" arch="m64"/>
+      <prerequisite name="piglit-cpu-test" hardware="fastgpu" arch="m64" shard="2"/>
       <prerequisite only_for_type="daily" name="piglit-cpu-test" hardware="fastgpu" arch="m32"/>
     </project>
     
@@ -236,7 +226,7 @@
       <prerequisite name="piglit-test" hardware="g33,ilk,g45,g965"/>
       <prerequisite name="piglit-test" hardware="snb,ivb,hsw,bdw,skl,kbl" shard="2"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,bxt,glk,cfl" shard="4"/>
-      <prerequisite name="piglit-cpu-test" hardware="fastgpu"/>
+      <prerequisite name="piglit-cpu-test" hardware="fastgpu" shard="2"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
@@ -250,7 +240,7 @@
     <project name="test-single-arch-nchery">
       <prerequisite name="piglit-full"/>
       <prerequisite name="piglit-test" hardware="bsw,bxt"/>
-      <prerequisite name="piglit-cpu-test" hardware="fastgpu"/>
+      <prerequisite name="piglit-cpu-test" hardware="fastgpu" shard="2"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
@@ -265,7 +255,7 @@
     <project name="test-single-arch-anholt">
       <prerequisite name="piglit-full"/>
       <prerequisite name="piglit-test" hardware="ilk,bsw,byt,g33,g45,g965,bxt,glk"/>
-      <prerequisite name="piglit-cpu-test" hardware="fastgpu"/>
+      <prerequisite name="piglit-cpu-test" hardware="fastgpu" shard="2"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>

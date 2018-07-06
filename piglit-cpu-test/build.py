@@ -18,6 +18,11 @@ bs.build(bs.PiglitTester(_suite="cpu", device_override="hswgt3"), import_build=F
 bs.build(bs.PiglitTester(_suite="cpu", device_override="bdwgt2"), import_build=False)
 bs.build(bs.PiglitTester(_suite="cpu", device_override="sklgt3"), import_build=False)
 bs.build(bs.PiglitTester(_suite="cpu", device_override="bsw"), import_build=False)
+bs.build(bs.PiglitTester(_suite="cpu", device_override="byt"), import_build=False)
+bs.build(bs.PiglitTester(_suite="cpu", device_override="g45"), import_build=False)
+bs.build(bs.PiglitTester(_suite="cpu", device_override="g965"), import_build=False)
+bs.build(bs.PiglitTester(_suite="cpu", device_override="ilk"), import_build=False)
+bs.build(bs.PiglitTester(_suite="cpu", device_override="ivbgt2"), import_build=False)
 
 options = bs.Options()
 if (options.result_path):
