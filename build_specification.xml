@@ -137,7 +137,7 @@
     </project>
 
     <project name="piglit-test-internal"
-             bisect_hardware="tgl"
+             bisect_hardware="tgl,ats"
              bisect_arch="m64">
       <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
       <prerequisite name="piglit" hardware="builder"/>
@@ -230,7 +230,7 @@
     </project>
 
     <project name="test-single-arch-internal">
-        <prerequisite name="piglit-test-internal" hardware="tgl" shard="6" arch="m64"/>
+        <prerequisite name="piglit-test-internal" hardware="tgl,ats" shard="6" arch="m64"/>
     </project>
 
     <project name="test-single-arch-vulkan">
