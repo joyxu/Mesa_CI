@@ -43,11 +43,14 @@ o.parse_args()
 piglit_test = ""
 if o.piglit_test:
     piglit_test = o.piglit_test
-piglit_timeout = 120
 
-if bs.Options().hardware in fs.platform_configs and not fs.is_supported():
-    print("Unable to run simulated hardware in this environment!")
-    sys.exit(1)
+piglit_timeout=None
+if bs.Options().hardware in fs.platform_configs:
+    if fs.is_supported():
+        piglit_timeout = 120
+    else:
+        print("Unable to run simulated hardware in this environment!")
+        sys.exit(1)
 
 bs.build(bs.PiglitTester(_suite="gpu", env=fs.get_env(), timeout=piglit_timeout,
                          piglit_test=piglit_test), time_limit=SlowTimeout())
