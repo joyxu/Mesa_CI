@@ -14,7 +14,7 @@ f=urllib2.urlopen(url)
 host_dict = ast.literal_eval(f.read())
 
 def is_excluded():
-    if ("builder" in host or host == "master"):
+    if ("builder" in host or host == "master" or "simdrm" in host):
         return True
 
 for a_host in host_dict['computer']:
