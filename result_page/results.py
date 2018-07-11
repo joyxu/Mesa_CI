@@ -4,6 +4,7 @@ from flask import g
 from flask import render_template
 import MySQLdb
 import datetime
+import os
 from functools import wraps
 
 app = Flask(__name__)
@@ -11,7 +12,10 @@ app = Flask(__name__)
 
 @app.before_request
 def before_request():
-    g.db = MySQLdb.connect(host="localhost")
+    host = "localhost"
+    if "SQL_DATABASE_HOST" in os.environ:
+        host = os.environ["SQL_DATABASE_HOST"]
+    g.db = MySQLdb.connect(host=host)
     g.cur = g.db.cursor()
 
 
