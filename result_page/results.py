@@ -12,10 +12,20 @@ app = Flask(__name__)
 
 @app.before_request
 def before_request():
+    sql_user = 'jenkins'
+    if "SQL_DATABASE_USER" in os.environ:
+        sql_user = os.environ["SQL_DATABASE_USER"]
+
+    sql_pw = ''
+    if "SQL_DATABASE_PW_FILE" in os.environ:
+        sql_pw_file = os.environ["SQL_DATABASE_PW_FILE"]
+        if os.path.exists(sql_pw_file):
+            with open(sql_pw_file, 'r') as f:
+                sql_pw = f.read().rstrip()
     host = "localhost"
     if "SQL_DATABASE_HOST" in os.environ:
         host = os.environ["SQL_DATABASE_HOST"]
-    g.db = MySQLdb.connect(host=host)
+    g.db = MySQLdb.connect(host=host, passwd=sql_pw, user=sql_user)
     g.cur = g.db.cursor()
 
 
