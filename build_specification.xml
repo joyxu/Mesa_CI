@@ -290,11 +290,11 @@
     </project>
 
     <project name="glcts-full">
-      <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,skl,kbl" arch="m64" shard="2"/>
+      <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,skl,kbl,cfl" arch="m64"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="hsw,bdw,skl,kbl" arch="m32"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="bsw,bxt" shard="4"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="byt"/>
-      <prerequisite name="glcts-test" only_for_type="daily" hardware="glk,cfl"/>
+      <prerequisite name="glcts-test" only_for_type="daily" hardware="glk"/>
     </project>
 
     <project name="vulkan-and-gl">
