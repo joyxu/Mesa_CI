@@ -52,5 +52,5 @@ if bs.Options().hardware in fs.platform_configs:
         print("Unable to run simulated hardware in this environment!")
         sys.exit(1)
 
-bs.build(bs.PiglitTester(_suite="gpu", env=fs.get_env(), timeout=piglit_timeout,
+bs.build(bs.PiglitTester(_suite="quick", env=fs.get_env(), timeout=piglit_timeout,
                          piglit_test=piglit_test), time_limit=SlowTimeout())
