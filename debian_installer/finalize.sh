@@ -64,9 +64,9 @@ DHCP=yes
 EOF
 
 # python-tornado in testing is >=5, which is incompatible with salt-minion
-proxy="http://proxy.jf.intel.com:911"
+proxy="http://proxy-jf.intel.com:911"
 cat > /etc/apt/apt.conf.d/99proxy << EOF
-Acquire::http::Proxy "http://proxy.jf.intel.com:911";
+Acquire::http::Proxy "http://proxy-jf.intel.com:911";
 Acquire::http::Proxy::linux-ftp.jf.intel.com DIRECT;
 EOF
 apt install gpg -y
