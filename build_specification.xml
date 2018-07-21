@@ -220,8 +220,12 @@
       <prerequisite name="glescts-full"/>
     </project>
 
-    <project name="test-single-arch-internal">
-        <prerequisite name="piglit-test-internal" hardware="tgl,ats" shard="6" arch="m64"/>
+    <project name="test-single-arch-tgl">
+        <prerequisite name="piglit-test-internal" hardware="tgl" shard="6" arch="m64"/>
+    </project>
+    
+    <project name="test-single-arch-ats">
+        <prerequisite name="piglit-test-internal" hardware="ats" shard="6" arch="m64"/>
     </project>
 
     <project name="test-single-arch-vulkan">
