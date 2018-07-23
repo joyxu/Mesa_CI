@@ -137,7 +137,7 @@
     </project>
 
     <project name="piglit-test-internal"
-             bisect_hardware="tgl,ats"
+             bisect_hardware="tgl"
              bisect_arch="m64">
       <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
       <prerequisite name="piglit" hardware="builder"/>
