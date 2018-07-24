@@ -14,6 +14,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>kblgt3 kbl</label>
+  <label>kblgt3 kbl fastgpu</label>
   <nodeProperties/>
 </slave>

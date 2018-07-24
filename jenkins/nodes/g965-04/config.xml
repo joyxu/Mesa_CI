@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
   <name>g965-04</name>
-  <description>bay 2 red shelf top</description>
+  <description>(2A-1A)bay 2 red shelf top</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>

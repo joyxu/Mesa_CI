@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
   <name>builder-01</name>
-  <description>Bay 1 Rack</description>
+  <description>Bay 1 Rack, Top</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>8</numExecutors>
   <mode>NORMAL</mode>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
   <name>ilk-04</name>
-  <description>bay 2 red shelf </description>
+  <description>(2A-2D)</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>

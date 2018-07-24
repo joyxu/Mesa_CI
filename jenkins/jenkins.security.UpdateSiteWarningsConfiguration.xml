@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jenkins.security.UpdateSiteWarningsConfiguration>
+  <ignoredWarnings>
+    <string>SECURITY-257</string>
+    <string>SECURITY-445</string>
+    <string>SECURITY-410-matrix-auth</string>
+    <string>SECURITY-405</string>
+    <string>SECURITY-297</string>
+  </ignoredWarnings>
+</jenkins.security.UpdateSiteWarningsConfiguration>

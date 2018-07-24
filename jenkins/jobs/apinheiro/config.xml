@@ -60,7 +60,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1493324676093</time>
+                    <time>1529426312051</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -77,7 +77,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -85,7 +85,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -100,7 +100,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git://github.com/janesma/mesa_jenkins</url>
+        <url>https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -138,6 +138,21 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=per
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
+    <hudson.plugins.postbuildtask.PostbuildTask plugin="postbuild-task@1.8">
+      <tasks>
+        <hudson.plugins.postbuildtask.TaskProperties>
+          <logTexts>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>fetching</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+          </logTexts>
+          <EscalateStatus>false</EscalateStatus>
+          <RunIfJobSuccessful>false</RunIfJobSuccessful>
+          <script>python -u repos/mesa_ci/scripts/trigger_sql_import.py</script>
+        </hudson.plugins.postbuildtask.TaskProperties>
+      </tasks>
+    </hudson.plugins.postbuildtask.PostbuildTask>
     <hudson.plugins.summary__report.ACIPluginPublisher plugin="summary_report@1.15">
       <name>summary.xml</name>
       <shownOnProjectPage>false</shownOnProjectPage>

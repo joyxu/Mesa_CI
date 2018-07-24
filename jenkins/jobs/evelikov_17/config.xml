@@ -42,7 +42,7 @@
       <throttleEnabled>false</throttleEnabled>
       <throttleOption>project</throttleOption>
       <limitOneJobWithMatchingParams>false</limitOneJobWithMatchingParams>
-      <configVersion>1</configVersion>
+      <paramsToUseForLimit></paramsToUseForLimit>
     </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
     <jenkins.advancedqueue.jobinclusion.strategy.JobInclusionJobProperty plugin="PrioritySorter@3.5.0">
       <useJobGroup>false</useJobGroup>
@@ -70,7 +70,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1506612125255</time>
+                    <time>1529426694624</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -87,7 +87,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -95,7 +95,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -110,7 +110,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git://github.com/janesma/mesa_jenkins</url>
+        <url>https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -193,7 +193,6 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=dai
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
           <email>
-            <recipientList></recipientList>
             <subject>$PROJECT_DEFAULT_SUBJECT</subject>
             <body>$PROJECT_DEFAULT_CONTENT</body>
             <recipientProviders>
@@ -212,6 +211,7 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=dai
       <defaultContent>$DEFAULT_CONTENT</defaultContent>
       <attachmentsPattern></attachmentsPattern>
       <presendScript>$DEFAULT_PRESEND_SCRIPT</presendScript>
+      <postsendScript></postsendScript>
       <attachBuildLog>false</attachBuildLog>
       <compressBuildLog>false</compressBuildLog>
       <replyTo>$DEFAULT_REPLYTO</replyTo>

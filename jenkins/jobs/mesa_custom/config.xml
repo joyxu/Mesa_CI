@@ -55,10 +55,13 @@
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
               <string>test-single-arch</string>
+              <string>test-single-arch-internal</string>
+              <string>test-single-arch-vulkan</string>
               <string>mesa</string>
               <string>all-test</string>
               <string>piglit-full</string>
               <string>piglit-test</string>
+              <string>piglit-test-internal</string>
               <string>piglit-cpu-test</string>
               <string>clean-all-workspaces</string>
               <string>deqp-full</string>
@@ -66,8 +69,10 @@
               <string>cts-test</string>
               <string>cts-full</string>
               <string>crucible-test</string>
+              <string>crucible-test-internal</string>
               <string>crucible-all</string>
               <string>vulkancts-test</string>
+              <string>vulkancts-test-internal</string>
               <string>vulkancts-full</string>
               <string>perf-all</string>
               <string>glcts-full</string>
@@ -76,6 +81,11 @@
               <string>glescts-test</string>
               <string>all-test-vulkan</string>
               <string>dota-pts</string>
+              <string>deqp-runtime-full</string>
+              <string>android-buildtest</string>
+              <string>mesa-buildtest</string>
+              <string>test-shader-cache</string>
+              <string>test-single-arch-tgl</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
@@ -84,31 +94,35 @@
           <description>select the hardware platform to test</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>ivbgt2</string>
-              <string>ivbgt1</string>
+              <string>ats</string>
               <string>bdwgt2</string>
+              <string>bdwgt3e</string>
+              <string>bsw</string>
+              <string>builder</string>
+              <string>bxt</string>
+              <string>byt</string>
+              <string>cfl</string>
+              <string>cnl</string>
+              <string>g33</string>
+              <string>g45</string>
+              <string>g965</string>
+              <string>glk</string>
+              <string>glk-hd600</string>
+              <string>hsw</string>
               <string>hswgt1</string>
               <string>hswgt2</string>
               <string>hswgt3e</string>
-              <string>byt</string>
-              <string>g45</string>
-              <string>g33</string>
-              <string>g965</string>
               <string>ilk</string>
-              <string>snbgt1</string>
-              <string>snbgt2</string>
-              <string>hsw</string>
-              <string>bsw</string>
-              <string>builder</string>
+              <string>ivb</string>
+              <string>ivbgt1</string>
+              <string>ivbgt2</string>
+              <string>kbl</string>
               <string>sklgt2</string>
               <string>sklgt4e</string>
-              <string>bdwgt3e</string>
-              <string>ivb</string>
-              <string>bxt</string>
-              <string>kbl</string>
               <string>snb</string>
-              <string>glk</string>
-              <string>cfl</string>
+              <string>snbgt1</string>
+              <string>snbgt2</string>
+              <string>tgl</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
@@ -192,7 +206,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1512678425779</time>
+                    <time>1532136529559</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -233,19 +247,19 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <name>origin</name>
-        <url>git://github.com/janesma/mesa_jenkins.git</url>
+        <url>https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
       <hudson.plugins.git.UserRemoteConfig>
         <name>craftyguy</name>
-        <url>git://github.com/craftyguy/mesa_jenkins.git</url>
+        <url>https://gitlab.freedesktop.org/craftyguy/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
       <hudson.plugins.git.UserRemoteConfig>
         <name>dcbaker</name>
         <url>git://github.com/dcbaker/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
       <hudson.plugins.git.UserRemoteConfig>
-        <name>tokonbekov</name>
-        <url>git://github.com/tokonbekov/mesa_jenkins.git</url>
+        <name>janesma</name>
+        <url>https://gitlab.freedesktop.org/majanes/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -271,7 +285,7 @@
 rm -rf summary.xml
 rm -rf test_summary.txt
 python -u fetch_sources.py ${revision}
-python -u repos/mesa_ci/scripts/build_jenkins.py --type=${type} --config=${config} --rebuild=${rebuild} --revision=&quot;$revision&quot; --hardware=${hardware} --project=${project} --branch=${branch} --arch=${arch} --env=&quot;${env}&quot;
+python -u repos/mesa_ci/scripts/build_jenkins.py --type=${type} --config=${config} --rebuild=${rebuild} &quot;--revision=${revision}&quot; --hardware=${hardware} --project=${project} --branch=${branch} --arch=${arch} --env=&quot;${env}&quot;
 </command>
     </hudson.tasks.Shell>
   </builders>

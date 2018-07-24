@@ -1,7 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
+  <temporaryOfflineCause class="hudson.node_monitors.ResponseTimeMonitor$Data">
+    <timestamp>1532464671835</timestamp>
+    <past5>
+      <long>-1</long>
+      <long>-1</long>
+      <long>-1</long>
+      <long>-1</long>
+      <long>-1</long>
+    </past5>
+  </temporaryOfflineCause>
   <name>glk-01</name>
-  <description>bay 2 left red middle shelf</description>
+  <description></description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
@@ -14,6 +24,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>glk</label>
+  <label>glk-hd600</label>
   <nodeProperties/>
 </slave>

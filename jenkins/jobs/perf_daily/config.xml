@@ -38,7 +38,6 @@
       <throttleOption>project</throttleOption>
       <limitOneJobWithMatchingParams>false</limitOneJobWithMatchingParams>
       <paramsToUseForLimit></paramsToUseForLimit>
-      <configVersion>1</configVersion>
     </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
     <jenkins.advancedqueue.jobinclusion.strategy.JobInclusionJobProperty plugin="PrioritySorter@3.5.0">
       <useJobGroup>false</useJobGroup>
@@ -66,7 +65,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1509454108177</time>
+                    <time>1529427368931</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -83,7 +82,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -91,7 +90,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -106,7 +105,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git://github.com/janesma/mesa_jenkins</url>
+        <url>https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>

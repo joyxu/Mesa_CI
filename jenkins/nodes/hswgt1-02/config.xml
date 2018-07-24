@@ -14,6 +14,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>hswgt1 hsw</label>
+  <label>hsw hswgt1</label>
   <nodeProperties/>
 </slave>

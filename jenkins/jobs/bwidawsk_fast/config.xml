@@ -38,6 +38,7 @@
       <throttleOption>project</throttleOption>
       <limitOneJobWithMatchingParams>false</limitOneJobWithMatchingParams>
       <paramsToUseForLimit></paramsToUseForLimit>
+      <configVersion>1</configVersion>
     </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
     <jenkins.advancedqueue.jobinclusion.strategy.JobInclusionJobProperty plugin="PrioritySorter@3.5.0">
       <useJobGroup>false</useJobGroup>
@@ -65,7 +66,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1489044830886</time>
+                    <time>1528914692945</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -82,7 +83,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -90,7 +91,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -101,7 +102,7 @@
       </values>
     </job-metadata>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.1.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.2.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -119,7 +120,7 @@
   </scm>
   <assignedNode>master</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <authToken>noauth</authToken>
@@ -183,7 +184,7 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${t
         <testTimeMargin>3000</testTimeMargin>
       </extraConfiguration>
     </xunit>
-    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.57">
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.57.1">
       <recipientList>benjamin.widawsky@intel.com</recipientList>
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.UnstableTrigger>

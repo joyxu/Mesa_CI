@@ -1,5 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
+  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+    <timestamp>1531955490955</timestamp>
+    <description>
+      <holder>
+        <owner>hudson.slaves.Messages</owner>
+      </holder>
+      <key>SlaveComputer.DisconnectedBy</key>
+      <args>
+        <string>ssimmerx</string>
+        <string> : not sure whats going on but no jenkins log, just the spinning wheel of death!</string>
+      </args>
+    </description>
+    <userId>ssimmerx</userId>
+  </temporaryOfflineCause>
   <name>bxt-10</name>
   <description></description>
   <remoteFS>/home/jenkins</remoteFS>
