@@ -7,7 +7,7 @@
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>15</daysToKeep>
-        <numToKeep>10000</numToKeep>
+        <numToKeep>20000</numToKeep>
         <artifactDaysToKeep>-1</artifactDaysToKeep>
         <artifactNumToKeep>-1</artifactNumToKeep>
       </strategy>
@@ -128,7 +128,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1515802154568</time>
+                    <time>1532457610783</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -169,6 +169,22 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <refspec>+refs/*:refs/remotes/*</refspec>
+        <url>https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+      <hudson.plugins.git.UserRemoteConfig>
+        <name>dcbaker</name>
+        <url>git://github.com/dcbaker/mesa_jenkins</url>
+      </hudson.plugins.git.UserRemoteConfig>
+      <hudson.plugins.git.UserRemoteConfig>
+        <name>craftyguy</name>
+        <url>https://gitlab.freedesktop.org/craftyguy/mesa_jenkins.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+      <hudson.plugins.git.UserRemoteConfig>
+        <name>majanes</name>
+        <url>https://gitlab.freedesktop.org/majanes/mesa_jenkins.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+      <hudson.plugins.git.UserRemoteConfig>
+        <name>local</name>
         <url>git://otc-mesa-ci.local/git/mesa_jenkins</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>

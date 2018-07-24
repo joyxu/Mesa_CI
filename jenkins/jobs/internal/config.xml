@@ -28,6 +28,11 @@
           <description>developer/daily/percheckin/release type specified to the test harnesses</description>
           <defaultValue>developer</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>rebuild</name>
+          <description></description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.9.0">
@@ -65,7 +70,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1490202047284</time>
+                    <time>1529426897467</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -82,7 +87,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -90,7 +95,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -101,11 +106,11 @@
       </values>
     </job-metadata>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.1.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.2.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>git://otc-mesa-ci.local/git/mesa_jenkins</url>
+        <url>https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -134,7 +139,7 @@
 rm -rf summary.xml
 rm -rf test_summary.txt
 python -u fetch_sources.py
-python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${type} --config=debug</command>
+python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${type} --config=debug --rebuild=${rebuild}</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
@@ -186,7 +191,7 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${t
         <testTimeMargin>3000</testTimeMargin>
       </extraConfiguration>
     </xunit>
-    <hudson.tasks.Mailer plugin="mailer@1.19">
+    <hudson.tasks.Mailer plugin="mailer@1.20">
       <recipients>mark.a.janes@intel.com</recipients>
       <dontNotifyEveryUnstableBuild>true</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
