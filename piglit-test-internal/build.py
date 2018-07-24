@@ -36,7 +36,7 @@ if o.piglit_test:
 piglit_timeout=None
 if bs.Options().hardware in fs.platform_configs:
     if fs.is_supported():
-        piglit_timeout = 120
+        piglit_timeout = 150
     else:
         print("Unable to run simulated hardware in this environment!")
         sys.exit(1)
