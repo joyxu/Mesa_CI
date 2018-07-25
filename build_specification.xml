@@ -352,6 +352,7 @@
       <remote name="eric_engestrom" repo="git://github.com/1ace/mesa"/>
       <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa.git"/>
       <remote name="cmarcelo" repo="https://gitlab.freedesktop.org/cmarcelo/mesa.git"/>
+      <remote name="sagarghuge" repo="https://gitlab.freedesktop.org/sagarghuge/mesa.git"/>
       <remote name="ldeks" repo="git://people.freedesktop.org/~ldeks/mesa"/>
       <remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>
       <remote name="airlied" repo="git://people.freedesktop.org/~airlied/mesa"/>
@@ -861,6 +862,10 @@
 
     <branch name="cmarcelo_vulkan" project="vulkancts-full">
       <mesa branch="cmarcelo/jenkins_vk"/>
+    </branch>
+
+    <branch name="sagarghuge" project="test-single-arch-vulkan">
+      <mesa branch="sagarghuge/jenkins"/>
     </branch>
 
     <branch name="yogesh-marathe" project="test-single-arch-vulkan">
