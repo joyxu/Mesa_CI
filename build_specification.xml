@@ -787,6 +787,10 @@
       <mesa branch="igalia_khronos/wip/igalia/jenkins-khronos"/>
     </branch>
 
+    <branch name="jmcasanova" project="test-single-arch-vulkan">
+      <mesa branch="igalia/jmcasanova/jenkins"/>
+    </branch>
+
     <branch name="itoral" project="test-single-arch-vulkan">
       <mesa branch="igalia/itoral/jenkins"/>
     </branch>
