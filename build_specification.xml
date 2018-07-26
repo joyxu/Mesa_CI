@@ -576,6 +576,18 @@
       <mesa branch="jljusten/vulkan"/>
     </branch>
 
+    <branch name="jljusten_internal" project="test-single-arch">
+      <mesa branch="teamforge/jljusten/jenkins/internal"/>
+    </branch>
+
+    <branch name="jljusten_ats" project="test-single-arch-ats">
+      <mesa branch="teamforge/jljusten/jenkins/ats"/>
+    </branch>
+
+    <branch name="jljusten_tgl" project="test-single-arch-tgl">
+      <mesa branch="teamforge/jljusten/jenkins/tgl"/>
+    </branch>
+
     <branch name="kwg" project="test-single-arch">
       <mesa branch="kwg/jenkins"/>
     </branch>
