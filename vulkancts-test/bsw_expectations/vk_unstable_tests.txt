@@ -1,4 +1,3 @@
-dEQP-VK.memory.mapping.random
 dEQP-VK.wsi.xlib.surface
 dEQP-VK.wsi.xlib.swapchain
 dEQP-VK.wsi.xcb.swapchain
