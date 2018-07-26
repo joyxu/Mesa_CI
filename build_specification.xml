@@ -580,6 +580,10 @@
       <mesa branch="antognolli/jenkins"/>
     </branch>
 
+    <branch name="antognolli_tgl" project="test-single-arch-tgl">
+      <mesa branch="internal/rantogno/tgl/jenkins"/>
+    </branch>
+
     <branch name="antognolli_vulkan" project="vulkancts-full">
       <mesa branch="antognolli/jenkins_vk"/>
     </branch>
