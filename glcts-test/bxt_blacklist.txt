@@ -3,3 +3,6 @@ KHR-GL46.compute_shader.resource-texture
 KHR-GL46.vertex_attrib_64bit.limits_test
 # https://bugs.freedesktop.org/show_bug.cgi?id=104395
 GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
+
+# https://bugs.freedesktop.org/show_bug.cgi?id=107389
+KHR-GL46.texture_buffer.texture_buffer_atomic_functions
