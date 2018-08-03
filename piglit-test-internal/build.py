@@ -1,6 +1,6 @@
 #!/usr/bin/python
-
 import sys, os, argparse
+import multiprocessing
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
                              "..", "repos", "mesa_ci"))
 import build_support as bs
@@ -41,5 +41,8 @@ if bs.Options().hardware in fs.platform_configs:
         print("Unable to run simulated hardware in this environment!")
         sys.exit(1)
 
+jobs = multiprocessing.cpu_count() / 2
+
 bs.build(bs.PiglitTester(_suite="gpu", env=fs.get_env(), timeout=piglit_timeout,
-                         piglit_test=piglit_test), time_limit=SlowTimeout())
+                         piglit_test=piglit_test, jobs=jobs),
+         time_limit=SlowTimeout())
