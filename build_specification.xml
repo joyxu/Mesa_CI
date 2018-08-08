@@ -548,6 +548,36 @@
       <crucible branch="2bc742a"/>
     </branch>
 
+    <branch name="mesa_18.2" project="all-test-vulkan">
+      <mesa branch="origin/18.2"/>
+      <piglit branch="bf8b9baebd"/>
+      <vulkancts branch="cfb8d0472"/>
+      <shaderc branch="30af9f9"/>
+      <cts branch="361795414"/>
+      <glslang branch="e826286f"/>
+      <waffle branch="1ded029"/>
+      <spirvheaders branch="3a4dbdd"/>
+      <glcts branch="50efa5694"/>
+      <drm branch="87fdbfb6"/>
+      <deqp branch="e98bb687e"/>
+      <crucible branch="b863b51"/>
+    </branch>
+
+    <branch name="mesa_18.2_staging" project="all-test-vulkan">
+      <mesa branch="origin/staging/18.2"/>
+      <piglit branch="bf8b9baebd"/>
+      <vulkancts branch="cfb8d0472"/>
+      <shaderc branch="30af9f9"/>
+      <cts branch="361795414"/>
+      <glslang branch="e826286f"/>
+      <waffle branch="1ded029"/>
+      <spirvheaders branch="3a4dbdd"/>
+      <glcts branch="50efa5694"/>
+      <drm branch="87fdbfb6"/>
+      <deqp branch="e98bb687e"/>
+      <crucible branch="b863b51"/>
+    </branch>
+
     <branch name="vulkancts" project="vulkancts-full">
       <mesa/>
       <vulkancts/>
