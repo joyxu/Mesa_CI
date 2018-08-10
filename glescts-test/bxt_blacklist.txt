@@ -5,4 +5,6 @@ KHR-GLES31.core.texture_buffer.texture_buffer_max_size
 KHR-GLES31.core.sepshaderobjs.StateInteraction
 
 # https://bugs.freedesktop.org/show_bug.cgi?id=107389
+KHR-GLES31.core.texture_buffer.texture_buffer_atomic_functions
 KHR-GLES32.core.texture_buffer.texture_buffer_atomic_functions
+KHR-GLESEXT.texture_buffer.texture_buffer_atomic_functions
