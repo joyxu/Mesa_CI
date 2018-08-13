@@ -5,3 +5,6 @@ KHR-GLESEXT.tessellation_shader.tessellation_shader_tessellation.gl_InvocationID
 KHR-GLES31.core.tessellation_shader.tessellation_shader_tessellation.gl_InvocationID_PatchVerticesIn_PrimitiveID
 KHR-GLES31.core.sepshaderobjs.StateInteraction
 KHR-GLES31.core.geometry_shader.rendering.rendering.triangles_with_adjacency_input_line_strip_output_triangle_strip_adjacency_drawcall
+
+# fails on ~2% of builds
+KHR-GLES31.core.tessellation_shader.tessellation_control_to_tessellation_evaluation.gl_MaxPatchVertices_Position_PointSize
