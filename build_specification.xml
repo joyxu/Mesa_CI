@@ -361,6 +361,7 @@
       <remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>
       <remote name="airlied" repo="git://people.freedesktop.org/~airlied/mesa"/>
       <remote name="robclark" repo="git://github.com/freedreno/mesa"/>
+      <remote name="Richard_Yunchao" repo="https://gitlab.freedesktop.org/Richard_Yunchao/mesa.git"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
@@ -950,7 +951,11 @@
       <mesa branch="robclark/for_jenkins"/>
     </branch>
 
-    <branch name="wip_18.1" project="test-single-arch-vulkan">
+    <branch name="Richard_Yunchao" project="test-single-arch-vulkan">
+      <mesa branch="Richard_Yunchao/for_yunchao_CI"/>
+    </branch>
+
+   <branch name="wip_18.1" project="test-single-arch-vulkan">
       <mesa branch="janesma/wip/18.1"/>
       <piglit branch="e739c3c940"/>
       <vulkancts branch="8e891c0f5"/>
