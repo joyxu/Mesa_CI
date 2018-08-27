@@ -56,10 +56,10 @@ class GLESCTSList(object):
                              env=env)
 
         must_pass_root = br + "/bin/es/modules/gl_cts/data/mustpass/"
-        must_pass_lookup = { "KHR-GLES2-cases.xml" : "gles/khronos_mustpass/3.2.4.x/gles2-khr-master.txt",
-                             "KHR-GLES3-cases.xml" : "gles/khronos_mustpass/3.2.4.x/gles3-khr-master.txt",
-                             "KHR-GLES31-cases.xml" : "gles/khronos_mustpass/3.2.4.x/gles31-khr-master.txt",
-                             "KHR-GLES32-cases.xml" : "gles/khronos_mustpass/3.2.4.x/gles32-khr-master.txt",
+        must_pass_lookup = { "KHR-GLES2-cases.xml" : "gles/khronos_mustpass/3.2.5.x/gles2-khr-master.txt",
+                             "KHR-GLES3-cases.xml" : "gles/khronos_mustpass/3.2.5.x/gles3-khr-master.txt",
+                             "KHR-GLES31-cases.xml" : "gles/khronos_mustpass/3.2.5.x/gles31-khr-master.txt",
+                             "KHR-GLES32-cases.xml" : "gles/khronos_mustpass/3.2.5.x/gles32-khr-master.txt",
                              "KHR-GLESEXT-cases.xml" : None }
 
         suites = ["KHR-GLES2-cases.xml", "KHR-GLES3-cases.xml"]
