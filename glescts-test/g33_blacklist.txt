@@ -5,3 +5,5 @@ KHR-GLESEXT
 KHR-GLES2.functional.draw.random
 KHR-GLES2.functional.clipping.triangle_vertex.clip_two
 KHR-GLES2.gtf.GL2FixedTests.point_sprites.point_sprites
+KHR-GLES2.texture_3d.filtering.combinations
+KHR-GLES2.texture_3d.filtering.sizes.63x63x63_linear_mipmap_linear
