@@ -415,7 +415,7 @@
     </deqp>
 
     <cts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
-         branch="origin/opengl-es-cts-3.2.4">
+         branch="origin/opengl-es-cts-3.2.5">
     </cts>
 
     <glcts repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"
@@ -483,7 +483,7 @@
       <waffle/>
       <drm/>
       <deqp branch="aosp/master"/>
-      <cts branch="origin/opengl-es-cts-3.2.4"/>
+      <cts branch="origin/opengl-es-cts-3.2.5"/>
       <glcts branch="origin/opengl-cts-4.6.0"/>
 
       <!-- the trigger attribute is used specify a branch that should
