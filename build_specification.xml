@@ -460,7 +460,6 @@
 
     <sim-drm repo="https://github.intel.com/Mesa/sim-drm.git">
       <remote name="craftyguy" repo="https://github.intel.com/cacraft/sim-drm.git"/>
-      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/sim-drm.git"/>
     </sim-drm>
 
   </repos>
