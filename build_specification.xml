@@ -283,7 +283,7 @@
       <prerequisite name="deqp-test" hardware="hsw,skl,kbl,bdw,snb,ivb" shard="5"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
-                    hardware="ilk,g33,g45,g965,byt,bsw,bxt,glk,cfl" shard="4"/>
+                    hardware="ilk,g33,g45,g965,byt,bsw,bxt,glk,cfl,icl" shard="4"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     arch="m32"
