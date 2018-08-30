@@ -1,1 +1,4 @@
-none
+# flaky on ICL
+dEQP-GLES3.functional.texture.mipmap.2d
+dEQP-GLES3.functional.texture.mipmap.3d
+dEQP-GLES3.functional.texture.mipmap.cube
