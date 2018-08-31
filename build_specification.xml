@@ -754,7 +754,7 @@
       <piglit branch="e739c3c940"/>
       <vulkancts branch="8e891c0f5"/>
       <shaderc branch="5fd1b25"/>
-      <cts branch="c693c85a5"/>
+      <cts branch="d75b9a1a88df8033c6b9cc4ea1439c82a336f895"/>
       <glslang branch="c325f436"/>
       <waffle branch="1ded029"/>
       <spirvheaders branch="3a4dbdd"/>
@@ -920,7 +920,7 @@
       <piglit branch="e739c3c940"/>
       <vulkancts branch="8e891c0f5"/>
       <shaderc branch="5fd1b25"/>
-      <cts branch="c693c85a5"/>
+      <cts branch="d75b9a1a88df8033c6b9cc4ea1439c82a336f895"/>
       <glslang branch="c325f436"/>
       <waffle branch="1ded029"/>
       <spirvheaders branch="3a4dbdd"/>
