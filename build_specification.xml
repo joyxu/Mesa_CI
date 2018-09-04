@@ -428,8 +428,7 @@
     
     <gmock repo="git://github.com/google/googlemock"
            branch="origin/release-1.7.0"/>
-    <glslang repo="git://github.com/KhronosGroup/glslang.git"
-             branch="e826286f">
+    <glslang repo="git://github.com/KhronosGroup/glslang.git">
       <remote name="glsl" repo="git@gitlab.khronos.org:GLSL/glslang.git"/>
     </glslang>
 
@@ -518,6 +517,7 @@
       <glslang branch="e826286f"/>
       <waffle branch="1ded029"/>
       <spirvheaders branch="3a4dbdd"/>
+      <spirvtools branch="b6319c3a"/>
       <glcts branch="50efa5694"/>
       <drm branch="87fdbfb6"/>
       <deqp branch="e98bb687e"/>
@@ -533,6 +533,7 @@
       <glslang branch="e826286f"/>
       <waffle branch="1ded029"/>
       <spirvheaders branch="3a4dbdd"/>
+      <spirvtools branch="b6319c3a"/>
       <glcts branch="50efa5694"/>
       <drm branch="87fdbfb6"/>
       <deqp branch="e98bb687e"/>
