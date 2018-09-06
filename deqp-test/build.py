@@ -107,7 +107,9 @@ class DeqpLister(object):
                         "dEQP-EGL.functional.render.multi_thread.gles3.rgb888_window",
                         "dEQP-EGL.functional.render.multi_thread.gles3.rgba8888_window",
                         "dEQP-EGL.functional.render.multi_thread.gles2_gles3.rgba8888_window",
-                        "dEQP-EGL.functional.robustness.negative_context.invalid_robust_shared_context_creation"]
+                        "dEQP-EGL.functional.robustness.negative_context.invalid_robust_shared_context_creation",
+                        # flaky
+                        "dEQP-GLES31.functional.debug.negative_coverage.get_error.compute.exceed_atomic_counters_limit"]
 
         all_tests.filter(unsupported)
         
