@@ -64,6 +64,7 @@ def meson_build():
         '-Ddri-drivers=i965,i915',
         '-Dvulkan-drivers=intel',
         '-Dplatforms=x11,drm',
+        '-Dtools=intel',
     ]
 
     cpp_args = None
