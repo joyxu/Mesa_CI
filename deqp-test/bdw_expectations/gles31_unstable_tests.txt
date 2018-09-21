@@ -6,3 +6,5 @@ dEQP-GLES31.functional.copy_image.non_compressed
 dEQP-GLES31.functional.copy_image.compressed
 # Disabled for https://bugs.freedesktop.org/show_bug.cgi?id=103746
 dEQP-GLES31.functional.copy_image.mixed
+#flaky
+dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit

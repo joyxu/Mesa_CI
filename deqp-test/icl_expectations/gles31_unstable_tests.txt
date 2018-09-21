@@ -21,3 +21,6 @@ dEQP-GLES31.functional.tessellation.shader_input_output.barrier
 # flaky on ICL
 dEQP-GLES31.functional.sample_shading.min_sample_shading.multisample_renderbuffer_samples_8_color
 dEQP-GLES31.functional.tessellation.invariance.primitive_set.quads_fractional_even_spacing_ccw_point_mode
+
+#flaky
+dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
