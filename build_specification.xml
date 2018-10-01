@@ -877,6 +877,10 @@
       <mesa branch="cmarcelo/jenkins_vk"/>
     </branch>
 
+    <branch name="cmarcelo_tgl" project="test-single-arch-tgl">
+        <mesa branch="internal/cmarcelo/jenkins/tgl"/>
+    </branch>
+
     <branch name="sagarghuge" project="test-single-arch-vulkan">
       <mesa branch="sagarghuge/jenkins"/>
     </branch>
@@ -928,7 +932,6 @@
     <branch name="simdrm_tgl" project="test-single-arch-tgl">
       <mesa branch="internal/jljusten/wip/tgl"/>
     </branch>
-
 
    <branch name="wip_18.1" project="test-single-arch-vulkan">
       <mesa branch="janesma/wip/18.1"/>
