@@ -921,6 +921,15 @@
       <mesa branch="global_logic/i965_ci"/>
     </branch>
 
+    <branch name="simdrm_ats" project="test-single-arch-ats">
+      <mesa branch="internal/jljusten/wip/ats"/>
+    </branch>
+
+    <branch name="simdrm_tgl" project="test-single-arch-tgl">
+      <mesa branch="internal/jljusten/wip/tgl"/>
+    </branch>
+
+
    <branch name="wip_18.1" project="test-single-arch-vulkan">
       <mesa branch="janesma/wip/18.1"/>
       <piglit branch="e739c3c940"/>
