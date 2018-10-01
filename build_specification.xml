@@ -186,17 +186,17 @@
     </project>
 
     <project name="vulkancts-full">
-      <prerequisite name="vulkancts-test" hardware="bdw,hsw,skl,kbl" shard="2"/>
+      <prerequisite name="vulkancts-test" hardware="bdw,hsw,skl,kbl" shard="4"/>
       <prerequisite name="vulkancts-test"
                     only_for_type="daily"
                     hardware="bdw,hsw,skl,kbl"
                     arch="m32"
-                    shard="2"/>
+                    shard="4"/>
       <prerequisite name="vulkancts-test"
                     only_for_type="daily"
                     hardware="bsw,bxt,glk,cfl"
                     arch="m64"
-                    shard="5"/>
+                    shard="8"/>
 
       <prerequisite name="crucible-test" hardware="bdw,skl,bsw,hsw,bxt,kbl"/>
       <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="bxt,glk,cfl"/>
