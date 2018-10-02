@@ -1,1 +1,2 @@
-
+# jekstrand: these tests provide zero value
+dEQP-VK.api.info.device.extensions
