@@ -26,8 +26,17 @@ class VulkanTestList(object):
         trie = bs.DeqpTrie()
         trie.add_xml("dEQP-VK-cases.xml")
         os.chdir(self.pm.project_build_dir())
-
-        whitelist_txt = self.pm.project_source_dir("vulkancts") + "/external/vulkancts/mustpass/1.1.2/vk-default.txt"
+        # Detect the latest mustpass file to use, and use it
+        mustpass_dir = self.pm.project_source_dir("vulkancts") + "/external/vulkancts/mustpass/"
+        versions = os.listdir(mustpass_dir)
+        if '.gitignore' in versions:
+            versions.remove('.gitignore')
+        # Convert versions to an int and compare to get latest version
+        versions.sort(key=lambda v: [int(i) for i in v.split('.')],
+                      reverse=True)
+        latest_version = versions[0]
+        print("Using whitelist for %s" % latest_version)
+        whitelist_txt = mustpass_dir + '/' + latest_version + "/vk-default.txt"
         whitelist = bs.DeqpTrie()
         whitelist.add_txt(whitelist_txt)
         trie.filter_whitelist(whitelist)
