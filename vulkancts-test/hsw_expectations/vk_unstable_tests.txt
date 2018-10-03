@@ -18,3 +18,5 @@ dEQP-VK.pipeline.vertex_input.max_attributes
 dEQP-VK.spirv_assembly
 dEQP-VK.subgroups.arithmetic
 dEQP-VK.subgroups.clustered
+dEQP-VK.memory_model.message_passing.core11.u32.coherent.fence_fence.atomicwrite
+dEQP-VK.memory_model.write_after_read.core11.u32.coherent.fence_fence.atomicwrite
