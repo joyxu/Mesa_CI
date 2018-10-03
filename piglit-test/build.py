@@ -52,5 +52,14 @@ if bs.Options().hardware in fs.platform_configs:
         print("Unable to run simulated hardware in this environment!")
         sys.exit(1)
 
-bs.build(bs.PiglitTester(_suite="quick", env=fs.get_env(), timeout=piglit_timeout,
+env = fs.get_env()
+
+# Override extensions on icl to enable additional tests
+if bs.Options().hardware == 'icl':
+    env['MESA_EXTENSION_OVERRIDE'] = ('+GL_ARB_gpu_shader_fp64 '
+                                      '+GL_ARB_vertex_attrib_64bit '
+                                      '+GL_ARB_gpu_shader_int64 '
+                                      '+GL_ARB_shader_ballot')
+
+bs.build(bs.PiglitTester(_suite="quick", env=env, timeout=piglit_timeout,
                          piglit_test=piglit_test), time_limit=SlowTimeout())
