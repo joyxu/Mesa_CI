@@ -20,4 +20,5 @@ dEQP-VK.subgroups.arithmetic
 dEQP-VK.subgroups.clustered
 dEQP-VK.memory_model.message_passing.core11.u32.coherent.fence_fence.atomicwrite
 dEQP-VK.memory_model.write_after_read.core11.u32.coherent.fence_fence.atomicwrite
-dEQP-VK.binding_model.shader_access.secondary_cmd_buf.sampler_immutable.vertex_fragment.multiple_descriptor_sets
+dEQP-VK.binding_model.shader_access.secondary_cmd_buf
+dEQP-VK.renderpass.dedicated_allocation.attachment_allocation.shrink.47
