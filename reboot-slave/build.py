@@ -23,4 +23,4 @@ for a_host in host_dict['computer']:
         continue
     url = "http://" + server + "/job/reboot_single/buildWithParameters?token=noauth&label=" + host
     urllib2.urlopen(url)
-    time.sleep(10)
+    time.sleep(1)
