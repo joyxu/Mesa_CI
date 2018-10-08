@@ -43,7 +43,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1529427359772</time>
+                    <time>1532729200606</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -60,7 +60,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -68,7 +68,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -88,7 +88,7 @@
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>origin/patch_stable</name>
+        <name>origin/master</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -108,19 +108,19 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>[ -d mesa ] || git clone git@github.com:janesma/mesa.git
-cd mesa
-git fetch origin
-git fetch fdo
+      <command>[ -d wip ] || tsocks git clone git@gitlab.freedesktop.org:majanes/mesa.git wip
+cd wip
+tsocks git fetch origin
+tsocks git fetch fdo
 git checkout -f -B master fdo/master
 git checkout -f -B wip/18.1 origin/wip/18.1</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>python3 scripts/patch_stable.py mesa wip/18.1 18.1</command>
+      <command>python3 scripts/patch_stable.py wip wip/18.1 18.1</command>
       <unstableReturn>1</unstableReturn>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>cd mesa
+      <command>cd wip
 git push origin</command>
     </hudson.tasks.Shell>
   </builders>

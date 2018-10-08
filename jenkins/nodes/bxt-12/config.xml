@@ -1,5 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
+  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+    <timestamp>1538768622558</timestamp>
+    <description>
+      <holder>
+        <owner>hudson.slaves.Messages</owner>
+      </holder>
+      <key>SlaveComputer.DisconnectedBy</key>
+      <args>
+        <string>majanes</string>
+        <string> : dead</string>
+      </args>
+    </description>
+    <userId>majanes</userId>
+  </temporaryOfflineCause>
   <name>bxt-12</name>
   <description>Bay 1 top red shelf</description>
   <remoteFS>/home/jenkins</remoteFS>

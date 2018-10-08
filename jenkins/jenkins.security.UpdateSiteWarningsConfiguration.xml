@@ -4,7 +4,7 @@
     <string>SECURITY-257</string>
     <string>SECURITY-445</string>
     <string>SECURITY-410-matrix-auth</string>
-    <string>SECURITY-405</string>
     <string>SECURITY-297</string>
+    <string>SECURITY-405</string>
   </ignoredWarnings>
 </jenkins.security.UpdateSiteWarningsConfiguration>

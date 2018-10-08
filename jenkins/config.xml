@@ -11,268 +11,268 @@
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:brownex</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:cclampi</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:craftyguy</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:dcbaker</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:majanes</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:mirlan</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:ssimerix</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:ssimmerx</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:wjurickx</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:vikrumox</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:wjurick</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:brownex</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:cclampi</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:craftyguy</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:dcbaker</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:majanes</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:mirlan</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:ssimerix</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:ssimmerx</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:wjurickx</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:vikrumox</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:wjurick</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:brownex</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:cclampi</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:craftyguy</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:dcbaker</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:majanes</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:mirlan</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:ssimerix</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:ssimmerx</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:wjurickx</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:vikrumox</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:wjurick</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:brownex</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:cclampi</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:craftyguy</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:dcbaker</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:majanes</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:mirlan</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:ssimerix</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:ssimmerx</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:wjurickx</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:vikrumox</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:wjurick</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:anonymous</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:brownex</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:cclampi</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:craftyguy</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:dcbaker</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:majanes</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:mirlan</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:ssimerix</permission>
     <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:ssimmerx</permission>
-    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:wjurickx</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:vikrumox</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:wjurick</permission>
     <permission>hudson.model.Computer.Build:anonymous</permission>
     <permission>hudson.model.Computer.Build:brownex</permission>
+    <permission>hudson.model.Computer.Build:cclampi</permission>
     <permission>hudson.model.Computer.Build:craftyguy</permission>
     <permission>hudson.model.Computer.Build:dcbaker</permission>
     <permission>hudson.model.Computer.Build:majanes</permission>
-    <permission>hudson.model.Computer.Build:mirlan</permission>
-    <permission>hudson.model.Computer.Build:ssimerix</permission>
     <permission>hudson.model.Computer.Build:ssimmerx</permission>
-    <permission>hudson.model.Computer.Build:wjurickx</permission>
+    <permission>hudson.model.Computer.Build:vikrumox</permission>
+    <permission>hudson.model.Computer.Build:wjurick</permission>
     <permission>hudson.model.Computer.Configure:brownex</permission>
+    <permission>hudson.model.Computer.Configure:cclampi</permission>
     <permission>hudson.model.Computer.Configure:craftyguy</permission>
     <permission>hudson.model.Computer.Configure:dcbaker</permission>
     <permission>hudson.model.Computer.Configure:majanes</permission>
-    <permission>hudson.model.Computer.Configure:mirlan</permission>
-    <permission>hudson.model.Computer.Configure:ssimerix</permission>
     <permission>hudson.model.Computer.Configure:ssimmerx</permission>
-    <permission>hudson.model.Computer.Configure:wjurickx</permission>
+    <permission>hudson.model.Computer.Configure:vikrumox</permission>
+    <permission>hudson.model.Computer.Configure:wjurick</permission>
     <permission>hudson.model.Computer.Connect:brownex</permission>
+    <permission>hudson.model.Computer.Connect:cclampi</permission>
     <permission>hudson.model.Computer.Connect:craftyguy</permission>
     <permission>hudson.model.Computer.Connect:dcbaker</permission>
     <permission>hudson.model.Computer.Connect:majanes</permission>
-    <permission>hudson.model.Computer.Connect:mirlan</permission>
-    <permission>hudson.model.Computer.Connect:ssimerix</permission>
     <permission>hudson.model.Computer.Connect:ssimmerx</permission>
-    <permission>hudson.model.Computer.Connect:wjurickx</permission>
+    <permission>hudson.model.Computer.Connect:vikrumox</permission>
+    <permission>hudson.model.Computer.Connect:wjurick</permission>
     <permission>hudson.model.Computer.Create:brownex</permission>
+    <permission>hudson.model.Computer.Create:cclampi</permission>
     <permission>hudson.model.Computer.Create:craftyguy</permission>
     <permission>hudson.model.Computer.Create:dcbaker</permission>
     <permission>hudson.model.Computer.Create:majanes</permission>
-    <permission>hudson.model.Computer.Create:mirlan</permission>
-    <permission>hudson.model.Computer.Create:ssimerix</permission>
     <permission>hudson.model.Computer.Create:ssimmerx</permission>
-    <permission>hudson.model.Computer.Create:wjurickx</permission>
+    <permission>hudson.model.Computer.Create:vikrumox</permission>
+    <permission>hudson.model.Computer.Create:wjurick</permission>
     <permission>hudson.model.Computer.Delete:brownex</permission>
+    <permission>hudson.model.Computer.Delete:cclampi</permission>
     <permission>hudson.model.Computer.Delete:craftyguy</permission>
     <permission>hudson.model.Computer.Delete:dcbaker</permission>
     <permission>hudson.model.Computer.Delete:majanes</permission>
-    <permission>hudson.model.Computer.Delete:mirlan</permission>
-    <permission>hudson.model.Computer.Delete:ssimerix</permission>
     <permission>hudson.model.Computer.Delete:ssimmerx</permission>
-    <permission>hudson.model.Computer.Delete:wjurickx</permission>
+    <permission>hudson.model.Computer.Delete:vikrumox</permission>
+    <permission>hudson.model.Computer.Delete:wjurick</permission>
     <permission>hudson.model.Computer.Disconnect:brownex</permission>
+    <permission>hudson.model.Computer.Disconnect:cclampi</permission>
     <permission>hudson.model.Computer.Disconnect:craftyguy</permission>
     <permission>hudson.model.Computer.Disconnect:dcbaker</permission>
     <permission>hudson.model.Computer.Disconnect:majanes</permission>
-    <permission>hudson.model.Computer.Disconnect:mirlan</permission>
-    <permission>hudson.model.Computer.Disconnect:ssimerix</permission>
     <permission>hudson.model.Computer.Disconnect:ssimmerx</permission>
-    <permission>hudson.model.Computer.Disconnect:wjurickx</permission>
+    <permission>hudson.model.Computer.Disconnect:vikrumox</permission>
+    <permission>hudson.model.Computer.Disconnect:wjurick</permission>
     <permission>hudson.model.Hudson.Administer:brownex</permission>
+    <permission>hudson.model.Hudson.Administer:cclampi</permission>
     <permission>hudson.model.Hudson.Administer:craftyguy</permission>
     <permission>hudson.model.Hudson.Administer:dcbaker</permission>
     <permission>hudson.model.Hudson.Administer:majanes</permission>
-    <permission>hudson.model.Hudson.Administer:mirlan</permission>
-    <permission>hudson.model.Hudson.Administer:ssimerix</permission>
     <permission>hudson.model.Hudson.Administer:ssimmerx</permission>
-    <permission>hudson.model.Hudson.Administer:wjurickx</permission>
+    <permission>hudson.model.Hudson.Administer:vikrumox</permission>
+    <permission>hudson.model.Hudson.Administer:wjurick</permission>
     <permission>hudson.model.Hudson.ConfigureUpdateCenter:brownex</permission>
+    <permission>hudson.model.Hudson.ConfigureUpdateCenter:cclampi</permission>
     <permission>hudson.model.Hudson.ConfigureUpdateCenter:craftyguy</permission>
     <permission>hudson.model.Hudson.ConfigureUpdateCenter:dcbaker</permission>
     <permission>hudson.model.Hudson.ConfigureUpdateCenter:majanes</permission>
-    <permission>hudson.model.Hudson.ConfigureUpdateCenter:mirlan</permission>
-    <permission>hudson.model.Hudson.ConfigureUpdateCenter:ssimerix</permission>
     <permission>hudson.model.Hudson.ConfigureUpdateCenter:ssimmerx</permission>
-    <permission>hudson.model.Hudson.ConfigureUpdateCenter:wjurickx</permission>
+    <permission>hudson.model.Hudson.ConfigureUpdateCenter:vikrumox</permission>
+    <permission>hudson.model.Hudson.ConfigureUpdateCenter:wjurick</permission>
     <permission>hudson.model.Hudson.Read:anonymous</permission>
     <permission>hudson.model.Hudson.Read:brownex</permission>
+    <permission>hudson.model.Hudson.Read:cclampi</permission>
     <permission>hudson.model.Hudson.Read:craftyguy</permission>
     <permission>hudson.model.Hudson.Read:dcbaker</permission>
     <permission>hudson.model.Hudson.Read:majanes</permission>
-    <permission>hudson.model.Hudson.Read:mirlan</permission>
-    <permission>hudson.model.Hudson.Read:ssimerix</permission>
     <permission>hudson.model.Hudson.Read:ssimmerx</permission>
-    <permission>hudson.model.Hudson.Read:wjurickx</permission>
+    <permission>hudson.model.Hudson.Read:vikrumox</permission>
+    <permission>hudson.model.Hudson.Read:wjurick</permission>
     <permission>hudson.model.Hudson.RunScripts:brownex</permission>
+    <permission>hudson.model.Hudson.RunScripts:cclampi</permission>
     <permission>hudson.model.Hudson.RunScripts:craftyguy</permission>
     <permission>hudson.model.Hudson.RunScripts:dcbaker</permission>
     <permission>hudson.model.Hudson.RunScripts:majanes</permission>
-    <permission>hudson.model.Hudson.RunScripts:mirlan</permission>
-    <permission>hudson.model.Hudson.RunScripts:ssimerix</permission>
     <permission>hudson.model.Hudson.RunScripts:ssimmerx</permission>
-    <permission>hudson.model.Hudson.RunScripts:wjurickx</permission>
+    <permission>hudson.model.Hudson.RunScripts:vikrumox</permission>
+    <permission>hudson.model.Hudson.RunScripts:wjurick</permission>
     <permission>hudson.model.Hudson.UploadPlugins:brownex</permission>
+    <permission>hudson.model.Hudson.UploadPlugins:cclampi</permission>
     <permission>hudson.model.Hudson.UploadPlugins:craftyguy</permission>
     <permission>hudson.model.Hudson.UploadPlugins:dcbaker</permission>
     <permission>hudson.model.Hudson.UploadPlugins:majanes</permission>
-    <permission>hudson.model.Hudson.UploadPlugins:mirlan</permission>
-    <permission>hudson.model.Hudson.UploadPlugins:ssimerix</permission>
     <permission>hudson.model.Hudson.UploadPlugins:ssimmerx</permission>
-    <permission>hudson.model.Hudson.UploadPlugins:wjurickx</permission>
+    <permission>hudson.model.Hudson.UploadPlugins:vikrumox</permission>
+    <permission>hudson.model.Hudson.UploadPlugins:wjurick</permission>
     <permission>hudson.model.Item.Build:anonymous</permission>
     <permission>hudson.model.Item.Build:brownex</permission>
+    <permission>hudson.model.Item.Build:cclampi</permission>
     <permission>hudson.model.Item.Build:craftyguy</permission>
     <permission>hudson.model.Item.Build:dcbaker</permission>
     <permission>hudson.model.Item.Build:majanes</permission>
-    <permission>hudson.model.Item.Build:mirlan</permission>
-    <permission>hudson.model.Item.Build:ssimerix</permission>
     <permission>hudson.model.Item.Build:ssimmerx</permission>
-    <permission>hudson.model.Item.Build:wjurickx</permission>
+    <permission>hudson.model.Item.Build:vikrumox</permission>
+    <permission>hudson.model.Item.Build:wjurick</permission>
     <permission>hudson.model.Item.Cancel:brownex</permission>
+    <permission>hudson.model.Item.Cancel:cclampi</permission>
     <permission>hudson.model.Item.Cancel:craftyguy</permission>
     <permission>hudson.model.Item.Cancel:dcbaker</permission>
     <permission>hudson.model.Item.Cancel:majanes</permission>
-    <permission>hudson.model.Item.Cancel:mirlan</permission>
-    <permission>hudson.model.Item.Cancel:ssimerix</permission>
     <permission>hudson.model.Item.Cancel:ssimmerx</permission>
-    <permission>hudson.model.Item.Cancel:wjurickx</permission>
+    <permission>hudson.model.Item.Cancel:vikrumox</permission>
+    <permission>hudson.model.Item.Cancel:wjurick</permission>
     <permission>hudson.model.Item.Configure:brownex</permission>
+    <permission>hudson.model.Item.Configure:cclampi</permission>
     <permission>hudson.model.Item.Configure:craftyguy</permission>
     <permission>hudson.model.Item.Configure:dcbaker</permission>
     <permission>hudson.model.Item.Configure:majanes</permission>
-    <permission>hudson.model.Item.Configure:mirlan</permission>
-    <permission>hudson.model.Item.Configure:ssimerix</permission>
     <permission>hudson.model.Item.Configure:ssimmerx</permission>
-    <permission>hudson.model.Item.Configure:wjurickx</permission>
+    <permission>hudson.model.Item.Configure:vikrumox</permission>
+    <permission>hudson.model.Item.Configure:wjurick</permission>
     <permission>hudson.model.Item.Create:brownex</permission>
+    <permission>hudson.model.Item.Create:cclampi</permission>
     <permission>hudson.model.Item.Create:craftyguy</permission>
     <permission>hudson.model.Item.Create:dcbaker</permission>
     <permission>hudson.model.Item.Create:majanes</permission>
-    <permission>hudson.model.Item.Create:mirlan</permission>
-    <permission>hudson.model.Item.Create:ssimerix</permission>
     <permission>hudson.model.Item.Create:ssimmerx</permission>
-    <permission>hudson.model.Item.Create:wjurickx</permission>
+    <permission>hudson.model.Item.Create:vikrumox</permission>
+    <permission>hudson.model.Item.Create:wjurick</permission>
     <permission>hudson.model.Item.Delete:brownex</permission>
+    <permission>hudson.model.Item.Delete:cclampi</permission>
     <permission>hudson.model.Item.Delete:craftyguy</permission>
     <permission>hudson.model.Item.Delete:dcbaker</permission>
     <permission>hudson.model.Item.Delete:majanes</permission>
-    <permission>hudson.model.Item.Delete:mirlan</permission>
-    <permission>hudson.model.Item.Delete:ssimerix</permission>
     <permission>hudson.model.Item.Delete:ssimmerx</permission>
-    <permission>hudson.model.Item.Delete:wjurickx</permission>
+    <permission>hudson.model.Item.Delete:vikrumox</permission>
+    <permission>hudson.model.Item.Delete:wjurick</permission>
     <permission>hudson.model.Item.Discover:anonymous</permission>
     <permission>hudson.model.Item.Discover:brownex</permission>
+    <permission>hudson.model.Item.Discover:cclampi</permission>
     <permission>hudson.model.Item.Discover:craftyguy</permission>
     <permission>hudson.model.Item.Discover:dcbaker</permission>
     <permission>hudson.model.Item.Discover:majanes</permission>
-    <permission>hudson.model.Item.Discover:mirlan</permission>
-    <permission>hudson.model.Item.Discover:ssimerix</permission>
     <permission>hudson.model.Item.Discover:ssimmerx</permission>
-    <permission>hudson.model.Item.Discover:wjurickx</permission>
+    <permission>hudson.model.Item.Discover:vikrumox</permission>
+    <permission>hudson.model.Item.Discover:wjurick</permission>
     <permission>hudson.model.Item.ExtendedRead:anonymous</permission>
     <permission>hudson.model.Item.ExtendedRead:brownex</permission>
+    <permission>hudson.model.Item.ExtendedRead:cclampi</permission>
     <permission>hudson.model.Item.ExtendedRead:craftyguy</permission>
     <permission>hudson.model.Item.ExtendedRead:dcbaker</permission>
     <permission>hudson.model.Item.ExtendedRead:majanes</permission>
-    <permission>hudson.model.Item.ExtendedRead:mirlan</permission>
-    <permission>hudson.model.Item.ExtendedRead:ssimerix</permission>
     <permission>hudson.model.Item.ExtendedRead:ssimmerx</permission>
-    <permission>hudson.model.Item.ExtendedRead:wjurickx</permission>
+    <permission>hudson.model.Item.ExtendedRead:vikrumox</permission>
+    <permission>hudson.model.Item.ExtendedRead:wjurick</permission>
     <permission>hudson.model.Item.Read:anonymous</permission>
     <permission>hudson.model.Item.Read:brownex</permission>
+    <permission>hudson.model.Item.Read:cclampi</permission>
     <permission>hudson.model.Item.Read:craftyguy</permission>
     <permission>hudson.model.Item.Read:dcbaker</permission>
     <permission>hudson.model.Item.Read:majanes</permission>
-    <permission>hudson.model.Item.Read:mirlan</permission>
-    <permission>hudson.model.Item.Read:ssimerix</permission>
     <permission>hudson.model.Item.Read:ssimmerx</permission>
-    <permission>hudson.model.Item.Read:wjurickx</permission>
+    <permission>hudson.model.Item.Read:vikrumox</permission>
+    <permission>hudson.model.Item.Read:wjurick</permission>
     <permission>hudson.model.Item.Workspace:brownex</permission>
+    <permission>hudson.model.Item.Workspace:cclampi</permission>
     <permission>hudson.model.Item.Workspace:craftyguy</permission>
     <permission>hudson.model.Item.Workspace:dcbaker</permission>
     <permission>hudson.model.Item.Workspace:majanes</permission>
-    <permission>hudson.model.Item.Workspace:mirlan</permission>
-    <permission>hudson.model.Item.Workspace:ssimerix</permission>
     <permission>hudson.model.Item.Workspace:ssimmerx</permission>
-    <permission>hudson.model.Item.Workspace:wjurickx</permission>
+    <permission>hudson.model.Item.Workspace:vikrumox</permission>
+    <permission>hudson.model.Item.Workspace:wjurick</permission>
     <permission>hudson.model.Run.Delete:brownex</permission>
+    <permission>hudson.model.Run.Delete:cclampi</permission>
     <permission>hudson.model.Run.Delete:craftyguy</permission>
     <permission>hudson.model.Run.Delete:dcbaker</permission>
     <permission>hudson.model.Run.Delete:majanes</permission>
-    <permission>hudson.model.Run.Delete:mirlan</permission>
-    <permission>hudson.model.Run.Delete:ssimerix</permission>
     <permission>hudson.model.Run.Delete:ssimmerx</permission>
-    <permission>hudson.model.Run.Delete:wjurickx</permission>
+    <permission>hudson.model.Run.Delete:vikrumox</permission>
+    <permission>hudson.model.Run.Delete:wjurick</permission>
     <permission>hudson.model.Run.Update:brownex</permission>
+    <permission>hudson.model.Run.Update:cclampi</permission>
     <permission>hudson.model.Run.Update:craftyguy</permission>
     <permission>hudson.model.Run.Update:dcbaker</permission>
     <permission>hudson.model.Run.Update:majanes</permission>
-    <permission>hudson.model.Run.Update:mirlan</permission>
-    <permission>hudson.model.Run.Update:ssimerix</permission>
     <permission>hudson.model.Run.Update:ssimmerx</permission>
-    <permission>hudson.model.Run.Update:wjurickx</permission>
+    <permission>hudson.model.Run.Update:vikrumox</permission>
+    <permission>hudson.model.Run.Update:wjurick</permission>
     <permission>hudson.model.View.Configure:brownex</permission>
+    <permission>hudson.model.View.Configure:cclampi</permission>
     <permission>hudson.model.View.Configure:craftyguy</permission>
     <permission>hudson.model.View.Configure:dcbaker</permission>
     <permission>hudson.model.View.Configure:majanes</permission>
-    <permission>hudson.model.View.Configure:mirlan</permission>
-    <permission>hudson.model.View.Configure:ssimerix</permission>
     <permission>hudson.model.View.Configure:ssimmerx</permission>
-    <permission>hudson.model.View.Configure:wjurickx</permission>
+    <permission>hudson.model.View.Configure:vikrumox</permission>
+    <permission>hudson.model.View.Configure:wjurick</permission>
     <permission>hudson.model.View.Create:brownex</permission>
+    <permission>hudson.model.View.Create:cclampi</permission>
     <permission>hudson.model.View.Create:craftyguy</permission>
     <permission>hudson.model.View.Create:dcbaker</permission>
     <permission>hudson.model.View.Create:majanes</permission>
-    <permission>hudson.model.View.Create:mirlan</permission>
-    <permission>hudson.model.View.Create:ssimerix</permission>
     <permission>hudson.model.View.Create:ssimmerx</permission>
-    <permission>hudson.model.View.Create:wjurickx</permission>
+    <permission>hudson.model.View.Create:vikrumox</permission>
+    <permission>hudson.model.View.Create:wjurick</permission>
     <permission>hudson.model.View.Delete:brownex</permission>
+    <permission>hudson.model.View.Delete:cclampi</permission>
     <permission>hudson.model.View.Delete:craftyguy</permission>
     <permission>hudson.model.View.Delete:dcbaker</permission>
     <permission>hudson.model.View.Delete:majanes</permission>
-    <permission>hudson.model.View.Delete:mirlan</permission>
-    <permission>hudson.model.View.Delete:ssimerix</permission>
     <permission>hudson.model.View.Delete:ssimmerx</permission>
-    <permission>hudson.model.View.Delete:wjurickx</permission>
+    <permission>hudson.model.View.Delete:vikrumox</permission>
+    <permission>hudson.model.View.Delete:wjurick</permission>
     <permission>hudson.model.View.Read:brownex</permission>
+    <permission>hudson.model.View.Read:cclampi</permission>
     <permission>hudson.model.View.Read:craftyguy</permission>
     <permission>hudson.model.View.Read:dcbaker</permission>
     <permission>hudson.model.View.Read:majanes</permission>
-    <permission>hudson.model.View.Read:mirlan</permission>
-    <permission>hudson.model.View.Read:ssimerix</permission>
     <permission>hudson.model.View.Read:ssimmerx</permission>
-    <permission>hudson.model.View.Read:wjurickx</permission>
+    <permission>hudson.model.View.Read:vikrumox</permission>
+    <permission>hudson.model.View.Read:wjurick</permission>
     <permission>hudson.scm.SCM.Tag:brownex</permission>
+    <permission>hudson.scm.SCM.Tag:cclampi</permission>
     <permission>hudson.scm.SCM.Tag:craftyguy</permission>
     <permission>hudson.scm.SCM.Tag:dcbaker</permission>
     <permission>hudson.scm.SCM.Tag:majanes</permission>
-    <permission>hudson.scm.SCM.Tag:mirlan</permission>
-    <permission>hudson.scm.SCM.Tag:ssimerix</permission>
     <permission>hudson.scm.SCM.Tag:ssimmerx</permission>
-    <permission>hudson.scm.SCM.Tag:wjurickx</permission>
+    <permission>hudson.scm.SCM.Tag:vikrumox</permission>
+    <permission>hudson.scm.SCM.Tag:wjurick</permission>
   </authorizationStrategy>
   <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
     <disableSignup>false</disableSignup>
@@ -309,6 +309,7 @@
         <string>airlied</string>
         <string>anholt</string>
         <string>antognolli</string>
+        <string>antognolli_tgl</string>
         <string>antognolli_vulkan</string>
         <string>aphogat</string>
         <string>aphogat_vulkan</string>
@@ -317,6 +318,7 @@
         <string>chadv</string>
         <string>chrisf</string>
         <string>cmarcelo_gl</string>
+        <string>cmarcelo_tgl</string>
         <string>cmarcelo_vulkan</string>
         <string>curro</string>
         <string>curro_vulkan</string>
@@ -333,6 +335,7 @@
         <string>evelikov_17_3</string>
         <string>evelikov_18_0</string>
         <string>frohlich</string>
+        <string>global_logic</string>
         <string>grigorig</string>
         <string>hakzam_piglit</string>
         <string>hakzsam</string>
@@ -349,7 +352,11 @@
         <string>jekstrand_gl</string>
         <string>jekstrand_vulkan</string>
         <string>jljusten</string>
+        <string>jljusten_ats</string>
+        <string>jljusten_internal</string>
+        <string>jljusten_tgl</string>
         <string>jljusten_vulkan</string>
+        <string>jmcasanova</string>
         <string>kwg</string>
         <string>kwg_vulkan</string>
         <string>ldeks</string>
@@ -363,7 +370,9 @@
         <string>nchery_vulkan</string>
         <string>nroberts</string>
         <string>pnmanolova</string>
+        <string>Richard_Yunchao</string>
         <string>robclark</string>
+        <string>sagarghuge</string>
         <string>scott-ph_gl</string>
         <string>scott-ph_vulkan</string>
         <string>siglesias</string>
@@ -397,17 +406,19 @@
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
         <string>deqp-runtime_weekly</string>
         <string>mesa_17.3</string>
-        <string>mesa_17.3_daily</string>
         <string>mesa_18.0</string>
-        <string>mesa_18.0_daily</string>
         <string>mesa_18.1</string>
         <string>mesa_18.1_daily</string>
+        <string>mesa_18.2</string>
+        <string>mesa_18.2_staging</string>
         <string>mesa_custom</string>
         <string>mesa_master</string>
         <string>mesa_master_daily</string>
         <string>nir_shader_cache_test_daily</string>
         <string>nir_torture_daily</string>
         <string>shader_cache_test</string>
+        <string>simdrm_ats</string>
+        <string>simdrm_tgl</string>
         <string>vulkancts</string>
         <string>vulkancts_daily</string>
       </jobNames>

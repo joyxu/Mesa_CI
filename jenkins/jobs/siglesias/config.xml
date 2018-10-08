@@ -60,7 +60,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1529427398678</time>
+                    <time>1532530558902</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -77,7 +77,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -85,7 +85,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -149,7 +149,7 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --branch=siglesias --type=perch
           </logTexts>
           <EscalateStatus>false</EscalateStatus>
           <RunIfJobSuccessful>false</RunIfJobSuccessful>
-          <script>python -u repos/mesa_ci/scripts/trigger_sql_import.py</script>
+          <script>type=percheckin python -u repos/mesa_ci/scripts/trigger_sql_import.py</script>
         </hudson.plugins.postbuildtask.TaskProperties>
       </tasks>
     </hudson.plugins.postbuildtask.PostbuildTask>
