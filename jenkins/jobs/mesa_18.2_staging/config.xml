@@ -133,7 +133,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>python -u fetch_sources.py
-python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${type} --rebuild=${rebuild} --tar</command>
+python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${type} --rebuild=${rebuild}</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
@@ -224,7 +224,7 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${t
             <recipientProviders>
               <hudson.plugins.emailext.plugins.recipients.ListRecipientProvider/>
             </recipientProviders>
-            <attachmentsPattern>test_summary.txt,results/test/results.tgz,results/test/results.tar.xz,revisions.txt</attachmentsPattern>
+            <attachmentsPattern></attachmentsPattern>
             <attachBuildLog>false</attachBuildLog>
             <compressBuildLog>false</compressBuildLog>
             <replyTo>$PROJECT_DEFAULT_REPLYTO</replyTo>
