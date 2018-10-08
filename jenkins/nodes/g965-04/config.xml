@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
   <name>g965-04</name>
-  <description>(2A-1A)bay 2 red shelf top</description>
+  <description>bay 2, 2A-1A</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
@@ -14,6 +14,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>g965</label>
+  <label>g965_test</label>
   <nodeProperties/>
 </slave>

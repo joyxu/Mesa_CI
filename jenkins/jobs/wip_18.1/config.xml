@@ -70,7 +70,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1529427446599</time>
+                    <time>1533840800425</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -87,7 +87,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -95,7 +95,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -148,6 +148,21 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --branch=$JOB_NAME --type=perch
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
+    <hudson.plugins.postbuildtask.PostbuildTask plugin="postbuild-task@1.8">
+      <tasks>
+        <hudson.plugins.postbuildtask.TaskProperties>
+          <logTexts>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText>Checking out specified commit</logText>
+              <operator>OR</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+          </logTexts>
+          <EscalateStatus>false</EscalateStatus>
+          <RunIfJobSuccessful>false</RunIfJobSuccessful>
+          <script>python -u repos/mesa_ci/scripts/trigger_sql_import.py </script>
+        </hudson.plugins.postbuildtask.TaskProperties>
+      </tasks>
+    </hudson.plugins.postbuildtask.PostbuildTask>
     <hudson.plugins.summary__report.ACIPluginPublisher plugin="summary_report@1.15">
       <name>summary.xml</name>
       <shownOnProjectPage>false</shownOnProjectPage>

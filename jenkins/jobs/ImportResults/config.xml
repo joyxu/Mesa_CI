@@ -19,23 +19,8 @@
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>job</name>
-          <description>which job is being imported (eg mesa_master, antognolli_vulkan, etc)</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>build_num</name>
-          <description>build number of the jenkins job</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>build_name</name>
-          <description>display name for the job (eg &quot;#82-mesa=eb0d70cecd1-percheckin&quot;)</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>xml_files</name>
-          <description>full glob for test files (eg /mnt/jenkins/results/mesa_18.1/{hash_str}/daily/test/*.xml)</description>
+          <name>url</name>
+          <description></description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
@@ -80,7 +65,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1531778523943</time>
+                    <time>1537465850631</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -121,15 +106,15 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <name>origin</name>
-        <url>https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git</url>
+        <url>https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git</url>
       </hudson.plugins.git.UserRemoteConfig>
       <hudson.plugins.git.UserRemoteConfig>
         <name>craftyguy</name>
-        <url>https://gitlab.freedesktop.org/craftyguy/mesa_jenkins.git</url>
+        <url>https://gitlab.freedesktop.org/craftyguy/mesa_ci.git</url>
       </hudson.plugins.git.UserRemoteConfig>
       <hudson.plugins.git.UserRemoteConfig>
         <name>janesma</name>
-        <url>https://gitlab.freedesktop.org/majanes/mesa_jenkins.git</url>
+        <url>https://gitlab.freedesktop.org/majanes/mesa_ci.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -151,11 +136,17 @@
   <concurrentBuild>true</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>python -u fetch_sources.py ${revision}
-MESA_CI_RESULT_HOST_PATH=/tmp/mesa_ci_results MESA_CI_RESULT_HOST=mesa-ci-results.jf.intel.com MESA_CI_RESULT_HOST_PORT=2222 python2 -u repos/mesa_ci/scripts/export_results.py --job=${job} --build_num=${build_num} --build_name=&quot;${build_name}&quot; ${xml_files}</command>
+      <command>MESA_CI_RESULT_HOST_PATH=/tmp/mesa_ci_results MESA_CI_RESULT_HOST=mesa-ci-results.jf.intel.com MESA_CI_RESULT_HOST_PORT=2222 python2 -u scripts/export_results.py --internal --url=${url}
+MESA_CI_RESULT_HOST_PATH=/tmp/mesa_ci_results MESA_CI_RESULT_HOST=mesaci-results-external python2 -u scripts/export_results.py --url=${url}</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers/>
+  <publishers>
+    <hudson.tasks.Mailer plugin="mailer@1.20">
+      <recipients>clayton.a.craft@intel.com</recipients>
+      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>false</sendToIndividuals>
+    </hudson.tasks.Mailer>
+  </publishers>
   <buildWrappers>
     <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">

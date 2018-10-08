@@ -43,7 +43,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1529427341086</time>
+                    <time>1538747921127</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -60,7 +60,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -68,7 +68,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -103,7 +103,7 @@
   <authToken>noauth</authToken>
   <triggers>
     <hudson.triggers.TimerTrigger>
-      <spec>H 13 * * *</spec>
+      <spec>H H * * *</spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
