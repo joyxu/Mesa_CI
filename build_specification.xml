@@ -238,7 +238,7 @@
     <project name="test-single-arch">
       <prerequisite name="piglit-test" hardware="g33,ilk,g45,g965"/>
       <prerequisite name="piglit-test" hardware="snb,ivb,hsw,bdw,skl,kbl" shard="2"/>
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,bxt,glk,cfl" shard="4"/>
+      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,bxt,glk,cfl,icl" shard="4"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
@@ -251,7 +251,7 @@
     <!-- this is used for Nanley's percheckin build -->
     <project name="test-single-arch-nchery">
       <prerequisite name="piglit-full"/>
-      <prerequisite name="piglit-test" hardware="bsw,bxt"/>
+      <prerequisite name="piglit-test" hardware="bsw,bxt,icl"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
