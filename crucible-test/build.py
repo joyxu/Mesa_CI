@@ -187,6 +187,15 @@ class CrucibleTester(object):
             excludes += ["!func.miptree.s8-uint.aspect-stencil*",
                          "!stress.lots-of-surface-state.fs.static"]
 
+        if "icl" in o.hardware:
+            if "18.2" in bs.mesa_version():
+                # ICL not supported
+                return
+            excludes += ["!func.shader.packDouble2x32.basic",
+                         "!func.shader.unpackDouble2x32.basic",
+                         "!func.shader.packUint2x32.basic",
+                         "!func.shader.unpackUint2x32.basic"]
+
         bs.run_batch_command([ br + "/bin/crucible",
                                "run", "--fork", "--log-pids",
                                "--junit-xml=" + out_xml] + parallelism + include_tests + excludes,
