@@ -22,3 +22,5 @@ dEQP-VK.memory_model.message_passing.core11.u32.coherent.fence_fence.atomicwrite
 dEQP-VK.memory_model.write_after_read.core11.u32.coherent.fence_fence.atomicwrite
 dEQP-VK.binding_model.shader_access.secondary_cmd_buf
 dEQP-VK.renderpass.dedicated_allocation.attachment_allocation.shrink.47
+# runs out of memory
+dEQP-VK.pipeline.render_to_image.core.cube_array.huge.width_height_layers
