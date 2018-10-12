@@ -39,7 +39,7 @@ def main():
     if os.path.exists(os.path.join(sd, 'meson.build')):
         meson_build()
     else:
-        bs.build(MesaBuilder())
+        bs.build(DrmBuilder())
 
 
 if __name__ == '__main__':
