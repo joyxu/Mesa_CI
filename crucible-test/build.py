@@ -191,10 +191,8 @@ class CrucibleTester(object):
             if "18.2" in bs.mesa_version():
                 # ICL not supported
                 return
-            excludes += ["!func.shader.packDouble2x32.basic",
-                         "!func.shader.unpackDouble2x32.basic",
-                         "!func.shader.packUint2x32.basic",
-                         "!func.shader.unpackUint2x32.basic"]
+            excludes += [# gpu hang
+                         "!func.sync.semaphore-fd.no-sync"]
 
         bs.run_batch_command([ br + "/bin/crucible",
                                "run", "--fork", "--log-pids",
