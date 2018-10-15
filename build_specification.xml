@@ -139,6 +139,13 @@
       <prerequisite name="mesa" hardware="builder"/>
     </project>
 
+    <project name="piglit-test-iris"
+             bisect_hardware="kbl_iris"
+             bisect_arch="m64">
+      <prerequisite name="piglit" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
+    </project>
+
     <project name="piglit-test-internal"
              bisect_hardware="tgl"
              bisect_arch="m64">
@@ -240,10 +247,19 @@
       <prerequisite name="skqp-full"/>
     </project>
 
-<<<<<<< HEAD
     <project name="test-single-arch-internal">
         <prerequisite name="piglit-test-internal" hardware="tgl" shard="6" arch="m64"/>
     </project>
+
+    <project name="iris-full">
+      <prerequisite name="scons-buildtest" hardware="builder"/>
+      <prerequisite name="meson-buildtest" hardware="builder"/>
+      <prerequisite name="android-buildtest" hardware="builder"/>
+      <prerequisite name="mesa-buildtest" hardware="builder"/>
+      <prerequisite name="piglit-test-iris"
+                    hardware="kbl_iris"
+                    shard="2"/>
+    </project>      
 
     <project name="test-single-arch-tgl">
       <prerequisite name="piglit-test-internal" hardware="tgl" shard="6" arch="m64"/>
@@ -604,6 +620,19 @@
       <glslang/>
       <spirvheaders branch="801cca8104245c07e8cc53292da87ee1b76946fe"/>
       <spirvtools/>
+    </branch>
+
+    <!-- jenkins has a build with same name as branch -->
+    <branch name="iris" project="iris-full">
+      <!-- these repo tags exist soley to trigger a master build when
+           anything changes -->
+      <mesa branch="kwg/iris"/>
+      <piglit/>
+      <waffle/>
+      <drm/>
+      <deqp branch="aosp/master"/>
+      <cts branch="origin/opengl-es-cts-3.2.5"/>
+      <glcts branch="origin/opengl-cts-4.6.0"/>
     </branch>
 
     <branch name="jekstrand_gl" project="test-single-arch">
