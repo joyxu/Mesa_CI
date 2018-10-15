@@ -685,6 +685,10 @@
       <mesa branch="kwg/vkjenkins"/>
     </branch>
 
+    <branch name="kwg_iris" project="iris-full">
+      <mesa branch="kwg/ijenkins"/>
+    </branch>
+
     <branch name="idr" project="test-single-arch-vulkan">
       <mesa branch="idr/jenkins"/>
     </branch>
