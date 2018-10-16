@@ -52,6 +52,8 @@ class VulkanTestList(object):
         blacklist_file = self.pm.project_build_dir() + o.hardware[:3] + "_expectations/vk_unstable_tests.txt"
         blacklist = bs.DeqpTrie()
         blacklist.add_txt(blacklist_file)
+        all_tests.filter(blacklist)
+        blacklist = bs.DeqpTrie()
         global_blacklist_file = (self.pm.project_build_dir() + '/'
                                  + "blacklist.txt")
         blacklist.add_txt(global_blacklist_file)
