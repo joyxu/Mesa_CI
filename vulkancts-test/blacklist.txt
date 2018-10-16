@@ -1,2 +1,5 @@
 # jekstrand: these tests provide zero value
 dEQP-VK.api.info.device.extensions
+
+# runs out of memory
+dEQP-VK.pipeline.render_to_image.core.cube_array.huge.width_height_layers
