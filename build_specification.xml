@@ -442,7 +442,7 @@
     </crucible>
 
     <vulkancts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
-               branch="khronos/vulkan-cts-1.1.2">
+               branch="khronos/vulkan-cts-1.1.1">
       <remote name="khronos" repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"/>
     </vulkancts>
     
