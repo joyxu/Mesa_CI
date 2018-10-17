@@ -542,6 +542,22 @@
       <crucible branch="b863b51"/>
     </branch>
 
+    <branch name="mesa_18.2_staging_daily" project="all-test-vulkan">
+      <mesa branch="origin/staging/18.2-ci"/>
+      <piglit branch="bf8b9baebd"/>
+      <vulkancts branch="cfb8d0472"/>
+      <shaderc branch="30af9f9"/>
+      <cts branch="d75b9a1a88df8033c6b9cc4ea1439c82a336f895"/>
+      <glslang branch="e826286f"/>
+      <waffle branch="1ded029"/>
+      <spirvheaders branch="3a4dbdd"/>
+      <spirvtools branch="b6319c3a"/>
+      <glcts branch="50efa5694"/>
+      <drm branch="87fdbfb6"/>
+      <deqp branch="e98bb687e"/>
+      <crucible branch="b863b51"/>
+    </branch>
+
     <branch name="vulkancts" project="vulkancts-full">
       <mesa/>
       <vulkancts/>
