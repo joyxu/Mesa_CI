@@ -66,6 +66,15 @@ def meson_build():
         '-Dplatforms=x11,drm',
         '-Dtools=intel',
     ]
+    if (os.path.exists(bs.ProjectMap().project_source_dir() +
+                       "/src/gallium/drivers/iris")):
+        options = [
+            '-Dgallium-drivers=iris',
+            '-Ddri-drivers=',
+            '-Dvulkan-drivers=',
+            '-Dplatforms=x11,drm',
+            '-Dtools=intel',
+        ]
 
     cpp_args = None
     if global_opts.config == 'debug':
