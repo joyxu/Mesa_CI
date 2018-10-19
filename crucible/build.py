@@ -10,8 +10,7 @@ class CrucibleBuilder(bs.AutoBuilder):
         self._pm = bs.ProjectMap()
         glslc = "GLSLC=" + self._pm.build_root() + "/bin/glslc"
         mesa_lib = "MESA_LDFLAGS=-L" + self._pm.build_root() + "/lib"
-        mesa_include = "MESA_CPPFLAGS=-I" + os.path.abspath(self._pm.project_source_dir() + "/../mesa/include")
-        bs.AutoBuilder.__init__(self, configure_options=[glslc, mesa_lib, mesa_include])
+        bs.AutoBuilder.__init__(self, configure_options=[glslc, mesa_lib])
         self._build_dir = self._src_dir
 
     def build(self):
