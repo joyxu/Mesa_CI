@@ -32,13 +32,13 @@ def post_process_results(xml):
                 expected_status[test] = section
                 changed_commit[test] = commit
         for atest in t.findall(".//testcase"):
-            test_name = atest.attrib["name"]
+            test_name = atest.attrib["name"].lower()
             if atest.attrib["status"] == "lost":
                 atest.attrib["status"] = "crash"
             if test_name not in expected_status:
                 continue
 
-            expected = expected_status[atest.attrib["name"]]
+            expected = expected_status[test_name]
             test_is_stale = False
             for missing_commit in missing_revisions:
                 if missing_commit in changed_commit[test_name]:
