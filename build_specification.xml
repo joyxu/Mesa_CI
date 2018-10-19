@@ -167,7 +167,6 @@
 
     <project name="crucible">
       <prerequisite name="shaderc"/>
-      <prerequisite name="mesa"/>
     </project>
 
     <project name="crucible-test"
