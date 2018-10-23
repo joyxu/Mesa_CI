@@ -25,3 +25,4 @@ dEQP-GLES31.functional.tessellation.invariance.primitive_set.quads_fractional_ev
 #flaky
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
 dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.isampler2d
+dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.isampler2darray
