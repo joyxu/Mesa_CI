@@ -5,3 +5,4 @@ KHR-GL33.transform_feedback.query_geometry_interleaved_test
 # Fails intermittently
 GTF-GL33.gtf30.GL3Tests.transform_feedback.transform_feedback_geometry_primitive_types
 GTF-GL33.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
+GTF-GL33.gtf21.GL3Tests.texture_lod_bias.texture_lod_bias_clamp_4
