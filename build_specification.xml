@@ -448,7 +448,8 @@
       <remote name="khronos" repo="ssh://git@gitlab.khronos.org/spirv/spirv-tools.git"/>
     </spirvtools>
     
-    <spirvheaders repo="git://github.com/KhronosGroup/SPIRV-Headers">
+    <spirvheaders repo="git://github.com/KhronosGroup/SPIRV-Headers"
+                  branch="origin/master">
       <remote name="khronos" repo="git@gitlab.khronos.org:spirv/SPIRV-Headers.git"/>
     </spirvheaders>
     
