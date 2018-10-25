@@ -498,7 +498,7 @@
       <glcts branch="9f8092de1"/>
       <drm branch="d4b4c514"/>
       <deqp branch="1dfe5d68b"/>
-      <crucible branch="2bc742a"/>
+      <crucible branch="2cb700c"/>
     </branch>
 
     <branch name="mesa_18.2" project="all-test-vulkan">
@@ -513,7 +513,7 @@
       <glcts branch="50efa5694"/>
       <drm branch="87fdbfb6"/>
       <deqp branch="e98bb687e"/>
-      <crucible branch="b863b51"/>
+      <crucible branch="2cb700c"/>
     </branch>
 
     <branch name="mesa_18.2_staging" project="all-test-vulkan">
@@ -528,7 +528,7 @@
       <glcts branch="50efa5694"/>
       <drm branch="87fdbfb6"/>
       <deqp branch="e98bb687e"/>
-      <crucible branch="b863b51"/>
+      <crucible branch="2cb700c"/>
     </branch>
 
     <branch name="mesa_18.2_staging_daily" project="all-test-vulkan">
@@ -543,7 +543,7 @@
       <glcts branch="50efa5694"/>
       <drm branch="87fdbfb6"/>
       <deqp branch="e98bb687e"/>
-      <crucible branch="b863b51"/>
+      <crucible branch="2cb700c"/>
     </branch>
 
     <branch name="vulkancts" project="vulkancts-full">
@@ -697,7 +697,7 @@
       <deqp branch="03c395c6"/>
       <vulkancts branch="0e3c7aa3"/>
       <cts branch="ff5e186d"/>
-      <crucible branch="3f26244"/>
+      <crucible branch="2cb700c"/>
       <glslang branch="53863a3a"/>
     </branch>
 
@@ -707,7 +707,7 @@
       <deqp branch="e32e1433"/>
       <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
-      <crucible branch="40a9f10"/>
+      <crucible branch="2cb700c"/>
       <glslang branch="9cfc1551"/>
     </branch>
 
@@ -717,7 +717,7 @@
       <deqp branch="a73c1d93"/>
       <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
-      <crucible branch="d5916d1"/>
+      <crucible branch="2cb700c"/>
       <glslang branch="82ead04c"/>
     </branch>
     
@@ -727,7 +727,7 @@
       <deqp branch="03c395c6"/>
       <vulkancts branch="0e3c7aa3"/>
       <cts branch="ff5e186d"/>
-      <crucible branch="3f26244"/>
+      <crucible branch="2cb700c"/>
       <glslang branch="53863a3a"/>
     </branch>
 
@@ -737,7 +737,7 @@
       <deqp branch="e32e1433"/>
       <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
-      <crucible branch="40a9f10"/>
+      <crucible branch="2cb700c"/>
       <glslang branch="9cfc1551"/>
     </branch>
 
@@ -747,7 +747,7 @@
       <deqp branch="a73c1d93"/>
       <vulkancts branch="bfa6f73d2"/>
       <cts branch="ff5e186d"/>
-      <crucible branch="d5916d1"/>
+      <crucible branch="2cb700c"/>
       <glslang branch="82ead04c"/>
     </branch>
 
@@ -762,7 +762,7 @@
       <glcts branch="9f8092de1"/>
       <drm branch="d4b4c514"/>
       <deqp branch="1dfe5d68b"/>
-      <crucible branch="2bc742a"/>
+      <crucible branch="2cb700c"/>
     </branch>
 
     <!-- These branches exists to separate build results from
@@ -943,7 +943,7 @@
       <glcts branch="9f8092de1"/>
       <drm branch="d4b4c514"/>
       <deqp branch="1dfe5d68b"/>
-      <crucible branch="2bc742a"/>
+      <crucible branch="2cb700c"/>
     </branch>
 
   </branches>
