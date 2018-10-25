@@ -562,7 +562,7 @@
       <crucible/>
       <shaderc/>
       <glslang/>
-      <spirvheaders/>
+      <spirvheaders branch="801cca8104245c07e8cc53292da87ee1b76946fe"/>
       <spirvtools/>
     </branch>
 
