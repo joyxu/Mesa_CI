@@ -249,16 +249,13 @@
     <!-- this is used for Nanley's percheckin build -->
     <project name="test-single-arch-nchery">
       <prerequisite name="piglit-full"/>
-      <prerequisite name="piglit-test" hardware="bsw,bxt,icl"/>
+      <prerequisite name="piglit-test" hardware="icl"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
-      <prerequisite name="deqp-test" hardware="bsw,bxt" shard="5"/>
-      <prerequisite name="glcts-full" hardware="bsw,bxt" shard="5"/>
-      <prerequisite name="glescts-full" hardware="bsw,bxt"/>
     </project>
 
     <project name="test-single-arch-anholt">
