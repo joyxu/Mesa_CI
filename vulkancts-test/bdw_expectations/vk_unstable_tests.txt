@@ -20,3 +20,5 @@ dEQP-VK.pipeline.render_to_image.core.2d_array.huge
 dEQP-VK.pipeline.render_to_image.core.3d.huge
 # runs out of memory
 dEQP-VK.pipeline.render_to_image.core.cube_array.huge.width_height_layers
+# flaky
+dEQP-VK.subgroups.basic.subgroupbarrier_graphic
