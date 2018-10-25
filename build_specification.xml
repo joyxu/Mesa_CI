@@ -561,6 +561,8 @@
       <crucible/>
       <shaderc/>
       <glslang/>
+      <spirvheaders/>
+      <spirvtools/>
     </branch>
 
     <branch name="jekstrand_gl" project="test-single-arch">
