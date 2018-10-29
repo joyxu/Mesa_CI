@@ -62,19 +62,33 @@ import build_support as bs
 
 def main():
     parser = argparse.ArgumentParser(description="checks out branches and commits")
-    parser.add_argument('--branch', type=str, default="mesa_master",
+    parser.add_argument('--branch', type=str, default="",
                         help="The branch to base the checkout on. (default: %(default)s)")
+    parser.add_argument('--project', type=str, default="",
+                        help="Limit commits to repos required by the project. (default: none)")
     parser.add_argument('commits', metavar='commits', type=str, nargs='*',
                         help='commits to check out, in repo=sha format')
     args = parser.parse_args()
 
     repos = bs.RepoSet()
+    limit_to_repos = {}
+    for c in args.commits:
+        limit_to_repos[c.split("=")[0]] = c.split("=")[1]
+    if args.project:
+        deps = bs.DependencyGraph(args.project, bs.Options(args = [sys.argv[0]]))
+        for repo in deps.all_sources():
+            if repo not in limit_to_repos:
+                limit_to_repos[repo] = None
     repos.clone()
+    spec = bs.BuildSpecification()
+    if args.branch:
+        branch = spec.branch_specification(args.branch)
+        branch.set_revisions(limit_to_repos)
     for i in range(5):
-        repos.fetch()
+        repos.fetch(limit_to_repos)
         try:
             print("Checking out specified commit (try {}/5)".format(i+1))
-            bs.BuildSpecification().checkout(args.branch, args.commits)
+            repos.checkout(limit_to_repos)
         except git.GitCommandError:
             print("Unable to checkout specified commit, retrying in 5s..")
             time.sleep(5)
