@@ -84,14 +84,14 @@ def main():
     if args.branch:
         branch = spec.branch_specification(args.branch)
         branch.set_revisions(limit_to_repos)
-    for i in range(5):
+    for i in range(15):
         repos.fetch(limit_to_repos)
         try:
-            print("Checking out specified commit (try {}/5)".format(i+1))
+            print("Checking out specified commit (try {}/15)".format(i+1))
             repos.checkout(limit_to_repos)
         except git.GitCommandError:
-            print("Unable to checkout specified commit, retrying in 5s..")
-            time.sleep(5)
+            print("Unable to checkout specified commit, retrying in 15s..")
+            time.sleep(15)
         else:
             return
     raise Exception("ERROR: Unable to checkout specified commit.")
