@@ -348,7 +348,7 @@
       <remote name="scott-ph" repo="git://github.com/scott-d-phillips/mesa"/>
       <remote name="yogesh-marathe" repo="git://github.com/yogesh-marathe/external-mesa"/>
       <remote name="anholt" repo="git://github.com/anholt/mesa"/>
-      <remote name="eric_engestrom" repo="git://github.com/1ace/mesa"/>
+      <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
       <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa.git"/>
       <remote name="cmarcelo" repo="https://gitlab.freedesktop.org/cmarcelo/mesa.git"/>
       <remote name="sagarghuge" repo="https://gitlab.freedesktop.org/sagarghuge/mesa.git"/>
