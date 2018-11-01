@@ -71,19 +71,33 @@ def main():
     args = parser.parse_args()
 
     repos = bs.RepoSet()
+    repos.clone()
+    spec = bs.BuildSpecification()
+    
     limit_to_repos = {}
     for c in args.commits:
         limit_to_repos[c.split("=")[0]] = c.split("=")[1]
-    if args.project:
-        deps = bs.DependencyGraph(args.project, bs.Options(args = [sys.argv[0]]))
+    project = args.project
+    branch = args.branch
+    branchspec = None
+    if branch:
+        branchspec = spec.branch_specification(branch)
+
+    if not project and branchspec:
+        # we can infer the project from the --branch parameter
+        project = branchspec.project
+        
+    if project:
+        # only fetch sources that are required for the project
+        deps = bs.DependencyGraph(project, bs.Options(args = [sys.argv[0]]))
         for repo in deps.all_sources():
             if repo not in limit_to_repos:
                 limit_to_repos[repo] = None
-    repos.clone()
-    spec = bs.BuildSpecification()
-    if args.branch:
-        branch = spec.branch_specification(args.branch)
-        branch.set_revisions(limit_to_repos)
+
+    if branchspec:
+        # use the branch specification to configure any sources that remain indeterminate
+        branchspec.set_revisions(limit_to_repos)
+
     for i in range(15):
         repos.fetch(limit_to_repos)
         try:
