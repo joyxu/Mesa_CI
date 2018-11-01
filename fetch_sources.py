@@ -72,7 +72,7 @@ def main():
 
     repos = bs.RepoSet()
     repos.clone()
-    spec = bs.BuildSpecification()
+    spec = bs.BuildSpecification(repo_set=repos)
     
     limit_to_repos = {}
     for c in args.commits:
@@ -89,7 +89,9 @@ def main():
         
     if project:
         # only fetch sources that are required for the project
-        deps = bs.DependencyGraph(project, bs.Options(args = [sys.argv[0]]))
+        deps = bs.DependencyGraph(project,
+                                  bs.Options(args = [sys.argv[0]]),
+                                  repo_set=repos)
         for repo in deps.all_sources():
             if repo not in limit_to_repos:
                 limit_to_repos[repo] = None
