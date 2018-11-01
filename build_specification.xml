@@ -939,6 +939,19 @@
       <crucible branch="2cb700c"/>
     </branch>
 
+   <branch name="wip_18.3" project="test-single-arch-vulkan">
+      <mesa branch="evelikov/wip/18.3"/>
+      <piglit branch="d013d30472"/>
+      <vulkancts branch="13604dae3"/>
+      <cts branch="89051d617"/>
+      <glslang branch="a440fbb0"/>
+      <waffle branch="1ded029"/>
+      <spirvheaders branch="a2c529b"/>
+      <glcts branch="f75a5cccd"/>
+      <drm branch="b3dec018"/>
+      <deqp branch="6d7b02c40"/>
+      <crucible branch="3575f3f"/>
+    </branch>
   </branches>
 
 </build_specification>
