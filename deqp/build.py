@@ -66,8 +66,29 @@ class DeqpBuilder(bs.CMakeBuilder):
                               dest])
         bs.Export().export()
 
-bs.build(DeqpBuilder(extra_definitions=["-DDEQP_TARGET=x11_egl",
-                                        "-DPYTHON_EXECUTABLE=/usr/bin/python2",
-                                        "-DDEQP_GLES1_LIBRARIES=/tmp/build_root/"
-                                        + bs.Options().arch + "/lib/libGL.so"]))
+def get_external_revisions(revisions_dict=None):
+    if revisions_dict == None:
+        revisions_dict = {}
+    src_dir = bs.ProjectMap().project_source_dir("deqp")
+    save_path = sys.path
+    sys.path = [os.path.abspath(os.path.normpath(s)) for s in sys.path]
+    sys.path = [gooddir for gooddir in sys.path if "deqp" not in gooddir]
+    sys.path = [src_dir + "/external/"] + sys.path
+    fetch_sources = importlib.import_module("fetch_sources", "repos.deqp.external")
+    for package in fetch_sources.PACKAGES:
+        if not isinstance(package, fetch_sources.GitRepo):
+            continue
+        project = package.baseDir
+        if project in revisions_dict:
+            revisions_dict[project] = [revisions_dict[project], package.revision]
+        else:
+            revisions_dict[project] = package.revision
+    sys.path= save_path
+    return revisions_dict
+
+if __name__ == '__main__':
+    bs.build(DeqpBuilder(extra_definitions=["-DDEQP_TARGET=x11_egl",
+                                            "-DPYTHON_EXECUTABLE=/usr/bin/python2",
+                                            "-DDEQP_GLES1_LIBRARIES=/tmp/build_root/"
+                                            + bs.Options().arch + "/lib/libGL.so"]))
 
