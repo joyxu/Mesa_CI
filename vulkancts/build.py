@@ -113,5 +113,25 @@ class VulkanCtsBuilder(object):
     def test(self):
         pass
 
+def get_external_revisions(revisions_dict=None):
+    if revisions_dict == None:
+        revisions_dict = {}
+    src_dir = bs.ProjectMap().project_source_dir("vulkancts")
+    save_path = sys.path
+    sys.path = [os.path.abspath(os.path.normpath(s)) for s in sys.path]
+    sys.path = [gooddir for gooddir in sys.path if "vulkancts" not in gooddir]
+    sys.path = [src_dir + "/external/"] + sys.path
+    fetch_sources = importlib.import_module("fetch_sources", "repos.vulkancts.external")
+    for package in fetch_sources.PACKAGES:
+        if not isinstance(package, fetch_sources.GitRepo):
+            continue
+        project = package.baseDir
+        if project in revisions_dict:
+            revisions_dict[project] = [revisions_dict[project], package.revision]
+        else:
+            revisions_dict[project] = package.revision
+    sys.path= save_path
+    return revisions_dict
+
 if __name__ == "__main__":
     bs.build(VulkanCtsBuilder())
