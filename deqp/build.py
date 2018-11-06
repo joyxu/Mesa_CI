@@ -4,6 +4,10 @@ import sys, os, importlib, git
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
 import build_support as bs
 
+def get_external_revisions(revisions_dict=None):
+    return bs.deqp_external_revisions(project="deqp",
+                                      revisions_dict=revisions_dict)
+
 class DeqpBuilder(bs.CMakeBuilder):
     def __init__(self, extra_definitions=None, compiler="gcc"):
         bs.CMakeBuilder.__init__(self,
@@ -13,49 +17,9 @@ class DeqpBuilder(bs.CMakeBuilder):
         self._pm = bs.ProjectMap()
 
     def build(self):
-        has_vulkan = os.path.exists(self._src_dir + "/external/spirv-tools")
-        if has_vulkan:
-            spirvtools = self._src_dir + "/external/spirv-tools/src"
-            if not os.path.islink(spirvtools):
-                bs.rmtree(spirvtools)
-            if not os.path.exists(spirvtools):
-                os.symlink("../../../spirvtools", spirvtools)
-            glslang = self._src_dir + "/external/glslang/src"
-            if not os.path.islink(glslang):
-                bs.rmtree(glslang)
-            if not os.path.exists(glslang):
-                os.symlink("../../../glslang", glslang)
-            spirvheaders_dir = self._src_dir + "/external/spirv-headers"
-            if not os.path.exists(spirvheaders_dir):
-                os.makedirs(spirvheaders_dir)
-            spirvheaders = spirvheaders_dir + "/src"
-            if not os.path.islink(spirvheaders):
-                bs.rmtree(spirvheaders)
-            if not os.path.exists(spirvheaders):
-                os.symlink("../../../spirvheaders", spirvheaders)
-
-            # change spirv-tools and glslang to use the commits specified
-            # in the vulkancts sources
-            sys.path = [os.path.abspath(os.path.normpath(s)) for s in sys.path]
-            sys.path = [gooddir for gooddir in sys.path if "deqp" not in gooddir]
-            sys.path.append(self._src_dir + "/external/")
-            fetch_sources = importlib.import_module("fetch_sources", ".")
-            for package in fetch_sources.PACKAGES:
-                try:
-                    if not isinstance(package, fetch_sources.GitRepo):
-                        continue
-                except:
-                    continue
-                repo_path = self._src_dir + "/external/" + package.baseDir + "/src/"
-                print "Cleaning: " + repo_path + " : " + package.revision
-                savedir = os.getcwd()
-                os.chdir(repo_path)
-                bs.run_batch_command(["git", "clean", "-xfd"])
-                bs.run_batch_command(["git", "reset", "--hard", "HEAD"])
-                os.chdir(savedir)
-                print "Checking out: " + repo_path + " : " + package.revision
-                repo = git.Repo(repo_path)
-                repo.git.checkout(package.revision, force=True)
+        # set the externals to the required commits
+        revisions = get_external_revisions()
+        bs.deqp_checkout_externals(project="deqp", revisions=revisions)
 
         bs.CMakeBuilder.build(self)
         dest = self._pm.build_root() + "/opt/deqp/"
@@ -65,26 +29,6 @@ class DeqpBuilder(bs.CMakeBuilder):
                               self._pm.project_source_dir() + "/build_" + self._o.arch + "/modules",
                               dest])
         bs.Export().export()
-
-def get_external_revisions(revisions_dict=None):
-    if revisions_dict == None:
-        revisions_dict = {}
-    src_dir = bs.ProjectMap().project_source_dir("deqp")
-    save_path = sys.path
-    sys.path = [os.path.abspath(os.path.normpath(s)) for s in sys.path]
-    sys.path = [gooddir for gooddir in sys.path if "deqp" not in gooddir]
-    sys.path = [src_dir + "/external/"] + sys.path
-    fetch_sources = importlib.import_module("fetch_sources", "repos.deqp.external")
-    for package in fetch_sources.PACKAGES:
-        if not isinstance(package, fetch_sources.GitRepo):
-            continue
-        project = package.baseDir
-        if project in revisions_dict:
-            revisions_dict[project] = [revisions_dict[project], package.revision]
-        else:
-            revisions_dict[project] = package.revision
-    sys.path= save_path
-    return revisions_dict
 
 if __name__ == '__main__':
     bs.build(DeqpBuilder(extra_definitions=["-DDEQP_TARGET=x11_egl",
