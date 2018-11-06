@@ -7,6 +7,10 @@ import importlib
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
 import build_support as bs
 
+def get_external_revisions(revisions_dict=None):
+    return bs.deqp_external_revisions(project="vulkancts",
+                                      revisions_dict=revisions_dict)
+
 class VulkanCtsBuilder(object):
     def __init__(self):
         self._pm = bs.ProjectMap()
@@ -29,45 +33,9 @@ class VulkanCtsBuilder(object):
         except:
             print "WARN: failed to apply prebuilt patch"
         os.chdir(save_dir)
-        spirvtools = self._src_dir + "/external/spirv-tools/src"
-        if not os.path.islink(spirvtools):
-            bs.rmtree(spirvtools)
-        if not os.path.exists(spirvtools):
-            os.symlink("../../../spirvtools", spirvtools)
-        spirvheaders_dir = self._src_dir + "/external/spirv-headers"
-        if not os.path.exists(spirvheaders_dir):
-            os.makedirs(spirvheaders_dir)
-        spirvheaders = spirvheaders_dir + "/src"
-        if not os.path.islink(spirvheaders):
-            bs.rmtree(spirvheaders)
-        if not os.path.exists(spirvheaders):
-            os.symlink("../../../spirvheaders", spirvheaders)
-        glslang = self._src_dir + "/external/glslang/src"
-        if not os.path.islink(glslang):
-            bs.rmtree(glslang)
-        if not os.path.exists(glslang):
-            os.symlink("../../../glslang", glslang)
+        revisions = get_external_revisions()
+        bs.deqp_checkout_externals(project="vulkancts", revisions=revisions)
 
-        # change spirv-tools and glslang to use the commits specified
-        # in the vulkancts sources
-        sys.path = [os.path.abspath(os.path.normpath(s)) for s in sys.path]
-        sys.path = [gooddir for gooddir in sys.path if "vulkancts" not in gooddir]
-        sys.path.append(self._src_dir + "/external/")
-        fetch_sources = importlib.import_module("fetch_sources", ".")
-        for package in fetch_sources.PACKAGES:
-            if not isinstance(package, fetch_sources.GitRepo):
-                continue
-            repo_path = self._src_dir + "/external/" + package.baseDir + "/src/"
-            print "Cleaning: " + repo_path + " : " + package.revision
-            savedir = os.getcwd()
-            os.chdir(repo_path)
-            bs.run_batch_command(["git", "clean", "-xfd"])
-            bs.run_batch_command(["git", "reset", "--hard", "HEAD"])
-            os.chdir(savedir)
-            print "Checking out: " + repo_path + " : " + package.revision
-            repo = git.Repo(repo_path)
-            repo.git.checkout(package.revision, force=True)
-        
         btype = "Release"
         # Vulkan cts is twice as slow for RelDeb builds, which impacts
         # the CI throughput.  For this reason, we unconditionally
@@ -113,25 +81,6 @@ class VulkanCtsBuilder(object):
     def test(self):
         pass
 
-def get_external_revisions(revisions_dict=None):
-    if revisions_dict == None:
-        revisions_dict = {}
-    src_dir = bs.ProjectMap().project_source_dir("vulkancts")
-    save_path = sys.path
-    sys.path = [os.path.abspath(os.path.normpath(s)) for s in sys.path]
-    sys.path = [gooddir for gooddir in sys.path if "vulkancts" not in gooddir]
-    sys.path = [src_dir + "/external/"] + sys.path
-    fetch_sources = importlib.import_module("fetch_sources", "repos.vulkancts.external")
-    for package in fetch_sources.PACKAGES:
-        if not isinstance(package, fetch_sources.GitRepo):
-            continue
-        project = package.baseDir
-        if project in revisions_dict:
-            revisions_dict[project] = [revisions_dict[project], package.revision]
-        else:
-            revisions_dict[project] = package.revision
-    sys.path= save_path
-    return revisions_dict
 
 if __name__ == "__main__":
     bs.build(VulkanCtsBuilder())
