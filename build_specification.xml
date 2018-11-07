@@ -928,7 +928,7 @@
     </branch>
 
    <branch name="wip_18.3" project="test-single-arch-vulkan">
-      <mesa branch="evelikov/wip/18.3"/>
+      <mesa branch="origin/staging/18.3"/>
       <piglit branch="d013d30472"/>
       <vulkancts branch="13604dae3"/>
       <cts branch="89051d617"/>
