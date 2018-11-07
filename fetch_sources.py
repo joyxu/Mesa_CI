@@ -26,11 +26,11 @@ repositories.
 
 from __future__ import print_function
 import argparse
+import git
+import importlib
 import os
 import sys
 import time
-
-import git
 
 build_support_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "repos", "mesa_ci"))
 
@@ -59,7 +59,6 @@ if not os.path.exists(build_support_dir):
 sys.path.insert(0, build_support_dir)
 import build_support as bs
 
-
 def main():
     parser = argparse.ArgumentParser(description="checks out branches and commits")
     parser.add_argument('--branch', type=str, default="",
@@ -86,32 +85,59 @@ def main():
     if not project and branchspec:
         # we can infer the project from the --branch parameter
         project = branchspec.project
-        
+
+    deps = []
     if project:
         # only fetch sources that are required for the project
         deps = bs.DependencyGraph(project,
                                   bs.Options(args = [sys.argv[0]]),
-                                  repo_set=repos)
-        for repo in deps.all_sources():
-            if repo not in limit_to_repos:
-                limit_to_repos[repo] = None
+                                  repo_set=repos).all_sources()
+    for repo in deps:
+        if repo not in limit_to_repos:
+            limit_to_repos[repo] = None
 
     if branchspec:
         # use the branch specification to configure any sources that remain indeterminate
         branchspec.set_revisions(limit_to_repos)
 
+    fail = True
     for i in range(15):
         repos.fetch(limit_to_repos)
         try:
             print("Checking out specified commit (try {}/15)".format(i+1))
             repos.checkout(limit_to_repos)
+            fail = False
         except git.GitCommandError:
             print("Unable to checkout specified commit, retrying in 15s..")
             time.sleep(15)
         else:
-            return
-    raise Exception("ERROR: Unable to checkout specified commit.")
+            break
+    if fail:
+        raise Exception("ERROR: Unable to checkout specified commit.")
 
+    # fetch (but do not check out) all revisions that are required by
+    # externals in the target projects.  They need to be in the cached
+    # repo so that the component can check out the required commit
+    # within its source tree.
+    s_root = bs.ProjectMap().source_root()
+    sys.path.append(s_root)
+    external_revisions = {}
+    for project in deps:
+        # check for get_external_revisions in each build.py
+        build_dir = s_root + "/" + project
+        if not os.path.exists(build_dir + "/build.py"):
+            continue
+        try:
+            build_module = importlib.import_module(project + ".build")
+            build_module.get_external_revisions(external_revisions)
+        except:
+            continue
+    for project, tags in external_revisions.items():
+        if type(tags) != type([]):
+            repos.fetch({project : tags})
+            continue
+        for tag in tags:
+            repos.fetch({project : tag})
 
 if __name__ == '__main__':
     main()
