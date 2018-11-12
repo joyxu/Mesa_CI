@@ -7,6 +7,17 @@ import sys
 sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
 import build_support as bs
 
+
+class LongTimeout:
+    def __init__(self, options=None):
+        self._options = options
+        if not options:
+            self._options = bs.Options()
+
+    def GetDuration(self):
+        return 45
+
+
 class NoTest(bs.AutoBuilder):
     def __init__(self, configure_options):
         bs.AutoBuilder.__init__(self,
@@ -43,10 +54,10 @@ def main():
 
     save_dir = os.getcwd()
     try:
-        bs.build(builder)
+        bs.build(builder, time_limit=LongTimeout())
     except subprocess.CalledProcessError as e:
         # build may have taken us to a place where ProjectMap doesn't work
-        os.chdir(save_dir)  
+        os.chdir(save_dir)
         bs.Export().create_failing_test("mesa-buildtest", str(e))
 
 if __name__ == '__main__':
