@@ -513,6 +513,7 @@
       <deqp branch="aosp/master"/>
       <cts branch="origin/opengl-es-cts-3.2.5"/>
       <glcts branch="origin/opengl-cts-4.6.0"/>
+      <skqp branch="origin/skqp/release"/>
 
       <!-- the trigger attribute is used specify a branch that should
            be used, but prevent builds from triggering if the branch
