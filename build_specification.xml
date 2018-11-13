@@ -184,7 +184,12 @@
              bisect_hardware="skl,bxt,kbl,glk,cfl,icl"
              bisect_arch="m64">
       <prerequisite name="waffle" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
       <prerequisite name="skqp" hardware="builder"/>
+    </project>
+
+    <project name="skqp-full">
+      <prerequisite name="skqp-test" hardware="skl,bxt,kbl,glk,cfl,icl" arch="m64"/>
     </project>
 
     <project name="vulkancts-test" src_dir="vulkancts"
@@ -230,6 +235,7 @@
       <prerequisite name="android-buildtest" hardware="builder"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
+      <prerequisite name="skqp-full"/>
     </project>
 
     <project name="test-single-arch-tgl">
@@ -256,6 +262,7 @@
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
+      <prerequisite name="skqp-full"/>
     </project>
 
     <!-- this is used for Nanley's percheckin build -->
