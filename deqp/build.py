@@ -19,7 +19,10 @@ class DeqpBuilder(bs.CMakeBuilder):
     def build(self):
         # set the externals to the required commits
         revisions = get_external_revisions()
-        bs.deqp_checkout_externals(project="deqp", revisions=revisions)
+        external_dir = (self._pm.project_source_dir('deqp')
+                        + "/external/{}/src")
+        bs.checkout_externals(project='deqp', revisions=revisions,
+                              external_dir_format=external_dir)
 
         bs.CMakeBuilder.build(self)
         dest = self._pm.build_root() + "/opt/deqp/"
