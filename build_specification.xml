@@ -175,6 +175,15 @@
       <prerequisite name="waffle" hardware="builder"/>
     </project>
 
+    <project name="skqp" />
+
+    <project name="skqp-test"
+             bisect_hardware="skl,bxt,kbl,glk,cfl,icl"
+             bisect_arch="m64">
+      <prerequisite name="waffle" hardware="builder"/>
+      <prerequisite name="skqp" hardware="builder"/>
+    </project>
+
     <project name="vulkancts-test" src_dir="vulkancts"
              bisect_hardware="bdw,skl,bsw,kbl,hsw,bxt,glk,cfl"
              bisect_arch="m64">
@@ -450,6 +459,32 @@
       <remote name="craftyguy" repo="git://github.intel.com/cacraft/sim-drm.git"/>
     </sim-drm>
 
+    <skqp repo="https://skia.googlesource.com/skia"
+      branch="origin/skqp/release">
+    </skqp>
+
+    <!-- The following are dependencies for SKQP -->
+    <google_buildtools repo="https://chromium.googlesource.com/chromium/buildtools.git" />
+    <google_common repo="https://skia.googlesource.com/common.git" />
+    <angle2 repo="https://chromium.googlesource.com/angle/angle.git" />
+    <dng_sdk repo="https://android.googlesource.com/platform/external/dng_sdk.git" />
+    <expat repo="https://android.googlesource.com/platform/external/expat.git" />
+    <freetype repo="https://skia.googlesource.com/third_party/freetype2.git" />
+    <harfbuzz repo="https://skia.googlesource.com/third_party/harfbuzz.git" />
+    <icu repo="https://chromium.googlesource.com/chromium/deps/icu.git" />
+    <imgui repo="https://skia.googlesource.com/external/github.com/ocornut/imgui.git" />
+    <jsoncpp repo="https://chromium.googlesource.com/external/github.com/open-source-parsers/jsoncpp.git" />
+    <libjpeg-turbo repo="https://skia.googlesource.com/external/github.com/libjpeg-turbo/libjpeg-turbo.git" />
+    <libpng repo="https://skia.googlesource.com/third_party/libpng.git" />
+    <libwebp repo="https://chromium.googlesource.com/webm/libwebp.git" />
+    <lua repo="https://skia.googlesource.com/external/github.com/lua/lua.git" />
+    <microhttpd repo="https://android.googlesource.com/platform/external/libmicrohttpd" />
+    <piex repo="https://android.googlesource.com/platform/external/piex.git" />
+    <sdl repo="https://skia.googlesource.com/third_party/sdl" />
+    <sfntly repo="https://chromium.googlesource.com/external/github.com/googlei18n/sfntly.git" />
+    <skcms repo="https://skia.googlesource.com/skcms" />
+    <zlib repo="https://chromium.googlesource.com/chromium/src/third_party/zlib" />
+    <skqp_assets repo="https://gitlab.freedesktop.org/Mesa_CI/skqp_assets.git" />
   </repos>
 
 
