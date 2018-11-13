@@ -34,7 +34,10 @@ class VulkanCtsBuilder(object):
             print "WARN: failed to apply prebuilt patch"
         os.chdir(save_dir)
         revisions = get_external_revisions()
-        bs.deqp_checkout_externals(project="vulkancts", revisions=revisions)
+        external_dir = (self._pm.project_source_dir('vulkancts')
+                        + "/external/{}/src")
+        bs.checkout_externals(project='vulkancts', revisions=revisions,
+                              external_dir_format=external_dir)
 
         btype = "Release"
         # Vulkan cts is twice as slow for RelDeb builds, which impacts
