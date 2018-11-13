@@ -65,7 +65,7 @@
          bisect_project.py in scripts. -->
     <project name="deqp-test" src_dir="deqp"
              bisect_hardware="ilk,g33,g45,g965,bdw,skl,hsw,ivb,snb,byt,bsw,bxt,kbl,glk,cfl,icl"
-             bisect_arch="m32,m64">
+             bisect_arch="m64">
       <!-- deqp-test will be specificed for a test platform (eg skl),
            but the hardware for its prerequisites should be a builder
            (since they are all compilation projects) -->
