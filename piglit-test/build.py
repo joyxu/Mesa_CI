@@ -61,5 +61,5 @@ if bs.Options().hardware == 'icl':
                                       '+GL_ARB_gpu_shader_int64 '
                                       '+GL_ARB_shader_ballot')
 
-bs.build(bs.PiglitTester(_suite="quick", env=env, timeout=piglit_timeout,
+bs.build(bs.PiglitTester(env=env, timeout=piglit_timeout,
                          piglit_test=piglit_test), time_limit=SlowTimeout())
