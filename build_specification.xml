@@ -123,9 +123,12 @@
                     hardware="snb,ivb,hsw,bdw,skl,kbl"/>
     </project>
 
+    <project name="vkrunner"/>
+      
     <project name="piglit">
       <prerequisite name="waffle" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
+      <prerequisite name="vkrunner" hardware="builder"/>
     </project>
 
     <project name="piglit-test"
@@ -504,6 +507,7 @@
       <piglit/>
       <waffle/>
       <drm/>
+      <vkrunner/>
       <deqp branch="aosp/master"/>
       <cts branch="origin/opengl-es-cts-3.2.5"/>
       <glcts branch="origin/opengl-cts-4.6.0"/>
