@@ -430,8 +430,7 @@
            branch="origin/opengl-cts-4.6.0">
     </glcts>
 
-    <gtest repo="https://android.googlesource.com/platform/external/googletest"
-           branch="origin/release-1.8.0"/>
+    <gtest repo="https://android.googlesource.com/platform/external/googletest"/>
     <glslang repo="git://github.com/KhronosGroup/glslang.git">
       <remote name="glsl" repo="git@gitlab.khronos.org:GLSL/glslang.git"/>
     </glslang>
