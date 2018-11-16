@@ -233,11 +233,11 @@
     </project>
 
     <project name="test-single-arch-tgl">
-        <prerequisite name="piglit-test-internal" hardware="tgl" shard="6" arch="m64"/>
+      <prerequisite name="piglit-test-internal" hardware="tgl" shard="6" arch="m64"/>
     </project>
     
     <project name="test-single-arch-ats">
-        <prerequisite name="piglit-test-internal" hardware="ats" shard="6" arch="m64"/>
+      <prerequisite name="piglit-test-internal" hardware="ats" shard="6" arch="m64"/>
     </project>
 
     <project name="test-single-arch-vulkan">
@@ -616,10 +616,12 @@
 
     <branch name="jljusten_ats" project="test-single-arch-ats">
       <mesa branch="internal/jljusten/jenkins/ats"/>
+      <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
 
     <branch name="jljusten_tgl" project="test-single-arch-tgl">
       <mesa branch="internal/jljusten/jenkins/tgl"/>
+      <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
 
     <branch name="kwg" project="test-single-arch">
@@ -632,6 +634,7 @@
 
     <branch name="antognolli_tgl" project="test-single-arch-tgl">
       <mesa branch="internal/rantogno/tgl/jenkins"/>
+      <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
 
     <branch name="antognolli_vulkan" project="vulkancts-full">
@@ -900,7 +903,8 @@
     </branch>
 
     <branch name="cmarcelo_tgl" project="test-single-arch-tgl">
-        <mesa branch="internal/cmarcelo/jenkins/tgl"/>
+      <mesa branch="internal/cmarcelo/jenkins/tgl"/>
+      <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
 
     <branch name="sagarghuge" project="test-single-arch-vulkan">
@@ -949,10 +953,12 @@
 
     <branch name="simdrm_ats" project="test-single-arch-ats">
       <mesa branch="internal/jljusten/wip/ats"/>
+      <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
 
     <branch name="simdrm_tgl" project="test-single-arch-tgl">
       <mesa branch="internal/jljusten/wip/tgl"/>
+      <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
 
    <branch name="wip_18.1" project="test-single-arch-vulkan">
