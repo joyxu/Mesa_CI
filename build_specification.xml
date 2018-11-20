@@ -459,7 +459,7 @@
 
     <mesa_ci_internal repo="ssh://git@gitlab.devtools.intel.com:29418/mesa_ci/mesa_ci_internal.git"/>
 
-    <sim-drm repo="git://github.intel.com/Mesa/sim-drm.git">
+    <sim-drm repo="https://gitlab.devtools.intel.com/mesa/sim-drm.git">
       <remote name="craftyguy" repo="git://github.intel.com/cacraft/sim-drm.git"/>
     </sim-drm>
 
