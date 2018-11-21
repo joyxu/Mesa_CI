@@ -189,7 +189,8 @@
     </project>
 
     <project name="skqp-full">
-      <prerequisite name="skqp-test" hardware="skl,bxt,kbl,glk,cfl,icl" arch="m64"/>
+      <prerequisite name="skqp-test" hardware="skl,kbl" arch="m64"/>
+      <prerequisite only_for_type="daily" name="skqp-test" hardware="bxt,glk,cfl,icl" arch="m64"/>
     </project>
 
     <project name="vulkancts-test" src_dir="vulkancts"
