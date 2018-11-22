@@ -377,6 +377,7 @@
       <remote name="robclark" repo="git://github.com/freedreno/mesa"/>
       <remote name="Richard_Yunchao" repo="https://gitlab.freedesktop.org/Richard_Yunchao/mesa.git"/>
       <remote name="global_logic" repo="https://gitlab.freedesktop.org/GL/mesa.git"/>
+      <remote name="karolherbst" repo="https://github.com/karolherbst/mesa.git"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
@@ -957,6 +958,10 @@
 
     <branch name="global_logic" project="test-single-arch-vulkan">
       <mesa branch="global_logic/i965_ci"/>
+    </branch>
+
+    <branch name="karolherbst" project="test-single-arch-vulkan">
+      <mesa branch="karolherbst/jenkins"/>
     </branch>
 
     <branch name="simdrm_ats" project="test-single-arch-ats">
