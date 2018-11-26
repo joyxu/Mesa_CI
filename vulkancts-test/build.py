@@ -10,7 +10,7 @@ class SlowTimeout:
         pass
 
     def GetDuration(self):
-        return 500
+        return 60
 
 class VulkanTestList(object):
     def __init__(self):
