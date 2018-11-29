@@ -27,6 +27,14 @@
 
 mkdir -p /etc/salt/minion.d/
 
+# Disable caching of installed deb packages and remove existing cache
+cat > /etc/apt/apt.conf.d/01nocache << EOF
+Dir::Cache "";
+Dir::Cache::archives "";
+EOF
+
+rm -rf /var/cache/apt/archives
+
 # Add the master to point at to the machine
 cat > /etc/salt/minion.d/master.conf << EOF
 master: 192.168.1.1
