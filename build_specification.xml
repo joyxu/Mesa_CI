@@ -380,6 +380,7 @@
       <remote name="Richard_Yunchao" repo="https://gitlab.freedesktop.org/Richard_Yunchao/mesa.git"/>
       <remote name="global_logic" repo="https://gitlab.freedesktop.org/GL/mesa.git"/>
       <remote name="karolherbst" repo="https://github.com/karolherbst/mesa.git"/>
+      <remote name="cwabbott" repo="https://gitlab.freedesktop.org/cwabbott0/mesa.git"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
@@ -959,6 +960,10 @@
 
     <branch name="karolherbst" project="test-single-arch-vulkan">
       <mesa branch="karolherbst/jenkins"/>
+    </branch>
+
+    <branch name="cwabbott" project="test-single-arch-vulkan">
+      <mesa branch="cwabbott/intel-jenkins"/>
     </branch>
 
     <branch name="simdrm_tgl" project="test-single-arch-tgl">
