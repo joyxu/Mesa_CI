@@ -92,6 +92,11 @@ def main():
         deps = bs.DependencyGraph(project,
                                   bs.Options(args = [sys.argv[0]]),
                                   repo_set=repos).all_sources()
+        repo_names = limit_to_repos.keys()
+        for repo in repo_names:
+            if repo not in deps:
+                del limit_to_repos[repo]
+        
     for repo in deps:
         if repo not in limit_to_repos:
             limit_to_repos[repo] = None
