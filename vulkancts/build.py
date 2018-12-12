@@ -27,6 +27,11 @@ class VulkanCtsBuilder(object):
                                   self._pm.project_build_dir("vulkancts") + "/0001-Fix-PNG.patch"])
         except:
             print "WARN: failed to apply PNG patch"
+        try:
+            bs.run_batch_command(["patch", "-p1", "external/vulkancts/modules/vulkan/vktTestPackage.cpp",
+                                  self._pm.project_build_dir("vulkancts") + "/0002-Attempt-to-load-prebuilt-spirv-from-cache.patch"])
+        except:
+            print "WARN: failed to apply prebuilt patch"
         os.chdir(save_dir)
         revisions = get_external_revisions()
         external_dir = (self._pm.project_source_dir('vulkancts')
@@ -53,6 +58,15 @@ class VulkanCtsBuilder(object):
             os.makedirs(self._build_dir)
         os.chdir(self._build_dir)
         bs.run_batch_command(cmd)
+        bs.run_batch_command(["ninja", "vk-build-programs"])
+        save_dir = os.getcwd()
+        os.chdir("external/vulkancts/modules/vulkan")
+        out_dir = os.path.join(self._src_dir, "external", "vulkancts", "data", "vulkan", "prebuilt")
+        print "Pre-building spir-v binaries: vk-build-programs -d " + out_dir
+        bs.run_batch_command(["./vk-build-programs", "-d", out_dir],
+                             quiet=True,
+                             streamedOutput=False)
+        os.chdir(save_dir)
         bs.run_batch_command(["ninja"])
         bin_dir = self._build_root + "/opt/deqp/"
         if not os.path.exists(bin_dir):
