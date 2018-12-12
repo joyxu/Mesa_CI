@@ -381,6 +381,8 @@
       <remote name="global_logic" repo="https://gitlab.freedesktop.org/GL/mesa.git"/>
       <remote name="karolherbst" repo="https://github.com/karolherbst/mesa.git"/>
       <remote name="cwabbott" repo="https://gitlab.freedesktop.org/cwabbott0/mesa.git"/>
+      <!-- Erik Faye-Lund erik.faye-lund@collabora.com -->
+      <remote name="kusma" repo="https://gitlab.freedesktop.org/kusma/mesa"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
@@ -965,6 +967,11 @@
     <branch name="cwabbott" project="test-single-arch-vulkan">
       <mesa branch="cwabbott/intel-jenkins"/>
     </branch>
+    
+    <branch name="kusma" project="test-single-arch-vulkan">
+      <mesa branch="kusma/intel-ci"/>
+    </branch>
+    
 
     <branch name="simdrm_tgl" project="test-single-arch-tgl">
       <mesa branch="internal/jljusten/wip/tgl"/>
