@@ -383,6 +383,8 @@
       <remote name="cwabbott" repo="https://gitlab.freedesktop.org/cwabbott0/mesa.git"/>
       <!-- Erik Faye-Lund erik.faye-lund@collabora.com -->
       <remote name="kusma" repo="https://gitlab.freedesktop.org/kusma/mesa"/>
+      <!-- Gert Wollny gw.fossdev@gmail.com -->
+      <remote name= "gerddie" repo="https://gitlab.freedesktop.org/gerddie"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
@@ -972,6 +974,9 @@
       <mesa branch="kusma/intel-ci"/>
     </branch>
     
+    <branch name="gerddie" project="test-single-arch-vulkan">
+      <mesa branch="gerddie/intel-ci"/>
+    </branch>
 
     <branch name="simdrm_tgl" project="test-single-arch-tgl">
       <mesa branch="internal/jljusten/wip/tgl"/>
