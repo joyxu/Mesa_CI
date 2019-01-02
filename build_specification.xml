@@ -377,7 +377,6 @@
       <remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>
       <remote name="airlied" repo="git://people.freedesktop.org/~airlied/mesa"/>
       <remote name="robclark" repo="git://github.com/freedreno/mesa"/>
-      <remote name="Richard_Yunchao" repo="https://gitlab.freedesktop.org/Richard_Yunchao/mesa.git"/>
       <remote name="global_logic" repo="https://gitlab.freedesktop.org/GL/mesa.git"/>
       <remote name="karolherbst" repo="https://github.com/karolherbst/mesa.git"/>
       <remote name="cwabbott" repo="https://gitlab.freedesktop.org/cwabbott0/mesa.git"/>
@@ -948,10 +947,6 @@
 
     <branch name="robclark" project="test-single-arch-vulkan">
       <mesa branch="robclark/for_jenkins"/>
-    </branch>
-
-    <branch name="Richard_Yunchao" project="test-single-arch-vulkan">
-      <mesa branch="Richard_Yunchao/for_yunchao_CI"/>
     </branch>
 
     <branch name="global_logic" project="test-single-arch-vulkan">
