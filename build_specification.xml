@@ -202,7 +202,8 @@
     </project>
 
     <project name="vulkancts-full">
-      <prerequisite name="vulkancts-test" hardware="bdw,hsw,skl,kbl" shard="4"/>
+      <prerequisite name="vulkancts-test" hardware="skl,kbl" shard="4"/>
+      <prerequisite name="vulkancts-test" hardware="hsw,bdw" shard="6"/>
       <prerequisite name="vulkancts-test"
                     only_for_type="daily"
                     hardware="bdw,hsw,skl,kbl"
