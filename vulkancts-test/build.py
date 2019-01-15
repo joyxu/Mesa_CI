@@ -7,10 +7,13 @@ import build_support as bs
 
 class SlowTimeout:
     def __init__(self):
-        pass
+        self.timeout = 60
+        hardware = bs.Options().hardware
+        if hardware in ["bxt", "glk", "bsw"]:
+            self.timeout = 90
 
     def GetDuration(self):
-        return 60
+        return self.timeout
 
 class VulkanTestList(object):
     def __init__(self):
