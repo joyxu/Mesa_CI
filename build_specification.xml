@@ -74,6 +74,14 @@
       <prerequisite name="mesa" hardware="builder"/>
     </project>
 
+    <project name="deqp-test-iris" src_dir="deqp"
+             bisect_hardware="kbl_iris"
+             bisect_arch="m64">
+      <prerequisite name="deqp" hardware="builder"/>
+      <prerequisite name="waffle" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
+    </project>
+
     <project name="deqp-runtime"
 	    bisect_hardware="bdw,skl,bxt,kbl"
 	    bisect_arch="m32,m64">
@@ -259,6 +267,9 @@
       <prerequisite name="piglit-test-iris"
                     hardware="kbl_iris"
                     shard="2"/>
+      <prerequisite name="deqp-test-iris"
+                    hardware="kbl_iris"
+                    shard="5"/>
     </project>      
 
     <project name="test-single-arch-tgl">
