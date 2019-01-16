@@ -1,0 +1,34 @@
+# commented, because iris is flaky on a wider set of shader_image_load_store tests
+# KHR-GL46.shader_image_load_store.basic-api-bind
+# KHR-GL46.compute_shader.resource-texture
+
+KHR-GL46.vertex_attrib_64bit.limits_test
+# https://bugs.freedesktop.org/show_bug.cgi?id=104395
+GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
+
+# flaky on iris
+GTF-GL46.gtf40.GL3Tests.transform_feedback2
+GTF-GL46.gtf40.GL3Tests.transform_feedback3
+GTF-GL46.gtf42.GL3Tests.transform_feedback_instanced
+KHR-GL46.compute_shader
+KHR-GL46.cull_distance.coverage
+KHR-GL46.draw_indirect_43
+KHR-GL46.gpu_shader_fp64.fp64.max_uniform_components
+KHR-GL46.limits.max_tess_control_atomic_counters
+KHR-GL46.pipeline_statistics_query_tests_ARB.functional_compute_shader_invocations
+KHR-GL46.robust_buffer_access_behavior.vertex_buffer_objects
+KHR-GL46.shader_atomic_counter_ops_tests
+KHR-GL46.shader_atomic_counters
+KHR-GL46.shader_draw_parameters_tests
+KHR-GL46.shader_image_load_store
+KHR-GL46.shader_image_size.advanced-nonMS-tes-float
+KHR-GL46.shader_image_size.advanced-nonMS-tes-int
+KHR-GL46.shader_image_size.advanced-nonMS-tes-uint
+KHR-GL46.shader_image_size.basic-nonMS-tes-float
+KHR-GL46.shader_image_size.basic-nonMS-tes-int
+KHR-GL46.shader_image_size.basic-nonMS-tes-uint
+KHR-GL46.shader_storage_buffer_object.advanced-write-tessellation
+KHR-GL46.shading_language_420pack
+KHR-GL46.tessellation_shader
+KHR-GL46.texture_gather
+KHR-GL46.texture_view
