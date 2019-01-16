@@ -44,7 +44,8 @@ def main():
                          "--enable-gles1",
                          "--enable-gles2",
                          "--with-gallium-drivers=svga,swrast,r300,r600,radeonsi,nouveau",
-                         "--with-vulkan-drivers=intel,radeon"]
+                         "--with-vulkan-drivers=intel,radeon",
+                         "--enable-autotools"]
 
     if global_opts.config == 'debug':
         options.append('--enable-debug')
