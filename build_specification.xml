@@ -110,6 +110,14 @@
       <prerequisite name="waffle" hardware="builder"/>
     </project>
 
+    <project name="glcts-test-iris"
+             bisect_hardware="kbl_iris"
+             bisect_arch="m64">
+      <prerequisite name="glcts" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
+      <prerequisite name="waffle" hardware="builder"/>
+    </project>
+
     <project name="glescts-test"
              bisect_hardware="g33,g45,ilk,g965,bxt,byt,bsw,skl,bdw,hsw,snb,ivb,kbl,glk,cfl"
              bisect_arch="m64">
@@ -270,6 +278,7 @@
       <prerequisite name="deqp-test-iris"
                     hardware="kbl_iris"
                     shard="5"/>
+      <prerequisite name="glcts-test-iris" hardware="kbl_iris"/>
     </project>      
 
     <project name="test-single-arch-tgl">
