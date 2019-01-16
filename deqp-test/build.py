@@ -20,20 +20,7 @@ class DeqpLister(object):
         self.binary = binary
         self.o = bs.Options()
         self.pm = bs.ProjectMap()
-        self.blacklist_txt = None
         self.version = None
-        bd = self.pm.project_build_dir()
-        hw_prefix = self.o.hardware[:3]
-        if self.o.hardware == "g965":
-            hw_prefix = self.o.hardware
-        if "gles2" in self.binary:
-            self.blacklist_txt = bd + hw_prefix + "_expectations/gles2_unstable_tests.txt"
-        if "gles3" in self.binary:
-            self.blacklist_txt = bd + hw_prefix + "_expectations/gles3_unstable_tests.txt"
-        if "gles31" in self.binary:
-            self.blacklist_txt = bd + hw_prefix + "_expectations/gles31_unstable_tests.txt"
-        if "egl" in self.binary:
-            self.blacklist_txt = bd + hw_prefix + "_expectations/egl_unstable_tests.txt"
 
     def tests(self, env):
         # don't execute tests that are part of the other suite
@@ -65,28 +52,20 @@ class DeqpLister(object):
         return all_tests
 
     def blacklist(self, all_tests):
-        if self.blacklist_txt:
-            blacklist = bs.DeqpTrie()
-            blacklist.add_txt(self.blacklist_txt)
-            all_tests.filter(blacklist)
+        bd = self.pm.project_build_dir()
+        # to match "skl" instead of "sklgt2"
+        hw_prefix = self.o.hardware[:3]
+        for a_blacklist in [self.o.hardware + "_blacklist.txt",
+                            hw_prefix + "_blacklist.txt",
+                            "blacklist.txt"]:
+            blacklist_txt = bd + a_blacklist
+            if blacklist_txt:
+                blacklist_trie = bs.DeqpTrie()
+                blacklist_trie.add_txt(blacklist_txt)
+                all_tests.filter(blacklist_trie)
+            
         if not self.version:
             self.version = bs.mesa_version()
-        unsupported = []
-        if "daily" != self.o.type and not self.o.retest_path:
-            # these tests triple the run-time
-            unsupported.append("dEQP-GLES31.functional.copy_image")
-        if "13.0" in self.version:
-            # Tapani's egl fixes not merged into 13.0 branch
-            unsupported += ["dEQP-EGL.functional.create_context_ext",
-                            "dEQP-EGL.functional.reusable_sync",
-                            "dEQP-EGL.functional.thread_cleanup"]
-            if "hsw" in self.o.hardware:
-                unsupported += ["dEQP-GLES31.functional.debug.negative_coverage"]
-            if "kbl" in self.o.hardware:
-                unsupported += ["dEQP-EGL.functional.image.api.create_image_gles2_tex2d_luminance",
-                                "dEQP-EGL.functional.image.api.create_image_gles2_tex2d_luminance_alpha"]
-            if "bdw" in self.o.hardware:
-                unsupported += ["dEQP-EGL.functional.buffer_age.no_preserve"]
 
         # filter immediately, since any unsupported tests under these
         # top-level categories will prevent them from being filtered.
@@ -99,19 +78,9 @@ class DeqpLister(object):
         if "egl" not in self.binary:
             all_tests.filter(["dEQP-EGL"])
 
-        if "17.0" in self.version:
-            if "byt" in self.o.hardware or "ivb" in self.o.hardware:
-                unsupported += ["dEQP-GLES31.functional.debug.negative_coverage"]
-
-        unsupported += ["dEQP-EGL.functional.robustness.reset_context.shaders.infinite_loop",
-                        "dEQP-EGL.functional.render.multi_thread.gles3.rgb888_window",
-                        "dEQP-EGL.functional.render.multi_thread.gles3.rgba8888_window",
-                        "dEQP-EGL.functional.render.multi_thread.gles2_gles3.rgba8888_window",
-                        "dEQP-EGL.functional.robustness.negative_context.invalid_robust_shared_context_creation",
-                        # flaky
-                        "dEQP-GLES31.functional.debug.negative_coverage.get_error.compute.exceed_atomic_counters_limit"]
-
-        all_tests.filter(unsupported)
+        if "daily" != self.o.type and not self.o.retest_path:
+            # these tests triple the run-time
+            all_tests.filter(["dEQP-GLES31.functional.copy_image"])
         
 class DeqpBuilder(object):
     def __init__(self):
@@ -144,12 +113,6 @@ class DeqpBuilder(object):
             self.env["MESA_GLES_VERSION_OVERRIDE"] = "3.1"
         t = bs.DeqpTester()
         all_results = bs.DeqpTrie()
-
-        if not self.version:
-            self.version = bs.mesa_version()
-        if "glk" in self.o.hardware:
-            if "13.0" in self.version or "17.0" in self.version:
-                return
 
         modules = ["gles2", "egl"]
         if self.supports_gles_3():
