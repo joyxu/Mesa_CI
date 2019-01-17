@@ -12,7 +12,9 @@ GTF-GL46.gtf40.GL3Tests.transform_feedback3
 GTF-GL46.gtf42.GL3Tests.transform_feedback_instanced
 KHR-GL46.compute_shader
 KHR-GL46.cull_distance.coverage
+KHR-GL46.draw_indirect.basic-drawArrays-vertexIds
 KHR-GL46.draw_indirect_43
+KHR-GL46.explicit_uniform_location
 KHR-GL46.gpu_shader_fp64.fp64.max_uniform_components
 KHR-GL46.limits.max_tess_control_atomic_counters
 KHR-GL46.pipeline_statistics_query_tests_ARB.functional_compute_shader_invocations
@@ -20,13 +22,9 @@ KHR-GL46.robust_buffer_access_behavior
 KHR-GL46.shader_atomic_counter_ops_tests
 KHR-GL46.shader_atomic_counters
 KHR-GL46.shader_draw_parameters_tests
+KHR-GL46.shader_group_vote.all_invocations
 KHR-GL46.shader_image_load_store
-KHR-GL46.shader_image_size.advanced-nonMS-tes-float
-KHR-GL46.shader_image_size.advanced-nonMS-tes-int
-KHR-GL46.shader_image_size.advanced-nonMS-tes-uint
-KHR-GL46.shader_image_size.basic-nonMS-tes-float
-KHR-GL46.shader_image_size.basic-nonMS-tes-int
-KHR-GL46.shader_image_size.basic-nonMS-tes-uint
+KHR-GL46.shader_image_size
 KHR-GL46.shader_storage_buffer_object
 KHR-GL46.shading_language_420pack
 KHR-GL46.tessellation_shader
