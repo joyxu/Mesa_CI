@@ -420,7 +420,7 @@
       <!-- Erik Faye-Lund erik.faye-lund@collabora.com -->
       <remote name="kusma" repo="https://gitlab.freedesktop.org/kusma/mesa"/>
       <!-- Gert Wollny gw.fossdev@gmail.com -->
-      <remote name= "gerddie" repo="https://gitlab.freedesktop.org/gerddie"/>
+      <remote name= "gerddie" repo="https://gitlab.freedesktop.org/gerddie/mesa"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
