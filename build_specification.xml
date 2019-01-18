@@ -268,10 +268,6 @@
     </project>
 
     <project name="iris-full">
-      <prerequisite name="scons-buildtest" hardware="builder"/>
-      <prerequisite name="meson-buildtest" hardware="builder"/>
-      <prerequisite name="android-buildtest" hardware="builder"/>
-      <prerequisite name="mesa-buildtest" hardware="builder"/>
       <prerequisite name="piglit-test-iris"
                     hardware="kbl_iris"
                     shard="2"/>
