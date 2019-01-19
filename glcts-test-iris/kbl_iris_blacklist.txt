@@ -21,7 +21,7 @@ KHR-GL46.pipeline_statistics_query_tests_ARB.functional_compute_shader_invocatio
 KHR-GL46.robust_buffer_access_behavior
 KHR-GL46.shader_atomic_counter_ops_tests
 KHR-GL46.shader_atomic_counters
-KHR-GL46.shader_bitfield_operation.frexp
+KHR-GL46.shader_bitfield_operation
 KHR-GL46.shader_draw_parameters_tests
 KHR-GL46.shader_group_vote.all_invocations
 KHR-GL46.shader_image_load_store
