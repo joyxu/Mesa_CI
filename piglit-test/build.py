@@ -24,6 +24,8 @@ class SlowTimeout:
             return 120
         if self.hardware == "g33":
             return 120
+        if self.hardware == "icl":
+            return 120
         if self.hardware == "g965":
             return 50
         if self.hardware in fs.platform_configs:
