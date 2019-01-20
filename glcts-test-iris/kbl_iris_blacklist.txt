@@ -11,6 +11,7 @@ GTF-GL46.gtf40.GL3Tests.transform_feedback2
 GTF-GL46.gtf40.GL3Tests.transform_feedback3
 GTF-GL46.gtf42.GL3Tests.transform_feedback_instanced
 KHR-GL46.compute_shader
+KHR-GL46.constant_expressions
 KHR-GL46.cull_distance.coverage
 KHR-GL46.draw_indirect.basic-drawArrays-vertexIds
 KHR-GL46.draw_indirect_43
@@ -21,6 +22,7 @@ KHR-GL46.pipeline_statistics_query_tests_ARB.functional_compute_shader_invocatio
 KHR-GL46.robust_buffer_access_behavior
 KHR-GL46.shader_atomic_counter_ops_tests
 KHR-GL46.shader_atomic_counters
+KHR-GL46.shader_ballot_tests.ShaderBallotAvailability
 KHR-GL46.shader_bitfield_operation
 KHR-GL46.shader_draw_parameters_tests
 KHR-GL46.shader_group_vote.all_invocations
