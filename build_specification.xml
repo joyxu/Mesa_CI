@@ -186,7 +186,7 @@
       <!-- do not test 32 bit for limited platforms -->
       <prerequisite only_for_type="daily" name="piglit-test" hardware="cfl" arch="m64"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="icl" arch="m64"
-                    shard="2"/>
+                    shard="4"/>
     </project>
     
     <project name="crucible">
