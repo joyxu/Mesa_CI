@@ -35,7 +35,7 @@
     <!-- each project has a matching subdirectory with a build.py
          which automates the build.  -->
 
-    <project name="android-buildtest"/>
+    <project name="android-buildtest" src_dir="mesa"/>
 
     <project name="sim-drm"/>
 
@@ -357,7 +357,7 @@
 
     <project name="reboot-slave"/>
 
-    <project name="scons-buildtest"/>
+    <project name="scons-buildtest" src_dir="mesa"/>
 
     <project name="clean-workspace"/>
     <!-- TODO: find a way to variablize this list of hardware -->
