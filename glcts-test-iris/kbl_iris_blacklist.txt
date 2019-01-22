@@ -10,6 +10,7 @@ GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
 GTF-GL46.gtf40.GL3Tests.transform_feedback2
 GTF-GL46.gtf40.GL3Tests.transform_feedback3
 GTF-GL46.gtf42.GL3Tests.transform_feedback_instanced
+KHR-GL46.buffer_storage.map_persistent_flush
 KHR-GL46.compute_shader
 KHR-GL46.constant_expressions
 KHR-GL46.cull_distance.coverage
@@ -22,7 +23,7 @@ KHR-GL46.pipeline_statistics_query_tests_ARB.functional_compute_shader_invocatio
 KHR-GL46.robust_buffer_access_behavior
 KHR-GL46.shader_atomic_counter_ops_tests
 KHR-GL46.shader_atomic_counters
-KHR-GL46.shader_ballot_tests.ShaderBallotAvailability
+KHR-GL46.shader_ballot_tests
 KHR-GL46.shader_bitfield_operation
 KHR-GL46.shader_draw_parameters_tests
 KHR-GL46.shader_group_vote.all_invocations
@@ -30,6 +31,7 @@ KHR-GL46.shader_image_load_store
 KHR-GL46.shader_image_size
 KHR-GL46.shader_storage_buffer_object
 KHR-GL46.shading_language_420pack
+KHR-GL46.stencil_texturing.functional
 KHR-GL46.tessellation_shader
 KHR-GL46.texture_gather
 KHR-GL46.texture_view
