@@ -164,7 +164,8 @@
 
     <project name="piglit-test-internal"
              bisect_hardware="tgl"
-             bisect_arch="m64">
+             bisect_arch="m64"
+             src_dir="mesa_ci_internal">
       <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
