@@ -156,7 +156,7 @@
     </project>
 
     <project name="piglit-test-iris"
-             bisect_hardware="kbl_iris"
+             bisect_hardware="glk_iris"
              bisect_arch="m64">
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -270,12 +270,8 @@
 
     <project name="iris-full">
       <prerequisite name="piglit-test-iris"
-                    hardware="kbl_iris"
-                    shard="2"/>
-      <prerequisite name="deqp-test-iris"
-                    hardware="kbl_iris"
-                    shard="5"/>
-      <prerequisite name="glcts-test-iris" hardware="kbl_iris"/>
+                    hardware="glk_iris"
+                    shard="12"/>
     </project>      
 
     <project name="test-single-arch-tgl">
