@@ -10,8 +10,10 @@ GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
 GTF-GL46.gtf40.GL3Tests.transform_feedback2
 GTF-GL46.gtf40.GL3Tests.transform_feedback3
 GTF-GL46.gtf42.GL3Tests.transform_feedback_instanced
+KHR-GL46.robust_buffer_access_behavior.vertex_buffer_objects
 KHR-GL46.shader_atomic_counters.basic-usage-tes
 KHR-GL46.shader_image_load_store
 KHR-GL46.shader_image_size
+KHR-GL46.shader_storage_buffer_object.advanced-write-tessellation
 KHR-GL46.tessellation_shader
 KHR-GL46.texture_cube_map_array
