@@ -39,6 +39,8 @@
 
     <project name="sim-drm"/>
 
+    <project name="fulsim"/>
+
     <project name="drm"/>
 
     <project name="mesa">
@@ -166,6 +168,7 @@
              bisect_hardware="tgl"
              bisect_arch="m64"
              src_dir="mesa_ci_internal">
+      <prerequisite name="fulsim" arch="m64"/>
       <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -543,6 +546,7 @@
     <skcms repo="https://skia.googlesource.com/skcms" />
     <zlib repo="https://chromium.googlesource.com/chromium/src/third_party/zlib" />
     <skqp_assets repo="https://gitlab.freedesktop.org/Mesa_CI/skqp_assets.git" />
+
   </repos>
 
 
