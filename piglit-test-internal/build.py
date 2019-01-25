@@ -14,7 +14,7 @@ class SlowTimeout:
 
     def GetDuration(self):
         # Simulated platforms need more time
-        if self.hardware in fs.platform_configs:
+        if self.hardware in fs.platform_keyfile:
             return 120
         # all other test suites finish in 10 minutes or less.
         # TODO: put back to 25 when curro's regression is fixed
@@ -33,8 +33,8 @@ piglit_test = ""
 if o.piglit_test:
     piglit_test = o.piglit_test
 
-piglit_timeout=None
-if bs.Options().hardware in fs.platform_configs:
+piglit_timeout = None
+if bs.Options().hardware in fs.platform_keyfile:
     if fs.is_supported():
         piglit_timeout = 150
     else:
@@ -47,6 +47,12 @@ excludes = None
 if bs.Options().hardware == "tgl":
     excludes = ["dvec3", "dvec4", "dmat"]
 
-bs.build(bs.PiglitTester(_suite="gpu", env=fs.get_env(), timeout=piglit_timeout,
-                         piglit_test=piglit_test, jobs=jobs, excludes=excludes),
-         time_limit=SlowTimeout())
+# sim-drm.py is invoked by bs.Fulsim.get_env, and requires build_root to be
+# populated. To work around this, import build_root now and call bs.build with
+# import_build=False so that the build_root is only imported once
+bs.Export().import_build_root()
+
+bs.build(bs.PiglitTester(_suite="gpu", env=fs.get_env(),
+                         timeout=piglit_timeout, piglit_test=piglit_test,
+                         jobs=jobs, excludes=excludes),
+         time_limit=SlowTimeout(), import_build=False)
