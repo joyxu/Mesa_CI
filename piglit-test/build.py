@@ -54,6 +54,10 @@ if bs.Options().hardware in fs.platform_configs:
         print("Unable to run simulated hardware in this environment!")
         sys.exit(1)
 
+excludes = None
+if bs.Options().hardware == "icl":
+    excludes = ["dvec3", "dvec4", "dmat"]
+        
 env = fs.get_env()
 
 # Override extensions on icl to enable additional tests
@@ -64,4 +68,5 @@ if bs.Options().hardware == 'icl':
                                       '+GL_ARB_shader_ballot')
 
 bs.build(bs.PiglitTester(env=env, timeout=piglit_timeout,
-                         piglit_test=piglit_test), time_limit=SlowTimeout())
+                         piglit_test=piglit_test,
+                         excludes=excludes), time_limit=SlowTimeout())
