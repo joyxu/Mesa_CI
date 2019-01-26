@@ -272,6 +272,10 @@
       <prerequisite name="piglit-test-iris"
                     hardware="kbl_iris"
                     shard="2"/>
+      <prerequisite name="piglit-test-iris"
+                    hardware="glk_iris"
+                    shard="6"
+                    only_for_type="daily"/>
       <prerequisite name="deqp-test-iris"
                     hardware="kbl_iris"
                     shard="5"/>
