@@ -39,7 +39,9 @@
 
     <project name="sim-drm"/>
 
-    <project name="fulsim"/>
+    <project name="fulsim">
+      <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
+    </project>
 
     <project name="drm"/>
 
@@ -152,7 +154,6 @@
     <project name="piglit-test"
              bisect_hardware="bdw,skl,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,bxt,kbl,glk,cfl,icl"
              bisect_arch="m64">
-      <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
     </project>
