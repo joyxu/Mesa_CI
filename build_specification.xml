@@ -577,20 +577,6 @@
       <prerelease trigger="false"/>
     </branch>
 
-    <branch name="mesa_18.1" project="all-test-vulkan">
-      <mesa branch="origin/18.1"/>
-      <piglit branch="e739c3c940"/>
-      <vulkancts branch="8e891c0f5"/>
-      <cts branch="d75b9a1a88df8033c6b9cc4ea1439c82a336f895"/>
-      <glslang branch="c325f436"/>
-      <waffle branch="1ded029"/>
-      <spirvheaders branch="3a4dbdd"/>
-      <glcts branch="9f8092de1"/>
-      <drm branch="d4b4c514"/>
-      <deqp branch="1dfe5d68b"/>
-      <crucible branch="2cb700c"/>
-    </branch>
-
     <branch name="mesa_18.2" project="all-test-vulkan">
       <mesa branch="origin/18.2"/>
       <piglit branch="bf8b9baebd"/>
@@ -604,6 +590,23 @@
       <drm branch="87fdbfb6"/>
       <deqp branch="e98bb687e"/>
       <crucible branch="2cb700c"/>
+    </branch>
+
+    <branch name="mesa_18_3" project="all-test-vulkan">
+      <mesa branch="origin/18.3"/>
+      <piglit branch="5ae875ed3e"/>
+      <vulkancts branch="cfb8d0472"/>
+      <cts branch="8b0e94d8b"/>
+      <glslang branch="e826286f"/>
+      <waffle branch="1ded029"/>
+      <spirvheaders branch="3a4dbdd"/>
+      <spirvtools branch="b6319c3a"/>
+      <glcts branch="83666e46b"/>
+      <drm branch="b7a7a903"/>
+      <deqp branch="cc7f632a2"/>
+      <crucible branch="2cb700c"/>
+      <skqp branch="2441c92442"/>
+      <vkrunner branch="79229ee"/>
     </branch>
 
     <branch name="mesa_18.2_staging" project="all-test-vulkan">
@@ -840,20 +843,6 @@
       <glslang branch="82ead04c"/>
     </branch>
 
-    <branch name="dcbaker_18.1" project="all-test-vulkan">
-      <mesa branch="origin/staging/18.1"/>
-      <piglit branch="e739c3c940"/>
-      <vulkancts branch="8e891c0f5"/>
-      <cts branch="d75b9a1a88df8033c6b9cc4ea1439c82a336f895"/>
-      <glslang branch="c325f436"/>
-      <waffle branch="1ded029"/>
-      <spirvheaders branch="3a4dbdd"/>
-      <glcts branch="9f8092de1"/>
-      <drm branch="d4b4c514"/>
-      <deqp branch="1dfe5d68b"/>
-      <crucible branch="2cb700c"/>
-    </branch>
-
     <!-- These branches exists to separate build results from
          mesa_master on the server. -->
     <branch name="nir_torture_test" project="test-single-arch"/>
@@ -1029,20 +1018,6 @@
     <branch name="simdrm_tgl" project="test-single-arch-tgl">
       <mesa branch="internal/jljusten/wip/tgl"/>
       <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
-    </branch>
-
-   <branch name="wip_18.1" project="test-single-arch-vulkan">
-      <mesa branch="janesma/wip/18.1"/>
-      <piglit branch="e739c3c940"/>
-      <vulkancts branch="8e891c0f5"/>
-      <cts branch="d75b9a1a88df8033c6b9cc4ea1439c82a336f895"/>
-      <glslang branch="c325f436"/>
-      <waffle branch="1ded029"/>
-      <spirvheaders branch="3a4dbdd"/>
-      <glcts branch="9f8092de1"/>
-      <drm branch="d4b4c514"/>
-      <deqp branch="1dfe5d68b"/>
-      <crucible branch="2cb700c"/>
     </branch>
 
    <branch name="wip_18.3" project="test-single-arch-vulkan">
