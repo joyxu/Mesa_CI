@@ -4,8 +4,6 @@ import sys, os, argparse
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
 import build_support as bs
 
-fs = bs.Fulsim()
-
 
 class SlowTimeout:
     def __init__(self):
@@ -28,8 +26,6 @@ class SlowTimeout:
             return 120
         if self.hardware == "g965":
             return 50
-        if self.hardware in fs.platform_configs:
-            return 120
         # all other test suites finish in 10 minutes or less.
         # TODO: put back to 25 when curro's regression is fixed
         return 40
@@ -46,20 +42,11 @@ piglit_test = ""
 if o.piglit_test:
     piglit_test = o.piglit_test
 
-piglit_timeout=None
-if bs.Options().hardware in fs.platform_configs:
-    if fs.is_supported():
-        piglit_timeout = 120
-    else:
-        print("Unable to run simulated hardware in this environment!")
-        sys.exit(1)
-
 excludes = None
 if bs.Options().hardware == "icl":
     excludes = ["dvec3", "dvec4", "dmat"]
-        
-env = fs.get_env()
 
+env = {}
 # Override extensions on icl to enable additional tests
 if bs.Options().hardware == 'icl':
     env['MESA_EXTENSION_OVERRIDE'] = ('+GL_ARB_gpu_shader_fp64 '
@@ -67,6 +54,5 @@ if bs.Options().hardware == 'icl':
                                       '+GL_ARB_gpu_shader_int64 '
                                       '+GL_ARB_shader_ballot')
 
-bs.build(bs.PiglitTester(env=env, timeout=piglit_timeout,
-                         piglit_test=piglit_test,
+bs.build(bs.PiglitTester(env=env, piglit_test=piglit_test,
                          excludes=excludes), time_limit=SlowTimeout())
