@@ -43,6 +43,10 @@ if bs.Options().hardware in fs.platform_configs:
 
 jobs = multiprocessing.cpu_count() / 2
 
+excludes = None
+if bs.Options().hardware == "tgl":
+    excludes = ["dvec3", "dvec4", "dmat"]
+
 bs.build(bs.PiglitTester(_suite="gpu", env=fs.get_env(), timeout=piglit_timeout,
-                         piglit_test=piglit_test, jobs=jobs),
+                         piglit_test=piglit_test, jobs=jobs, excludes=excludes),
          time_limit=SlowTimeout())
