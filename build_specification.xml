@@ -582,6 +582,34 @@
       <prerelease trigger="false"/>
     </branch>
 
+    <branch name="mesa_19_0" project="all-test-vulkan">
+      <mesa branch="origin/19.0"/>
+      <cts branch="8b0e94d8b"/>
+      <deqp branch="d53a69aab"/>
+      <drm branch="b7a7a903"/>
+      <glcts branch="83666e46b"/>
+      <piglit branch="5ae875ed3e"/>
+      <skqp branch="2441c92442"/>
+      <vkrunner branch="79229ee"/>
+      <waffle branch="1ded029"/>
+      <spirvtools branch="0e68bb36"/>
+      <spirvheaders branch="a2c529b"/>
+    </branch>
+
+    <branch name="mesa_19.0_staging" project="all-test-vulkan">
+      <mesa branch="origin/staging/19.0"/>
+      <cts branch="8b0e94d8b"/>
+      <deqp branch="d53a69aab"/>
+      <drm branch="b7a7a903"/>
+      <glcts branch="83666e46b"/>
+      <piglit branch="5ae875ed3e"/>
+      <skqp branch="2441c92442"/>
+      <vkrunner branch="79229ee"/>
+      <waffle branch="1ded029"/>
+      <spirvtools branch="0e68bb36"/>
+      <spirvheaders branch="a2c529b"/>
+    </branch>
+
     <branch name="mesa_18.2" project="all-test-vulkan">
       <mesa branch="origin/18.2"/>
       <piglit branch="bf8b9baebd"/>
