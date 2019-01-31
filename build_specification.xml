@@ -286,6 +286,11 @@
       <prerequisite name="glcts-test-iris" hardware="kbl_iris"/>
     </project>      
 
+    <project name="test-single-arch-simdrm">
+      <prerequisite name="test-single-arch-tgl"/>
+      <prerequisite name="test-single-arch-ats"/>
+    </project>
+
     <project name="test-single-arch-tgl">
       <prerequisite name="piglit-test-internal" hardware="tgl" shard="6" arch="m64"/>
     </project>
