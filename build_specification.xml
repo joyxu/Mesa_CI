@@ -171,6 +171,7 @@
              src_dir="mesa_ci_internal">
       <prerequisite name="fulsim" arch="m64"/>
       <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
+      <prerequisite name="fulsim" arch="m64"/>
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
     </project>
