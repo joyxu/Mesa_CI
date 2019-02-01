@@ -370,3 +370,4 @@ dEQP-VK.pipeline.sampler.view_type.3d.format.x8_d24_unorm_pack32.address_modes.u
 dEQP-VK.pipeline.sampler.view_type.3d.format.x8_d24_unorm_pack32.address_modes.uvw_mode_mirror_clamp_to_edge_mode_mirror_clamp_to_edge_mode_clamp_to_border
 dEQP-VK.pipeline.sampler.view_type.3d.format.x8_d24_unorm_pack32.address_modes.uvw_mode_mirrored_repeat_mode_clamp_to_border_mode_mirror_clamp_to_edge
 dEQP-VK.pipeline.sampler.view_type.3d.format.x8_d24_unorm_pack32.address_modes.uvw_mode_repeat_mode_clamp_to_border_mode_clamp_to_edge
+dEQP-VK.wsi.display.get_display_plane_capabilities2
