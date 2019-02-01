@@ -162,7 +162,7 @@ class CrucibleTester(object):
                          "!func.miptree.s8-uint.aspect-stencil*",
                          "!func.renderpass.clear.color08",
                          "!func.ssbo.interleve",
-                         "!func.calibrated-timestamps"]
+                         "!func.calibrated-timestamps.*"]
         if "ivb" in o.hardware:
             # issue 5
             excludes += ["!func.depthstencil*",
@@ -196,7 +196,7 @@ class CrucibleTester(object):
                          "!func.sync.semaphore-fd.no-sync"]
 
         if "bdw" in o.hardware:
-            excludes += ["!func.calibrated-timestamps"]
+            excludes += ["!func.calibrated-timestamps.*"]
 
         bs.run_batch_command([ br + "/bin/crucible",
                                "run", "--fork", "--log-pids",
