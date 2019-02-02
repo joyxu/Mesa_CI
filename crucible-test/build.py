@@ -149,7 +149,8 @@ class CrucibleTester(object):
         excludes = ["!func.query.timestamp",
                     "!func.ssbo.interleve",
                     # https://bugs.freedesktop.org/show_bug.cgi?id=102267
-                    "!func.sync.semaphore-fd.opaque-fd"]
+                    "!func.sync.semaphore-fd.opaque-fd",
+                    "!func.calibrated-timestamps.*"]
 
         parallelism = []
 
@@ -161,8 +162,7 @@ class CrucibleTester(object):
                          "!func.miptree.r8g8b8a8-unorm.aspect-color.view*",
                          "!func.miptree.s8-uint.aspect-stencil*",
                          "!func.renderpass.clear.color08",
-                         "!func.ssbo.interleve",
-                         "!func.calibrated-timestamps.*"]
+                         "!func.ssbo.interleve"]
         if "ivb" in o.hardware:
             # issue 5
             excludes += ["!func.depthstencil*",
@@ -183,7 +183,6 @@ class CrucibleTester(object):
         if "bsw" in o.hardware:
             excludes += ["!func.event.cmd_buffer"] # intermittent fail/crash
 
-
         if "bxt" in o.hardware:
             excludes += ["!func.miptree.s8-uint.aspect-stencil*",
                          "!stress.lots-of-surface-state.fs.static"]
@@ -194,9 +193,6 @@ class CrucibleTester(object):
                 return
             excludes += [# gpu hang
                          "!func.sync.semaphore-fd.no-sync"]
-
-        if "bdw" in o.hardware:
-            excludes += ["!func.calibrated-timestamps.*"]
 
         bs.run_batch_command([ br + "/bin/crucible",
                                "run", "--fork", "--log-pids",
