@@ -692,12 +692,9 @@
       <!-- these repo tags exist soley to trigger a master build when
            anything changes -->
       <mesa branch="kwg/iris"/>
-      <piglit/>
-      <waffle/>
-      <drm/>
-      <deqp branch="aosp/master"/>
-      <cts branch="origin/opengl-es-cts-3.2.5"/>
-      <glcts branch="origin/opengl-cts-4.6.0"/>
+      <deqp branch="aosp/master" trigger="false"/>
+      <cts branch="origin/opengl-es-cts-3.2.5" trigger="false"/>
+      <glcts branch="origin/opengl-cts-4.6.0" trigger="false"/>
     </branch>
 
     <branch name="jekstrand_gl" project="test-single-arch">
