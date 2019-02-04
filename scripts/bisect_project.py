@@ -26,7 +26,7 @@ args = parser.parse_args(sys.argv[1:])
 # get revisions from out directory
 test_dir = os.path.join(args.result_path, "test")
 if not os.path.exists(test_dir):
-    print "ERROR: no tests in --result_path: " + test_dir
+    print("ERROR: no tests in --result_path: " + test_dir)
     sys.exit(-1)
 
 pm = bs.ProjectMap()
@@ -51,15 +51,15 @@ proj = proj_rev[0]
 good_rev = proj_rev[1]
 proj_repo = repos.repo(proj)
 
-print proj + " revisions under bisection:"
+print(proj + " revisions under bisection:")
 commits = []
 for commit in proj_repo.iter_commits(max_count=5000):
     commits.append(commit)
-    print commit.hexsha
+    print(commit.hexsha)
     if good_rev in commit.hexsha:
         break
 else:
-    print 'ERROR: Good commit ({}) not found'.format(good_rev)
+    print('ERROR: Good commit ({}) not found'.format(good_rev))
     sys.exit(1)
 
 # retest build, in case expected failures has been updated
@@ -72,17 +72,17 @@ cmd = ["rsync", "-rlptD", "--exclude", "/*test/", args.result_path, bisect_dir]
 bs.run_batch_command(cmd)
 
 if not bs.retest_failures(args.result_path, bisect_dir):
-    print "ERROR: retest failed"
+    print("ERROR: retest failed")
 
 # make sure there is enough time for the test files to sync to nfs
 time.sleep(20)
 new_failures = bs.TestLister(bisect_dir + "/test/")
 
 if not new_failures.Tests():
-    print "All tests fixed"
+    print("All tests fixed")
     sys.exit(0)
 
-print "Found failures:"
+print("Found failures:")
 new_failures.Print()
 
 revspec = bs.RevisionSpecification(revisions={proj: commits[-1].hexsha})
@@ -91,14 +91,14 @@ revspec = bs.RevisionSpecification()
 hashstr = revspec.to_cmd_line_param().replace(" ", "_")
 old_out_dir = "/".join([bisect_dir, hashstr])
 
-print "Building old mesa to: " + old_out_dir
+print("Building old mesa to: " + old_out_dir)
 bs.retest_failures(bisect_dir, old_out_dir)
 
 time.sleep(20)
 tl = bs.TestLister(old_out_dir + "/test/")
-print "old failures:"
+print("old failures:")
 tl.Print()
-print "failures due to " + proj + ":"
+print("failures due to " + proj + ":")
 proj_failures = new_failures.TestsNotIn(tl)
 for a_test in proj_failures:
     a_test.Print()

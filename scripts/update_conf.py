@@ -27,7 +27,7 @@ args = parser.parse_args(sys.argv[1:])
 # get revisions from out directory
 test_dir = os.path.abspath(args.result_path + "/test")
 if not os.path.exists(test_dir):
-    print "ERROR: no tests in --result_path: " + test_dir
+    print("ERROR: no tests in --result_path: " + test_dir)
     sys.exit(-1)
 
 dirnames = os.path.abspath(test_dir).split("/")
@@ -42,12 +42,12 @@ for a_rev in revs:
 
 blame = args.blame_revision.split("=")
 if len(blame) != 2:
-    print "ERROR: --blame_revision must be in the format: project=rev"
+    print("ERROR: --blame_revision must be in the format: project=rev")
     sys.exit(-1)
 
 if not rev_hash.has_key(blame[0]):
-    print "ERROR: invalid project in --blame_revision: " + blame[0]
-    print "ERROR: acceptable projects: " + ",".join(rev_hash.keys())
+    print("ERROR: invalid project in --blame_revision: " + blame[0])
+    print("ERROR: acceptable projects: " + ",".join(rev_hash.keys()))
     sys.exit(-1)
 
 pm = bs.ProjectMap()
@@ -78,14 +78,14 @@ _revspec = bs.RevisionSpecification()
 blame[1] = str(repos.repo(blame[0]).git.rev_parse(blame[1]))
 
 if not bs.retest_failures(args.result_path, retest_dir):
-    print "ERROR: retest failed"
+    print("ERROR: retest failed")
     sys.exit(-1)
         
 # make sure there is enough time for the test files to sync to nfs
 time.sleep(20)
 reproduced_failures = bs.TestLister(retest_dir + "/test/")
 
-print "Found failures:"
+print("Found failures:")
 reproduced_failures.Print()
 
 for a_fail in reproduced_failures.Tests():
@@ -94,7 +94,7 @@ for a_fail in reproduced_failures.Tests():
 
 if args.to:
     patch_text = git.Repo().git.diff()
-    print patch_text
+    print(patch_text)
     msg = MIMEText(patch_text)
     msg["Subject"] = "[PATCH] mesa jenkins updates due to " + args.blame_revision
     msg["From"] = "Do Not Reply <mesa_jenkins@intel.com>"
@@ -108,7 +108,7 @@ if args.to:
     patch_text = r.git.diff()
     if not patch_text:
         sys.exit(0)
-    print patch_text
+    print(patch_text)
     msg = MIMEText(patch_text)
     msg["Subject"] = "[PATCH] prerelease config updates due to " + args.blame_revision
     msg["From"] = "Do Not Reply <mesa_jenkins@intel.com>"

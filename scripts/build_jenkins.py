@@ -58,14 +58,14 @@ def create_revision_table():
 
 def collate_tests(result_path, out_test_dir, make_tar=False):
     src_test_dir = result_path + "/test"
-    print "collecting tests from " + src_test_dir
+    print("collecting tests from " + src_test_dir)
     i = 0
     while i < 10 and not os.path.exists(src_test_dir):
         i += 1
-        print "sleeping, waiting for test directory: " + src_test_dir
+        print("sleeping, waiting for test directory: " + src_test_dir)
         time.sleep(10)
     if not os.path.exists(src_test_dir):
-        print "no test directory found: " + src_test_dir
+        print("no test directory found: " + src_test_dir)
         return
 
     cmd = ["cp", "-a", "-n",
@@ -110,7 +110,7 @@ def collate_tests(result_path, out_test_dir, make_tar=False):
                 tar.add(a_file)
                 break
             except:
-                print "WARN: failed to add file: " + a_file
+                print("WARN: failed to add file: " + a_file)
                 time.sleep(10)
         os.unlink(a_file)
     for (shard, files) in shards.items():
@@ -134,7 +134,7 @@ def collate_tests(result_path, out_test_dir, make_tar=False):
                 tar.add(shard_file)
                 break
             except:
-                print "WARN: failed to add file: " + shard_file
+                print("WARN: failed to add file: " + shard_file)
                 time.sleep(10)
         os.unlink(shard_file)
 
@@ -240,7 +240,7 @@ def main():
         revspec.checkout()
 
     revspec = bs.RevisionSpecification()
-    print "Building revision: " + revspec.to_cmd_line_param()
+    print("Building revision: " + revspec.to_cmd_line_param())
 
     hashstr = revspec.to_cmd_line_param().replace(" ", "_")
 
@@ -251,7 +251,7 @@ def main():
     o.result_path = result_path
 
     if rebuild == "true" and os.path.exists(result_path):
-        print "Removing existing results."
+        print("Removing existing results.")
         mvdir = os.path.normpath(result_path + "/../" + datetime.datetime.now().isoformat())
         os.rename(result_path, mvdir)
 
@@ -301,5 +301,5 @@ if __name__=="__main__":
         #  Word of Wisdom: Don't call sys.exit
         #import traceback
         #for x in traceback.format_exception(*sys.exc_info()):
-        #    print x
+        #    print(x)
         raise

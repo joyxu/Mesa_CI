@@ -46,7 +46,7 @@ parser.add_argument('--branch', type=str, default='mesa_master',
 args = parser.parse_args(sys.argv[1:])
 
 if not args.series_name:
-    print "ERROR: --series_name required"
+    print("ERROR: --series_name required")
     sys.exit(-1)
 
 repos = bs.RepoSet()
@@ -59,10 +59,10 @@ for project in ["mesa", "piglit", "waffle", "drm", "crucible"]:
         revspec = bs.RevisionSpecification(revisions={project: args.start_rev})
         revspec.checkout()
     except:
-        print args.start_rev + " not found in " + project
+        print(args.start_rev + " not found in " + project)
         continue
 
-    print args.start_rev + " found in " + project
+    print(args.start_rev + " found in " + project)
     found = True
     break
 
@@ -74,7 +74,7 @@ repo = repos.repo(project)
 try:
     repo.git.checkout(args.end_rev)
 except:
-    print "ERROR: could not check out end_rev: " + args.end_rev + ". Please provide --end_rev"
+    print("ERROR: could not check out end_rev: " + args.end_rev + ". Please provide --end_rev")
     sys.exit(-1)
 
 commits = []
@@ -84,12 +84,12 @@ for commit in repo.iter_commits(max_count=1000):
         break
 
 if args.start_rev not in commits[-1].hexsha:
-    print "ERROR: could not find start_rev in history: " + args.start_rev + ". Please provide --start_rev"
+    print("ERROR: could not find start_rev in history: " + args.start_rev + ". Please provide --start_rev")
 
 commits.reverse()
-print "building series:"
+print("building series:")
 for commit in commits:
-    print commit.hexsha
+    print(commit.hexsha)
 
     server = bs.ProjectMap().build_spec().find("build_master").attrib["host"]
     custom_url = "http://" + server + "/job/mesa_custom/buildWithParameters?token=noauth&{0}"
@@ -109,7 +109,7 @@ for commit in commits:
             f = urllib2.urlopen(url)
             break
         except (urllib2.HTTPError, urllib2.URLError):
-            print "failure urllib2.urlopen(\"{0}\")".format(url)
+            print("failure urllib2.urlopen(\"{0}\")".format(url))
             failcount += 1
             if failcount == 5:
                 raise

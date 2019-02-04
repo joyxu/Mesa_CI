@@ -4,11 +4,11 @@ import build_support as bs
 
 def collate_tests(result_path, out_test_dir):
     src_test_dir = result_path + "/test"
-    print "collecting tests from " + src_test_dir
+    print("collecting tests from " + src_test_dir)
     if not os.path.exists(src_test_dir):
         time.sleep(10)
     if not os.path.exists(src_test_dir):
-        print "no test directory found: " + src_test_dir
+        print("no test directory found: " + src_test_dir)
         return
         
     cmd = ["cp", "-a", "-n",
@@ -51,7 +51,7 @@ def main():
 
     # override hardware/arch with suffix if available
     if not test:
-        print "ERROR: --test argument required"
+        print("ERROR: --test argument required")
         sys.exit(-1)
         
     test_suffix = test.split(".")[-1]
@@ -76,7 +76,7 @@ def main():
         revspec.checkout()
 
     revspec = bs.RevisionSpecification()
-    print "Building revision: " + revspec.to_cmd_line_param()
+    print("Building revision: " + revspec.to_cmd_line_param())
 
     # create a result_path that is unique for this set of builds
     spec_xml = bs.ProjectMap().build_spec()

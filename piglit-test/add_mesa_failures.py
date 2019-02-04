@@ -23,7 +23,7 @@ args = parser.parse_args(sys.argv[1:])
 # get revisions from out directory
 test_dir = os.path.abspath(args.result_path + "/test")
 if not os.path.exists(test_dir):
-    print "ERROR: no tests in --result_path: " + test_dir
+    print("ERROR: no tests in --result_path: " + test_dir)
     sys.exit(-1)
 
 dirnames = os.path.abspath(test_dir).split("/")
@@ -57,11 +57,11 @@ for arev in args.good_rev.split():
 mesa_commits = []
 mesa_repo = repos.repo("mesa")
 
-print "mesa revisions under bisection:"
+print("mesa revisions under bisection:")
 found = False
 for commit in mesa_repo.iter_commits(max_count=5000):
     mesa_commits.append(commit)
-    print commit.hexsha
+    print(commit.hexsha)
     if good_revisions["mesa"] in commit.hexsha:
         found = True
         break
@@ -83,7 +83,7 @@ o.result_path = bisect_dir
 o.retest_path = args.result_path
 depGraph = bs.DependencyGraph(["piglit-gpu-all"], o)
 
-print "Retesting mesa to: " + bisect_dir
+print("Retesting mesa to: " + bisect_dir)
 j.build_all(depGraph, print_summary=False)
 
 # make sure there is enough time for the test files to sync to nfs
@@ -91,11 +91,11 @@ time.sleep(40)
 new_failures = bs.TestLister(bisect_dir + "/test/")
 
 if not new_failures.Tests():
-    print "All tests fixed"
+    print("All tests fixed")
     sys.exit(0)
 
 #test_arg = make_test_list(new_failures)
-print "Found failures:"
+print("Found failures:")
 new_failures.Print()
 
 # build old mesa to see what mesa regressions were
@@ -114,16 +114,16 @@ o = bs.Options(["bisect_all.py"])
 o.result_path = old_out_dir
 o.retest_path = bisect_dir
 depGraph = bs.DependencyGraph(["piglit-gpu-all"], o)
-print "Building old mesa to: " + old_out_dir
+print("Building old mesa to: " + old_out_dir)
 
 j.build_all(depGraph, print_summary=False)
 
 # make sure there is enough time for the test files to sync to nfs
 time.sleep(20)
 tl = bs.TestLister(old_out_dir + "/test/")
-print "old failures:"
+print("old failures:")
 tl.Print()
-print "failures due to mesa:"
+print("failures due to mesa:")
 mesa_failures = new_failures.TestsNotIn(tl)
 for a_test in mesa_failures:
     a_test.Print()
@@ -147,7 +147,7 @@ if args.to:
     patch_text = r.git.diff()
     if not patch_text:
         sys.exit(0)
-    print patch_text
+    print(patch_text)
     msg = MIMEText(patch_text)
     msg["Subject"] = "[PATCH] prerelease config updates due to " + args.blame_revision
     msg["From"] = "Do Not Reply <mesa_jenkins@intel.com>"

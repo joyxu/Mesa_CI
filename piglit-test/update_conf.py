@@ -25,7 +25,7 @@ args = parser.parse_args(sys.argv[1:])
 # get revisions from out directory
 test_dir = os.path.abspath(args.result_path + "/test")
 if not os.path.exists(test_dir):
-    print "ERROR: no tests in --result_path: " + test_dir
+    print("ERROR: no tests in --result_path: " + test_dir)
     sys.exit(-1)
 
 dirnames = os.path.abspath(test_dir).split("/")
@@ -40,12 +40,12 @@ for a_rev in revs:
 
 blame = args.blame_revision.split("=")
 if len(blame) != 2:
-    print "ERROR: --blame_revision must be in the format: project=rev"
+    print("ERROR: --blame_revision must be in the format: project=rev")
     sys.exit(-1)
 
 if not rev_hash.has_key(blame[0]):
-    print "ERROR: invalid project in --blame_revision: " + blame[0]
-    print "ERROR: acceptable projects: " + ",".join(rev_hash.keys())
+    print("ERROR: invalid project in --blame_revision: " + blame[0])
+    print("ERROR: acceptable projects: " + ",".join(rev_hash.keys()))
     sys.exit(-1)
 
 rev_hash[blame[0]] = blame[1]
@@ -63,7 +63,7 @@ results_dir = spec_xml.find("build_master").attrib["results_dir"]
 hashstr = _revspec.to_cmd_line_param().replace(" ", "_")
 bisect_dir = results_dir + "/update/" + hashstr
 if os.path.exists(bisect_dir):
-    print "Removing existing retest."
+    print("Removing existing retest.")
     mvdir = os.path.normpath(bisect_dir + "/../" + datetime.datetime.now().isoformat())
     os.rename(bisect_dir, mvdir)
     
@@ -81,17 +81,17 @@ o.result_path = bisect_dir
 o.retest_path = args.result_path
 depGraph = bs.DependencyGraph(["piglit-gpu-all"], o)
 
-print "Retesting mesa to: " + bisect_dir
+print("Retesting mesa to: " + bisect_dir)
 try:
     j.build_all(depGraph, print_summary=False)
 except bs.BuildFailure:
-    print "ERROR: some builds failed"
+    print("ERROR: some builds failed")
 
 # make sure there is enough time for the test files to sync to nfs
 time.sleep(20)
 reproduced_failures = bs.TestLister(bisect_dir + "/test/")
 
-print "Found failures:"
+print("Found failures:")
 reproduced_failures.Print()
 
 for a_fail in reproduced_failures.Tests():
@@ -100,7 +100,7 @@ for a_fail in reproduced_failures.Tests():
 
 if args.to:
     patch_text = git.Repo().git.diff()
-    print patch_text
+    print(patch_text)
     msg = MIMEText(patch_text)
     msg["Subject"] = "[PATCH] mesa jenkins updates due to " + args.blame_revision
     msg["From"] = "Do Not Reply <mesa_jenkins@intel.com>"
@@ -114,7 +114,7 @@ if args.to:
     patch_text = r.git.diff()
     if not patch_text:
         sys.exit(0)
-    print patch_text
+    print(patch_text)
     msg = MIMEText(patch_text)
     msg["Subject"] = "[PATCH] prerelease config updates due to " + args.blame_revision
     msg["From"] = "Do Not Reply <mesa_jenkins@intel.com>"

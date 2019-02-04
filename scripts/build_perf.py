@@ -36,7 +36,7 @@ def main():
             # user selected the last point in a plot.  Build current master
             revision = "mesa=" + mesa_repo.git.rev_parse("HEAD", short=True)
         elif not start_rev:
-            print "ERROR: user-generated perf builds cannot add older data points to the plot"
+            print("ERROR: user-generated perf builds cannot add older data points to the plot")
             sys.exit(-1)
         else:
             commits = []
@@ -48,7 +48,7 @@ def main():
                     break
                 commits.append(commit.hexsha)
             if not found:
-                print "ERROR: " + start_rev + " not found in history of " + end_rev
+                print("ERROR: " + start_rev + " not found in history of " + end_rev)
                 sys.exit(-1)
             revision = "mesa=" + commits[len(commits)/2]
 
@@ -80,7 +80,7 @@ def main():
 
     revspec = bs.RevisionSpecification()
     hashstr = "mesa=" + revspec.revision("mesa")
-    print "Building revision: " + hashstr
+    print("Building revision: " + hashstr)
 
     # create a result_path that is unique for this set of builds
     spec_xml = pm.build_spec()
@@ -108,7 +108,7 @@ def main():
     try:
         jen.build_all(depGraph, branch="mesa_master")
     except Exception as e:
-        print "ERROR: encountered failure: " + str(e)
+        print("ERROR: encountered failure: " + str(e))
         raise
 
 if __name__=="__main__":
@@ -121,5 +121,5 @@ if __name__=="__main__":
         #  Word of Wisdom: Don't call sys.exit
         #import traceback
         #for x in traceback.format_exception(*sys.exc_info()):
-        #    print x
+        #    print(x)
         raise
