@@ -536,6 +536,7 @@
     <google_common repo="https://skia.googlesource.com/common.git" />
     <angle2 repo="https://chromium.googlesource.com/angle/angle.git" />
     <dng_sdk repo="https://android.googlesource.com/platform/external/dng_sdk.git" />
+    <egl-registry repo="https://skia.googlesource.com/external/github.com/KhronosGroup/EGL-Registry" />
     <expat repo="https://android.googlesource.com/platform/external/expat.git" />
     <freetype repo="https://skia.googlesource.com/third_party/freetype2.git" />
     <harfbuzz repo="https://skia.googlesource.com/third_party/harfbuzz.git" />
@@ -547,11 +548,16 @@
     <libwebp repo="https://chromium.googlesource.com/webm/libwebp.git" />
     <lua repo="https://skia.googlesource.com/external/github.com/lua/lua.git" />
     <microhttpd repo="https://android.googlesource.com/platform/external/libmicrohttpd" />
+    <opencl-lib repo="https://skia.googlesource.com/external/github.com/GPUOpen-Tools/common-lib-amd-APPSDK-3.0"/>
+    <opengl-registry repo="https://skia.googlesource.com/external/github.com/KhronosGroup/OpenGL-Registry"/>
     <piex repo="https://android.googlesource.com/platform/external/piex.git" />
     <sdl repo="https://skia.googlesource.com/third_party/sdl" />
     <sfntly repo="https://chromium.googlesource.com/external/github.com/googlei18n/sfntly.git" />
-    <skcms repo="https://skia.googlesource.com/skcms" />
+    <swiftshader repo="https://swiftshader.googlesource.com/SwiftShader" />
+    <wuffs repo="https://skia.googlesource.com/external/github.com/google/wuffs.git" />
     <zlib repo="https://chromium.googlesource.com/chromium/src/third_party/zlib" />
+    <Nima-Cpp repo="https://skia.googlesource.com/external/github.com/2d-inc/Nima-Cpp.git"/>
+    <Nima-Math-Cpp repo="https://skia.googlesource.com/external/github.com/2d-inc/Nima-Math-Cpp.git"/>
     <skqp_assets repo="https://gitlab.freedesktop.org/Mesa_CI/skqp_assets.git" />
 
   </repos>
