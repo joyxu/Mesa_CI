@@ -266,7 +266,7 @@
       <prerequisite name="android-buildtest" hardware="builder"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
-      <prerequisite name="skqp-full"/>
+      <!-- <prerequisite name="skqp-full"/> -->
     </project>
 
     <project name="test-single-arch-internal">
@@ -312,7 +312,7 @@
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
-      <prerequisite name="skqp-full"/>
+      <!-- <prerequisite name="skqp-full"/> -->
     </project>
 
     <!-- this is used for Nanley's percheckin build -->
