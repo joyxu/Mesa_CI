@@ -1,12 +1,12 @@
 diff --git a/gn/BUILD.gn b/gn/BUILD.gn
-index 55c344c23e..9ad5dec561 100644
+index 25d9006537..3523b2241e 100644
 --- a/gn/BUILD.gn
 +++ b/gn/BUILD.gn
-@@ -299,7 +299,6 @@ config("warnings") {
-     ]
-   } else {
+@@ -94,7 +94,6 @@ config("default") {
      cflags += [
+       "-fstrict-aliasing",
+       "-fPIC",
 -      "-Werror",
-       "-Wall",
-       "-Wextra",
-       "-Winit-self",
+     ]
+     cflags_cc += [ "-std=c++11" ]
+ 
