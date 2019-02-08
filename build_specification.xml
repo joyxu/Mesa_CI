@@ -528,7 +528,7 @@
     </sim-drm>
 
     <skqp repo="https://skia.googlesource.com/skia"
-      branch="origin/skqp/release">
+      branch="2441c92442">
     </skqp>
 
     <!-- The following are dependencies for SKQP -->
