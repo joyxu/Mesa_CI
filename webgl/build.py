@@ -188,6 +188,7 @@ class TestLister(object):
                 del test_hash[test]
         self._tests = test_hash.keys()
         self._tests.sort()
+        self._test_count = len(self._tests)
 
     def spawn_worker(self, port):
         self._workers.append(TestExecutor(self, port))
@@ -208,6 +209,8 @@ class TestLister(object):
             if current_shard > shards:
                 current_shard = 1
         self._tests = shard_tests
+        self._tests.sort()
+        self._test_count = len(self._tests)
 
     def record_result(self, test, result_txt, test_output):
         match = re.search('(\w+): (\d+)/(\d+) in (\d+)', result_txt)
