@@ -184,12 +184,15 @@ class TestLister(object):
         return t
         
     def blacklist(self):
-        test_hash = {k: 1 for k in self._tests}
-        for test in [line.rstrip() for line in open(self._blacklist_file)]:
-            if test in test_hash:
-                del test_hash[test]
-        self._tests = test_hash.keys()
-        self._tests.sort()
+        blacklist_hash = {line.rstrip() : 1 for line in open(self._blacklist_file)}
+        to_execute = []
+        for test in self._tests:
+            if test not in blacklist_hash:
+                to_execute.append(test)
+            else:
+                print("blacklisted: " + test)
+        to_execute.sort()
+        self._tests = to_execute
         self._test_count = len(self._tests)
 
     def spawn_worker(self, port):
