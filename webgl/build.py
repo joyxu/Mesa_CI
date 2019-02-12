@@ -69,6 +69,8 @@ class TestExecutor:
             test_components.pop()
             test_name = ".".join(test_components)
 
+            # group tests together for the results page
+            test_name = "webgl." + test_name
             self._elements[test_name] = case_element
                 
     def tests(self):
