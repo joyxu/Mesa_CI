@@ -267,7 +267,7 @@
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
       <prerequisite name="skqp-full"/>
-      <prerequisite name="webgl-full"/>
+      <!-- <prerequisite name="webgl-full"/> -->
     </project>
 
     <project name="test-single-arch-internal">
