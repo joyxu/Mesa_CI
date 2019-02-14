@@ -1,8 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import sys
 import os
 import subprocess
+from mesonbuild import coredata
+from mesonbuild import optinterpreter
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
 import build_support as bs
 
@@ -16,9 +18,19 @@ def main():
 
     global_opts = bs.Options()
 
+    # Autodetect valid gallium drivers in Mesa source
+    gallium_drivers = []
+    gallium_drivers_exclude = ['i915']
+    oi = optinterpreter.OptionInterpreter('')
+    oi.process(os.path.join(sd, 'meson_options.txt'))
+    for driver in oi.options['gallium-drivers'].choices:
+        if (driver not in gallium_drivers_exclude
+                and driver not in ['auto', '']):
+            gallium_drivers.append(driver)
+
     options = [
         '-Dbuild-tests=true',
-        '-Dgallium-drivers=r300,r600,radeonsi,nouveau,swrast,swr,freedreno,vc4,kmsro,etnaviv,svga,virgl',
+        '-Dgallium-drivers={}'.format(','.join(gallium_drivers)),
         '-Dgallium-vdpau=true',
         '-Dgallium-xvmc=true',
         '-Dgallium-xa=true',
