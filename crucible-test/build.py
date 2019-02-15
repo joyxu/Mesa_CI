@@ -147,6 +147,7 @@ class CrucibleTester(object):
 
         # flaky
         excludes = ["!func.query.timestamp",
+                    "!func.ssbo.interleve",
                     # https://bugs.freedesktop.org/show_bug.cgi?id=102267
                     "!func.sync.semaphore-fd.opaque-fd",
                     "!func.calibrated-timestamps.*"]
@@ -160,7 +161,8 @@ class CrucibleTester(object):
                          "!func.miptree.d32-sfloat.aspect-depth.view*",
                          "!func.miptree.r8g8b8a8-unorm.aspect-color.view*",
                          "!func.miptree.s8-uint.aspect-stencil*",
-                         "!func.renderpass.clear.color08"]
+                         "!func.renderpass.clear.color08",
+                         "!func.ssbo.interleve"]
         if "ivb" in o.hardware:
             # issue 5
             excludes += ["!func.depthstencil*",
