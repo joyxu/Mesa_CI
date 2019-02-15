@@ -267,7 +267,7 @@
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
       <prerequisite name="skqp-full"/>
-      <!-- <prerequisite name="webgl-full"/> -->
+      <prerequisite name="webgl-full"/>
     </project>
 
     <project name="test-single-arch-internal">
@@ -587,6 +587,7 @@
       <cts branch="origin/opengl-es-cts-3.2.5"/>
       <glcts branch="origin/opengl-cts-4.6.0"/>
       <skqp branch="2441c92442"/>
+      <webgl/>
 
       <!-- the trigger attribute is used specify a branch that should
            be used, but prevent builds from triggering if the branch
@@ -609,6 +610,7 @@
       <waffle branch="1ded029"/>
       <spirvtools branch="0e68bb36"/>
       <spirvheaders branch="a2c529b"/>
+      <webgl branch="dcbb9e5d9e37857d57a9fc711577cf2489ca6197"/>
     </branch>
 
     <branch name="mesa_19.0_staging" project="all-test-vulkan">
@@ -623,6 +625,7 @@
       <waffle branch="1ded029"/>
       <spirvtools branch="0e68bb36"/>
       <spirvheaders branch="a2c529b"/>
+      <webgl branch="dcbb9e5d9e37857d57a9fc711577cf2489ca6197"/>
     </branch>
 
     <branch name="mesa_18.2" project="all-test-vulkan">
@@ -655,6 +658,7 @@
       <crucible branch="2cb700c"/>
       <skqp branch="2441c92442"/>
       <vkrunner branch="79229ee"/>
+      <webgl branch="dcbb9e5d9e37857d57a9fc711577cf2489ca6197"/>
     </branch>
 
     <branch name="mesa_18.2_staging" project="all-test-vulkan">
