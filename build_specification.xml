@@ -756,6 +756,10 @@
       <mesa branch="antognolli/jenkins_vk"/>
     </branch>
 
+    <branch name="antognolli_iris" project="iris-full">
+      <mesa branch="antognolli/iris/jenkins"/>
+    </branch>
+
     <branch name="kwg_vulkan" project="vulkancts-full">
       <mesa branch="kwg/vkjenkins"/>
     </branch>
