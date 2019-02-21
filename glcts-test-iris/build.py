@@ -24,7 +24,8 @@ class GLCTSTester(object):
         results = t.test(self.pm.build_root() + "/bin/gl/modules/glcts",
                          bs.GLCTSLister(),
                          env = {"MESA_GL_VERSION_OVERRIDE" : "4.6",
-                                "MESA_GLSL_VERSION_OVERRIDE" : "460"})
+                                "MESA_GLSL_VERSION_OVERRIDE" : "460",
+                                "MESA_LOADER_DRIVER_OVERRIDE" : "iris" })
 
         o = bs.Options()
         config = bs.get_conf_file(self.o.hardware, self.o.arch, project=self.pm.current_project())

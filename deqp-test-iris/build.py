@@ -20,7 +20,7 @@ class DeqpBuilder(object):
     def __init__(self):
         self.pm = bs.ProjectMap()
         self.o = bs.Options()
-        self.env = {}
+        self.env = { "MESA_LOADER_DRIVER_OVERRIDE" : "iris" }
         self.version = None
     def build(self):
         pass
