@@ -922,6 +922,10 @@
       <mesa branch="igalia/jmcasanova/jenkins"/>
     </branch>
 
+    <branch name="jmcasanova_iris" project="iris-full">
+      <mesa branch="igalia/jmcasanova/jenkins-iris"/>
+    </branch>
+
     <branch name="itoral" project="test-single-arch-vulkan">
       <mesa branch="igalia/itoral/jenkins"/>
     </branch>
