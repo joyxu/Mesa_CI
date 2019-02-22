@@ -2,6 +2,7 @@
 
 import os
 import sys
+import urllib
 import urllib2
 import ast
 import time
@@ -21,6 +22,8 @@ for a_host in host_dict['computer']:
     host = a_host['displayName']
     if is_excluded():
         continue
-    url = "http://" + server + "/job/reboot_single/buildWithParameters?token=noauth&label=" + host
+    f = { 'token' : 'noauth', 'label' : host}
+    url = "http://" + server + "/job/reboot_single/buildWithParameters?" + urllib.urlencode(f)
+    print("triggering " + url)
     urllib2.urlopen(url)
     time.sleep(1)
