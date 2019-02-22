@@ -261,6 +261,7 @@
       <prerequisite name="scons-buildtest" hardware="builder"/>
       <prerequisite name="meson-buildtest" hardware="builder"/>
       <prerequisite name="piglit-full"/>
+      <prerequisite name="iris-full"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <!-- <prerequisite name="android-buildtest" hardware="builder"/> -->
@@ -698,16 +699,6 @@
       <glslang/>
       <spirvheaders branch="801cca8104245c07e8cc53292da87ee1b76946fe"/>
       <spirvtools/>
-    </branch>
-
-    <!-- jenkins has a build with same name as branch -->
-    <branch name="iris" project="iris-full">
-      <!-- these repo tags exist soley to trigger a master build when
-           anything changes -->
-      <mesa branch="kwg/iris"/>
-      <deqp branch="aosp/master" trigger="false"/>
-      <cts branch="origin/opengl-es-cts-3.2.5" trigger="false"/>
-      <glcts branch="origin/opengl-cts-4.6.0" trigger="false"/>
     </branch>
 
     <branch name="jekstrand_gl" project="test-single-arch">
