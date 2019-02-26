@@ -72,8 +72,13 @@ def meson_build():
 
     cpp_args = None
     if global_opts.config == 'debug':
+        # default buildtype is debugoptimized.
+
+        # only applies to 64 bit binaries, overridden by cross file.
+        # DEBUG was removed from debugoptimized because it is slow.
         cpp_args = "-DDEBUG"
     else:
+        # WARN: 32 bit release builds will have -DDEBUG due to cross file (and be slow)
         options.extend(['-Dbuildtype=release', '-Db_ndebug=true'])
     b = bs.builders.MesonBuilder(extra_definitions=options, install=True, cpp_args=cpp_args)
     bs.build(b)
