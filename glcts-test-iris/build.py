@@ -36,4 +36,9 @@ class GLCTSTester(object):
     def clean(self):
         pass
 
+if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
+                      "/src/gallium/drivers/iris/meson.build"):
+    # iris not supported
+    sys.exit(0)
+
 bs.build(GLCTSTester())

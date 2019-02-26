@@ -42,5 +42,10 @@ class DeqpBuilder(object):
         config = bs.get_conf_file(self.o.hardware, self.o.arch, project=self.pm.current_project())
         t.generate_results(all_results, bs.ConfigFilter(config, self.o))
         
+if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
+                      "/src/gallium/drivers/iris/meson.build"):
+    # iris not supported
+    sys.exit(0)
+
 bs.build(DeqpBuilder(), time_limit=SlowTimeout())
         
