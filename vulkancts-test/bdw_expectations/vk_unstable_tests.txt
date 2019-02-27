@@ -23,3 +23,6 @@ dEQP-VK.pipeline.render_to_image.core.cube_array.huge.width_height_layers
 # flaky
 dEQP-VK.subgroups.basic.subgroupbarrier_graphic
 dEQP-VK.wsi.display.get_display_plane_capabilities2
+
+# flaky: https://bugs.freedesktop.org/show_bug.cgi?id=109682
+dEQP-VK.subgroups
