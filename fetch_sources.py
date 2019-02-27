@@ -70,7 +70,6 @@ def main():
     args = parser.parse_args()
 
     repos = bs.RepoSet()
-    repos.clone()
     spec = bs.BuildSpecification(repo_set=repos)
     
     limit_to_repos = {}
@@ -91,7 +90,7 @@ def main():
         # only fetch sources that are required for the project
         deps = bs.DependencyGraph(project,
                                   bs.Options(args = [sys.argv[0]]),
-                                  repo_set=repos).all_sources()
+                                  repo_set=repos).all_sources(allow_missing=True)
         repo_names = limit_to_repos.keys()
         for repo in repo_names:
             if repo not in deps:
@@ -101,6 +100,16 @@ def main():
         if repo not in limit_to_repos:
             limit_to_repos[repo] = None
 
+    # obtain any sources which were not present at invocation
+    cloned_new_repo = repos.clone(limit_to_repos)
+
+    if cloned_new_repo:
+        # recreate objects based on new sources
+        repos = bs.RepoSet()
+        spec = bs.BuildSpecification(repo_set=repos)
+        if branchspec:
+            branchspec = spec.branch_specification(branch)
+        
     if branchspec:
         # use the branch specification to configure any sources that remain indeterminate
         branchspec.set_revisions(limit_to_repos)
@@ -137,6 +146,13 @@ def main():
             build_module.get_external_revisions(external_revisions)
         except:
             continue
+
+    # obtain any sources which were not present at invocation
+    cloned_new_repo = repos.clone(external_revisions.keys())
+    if cloned_new_repo:
+        # recreate objects based on new sources
+        repos = bs.RepoSet()
+
     for project, tags in external_revisions.items():
         if type(tags) != type([]):
             repos.fetch({project : tags})
