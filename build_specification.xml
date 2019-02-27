@@ -586,7 +586,9 @@
       <vkrunner/>
       <deqp branch="aosp/master"/>
       <cts branch="origin/opengl-es-cts-3.2.5"/>
-      <glcts branch="origin/opengl-cts-4.6.0"/>
+
+      <!-- https://gitlab.khronos.org/Tracker/vk-gl-cts/issues/1629 -->
+      <glcts branch="1daccef22fc33a8be40a0f08078911abaa7d7cd9"/>
       <skqp branch="2441c92442"/>
       <webgl/>
 
