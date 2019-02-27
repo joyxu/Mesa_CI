@@ -68,7 +68,7 @@
          re-tested when a regression occurs.  See update_conf.py and
          bisect_project.py in scripts. -->
     <project name="deqp-test" src_dir="deqp"
-             bisect_hardware="ilk,g33,g45,g965,bdw,skl,hsw,ivb,snb,byt,bsw,bxt,kbl,glk,cfl"
+             bisect_hardware="ilk,g33,g45,g965,bdw,skl,hsw,ivb,snb,byt,bsw,bxt,kbl,glk,cfl,icl"
              bisect_arch="m64,m32">
       <!-- deqp-test will be specificed for a test platform (eg skl),
            but the hardware for its prerequisites should be a builder
@@ -152,7 +152,7 @@
     </project>
 
     <project name="piglit-test"
-             bisect_hardware="bdw,skl,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,bxt,kbl,glk,cfl"
+             bisect_hardware="bdw,skl,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,bxt,kbl,glk,cfl,icl"
              bisect_arch="m64">
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -191,8 +191,8 @@
                     arch="m64,m32"/>
       <!-- do not test 32 bit for limited platforms -->
       <prerequisite only_for_type="daily" name="piglit-test" hardware="cfl" arch="m64"/>
-      <!-- <prerequisite only_for_type="daily" name="piglit-test" hardware="icl" arch="m64" -->
-      <!--               shard="4"/> -->
+      <prerequisite only_for_type="daily" name="piglit-test" hardware="icl" arch="m64"
+                    shard="4"/>
     </project>
     
     <project name="crucible">
@@ -200,7 +200,7 @@
     </project>
 
     <project name="crucible-test"
-             bisect_hardware="bdw,skl,ivb,bsw,byt,hsw,bxt,kbl,glk,cfl"
+             bisect_hardware="bdw,skl,ivb,bsw,byt,hsw,bxt,kbl,glk,cfl,icl"
              bisect_arch="m64">
       <prerequisite name="crucible" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -210,7 +210,7 @@
     <project name="skqp" />
 
     <project name="skqp-test"
-             bisect_hardware="skl,bxt,kbl,glk,cfl"
+             bisect_hardware="skl,bxt,kbl,glk,cfl,icl"
              bisect_arch="m64">
       <prerequisite name="waffle" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -219,7 +219,7 @@
 
     <project name="skqp-full">
       <prerequisite name="skqp-test" hardware="skl,kbl" arch="m64"/>
-      <prerequisite only_for_type="daily" name="skqp-test" hardware="bxt,glk,cfl" arch="m64"/>
+      <prerequisite only_for_type="daily" name="skqp-test" hardware="bxt,glk,cfl,icl" arch="m64"/>
     </project>
 
     <project name="vulkancts-test" src_dir="vulkancts"
@@ -245,7 +245,7 @@
                     shard="8"/>
 
       <prerequisite name="crucible-test" hardware="bdw,skl,bsw,hsw,bxt,kbl"/>
-      <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="bxt,glk,cfl"/>
+      <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="bxt,glk,cfl,icl"/>
     </project>
 
     <project name="vulkancts"/>
@@ -306,7 +306,7 @@
     <project name="test-single-arch">
       <prerequisite name="piglit-test" hardware="g33,ilk,g45,g965"/>
       <prerequisite name="piglit-test" hardware="snb,ivb,hsw,bdw,skl,kbl" shard="2"/>
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,bxt,glk,cfl" shard="4"/>
+      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,bxt,glk,cfl,icl" shard="4"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
@@ -320,7 +320,7 @@
     <!-- this is used for Nanley's percheckin build -->
     <project name="test-single-arch-nchery">
       <prerequisite name="piglit-full"/>
-      <!-- <prerequisite name="piglit-test" hardware="icl"/> -->
+      <prerequisite name="piglit-test" hardware="icl"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
@@ -349,7 +349,7 @@
       <prerequisite name="deqp-test" hardware="hsw,skl,kbl,bdw,snb,ivb" shard="5"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
-                    hardware="ilk,g33,g45,g965,byt,bsw,bxt,glk,cfl" shard="4"/>
+                    hardware="ilk,g33,g45,g965,byt,bsw,bxt,glk,cfl,icl" shard="4"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     arch="m32"
