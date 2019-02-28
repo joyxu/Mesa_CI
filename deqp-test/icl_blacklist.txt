@@ -39,3 +39,5 @@ dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.isam
 dEQP-GLES3.functional.texture.mipmap.2d
 dEQP-GLES3.functional.texture.mipmap.3d
 dEQP-GLES3.functional.texture.mipmap.cube
+dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.sampler3d
+dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.sampler2d
