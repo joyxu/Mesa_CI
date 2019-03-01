@@ -148,6 +148,9 @@ def main():
             continue
 
     # obtain any sources which were not present at invocation
+    if not external_revisions.keys():
+        return
+
     cloned_new_repo = repos.clone(external_revisions.keys())
     if cloned_new_repo:
         # recreate objects based on new sources
