@@ -500,6 +500,7 @@
 
     <glcts repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"
            branch="origin/opengl-cts-4.6.0">
+      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/vk-gl-cts.git"/>
     </glcts>
 
     <gtest repo="https://android.googlesource.com/platform/external/googletest"/>
