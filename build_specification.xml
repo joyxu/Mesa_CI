@@ -500,7 +500,7 @@
 
     <!-- locked due to https://gitlab.khronos.org/Tracker/vk-gl-cts/issues/1629 -->
     <glcts repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"
-           branch="1daccef22fc33a8be40a0f08078911abaa7d7cd9">
+           branch="60a7f1b15a9ee2f6b54f0d0d43c28f61b4c048ce">
       <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/vk-gl-cts.git"/>
     </glcts>
 
@@ -590,7 +590,7 @@
       <cts branch="origin/opengl-es-cts-3.2.5"/>
 
       <!-- https://gitlab.khronos.org/Tracker/vk-gl-cts/issues/1629 -->
-      <glcts branch="1daccef22fc33a8be40a0f08078911abaa7d7cd9"/>
+      <glcts branch="60a7f1b15a9ee2f6b54f0d0d43c28f61b4c048ce"/>
       <skqp branch="2441c92442"/>
       <webgl/>
 
