@@ -498,8 +498,9 @@
          branch="origin/opengl-es-cts-3.2.5">
     </cts>
 
+    <!-- locked due to https://gitlab.khronos.org/Tracker/vk-gl-cts/issues/1629 -->
     <glcts repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"
-           branch="origin/opengl-cts-4.6.0">
+           branch="1daccef22fc33a8be40a0f08078911abaa7d7cd9">
       <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/vk-gl-cts.git"/>
     </glcts>
 
