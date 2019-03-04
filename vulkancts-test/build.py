@@ -52,7 +52,9 @@ class VulkanTestList(object):
     def blacklist(self, all_tests):
         # filter tests for the platform
         o = bs.Options()
-        blacklist_file = self.pm.project_build_dir() + o.hardware[:3] + "_expectations/vk_unstable_tests.txt"
+        blacklist_file = self.pm.project_build_dir() + o.hardware + "_expectations/vk_unstable_tests.txt"
+        if not os.path.exists(blacklist_file):
+            blacklist_file = self.pm.project_build_dir() + o.hardware[:3] + "_expectations/vk_unstable_tests.txt"
         blacklist = bs.DeqpTrie()
         blacklist.add_txt(blacklist_file)
         all_tests.filter(blacklist)
