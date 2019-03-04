@@ -68,7 +68,7 @@
          re-tested when a regression occurs.  See update_conf.py and
          bisect_project.py in scripts. -->
     <project name="deqp-test" src_dir="deqp"
-             bisect_hardware="ilk,g33,g45,g965,bdw,skl,hsw,ivb,snb,byt,bsw,bxt,kbl,glk,cfl,icl"
+             bisect_hardware="ilk,g33,g45,g965,bdw,hsw,ivb,snb,byt,bsw,bxt,glk,gen9,icl"
              bisect_arch="m64,m32">
       <!-- deqp-test will be specificed for a test platform (eg skl),
            but the hardware for its prerequisites should be a builder
@@ -79,7 +79,7 @@
     </project>
 
     <project name="deqp-test-iris" src_dir="deqp"
-             bisect_hardware="kbl_iris"
+             bisect_hardware="gen9_iris"
              bisect_arch="m64">
       <prerequisite name="deqp" hardware="builder"/>
       <prerequisite name="waffle" hardware="builder"/>
@@ -87,7 +87,7 @@
     </project>
 
     <project name="deqp-runtime"
-	    bisect_hardware="bdw,skl,bxt,kbl"
+	    bisect_hardware="bdw,gen9,bxt"
 	    bisect_arch="m32,m64">
       <prerequisite name="deqp" hardware="builder"/>
       <prerequisite name="waffle" hardware="builder"/>
@@ -107,7 +107,7 @@
     </project>
 
     <project name="glcts-test"
-             bisect_hardware="snb,ivb,byt,hsw,bdw,skl,bsw,bxt,kbl,glk,cfl"
+             bisect_hardware="snb,ivb,byt,hsw,bdw,bsw,bxt,glk,gen9"
              bisect_arch="m64,m32">
       <prerequisite name="glcts" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -115,7 +115,7 @@
     </project>
 
     <project name="glcts-test-iris"
-             bisect_hardware="kbl_iris"
+             bisect_hardware="gen9_iris"
              bisect_arch="m64">
       <prerequisite name="glcts" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -123,7 +123,7 @@
     </project>
 
     <project name="glescts-test"
-             bisect_hardware="g33,g45,ilk,g965,bxt,byt,bsw,skl,bdw,hsw,snb,ivb,kbl,glk,cfl"
+             bisect_hardware="g33,g45,ilk,g965,bxt,byt,bsw,bdw,hsw,snb,ivb,glk,gen9"
              bisect_arch="m64">
       <prerequisite name="mesa" hardware="builder"/>
       <prerequisite name="glescts" hardware="builder"/>
@@ -131,16 +131,16 @@
     </project>
 
     <project name="glescts-full">
-      <prerequisite name="glescts-test" hardware="bdw,skl,kbl"/>
+      <prerequisite name="glescts-test" hardware="bdw,gen9"/>
       <prerequisite name="glescts-test" hardware="hsw"/>
       <!-- only_for_type enforces the prerequisite when type matches
            the value. -->
-      <prerequisite name="glescts-test" hardware="bsw,byt,bxt,glk,cfl" only_for_type="daily"/>
+      <prerequisite name="glescts-test" hardware="bsw,byt,bxt,glk" only_for_type="daily"/>
       <prerequisite name="glescts-test" hardware="g33,g45,ilk,g965,ivb,snb" only_for_type="daily"/>
       <prerequisite name="glescts-test"
                     only_for_type="daily"
                     arch="m32"
-                    hardware="snb,ivb,hsw,bdw,skl,kbl"/>
+                    hardware="snb,ivb,hsw,bdw,gen9"/>
     </project>
 
     <project name="vkrunner"/>
@@ -152,14 +152,14 @@
     </project>
 
     <project name="piglit-test"
-             bisect_hardware="bdw,skl,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,bxt,kbl,glk,cfl,icl"
+             bisect_hardware="bdw,gen9,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,bxt,glk,icl"
              bisect_arch="m64">
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
     </project>
 
     <project name="piglit-test-iris"
-             bisect_hardware="kbl_iris,glk_iris"
+             bisect_hardware="gen9_iris,glk_iris"
              bisect_arch="m64">
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -178,19 +178,17 @@
 
     <project name="piglit-full">
       <prerequisite name="piglit-test"
-                    hardware="snb,ivb,hsw,bdw,skl,kbl"
+                    hardware="snb,ivb,hsw,bdw,gen9"
                     shard="2"/>
       <prerequisite name="piglit-test"
                     only_for_type="daily"
-                    hardware="snb,ivb,hsw,bdw,skl,kbl"
+                    hardware="snb,ivb,hsw,bdw,gen9"
                     arch="m32"
                     shard="2"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,bxt,glk"
                     arch="m64,m32" shard="4"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="ilk,g965,g45,g33"
                     arch="m64,m32"/>
-      <!-- do not test 32 bit for limited platforms -->
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="cfl" arch="m64"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="icl" arch="m64"
                     shard="4"/>
     </project>
@@ -200,7 +198,7 @@
     </project>
 
     <project name="crucible-test"
-             bisect_hardware="bdw,skl,ivb,bsw,byt,hsw,bxt,kbl,glk,cfl,icl"
+             bisect_hardware="bdw,ivb,bsw,byt,hsw,bxt,glk,gen9,icl"
              bisect_arch="m64">
       <prerequisite name="crucible" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -210,7 +208,7 @@
     <project name="skqp" />
 
     <project name="skqp-test"
-             bisect_hardware="skl,bxt,kbl,glk,cfl,icl"
+             bisect_hardware="bxt,glk,icl,gen9"
              bisect_arch="m64">
       <prerequisite name="waffle" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -218,12 +216,12 @@
     </project>
 
     <project name="skqp-full">
-      <prerequisite name="skqp-test" hardware="skl,kbl" arch="m64"/>
-      <prerequisite only_for_type="daily" name="skqp-test" hardware="bxt,glk,cfl,icl" arch="m64"/>
+      <prerequisite name="skqp-test" hardware="gen9" arch="m64"/>
+      <prerequisite only_for_type="daily" name="skqp-test" hardware="bxt,glk,icl" arch="m64"/>
     </project>
 
     <project name="vulkancts-test" src_dir="vulkancts"
-             bisect_hardware="bdw,skl,bsw,kbl,hsw,bxt,glk,cfl"
+             bisect_hardware="bdw,bsw,hsw,bxt,glk,gen9"
              bisect_arch="m64">
       <prerequisite name="vulkancts" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -231,21 +229,21 @@
     </project>
 
     <project name="vulkancts-full">
-      <prerequisite name="vulkancts-test" hardware="skl,kbl" shard="4"/>
+      <prerequisite name="vulkancts-test" hardware="gen9" shard="4"/>
       <prerequisite name="vulkancts-test" hardware="hsw,bdw" shard="6"/>
       <prerequisite name="vulkancts-test"
                     only_for_type="daily"
-                    hardware="bdw,hsw,skl,kbl"
+                    hardware="bdw,hsw,gen9"
                     arch="m32"
                     shard="4"/>
       <prerequisite name="vulkancts-test"
                     only_for_type="daily"
-                    hardware="bsw,bxt,glk,cfl"
+                    hardware="bsw,bxt,glk"
                     arch="m64"
                     shard="8"/>
 
-      <prerequisite name="crucible-test" hardware="bdw,skl,bsw,hsw,bxt,kbl"/>
-      <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="bxt,glk,cfl,icl"/>
+      <prerequisite name="crucible-test" hardware="bdw,bsw,hsw,bxt,gen9"/>
+      <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="bxt,glk,icl"/>
     </project>
 
     <project name="vulkancts"/>
@@ -277,16 +275,16 @@
 
     <project name="iris-full">
       <prerequisite name="piglit-test-iris"
-                    hardware="kbl_iris"
+                    hardware="gen9_iris"
                     shard="2"/>
       <prerequisite name="piglit-test-iris"
                     hardware="glk_iris"
                     shard="6"
                     only_for_type="daily"/>
       <prerequisite name="deqp-test-iris"
-                    hardware="kbl_iris"
+                    hardware="gen9_iris"
                     shard="5"/>
-      <prerequisite name="glcts-test-iris" hardware="kbl_iris"/>
+      <prerequisite name="glcts-test-iris" hardware="gen9_iris"/>
     </project>      
 
     <project name="test-single-arch-simdrm">
@@ -305,8 +303,8 @@
 
     <project name="test-single-arch">
       <prerequisite name="piglit-test" hardware="g33,ilk,g45,g965"/>
-      <prerequisite name="piglit-test" hardware="snb,ivb,hsw,bdw,skl,kbl" shard="2"/>
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,bxt,glk,cfl,icl" shard="4"/>
+      <prerequisite name="piglit-test" hardware="snb,ivb,hsw,bdw,gen9" shard="2"/>
+      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,bxt,glk,icl" shard="4"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
@@ -329,41 +327,25 @@
       <prerequisite name="glescts-full"/>
     </project>
 
-    <project name="test-single-arch-anholt">
-      <prerequisite name="piglit-full"/>
-      <prerequisite name="piglit-test" hardware="ilk,bsw,byt,g33,g45,g965,bxt,glk"/>
-      <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
-      <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
-      <prerequisite name="mesa-buildtest" hardware="builder"/>
-      <prerequisite name="deqp-full"/>
-      <prerequisite name="deqp-test" hardware="byt,bsw,bxt,glk"/>
-      <prerequisite name="glcts-full" hardware="hsw,bdw,skl,kbl"/>
-      <prerequisite name="glcts-test" hardware="bsw,bxt,glk"/>
-      <prerequisite name="glescts-full"/>
-      <prerequisite name="glescts-test" hardware="bsw,byt,bxt,glk" shard="8"/>
-      <prerequisite name="glescts-test" hardware="g33,g45,ilk,g965,ivb,snb,kbl"/>
-      <prerequisite name="vulkancts-full"/>
-    </project>
-
     <project name="deqp-full">
-      <prerequisite name="deqp-test" hardware="hsw,skl,kbl,bdw,snb,ivb" shard="5"/>
+      <prerequisite name="deqp-test" hardware="hsw,bdw,snb,ivb,gen9" shard="5"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
-                    hardware="ilk,g33,g45,g965,byt,bsw,bxt,glk,cfl,icl" shard="4"/>
+                    hardware="ilk,g33,g45,g965,byt,bsw,bxt,glk,icl" shard="4"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     arch="m32"
-                    hardware="snb,ivb,hsw,bdw,skl,kbl,bxt,bsw" shard="4"/>
+                    hardware="snb,ivb,hsw,bdw,bxt,bsw,gen9" shard="4"/>
     </project>
 
     <project name="deqp-runtime-full">
-      <prerequisite name="deqp-runtime" hardware="bdw,skl,kbl" shard="5"/>
+      <prerequisite name="deqp-runtime" hardware="bdw,gen9" shard="5"/>
       <prerequisite name="deqp-runtime" hardware="bxt" shard="8"/>
     </project>
 
     <project name="glcts-full">
-      <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,skl,kbl,cfl" arch="m64"/>
-      <prerequisite name="glcts-test" only_for_type="daily" hardware="hsw,bdw,skl,kbl" arch="m32"/>
+      <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,gen9" arch="m64"/>
+      <prerequisite name="glcts-test" only_for_type="daily" hardware="hsw,bdw,gen9" arch="m32"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="bsw,bxt,byt,glk"/>
     </project>
 
@@ -372,12 +354,12 @@
       <prerequisite name="vulkancts-full"/>
     </project>
 
-    <project name="webgl" bisect_hardware="skl">
+    <project name="webgl" bisect_hardware="gen9">
       <prerequisite name="mesa" hardware="builder"/>
     </project>
 
     <project name="webgl-full">
-      <prerequisite name="webgl" hardware="skl" shard="6"/>
+      <prerequisite name="webgl" hardware="gen9" shard="6"/>
     </project>
     
     <project name="reboot-slave"/>
