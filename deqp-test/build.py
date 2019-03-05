@@ -21,6 +21,8 @@ class DeqpBuilder(object):
         self.pm = bs.ProjectMap()
         self.o = bs.Options()
         self.env = {}
+        if "iris" in self.o.hardware:
+            self.env = { "MESA_LOADER_DRIVER_OVERRIDE" : "iris" }
         self.version = None
     def build(self):
         pass
@@ -65,5 +67,11 @@ class DeqpBuilder(object):
         config = bs.get_conf_file(self.o.hardware, self.o.arch, project=self.pm.current_project())
         t.generate_results(all_results, bs.ConfigFilter(config, self.o))
         
+if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
+                      "/src/gallium/drivers/iris/meson.build"):
+    # iris not supported
+    if "iris" in bs.Options().hardware:
+        sys.exit(0)
+
 bs.build(DeqpBuilder(), time_limit=SlowTimeout())
         
