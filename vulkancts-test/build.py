@@ -9,7 +9,7 @@ class SlowTimeout:
     def __init__(self):
         self.timeout = 60
         hardware = bs.Options().hardware
-        if hardware in ["bxt", "glk", "bsw"]:
+        if hardware in ["gen9atom", "bsw"]:
             self.timeout = 90
 
     def GetDuration(self):
