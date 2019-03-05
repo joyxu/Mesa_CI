@@ -99,16 +99,8 @@
     </project>
 
     <project name="glcts-test"
-             bisect_hardware="snb,ivb,byt,hsw,bdw,bsw,gen9atom,gen9"
+             bisect_hardware="snb,ivb,byt,hsw,bdw,bsw,gen9atom,gen9,gen9_iris"
              bisect_arch="m64,m32">
-      <prerequisite name="glcts" hardware="builder"/>
-      <prerequisite name="mesa" hardware="builder"/>
-      <prerequisite name="waffle" hardware="builder"/>
-    </project>
-
-    <project name="glcts-test-iris"
-             bisect_hardware="gen9_iris"
-             bisect_arch="m64">
       <prerequisite name="glcts" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
       <prerequisite name="waffle" hardware="builder"/>
@@ -273,7 +265,6 @@
                     hardware="gen9atom_iris"
                     shard="6"
                     only_for_type="daily"/>
-      <prerequisite name="glcts-test-iris" hardware="gen9_iris"/>
     </project>      
 
     <project name="test-single-arch-simdrm">
@@ -334,7 +325,7 @@
     </project>
 
     <project name="glcts-full">
-      <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,gen9" arch="m64"/>
+      <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,gen9,gen9_iris" arch="m64"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="hsw,bdw,gen9" arch="m32"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="bsw,gen9atom,byt"/>
     </project>

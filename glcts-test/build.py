@@ -25,10 +25,13 @@ class GLCTSTester(object):
             print("NOTICE: GLCTS will NOT be run since the system has Mesa version <17.3")
             return
         t = bs.DeqpTester()
+        env = {"MESA_GL_VERSION_OVERRIDE" : "4.6",
+               "MESA_GLSL_VERSION_OVERRIDE" : "460"}
+        if "iris" in self.o.hardware:
+            env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
         results = t.test(self.pm.build_root() + "/bin/gl/modules/glcts",
                          bs.GLCTSLister(),
-                         env = {"MESA_GL_VERSION_OVERRIDE" : "4.6",
-                                "MESA_GLSL_VERSION_OVERRIDE" : "460"})
+                         env=env)
 
         o = bs.Options()
         config = bs.get_conf_file(self.o.hardware, self.o.arch, project=self.pm.current_project())
@@ -45,5 +48,11 @@ class SlowTimeout:
 
     def GetDuration(self):
         return 120
+
+if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
+                      "/src/gallium/drivers/iris/meson.build"):
+    # iris not supported
+    if "iris" in bs.Options().hardware:
+        sys.exit(0)
 
 bs.build(GLCTSTester(), time_limit=SlowTimeout())
