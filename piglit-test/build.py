@@ -16,6 +16,8 @@ class SlowTimeout:
             return 120
         if self.hardware == "gen9atom":
             return 120
+        if self.hardware == "gen9atom_iris":
+            return 120
         if self.hardware == "kbl":
             return 120
         if self.hardware == "g33":
@@ -46,11 +48,18 @@ if bs.Options().hardware == "icl":
 
 env = {}
 # Override extensions on icl to enable additional tests
-if bs.Options().hardware == 'icl':
+hardware = bs.Options().hardware
+if hardware == 'icl':
     env['MESA_EXTENSION_OVERRIDE'] = ('+GL_ARB_gpu_shader_fp64 '
                                       '+GL_ARB_vertex_attrib_64bit '
                                       '+GL_ARB_gpu_shader_int64 '
                                       '+GL_ARB_shader_ballot')
+if "iris" in hardware:
+    env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
+    if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
+                          "/src/gallium/drivers/iris/meson.build"):
+        # iris not supported
+        sys.exit(0)
 
 bs.build(bs.PiglitTester(env=env, piglit_test=piglit_test,
                          excludes=excludes), time_limit=SlowTimeout())

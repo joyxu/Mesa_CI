@@ -136,14 +136,7 @@
     </project>
 
     <project name="piglit-test"
-             bisect_hardware="bdw,gen9,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,gen9atom,icl"
-             bisect_arch="m64">
-      <prerequisite name="piglit" hardware="builder"/>
-      <prerequisite name="mesa" hardware="builder"/>
-    </project>
-
-    <project name="piglit-test-iris"
-             bisect_hardware="gen9_iris,gen9atom_iris"
+             bisect_hardware="bdw,gen9,gen9_iris,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,gen9atom,gen9atom_iris,icl"
              bisect_arch="m64">
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -162,14 +155,14 @@
 
     <project name="piglit-full">
       <prerequisite name="piglit-test"
-                    hardware="snb,ivb,hsw,bdw,gen9"
+                    hardware="snb,ivb,hsw,bdw,gen9,gen9_iris"
                     shard="2"/>
       <prerequisite name="piglit-test"
                     only_for_type="daily"
-                    hardware="snb,ivb,hsw,bdw,gen9"
+                    hardware="snb,ivb,hsw,bdw,gen9,gen9_iris"
                     arch="m32"
                     shard="2"/>
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,gen9atom"
+      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,gen9atom,gen9atom_iris"
                     arch="m64,m32" shard="4"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="ilk,g965,g45,g33"
                     arch="m64,m32"/>
@@ -243,7 +236,6 @@
       <prerequisite name="scons-buildtest" hardware="builder"/>
       <prerequisite name="meson-buildtest" hardware="builder"/>
       <prerequisite name="piglit-full"/>
-      <prerequisite name="iris-full"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <!-- <prerequisite name="android-buildtest" hardware="builder"/> -->
@@ -265,7 +257,7 @@
                     hardware="gen9atom_iris"
                     shard="6"
                     only_for_type="daily"/>
-    </project>      
+    </project>
 
     <project name="test-single-arch-simdrm">
       <prerequisite name="test-single-arch-tgl"/>
@@ -283,8 +275,8 @@
 
     <project name="test-single-arch">
       <prerequisite name="piglit-test" hardware="g33,ilk,g45,g965"/>
-      <prerequisite name="piglit-test" hardware="snb,ivb,hsw,bdw,gen9" shard="2"/>
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,gen9atom,icl" shard="4"/>
+      <prerequisite name="piglit-test" hardware="snb,ivb,hsw,bdw,gen9,gen9_iris" shard="2"/>
+      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,gen9atom,gen9atom_iris,icl" shard="4"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
@@ -293,7 +285,6 @@
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
       <prerequisite name="skqp-full"/>
-      <prerequisite name="iris-full"/>
     </project>
 
     <!-- this is used for Nanley's percheckin build -->
@@ -714,16 +705,8 @@
       <mesa branch="antognolli/jenkins_vk"/>
     </branch>
 
-    <branch name="antognolli_iris" project="iris-full">
-      <mesa branch="antognolli/iris/jenkins"/>
-    </branch>
-
     <branch name="kwg_vulkan" project="vulkancts-full">
       <mesa branch="kwg/vkjenkins"/>
-    </branch>
-
-    <branch name="kwg_iris" project="iris-full">
-      <mesa branch="kwg/ijenkins"/>
     </branch>
 
     <branch name="idr" project="test-single-arch-vulkan">
@@ -889,10 +872,6 @@
       <mesa branch="igalia/jmcasanova/jenkins"/>
     </branch>
 
-    <branch name="jmcasanova_iris" project="iris-full">
-      <mesa branch="igalia/jmcasanova/jenkins-iris"/>
-    </branch>
-
     <branch name="itoral" project="test-single-arch-vulkan">
       <mesa branch="igalia/itoral/jenkins"/>
     </branch>
@@ -972,10 +951,6 @@
     <branch name="cmarcelo_tgl" project="test-single-arch-tgl">
       <mesa branch="internal/cmarcelo/jenkins/tgl"/>
       <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
-    </branch>
-
-    <branch name="cmarcelo_iris" project="iris-full">
-      <mesa branch="cmarcelo/jenkins_iris"/>
     </branch>
 
     <branch name="sagarghuge" project="test-single-arch-vulkan">
