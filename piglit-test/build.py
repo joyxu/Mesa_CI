@@ -14,9 +14,7 @@ class SlowTimeout:
             return 120
         if self.hardware == "byt":
             return 120
-        if self.hardware == "glk":
-            return 120
-        if self.hardware == "bxt":
+        if self.hardware == "gen9atom":
             return 120
         if self.hardware == "kbl":
             return 120
