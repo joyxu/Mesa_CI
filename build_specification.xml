@@ -261,7 +261,6 @@
 
     <project name="test-single-arch-simdrm">
       <prerequisite name="test-single-arch-tgl"/>
-      <prerequisite name="test-single-arch-ats"/>
     </project>
 
     <project name="test-single-arch-tgl">
@@ -1011,7 +1010,7 @@
     </branch>
 
     <branch name="simdrm_tgl" project="test-single-arch-tgl">
-      <mesa branch="internal/jljusten/wip/tgl"/>
+      <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
 
    <branch name="wip_18.3" project="test-single-arch-vulkan">
