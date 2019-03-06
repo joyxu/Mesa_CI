@@ -951,7 +951,7 @@
     </branch>
 
     <branch name="cmarcelo_tgl" project="test-single-arch-tgl">
-      <mesa branch="internal/cmarcelo/jenkins/tgl"/>
+      <mesa branch="cmarcelo-internal/jenkins/tgl"/>
       <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
 
