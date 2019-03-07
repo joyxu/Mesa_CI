@@ -65,16 +65,26 @@ def main():
                         help="The branch to base the checkout on. (default: %(default)s)")
     parser.add_argument('--project', type=str, default="",
                         help="Limit commits to repos required by the project. (default: none)")
+    parser.add_argument('--revspec', type=str, default="",
+                        help=("XML file containing revision spec listing out "
+                              "projects and revisions to fetch (default: none)"))
     parser.add_argument('commits', metavar='commits', type=str, nargs='*',
                         help='commits to check out, in repo=sha format')
     args = parser.parse_args()
 
     repos = bs.RepoSet()
     spec = bs.BuildSpecification(repo_set=repos)
-    
+
     limit_to_repos = {}
-    for c in args.commits:
-        limit_to_repos[c.split("=")[0]] = c.split("=")[1]
+    # commits overrides versions in revspec
+    if args.revspec and os.path.exists(args.revspec):
+        for c in bs.RevisionSpecification.from_xml_file(args.revspec).to_cmd_line_param().split():
+            repo, sha = c.split('=')
+            limit_to_repos[repo] = sha
+    if args.commits:
+        for c in args.commits:
+            repo, sha = c.split('=')
+            limit_to_repos[repo] = sha
     project = args.project
     branch = args.branch
     branchspec = None
