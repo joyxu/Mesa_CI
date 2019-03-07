@@ -614,7 +614,7 @@
       <glcts branch="83666e46b"/>
       <drm branch="b7a7a903"/>
       <deqp branch="cc7f632a2"/>
-      <crucible branch="2cb700c"/>
+      <crucible branch="4557aa9"/>
       <skqp branch="2441c92442"/>
       <vkrunner branch="79229ee"/>
       <webgl branch="dcbb9e5d9e37857d57a9fc711577cf2489ca6197"/>
@@ -1024,7 +1024,7 @@
       <glcts branch="f75a5cccd"/>
       <drm branch="b3dec018"/>
       <deqp branch="6d7b02c40"/>
-      <crucible branch="3575f3f"/>
+      <crucible branch="4557aa9"/>
     </branch>
   </branches>
 
