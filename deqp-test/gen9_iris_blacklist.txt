@@ -17,6 +17,7 @@ dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_c
 
 #flaky on iris
 dEQP-GLES3.functional.fbo.blit.depth_stencil.depth32f_stencil8_basic
+dEQP-GLES3.functional.fbo.msaa.4_samples.stencil_index8
 
 # fixed on i965, but needs hack patch on iris
 # https://bugs.freedesktop.org/show_bug.cgi?id=103746
