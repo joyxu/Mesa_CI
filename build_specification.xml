@@ -1009,6 +1009,10 @@
       <mesa branch="gerddie/intel-ci"/>
     </branch>
 
+    <branch name="craftyguy" project="test-single-arch-vulkan">
+      <mesa branch="craftyguy/jenkins"/>
+    </branch>
+
     <branch name="simdrm_tgl" project="test-single-arch-tgl">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
