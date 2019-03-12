@@ -737,7 +737,7 @@
       <mesa branch="mperes/jenkins"/>
     </branch>
 
-    <branch name="tpalli" project="test-single-arch">
+    <branch name="tpalli" project="test-single-arch-vulkan">
       <mesa branch="tpalli/jenkins"/>
     </branch>
 
