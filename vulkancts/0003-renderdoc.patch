@@ -1,0 +1,111 @@
+From f0d7d6e1314440a175eaeed62517f63846393fa4 Mon Sep 17 00:00:00 2001
+From: Jordan Justen <jordan.l.justen@intel.com>
+Date: Tue, 12 Mar 2019 00:17:53 -0700
+Subject: [PATCH] vulkancts: Make renderdoc optional
+
+In our test lab, we do not use external/fetch_sources.py. Instead, we
+retrieve the dependencies separately, and sometimes using different
+versions.
+
+Retrieving the renderdoc_app.h file does not work well with this
+process.
+
+Since renderdoc support is optional at runtime, this change makes it
+also optional at build time. If the renderdoc_app.h file doesn't exist
+at the expected location, then a no-op stup version of the
+RenderDocUtil class is built instead.
+
+Signed-off-by: Jordan Justen <jordan.l.justen@intel.com>
+
+diff --git a/external/vulkancts/framework/vulkan/CMakeLists.txt b/external/vulkancts/framework/vulkan/CMakeLists.txt
+index b24c1c226..c4ee0401f 100644
+--- a/external/vulkancts/framework/vulkan/CMakeLists.txt
++++ b/external/vulkancts/framework/vulkan/CMakeLists.txt
+@@ -2,6 +2,16 @@
+ # Split into two libraries - one that depends on spirv/glslang libraries
+ # which have long build times, and one that can build in parallel with those.
+ 
++include(CheckIncludeFile)
++check_include_file_cxx(
++	${CMAKE_SOURCE_DIR}/external/renderdoc/src/renderdoc_app.h
++	HAVE_RENDERDOC_APP_H)
++if(HAVE_RENDERDOC_APP_H)
++	set(VKRENDERDOC_SRC vkRenderDocUtil.cpp)
++else()
++	set(VKRENDERDOC_SRC vkNoRenderDocUtil.cpp)
++endif(HAVE_RENDERDOC_APP_H)
++
+ set(VKUTILNOSHADER_SRCS
+ 	vkApiVersion.cpp
+ 	vkApiVersion.hpp
+@@ -58,8 +68,8 @@ set(VKUTILNOSHADER_SRCS
+ 	vkYCbCrImageWithMemory.hpp
+ 	vkObjUtil.cpp
+ 	vkObjUtil.hpp
++	${VKRENDERDOC_SRC}
+ 	vkRenderDocUtil.hpp
+-	vkRenderDocUtil.cpp
+ 	)
+ 
+ set(VKUTIL_SRCS
+diff --git a/external/vulkancts/framework/vulkan/vkNoRenderDocUtil.cpp b/external/vulkancts/framework/vulkan/vkNoRenderDocUtil.cpp
+new file mode 100644
+index 000000000..fa5ad6ed0
+--- /dev/null
++++ b/external/vulkancts/framework/vulkan/vkNoRenderDocUtil.cpp
+@@ -0,0 +1,55 @@
++/*-------------------------------------------------------------------------
++ * Vulkan CTS Framework
++ * --------------------
++ *
++ * Copyright (c) 2018 The Khronos Group Inc.
++ * Copyright (c) 2018 Intel Corporation
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ *
++ *//*!
++ * \file
++ * \brief RenderDoc utility
++ *//*--------------------------------------------------------------------*/
++
++#include "vkRenderDocUtil.hpp"
++
++namespace vk
++{
++
++struct RenderDocPrivate
++{
++};
++
++RenderDocUtil::RenderDocUtil (void)
++{
++}
++
++RenderDocUtil::~RenderDocUtil (void)
++{
++}
++
++bool RenderDocUtil::isValid (void)
++{
++	return false;
++}
++
++void RenderDocUtil::startFrame (vk::VkInstance instance)
++{
++}
++
++void RenderDocUtil::endFrame (vk::VkInstance instance)
++{
++}
++
++} // vk

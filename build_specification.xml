@@ -470,7 +470,7 @@
     </crucible>
 
     <vulkancts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
-               branch="origin/vulkan-cts-1.1.2">
+               branch="origin/vulkan-cts-1.1.3">
       <remote name="khronos" repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"/>
       <remote name="janesma" repo="git@gitlab.freedesktop.org:majanes/vk-gl-cts.git"/>
     </vulkancts>
