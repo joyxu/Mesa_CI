@@ -124,4 +124,5 @@ class SlowTimeout:
     def GetDuration(self):
         return 120
 
-bs.build(GLESCTSTester(), time_limit=SlowTimeout())
+if __name__ == '__main__':
+    bs.build(GLESCTSTester(), time_limit=SlowTimeout())

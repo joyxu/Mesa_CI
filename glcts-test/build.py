@@ -49,10 +49,11 @@ class SlowTimeout:
     def GetDuration(self):
         return 120
 
-if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
-                      "/src/gallium/drivers/iris/meson.build"):
-    # iris not supported
-    if "iris" in bs.Options().hardware:
-        sys.exit(0)
+if __name__ == '__main__':
+    if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
+                          "/src/gallium/drivers/iris/meson.build"):
+        # iris not supported
+        if "iris" in bs.Options().hardware:
+            sys.exit(0)
 
-bs.build(GLCTSTester(), time_limit=SlowTimeout())
+    bs.build(GLCTSTester(), time_limit=SlowTimeout())

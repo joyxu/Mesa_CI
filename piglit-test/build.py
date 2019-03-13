@@ -29,37 +29,41 @@ class SlowTimeout:
         # all other test suites finish in 10 minutes or less.
         # TODO: put back to 25 when curro's regression is fixed
         return 40
-        
-# add the --piglit_test option to the standard options.  Parse the
-# options, and strip the piglit_test so the options will work as usual
-# for subsequent objects.
-o = bs.CustomOptions("piglit args allow a specific test")
-o.add_argument(arg='--piglit_test', type=str, default="",
-                    help="single piglit test to run.")
-o.parse_args()
 
-piglit_test = ""
-if o.piglit_test:
-    piglit_test = o.piglit_test
+def main():
+    # add the --piglit_test option to the standard options.  Parse the
+    # options, and strip the piglit_test so the options will work as usual
+    # for subsequent objects.
+    o = bs.CustomOptions("piglit args allow a specific test")
+    o.add_argument(arg='--piglit_test', type=str, default="",
+                        help="single piglit test to run.")
+    o.parse_args()
 
-excludes = None
-if bs.Options().hardware == "icl":
-    excludes = ["dvec3", "dvec4", "dmat"]
+    piglit_test = ""
+    if o.piglit_test:
+        piglit_test = o.piglit_test
 
-env = {}
-# Override extensions on icl to enable additional tests
-hardware = bs.Options().hardware
-if hardware == 'icl':
-    env['MESA_EXTENSION_OVERRIDE'] = ('+GL_ARB_gpu_shader_fp64 '
-                                      '+GL_ARB_vertex_attrib_64bit '
-                                      '+GL_ARB_gpu_shader_int64 '
-                                      '+GL_ARB_shader_ballot')
-if "iris" in hardware:
-    env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
-    if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
-                          "/src/gallium/drivers/iris/meson.build"):
-        # iris not supported
-        sys.exit(0)
+    excludes = None
+    if bs.Options().hardware == "icl":
+        excludes = ["dvec3", "dvec4", "dmat"]
 
-bs.build(bs.PiglitTester(env=env, piglit_test=piglit_test,
-                         excludes=excludes), time_limit=SlowTimeout())
+    env = {}
+    # Override extensions on icl to enable additional tests
+    hardware = bs.Options().hardware
+    if hardware == 'icl':
+        env['MESA_EXTENSION_OVERRIDE'] = ('+GL_ARB_gpu_shader_fp64 '
+                                          '+GL_ARB_vertex_attrib_64bit '
+                                          '+GL_ARB_gpu_shader_int64 '
+                                          '+GL_ARB_shader_ballot')
+    if "iris" in hardware:
+        env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
+        if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
+                              "/src/gallium/drivers/iris/meson.build"):
+            # iris not supported
+            sys.exit(0)
+
+    bs.build(bs.PiglitTester(env=env, piglit_test=piglit_test,
+                             excludes=excludes), time_limit=SlowTimeout())
+
+if __name__ == '__main__':
+    main()
