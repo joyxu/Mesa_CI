@@ -3,7 +3,11 @@
 import os
 import sys
 import urllib
-import urllib2
+try:
+    from urllib2 import urlopen, urlencode, URLError, HTTPError, quote
+except:
+    from urllib.request import urlopen, URLError, HTTPError, quote
+    from urllib.parse import urlencode
 import ast
 import time
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
@@ -11,8 +15,8 @@ import build_support as bs
 server = bs.ProjectMap().build_spec().find("build_master").attrib["host"]
 
 url = "http://" + server + "/computer/api/python"
-f=urllib2.urlopen(url)
-host_dict = ast.literal_eval(f.read())
+f = urlopen(url)
+host_dict = ast.literal_eval(f.read().decode('utf-8'))
 
 def is_excluded():
     if ("builder" in host or host == "master" or "simdrm" in host):
@@ -23,7 +27,7 @@ for a_host in host_dict['computer']:
     if is_excluded():
         continue
     f = { 'token' : 'noauth', 'label' : host}
-    url = "http://" + server + "/job/reboot_single/buildWithParameters?" + urllib.urlencode(f)
+    url = "http://" + server + "/job/reboot_single/buildWithParameters?" + urlencode(f)
     print("triggering " + url)
-    urllib2.urlopen(url)
+    urlopen(url)
     time.sleep(1)
