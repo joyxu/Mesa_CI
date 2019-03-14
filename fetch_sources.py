@@ -55,6 +55,8 @@ if not os.path.exists(build_support_dir):
             except git.exc.GitCommandError:
                 print("ERROR: could not clone sources")
                 sys.exit(1)
+bs_repo = git.Repo(build_support_dir)
+bs_repo.git.checkout(["origin/master"])
 
 sys.path.insert(0, build_support_dir)
 import build_support as bs
