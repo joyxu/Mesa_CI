@@ -374,4 +374,3 @@ dEQP-VK.wsi.display.get_display_plane_capabilities2
 
 # unreliable hsw in 1.1.3
 dEQP-VK.glsl.derivate
-dEQP-VK.renderpass2.depth_stencil_resolve
