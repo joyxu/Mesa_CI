@@ -92,6 +92,7 @@ class VulkanTester(object):
         config = bs.get_conf_file(o.hardware, o.arch, project=pm.current_project())
         tester.generate_results(results, bs.ConfigFilter(config, o))
 
-bs.build(VulkanTester(),
-         time_limit=SlowTimeout())
+if __name__ == '__main__':
+    bs.build(VulkanTester(),
+             time_limit=SlowTimeout())
 
