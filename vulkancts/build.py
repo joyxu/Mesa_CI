@@ -36,6 +36,8 @@ class VulkanCtsBuilder(object):
             bs.run_batch_command(["git", "am", self._pm.project_build_dir("vulkancts") + "/0003-renderdoc.patch"])
         except:
             print("WARN: failed to apply prebuilt patch")
+            bs.run_batch_command(["git", "am", "--abort"])
+
         os.chdir(save_dir)
         revisions = get_external_revisions()
         external_dir = (self._pm.project_source_dir('vulkancts')
