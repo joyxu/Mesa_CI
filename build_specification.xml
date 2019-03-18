@@ -217,7 +217,7 @@
                     only_for_type="daily"
                     hardware="bsw,gen9atom"
                     arch="m64"
-                    shard="8"/>
+                    shard="10"/>
 
       <prerequisite name="crucible-test" hardware="bdw,bsw,hsw,gen9atom,gen9"/>
       <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="gen9atom,icl"/>
