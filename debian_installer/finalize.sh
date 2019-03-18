@@ -50,14 +50,12 @@ echo 'startup_states: highstate' > /etc/salt/minion.d/startup.conf
 # Add our nfs mount to fstab
 echo 'otc-mesa-ci.local:/srv/jenkins       /mnt/jenkins    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
 
-# Create a systemd .network file for the network interfac
-name=$(ip addr show scope link up | grep -v DOWN | grep UP | awk '{print $2}' | sed 's@:@@')
-
+# Enable DHCP on any existing and future ethernet interfaces
 mkdir -p /etc/systemd/network
 
-cat > "/etc/systemd/network/${name}.network" << EOF
+cat > "/etc/systemd/network/wired.network" << EOF
 [Match]
-Name=${name}
+Name=e*
 
 [Network]
 DHCP=yes
