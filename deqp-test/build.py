@@ -73,5 +73,6 @@ if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
     if "iris" in bs.Options().hardware:
         sys.exit(0)
 
-bs.build(DeqpBuilder(), time_limit=SlowTimeout())
+if __name__ == '__main__':
+    bs.build(DeqpBuilder(), time_limit=SlowTimeout())
         
