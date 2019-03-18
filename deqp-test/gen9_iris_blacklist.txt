@@ -7,8 +7,6 @@ dEQP-EGL.functional.multithread.pbuffer_single_window
 dEQP-EGL.functional.multithread.pbuffer_single_window_context
 
 dEQP-GLES3.functional.transform_feedback
-# flaky on iris
-dEQP-GLES3.functional.fbo.color.repeated_clear.blit
 
 dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_atomic_counter_mixed_dispatch_100_calls_1k_invocations
 
@@ -19,6 +17,9 @@ dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_c
 dEQP-GLES3.functional.fbo.blit.depth_stencil.depth24_stencil8_stencil_only
 dEQP-GLES3.functional.fbo.blit.depth_stencil.depth32f_stencil8_basic
 dEQP-GLES3.functional.fbo.blit.depth_stencil.depth32f_stencil8_stencil_only
+dEQP-GLES3.functional.fbo.color.repeated_clear.blit
+dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.rg16ui
+dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.rgba16ui
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.rgba8i
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.srgb8_alpha8
 dEQP-GLES3.functional.fbo.msaa.4_samples.stencil_index8
