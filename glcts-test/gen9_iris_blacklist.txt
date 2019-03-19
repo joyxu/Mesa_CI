@@ -20,7 +20,6 @@ KHR-GL46.shader_atomic_counters.basic-usage-tes
 KHR-GL46.shader_image_load_store
 KHR-GL46.shader_image_size
 KHR-GL46.shader_storage_buffer_object.advanced-write-tessellation
-KHR-GL46.tessellation_shader
 KHR-GL46.texture_cube_map_array
 KHR-GL46.compute_shader.resource-texture
 
