@@ -388,7 +388,7 @@
       <remote name="sagarghuge" repo="https://gitlab.freedesktop.org/sagarghuge/mesa.git"/>
       <remote name="ldeks" repo="git://people.freedesktop.org/~ldeks/mesa"/>
       <remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>
-      <remote name="airlied" repo="git://people.freedesktop.org/~airlied/mesa"/>
+      <remote name="airlied" repo="https://gitlab.freedesktop.org/airlied/mesa.git"/>
       <remote name="robclark" repo="git://github.com/freedreno/mesa"/>
       <remote name="global_logic" repo="https://gitlab.freedesktop.org/GL/mesa.git"/>
       <remote name="karolherbst" repo="https://github.com/karolherbst/mesa.git"/>
