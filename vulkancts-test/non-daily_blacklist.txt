@@ -1,0 +1,6 @@
+# This blacklist file contains tests that should only run on 'daily' builds,
+# and NOT run on all other build types (e.g. percheckin)
+
+# These tests take 10min+
+dEQP-VK.spirv_assembly.instruction.graphics.16bit_storage.uniform_32struct_to_16struct.uniform_buffer_block_geom
+dEQP-VK.spirv_assembly.instruction.graphics.8bit_storage.32struct_to_8struct.storage_buffer_sint_geom
