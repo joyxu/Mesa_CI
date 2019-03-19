@@ -62,6 +62,9 @@ class VulkanTestList(object):
         global_blacklist_file = (self.pm.project_build_dir() + '/'
                                  + "blacklist.txt")
         blacklist.add_txt(global_blacklist_file)
+        if o.type != "daily" and not o.retest_path:
+            blacklist.add_txt(self.pm.project_build_dir()
+                              + "/non-daily_blacklist.txt")
         all_tests.filter(blacklist)
 
 class VulkanTester(object):
