@@ -1,0 +1,24 @@
+From bd002f8ba771a4b60a2963b55e56de660b405d74 Mon Sep 17 00:00:00 2001
+From: Clayton Craft <clayton.a.craft@intel.com>
+Date: Wed, 20 Mar 2019 14:02:14 -0700
+Subject: [PATCH] use python2
+
+---
+ CMakeLists.txt                    | 1 +
+ 1 files changed, 1 insertions(+), 0 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5b46f8f47..a5e0df90b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,6 +1,7 @@
+ # dEQP cmake file
+ 
+ cmake_minimum_required(VERSION 2.8)
++find_package(PythonInterp 2)
+ 
+ # dEQP Target.
+ set(DEQP_TARGET "default" CACHE STRING "dEQP Target (default, android...)")
+-- 
+2.21.0
+
