@@ -21,6 +21,7 @@ dEQP-GLES3.functional.fbo.color.repeated_clear.blit
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.rg16ui
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.rg32f
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.rgba16ui
+dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.rgba4
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.rgba8i
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.srgb8_alpha8
 dEQP-GLES3.functional.fbo.msaa.4_samples.stencil_index8
