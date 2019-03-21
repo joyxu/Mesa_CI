@@ -188,7 +188,11 @@ class CrucibleTester(object):
                 # ICL not supported
                 return
             excludes += [# gpu hang
-                         "!func.sync.semaphore-fd.no-sync"]
+                         "!func.sync.semaphore-fd.no-sync",
+                         "!func.cmd-buffer.large-secondary-no-simultaneous.q0"
+                         "!func.cmd-buffer.small-secondaries.q0",
+                         "!func.cmd-buffer.large-secondary.q0",
+                        ]
 
         bs.run_batch_command([ br + "/bin/crucible",
                                "run", "--fork", "--log-pids",
