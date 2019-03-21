@@ -1,0 +1,7 @@
+diff --git a/.gn b/.gn
+index dce427f6eb..bc2d4c1e8f 100644
+--- a/.gn
++++ b/.gn
+@@ -1 +1,2 @@
+ buildconfig = "//gn/BUILDCONFIG.gn"
++script_executable = "python2"
