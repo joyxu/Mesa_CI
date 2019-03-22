@@ -14,14 +14,14 @@ from selenium.common.exceptions import TimeoutException  # noqa: E402
 from selenium.webdriver.support.select import Select  # noqa: E402
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-import SimpleHTTPServer
+import http.server
 import SocketServer
 import sys
 
 sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
 import build_support as bs
 
-class QuietServer(SimpleHTTPServer.SimpleHTTPRequestHandler):
+class QuietServer(http.server.SimpleHTTPRequestHandler):
     def log_request(self, code='-', size='-'):
         pass
     def log_error(self, *arg):
