@@ -15,7 +15,7 @@ from selenium.webdriver.support.select import Select  # noqa: E402
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import http.server
-import SocketServer
+import socketserver
 import sys
 
 sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
@@ -29,8 +29,8 @@ class QuietServer(http.server.SimpleHTTPRequestHandler):
 
 def serve_webgl_cts(webgl_repo):
     os.chdir(webgl_repo)
-    httpd = SocketServer.TCPServer(("", 0), QuietServer)
-    threading.Thread(target=SocketServer.TCPServer.serve_forever, args=(httpd,)).start()
+    httpd = socketserver.TCPServer(("", 0), QuietServer)
+    threading.Thread(target=socketserver.TCPServer.serve_forever, args=(httpd,)).start()
     return httpd
     
 class TestExecutor:
