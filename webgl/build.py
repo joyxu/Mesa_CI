@@ -74,7 +74,7 @@ class TestExecutor:
             self._elements[test_name] = case_element
                 
     def tests(self):
-        t = self._elements.keys()
+        t = list(self._elements.keys())
         t.sort()
         return t
 
