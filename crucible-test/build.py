@@ -4,7 +4,7 @@ import sys
 import os
 import os.path as path
 import xml.etree.ElementTree as ET
-import ConfigParser
+import configparser
 sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
 import build_support as bs
 
@@ -23,7 +23,7 @@ def post_process_results(xml):
         # key=name, value=status
         expected_status = {}
         changed_commit = {}
-        c = ConfigParser.SafeConfigParser(allow_no_value=True)
+        c = configparser.SafeConfigParser(allow_no_value=True)
         c.read(conf)
         for section in c.sections():
             for (test, commit) in c.items(section):
