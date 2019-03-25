@@ -1013,6 +1013,10 @@
       <mesa branch="craftyguy/jenkins"/>
     </branch>
 
+    <branch name="agoldmints" project="test-single-arch-vulkan">
+      <mesa branch="igalia/agoldmints/jenkins"/>
+    </branch>
+
     <branch name="simdrm_tgl" project="test-single-arch-tgl">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
