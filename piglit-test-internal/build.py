@@ -41,7 +41,7 @@ if bs.Options().hardware in fs.platform_keyfile:
         print("Unable to run simulated hardware in this environment!")
         sys.exit(1)
 
-jobs = multiprocessing.cpu_count() / 2
+jobs = int(multiprocessing.cpu_count() / 2)
 
 excludes = None
 if bs.Options().hardware == "tgl":
