@@ -189,9 +189,9 @@ class CrucibleTester(object):
                 return
             excludes += [# gpu hang
                          "!func.sync.semaphore-fd.no-sync",
-                         "!func.cmd-buffer.large-secondary-no-simultaneous"
-                         "!func.cmd-buffer.small-secondaries",
                          "!func.cmd-buffer.large-secondary",
+                         "!func.cmd-buffer.large-secondary-no-simultaneous*",
+                         "!func.cmd-buffer.small-secondaries*",
                         ]
 
         bs.run_batch_command([ br + "/bin/crucible",
