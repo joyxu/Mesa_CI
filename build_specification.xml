@@ -359,7 +359,7 @@
       <remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/mesa"/>
       <remote name="curro" repo="git://people.freedesktop.org/~currojerez/mesa"/>
       <remote name="aphogat" repo="git://github.com/aphogat/mesa"/>
-      <remote name="tpohjola" repo="git://people.freedesktop.org/~tpohjola/mesa"/>
+      <remote name="tpohjola" repo="https://gitlab.freedesktop.org/tpohjola/mesa.git"/>
       <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/mesa.git"/>
       <remote name="nchery" repo="git://people.freedesktop.org/~nchery/mesa"/>
       <remote name="tarceri" repo="https://gitlab.freedesktop.org/tarceri/mesa.git"/>
