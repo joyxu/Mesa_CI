@@ -77,6 +77,10 @@ cp /boot/efi/EFI/debian/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 update-initramfs -c -k $(apt show linux-image-amd64 2>/dev/null| grep Depends| awk -F'image-' '{print $2}')
 update-grub
 
+# Disable S3/suspend/hibernate
+systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+sed -i 's|#HandleLidSwitch=suspend|HandleLidSwitch=ignore|' /etc/systemd/logind.conf
+
 # Enable and disable some services
 systemctl enable systemd-networkd systemd-resolved avahi-daemon salt-minion
 systemctl disable networking
