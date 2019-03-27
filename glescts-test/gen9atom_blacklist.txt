@@ -3,3 +3,8 @@ KHR-GLES32.functional.synchronization.inter_call.without_memory_barrier.ssbo_ato
 KHR-GLES32.core.geometry_shader.api.fs_gs_draw_call
 KHR-GLES32.functional.geometry_shading.layered.render_with_default_layer_2d_multisample_array
 KHR-GLES31.core.sepshaderobjs.StateInteraction
+
+# flaky
+KHR-GLES31.core.texture_buffer.texture_buffer_atomic_functions
+KHR-GLES32.core.texture_buffer.texture_buffer_atomic_functions
+KHR-GLESEXT.texture_buffer.texture_buffer_atomic_functions
