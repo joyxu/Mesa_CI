@@ -1,0 +1,6 @@
+# gpu hang
+KHR-GL46.shader_subroutine.two_subroutines_single_subroutine_uniform
+
+# flaky
+KHR-GL46.shader_image_load_store.advanced-copyImage
+KHR-GL46.robust_buffer_access_behavior.vertex_buffer_objects
