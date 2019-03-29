@@ -136,7 +136,7 @@
     </project>
 
     <project name="piglit-test"
-             bisect_hardware="bdw,gen9,gen9_iris,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,gen9atom,gen9atom_iris,icl"
+             bisect_hardware="bdw,gen9,gen9_iris,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,gen9atom,gen9atom_iris,icl,bdw_iris"
              bisect_arch="m64">
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -168,6 +168,8 @@
                     arch="m64,m32"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="icl" arch="m64"
                     shard="4"/>
+      <prerequisite only_for_type="daily" name="piglit-test" hardware="bdw_iris" arch="m64,m32"
+                    shard="2"/>
     </project>
     
     <project name="crucible">
