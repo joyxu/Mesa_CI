@@ -47,6 +47,8 @@ class SlowTimeout:
         self.hardware = bs.Options().hardware
 
     def GetDuration(self):
+        if "icl" in self.hardware:
+            return 180
         return 120
 
 if __name__ == '__main__':
