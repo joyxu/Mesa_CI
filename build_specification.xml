@@ -371,7 +371,6 @@
       <remote name="djdeath" repo="git://github.com/djdeath/mesa"/>
       <remote name="igalia" repo="git://github.com/Igalia/mesa"/>
       <remote name="igalia_release" repo="git://github.com/Igalia/release-mesa"/>
-      <remote name="internal" repo="ssh://majanes@git-amr-1.devtools.intel.com:29418/otc_gen_graphics-mesa.git"/>
       <remote name="internal-gitlab" repo="ssh://git@gitlab.devtools.intel.com:29418/linux-gfx/mesa/mesa.git"/>
       <remote name="chadv" repo="git://github.com/chadversary/mesa"/>
       <remote name="antognolli" repo="https://gitlab.freedesktop.org/rantogno/mesa.git"/>
@@ -667,24 +666,16 @@
       <mesa branch="jekstrand/jenkins_vulkan"/>
     </branch>
 
-    <branch name="tf_jekstrand" project="test-single-arch-vulkan">
-      <mesa branch="internal/jekstrand_jenkins"/>
-    </branch>
-
-    <branch name="tf_llandwerlin" project="vulkancts-full">
-      <mesa branch="internal/llandwerlin_jenkins"/>
-    </branch>
-
     <branch name="jljusten_vulkan" project="vulkancts-full">
       <mesa branch="jljusten/vulkan"/>
     </branch>
 
     <branch name="jljusten_internal" project="test-single-arch">
-      <mesa branch="teamforge/jljusten/jenkins/internal"/>
+      <mesa branch="internal-gitlab/jljusten/jenkins/internal"/>
     </branch>
 
     <branch name="jljusten_tgl" project="test-single-arch-tgl">
-      <mesa branch="internal/jljusten/jenkins/tgl"/>
+      <mesa branch="internal-gitlab/jljusten/jenkins/tgl"/>
       <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
 
@@ -697,7 +688,7 @@
     </branch>
 
     <branch name="antognolli_tgl" project="test-single-arch-tgl">
-      <mesa branch="internal/rantogno/tgl/jenkins"/>
+      <mesa branch="internal-gitlab/rantogno/tgl/jenkins"/>
       <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
 
@@ -905,7 +896,7 @@
     </branch>
 
     <branch name="internal" project="test-single-arch">
-      <mesa branch="internal/internal"/>
+      <mesa branch="internal-gitlab/internal"/>
     </branch>
 
     <branch name="chadv" project="test-single-arch-vulkan">
