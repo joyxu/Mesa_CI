@@ -380,7 +380,6 @@
       <remote name="chrisf" repo="git://github.com/chrisforbes/mesa"/>
       <remote name="igalia_khronos" repo="git@gitlab.khronos.org:vulkan/mesa.git"/>
       <remote name="grigorig" repo="git://people.freedesktop.org/~grigorig/mesa"/>
-      <remote name="scott-ph" repo="git://github.com/scott-d-phillips/mesa"/>
       <remote name="yogesh-marathe" repo="git://github.com/yogesh-marathe/external-mesa"/>
       <remote name="anholt" repo="https://gitlab.freedesktop.org/anholt/mesa.git"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
@@ -421,7 +420,6 @@
       <remote name="jljusten" repo="git://people.freedesktop.org/~jljusten/piglit"/>
       <remote name="mattst88" repo="git://people.freedesktop.org/~mattst88/piglit"/>
       <remote name="antognolli" repo="https://gitlab.freedesktop.org/rantogno/piglit.git"/>
-      <remote name="scott-ph" repo="git://github.com/scott-d-phillips/piglit"/>
       <remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/piglit"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/piglit"/>
     </piglit>
@@ -932,14 +930,6 @@
 
     <branch name="grigorig" project="test-single-arch-vulkan">
       <mesa branch="grigorig/intel_ci"/>
-    </branch>
-
-    <branch name="scott-ph_gl" project="test-single-arch">
-      <mesa branch="scott-ph/jenkins_gl"/>
-    </branch>
-
-    <branch name="scott-ph_vulkan" project="vulkancts-full">
-      <mesa branch="scott-ph/jenkins_vulkan"/>
     </branch>
 
     <branch name="cmarcelo_gl" project="test-single-arch">
