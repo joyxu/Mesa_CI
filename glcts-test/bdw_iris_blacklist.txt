@@ -3,5 +3,6 @@ KHR-GL46.shader_subroutine.two_subroutines_single_subroutine_uniform
 
 # flaky
 GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
+KHR-GL46.copy_image.incompatible_formats
 KHR-GL46.robust_buffer_access_behavior.vertex_buffer_objects
 KHR-GL46.shader_image_load_store.advanced-copyImage
