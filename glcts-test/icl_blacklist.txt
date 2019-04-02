@@ -4,14 +4,15 @@ KHR-GL46.tessellation_shader.tessellation_shader_tc_barriers.barrier_guarded_rea
 GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
 
 # too slow on ICL
+KHR-GL46.arrays_of_arrays_gl.SizedDeclarationsPrimitive
 KHR-GL46.arrays_of_arrays_gl.SubroutineFunctionCalls2
 KHR-GL46.copy_image.functional
 KHR-GL46.enhanced_layouts
 KHR-GL46.gpu_shader_fp64.builtin.mod_dvec2
 KHR-GL46.gpu_shader_fp64.fp64.varyings
 KHR-GL46.tessellation_shader.tessellation_invariance.invariance_rule6
+KHR-GL46.texture_swizzle.functional
 KHR-GL46.vertex_attrib_64bit.limits_test
-KHR-GL46.arrays_of_arrays_gl.SizedDeclarationsPrimitive
 
 
 # too slow on ICL (dmat, dvec3/4)
