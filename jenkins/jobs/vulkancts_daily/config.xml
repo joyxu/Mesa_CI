@@ -48,6 +48,7 @@
       <throttleOption>project</throttleOption>
       <limitOneJobWithMatchingParams>false</limitOneJobWithMatchingParams>
       <paramsToUseForLimit></paramsToUseForLimit>
+      <configVersion>1</configVersion>
     </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
     <jenkins.advancedqueue.jobinclusion.strategy.JobInclusionJobProperty plugin="PrioritySorter@3.5.0">
       <useJobGroup>false</useJobGroup>
@@ -75,7 +76,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1532037457134</time>
+                    <time>1548184325153</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -144,8 +145,8 @@
       <command>rm -rf results/test
 rm -rf summary.xml
 rm -rf test_summary.txt
-python -u fetch_sources.py
-python -u repos/mesa_ci/scripts/build_jenkins.py --branch=vulkancts --type=${type} --config=debug --hardware=bdwgt3e --rebuild=${rebuild} --revision=&quot;$revision&quot;</command>
+python3 -u fetch_sources.py --branch=vulkancts ${revision}
+python3 -u repos/mesa_ci/scripts/build_jenkins.py --branch=vulkancts --type=${type} --config=debug --hardware=bdwgt3e --rebuild=${rebuild}</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

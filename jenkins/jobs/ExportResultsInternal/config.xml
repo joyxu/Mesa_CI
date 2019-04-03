@@ -65,7 +65,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1537966481032</time>
+                    <time>1550180080334</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -82,7 +82,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -90,7 +90,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -136,13 +136,13 @@
   <concurrentBuild>true</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>MESA_CI_RESULT_HOST_PATH=/tmp/mesa_ci_results MESA_CI_RESULT_HOST=mesa-ci-results.jf.intel.com MESA_CI_RESULT_HOST_PORT=2222 python2 -u scripts/export_results.py --internal --url=${url}
+      <command>MESA_CI_RESULT_HOST_PATH=/tmp/mesa_ci_results MESA_CI_RESULT_HOST=mesa-ci-results.local MESA_CI_RESULT_HOST_PORT=2222 python2 -u scripts/export_results.py --internal --url=${url}
 </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.Mailer plugin="mailer@1.20">
-      <recipients>clayton.a.craft@intel.com</recipients>
+      <recipients></recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>

@@ -56,12 +56,14 @@
             <a class="string-array">
               <string>test-single-arch</string>
               <string>test-single-arch-ats</string>
+              <string>test-single-arch-simdrm</string>
               <string>test-single-arch-tgl</string>
               <string>test-single-arch-vulkan</string>
               <string>mesa</string>
               <string>all-test</string>
               <string>piglit-full</string>
               <string>piglit-test</string>
+              <string>piglit-test-icl</string>
               <string>piglit-test-internal</string>
               <string>piglit-cpu-test</string>
               <string>clean-all-workspaces</string>
@@ -84,8 +86,13 @@
               <string>deqp-runtime-full</string>
               <string>android-buildtest</string>
               <string>mesa-buildtest</string>
+              <string>meson-buildtest</string>
               <string>test-shader-cache</string>
               <string>test-single-arch-tgl</string>
+              <string>iris-full</string>
+              <string>skqp-test</string>
+              <string>skqp-full</string>
+              <string>webgl-full</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
@@ -96,6 +103,7 @@
             <a class="string-array">
               <string>bdwgt2</string>
               <string>bdwgt3e</string>
+              <string>bdw_iris</string>
               <string>ats</string>
               <string>bsw</string>
               <string>builder</string>
@@ -106,6 +114,8 @@
               <string>g33</string>
               <string>g45</string>
               <string>g965</string>
+              <string>gen9</string>
+              <string>gen9_iris</string>
               <string>glk</string>
               <string>glk-hd600</string>
               <string>hsw</string>
@@ -118,12 +128,14 @@
               <string>ivbgt1</string>
               <string>ivbgt2</string>
               <string>kbl</string>
+              <string>sklgt1</string>
               <string>sklgt2</string>
               <string>sklgt4e</string>
               <string>snb</string>
               <string>snbgt1</string>
               <string>snbgt2</string>
               <string>tgl</string>
+              <string>iris</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
@@ -165,8 +177,8 @@
               <string>mesa_custom</string>
               <string>mesa_master</string>
               <string>vulkancts</string>
-              <string>mesa_17.2</string>
-              <string>mesa_17.3</string>
+              <string>wip_18.3</string>
+              <string>mesa_18.2</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
@@ -207,7 +219,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1538590078455</time>
+                    <time>1554257929943</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -285,8 +297,8 @@
       <command>rm -rf results/test
 rm -rf summary.xml
 rm -rf test_summary.txt
-python -u fetch_sources.py ${revision}
-python -u repos/mesa_ci/scripts/build_jenkins.py --type=${type} --config=${config} --rebuild=${rebuild} &quot;--revision=${revision}&quot; --hardware=${hardware} --project=${project} --branch=${branch} --arch=${arch} --env=&quot;${env}&quot;
+python3 -u fetch_sources.py --project=${project}  --branch=${branch} ${revision}
+python3 -u repos/mesa_ci/scripts/build_jenkins.py --strip_passes --type=${type} --config=${config} --rebuild=${rebuild}  --hardware=${hardware} --project=${project} --branch=${branch} --arch=${arch} --env=&quot;${env}&quot;
 </command>
     </hudson.tasks.Shell>
   </builders>
@@ -304,7 +316,7 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --type=${type} --config=${confi
         <hudson.plugins.postbuildtask.TaskProperties>
           <logTexts>
             <hudson.plugins.postbuildtask.LogProperties>
-              <logText>fetching</logText>
+              <logText>New build name</logText>
               <operator>OR</operator>
             </hudson.plugins.postbuildtask.LogProperties>
           </logTexts>
@@ -321,14 +333,14 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --type=${type} --config=${confi
     <xunit plugin="xunit@1.102">
       <types>
         <GoogleTestType>
-          <pattern>results/test/gtest*xml</pattern>
+          <pattern>results/test/stripped/gtest*xml</pattern>
           <skipNoTestFiles>true</skipNoTestFiles>
           <failIfNotNew>false</failIfNotNew>
           <deleteOutputFiles>true</deleteOutputFiles>
           <stopProcessingIfError>true</stopProcessingIfError>
         </GoogleTestType>
         <JUnitType>
-          <pattern>results/test/piglit*xml</pattern>
+          <pattern>results/test/stripped/piglit*xml</pattern>
           <skipNoTestFiles>true</skipNoTestFiles>
           <failIfNotNew>false</failIfNotNew>
           <deleteOutputFiles>true</deleteOutputFiles>
@@ -375,7 +387,7 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --type=${type} --config=${confi
       <contentType>default</contentType>
       <defaultSubject>$DEFAULT_SUBJECT</defaultSubject>
       <defaultContent>$DEFAULT_CONTENT</defaultContent>
-      <attachmentsPattern>test_summary.txt,revisions.txt</attachmentsPattern>
+      <attachmentsPattern>test_summary.txt</attachmentsPattern>
       <presendScript>$DEFAULT_PRESEND_SCRIPT</presendScript>
       <postsendScript></postsendScript>
       <attachBuildLog>false</attachBuildLog>

@@ -14,6 +14,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>glk glk-hd605</label>
+  <label>glk glk-hd605 glk_iris gen9atom gen9atom_iris</label>
   <nodeProperties/>
 </slave>

@@ -305,9 +305,9 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>agoldmints</string>
         <string>agomez</string>
         <string>airlied</string>
-        <string>anholt</string>
         <string>antognolli</string>
         <string>antognolli_tgl</string>
         <string>antognolli_vulkan</string>
@@ -320,11 +320,12 @@
         <string>cmarcelo_gl</string>
         <string>cmarcelo_tgl</string>
         <string>cmarcelo_vulkan</string>
+        <string>craftyguy</string>
         <string>curro</string>
         <string>curro_vulkan</string>
+        <string>cwabbott</string>
         <string>daniels</string>
         <string>dcbaker</string>
-        <string>dcbaker_18.1</string>
         <string>dcbaker_mesa</string>
         <string>djdeath</string>
         <string>djdeath_vulkan</string>
@@ -332,9 +333,8 @@
         <string>eric_engestrom</string>
         <string>estea</string>
         <string>evelikov</string>
-        <string>evelikov_17_3</string>
-        <string>evelikov_18_0</string>
         <string>frohlich</string>
+        <string>gerddie</string>
         <string>global_logic</string>
         <string>grigorig</string>
         <string>hakzam_piglit</string>
@@ -342,8 +342,6 @@
         <string>idr</string>
         <string>idr_vulkan</string>
         <string>igalia</string>
-        <string>igalia_17.3</string>
-        <string>igalia_18.0</string>
         <string>igalia_khronos</string>
         <string>imirkin</string>
         <string>internal</string>
@@ -357,14 +355,14 @@
         <string>jljusten_tgl</string>
         <string>jljusten_vulkan</string>
         <string>jmcasanova</string>
+        <string>karolherbst</string>
+        <string>kusma</string>
         <string>kwg</string>
         <string>kwg_vulkan</string>
         <string>ldeks</string>
         <string>majanes</string>
         <string>mattst88</string>
-        <string>mattst88_vulkan</string>
         <string>mesa_custom</string>
-        <string>mirlan</string>
         <string>mperes</string>
         <string>nchery</string>
         <string>nchery_vulkan</string>
@@ -377,11 +375,10 @@
         <string>scott-ph_vulkan</string>
         <string>siglesias</string>
         <string>tarceri</string>
-        <string>tarceri_slow</string>
-        <string>tf_jekstrand</string>
         <string>tf_llandwerlin</string>
         <string>tpalli</string>
         <string>tpohjola</string>
+        <string>wip_18.3</string>
         <string>yogesh-marathe</string>
       </jobNames>
       <jobFilters/>
@@ -405,12 +402,13 @@
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
         <string>deqp-runtime_weekly</string>
-        <string>mesa_17.3</string>
-        <string>mesa_18.0</string>
-        <string>mesa_18.1</string>
-        <string>mesa_18.1_daily</string>
         <string>mesa_18.2</string>
+        <string>mesa_18.2_daily</string>
         <string>mesa_18.2_staging</string>
+        <string>mesa_18.2_staging_daily</string>
+        <string>mesa_18_3</string>
+        <string>mesa_19.0</string>
+        <string>mesa_19.0_staging</string>
         <string>mesa_custom</string>
         <string>mesa_master</string>
         <string>mesa_master_daily</string>

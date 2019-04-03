@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>builds arbitrary projects for a mesa build scheduler.</description>
+  <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.model.BuildDiscarderProperty>
@@ -74,7 +74,7 @@
         <hudson.model.StringParameterDefinition>
           <name>build_support_branch</name>
           <description>specifies the branch of mesa_jenkins scripts used for the build</description>
-          <defaultValue>origin/master</defaultValue>
+          <defaultValue>local/master</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>extra_arg</name>
@@ -128,7 +128,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1532457610783</time>
+                    <time>1553214566064</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -145,7 +145,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -153,7 +153,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>Mark Janes</value>
+                      <value>clayton craft</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -168,23 +168,28 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <refspec>+refs/*:refs/remotes/*</refspec>
+        <name>origin</name>
+        <refspec>+refs/*:refs/remotes/origin/*</refspec>
         <url>https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
       <hudson.plugins.git.UserRemoteConfig>
         <name>dcbaker</name>
+        <refspec>+refs/heads/*:refs/remotes/dcbaker/*</refspec>
         <url>git://github.com/dcbaker/mesa_jenkins</url>
       </hudson.plugins.git.UserRemoteConfig>
       <hudson.plugins.git.UserRemoteConfig>
         <name>craftyguy</name>
+        <refspec>+refs/heads/*:refs/remotes/craftyguy/*</refspec>
         <url>https://gitlab.freedesktop.org/craftyguy/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
       <hudson.plugins.git.UserRemoteConfig>
         <name>majanes</name>
+        <refspec>+refs/heads/*:refs/remotes/majanes/*</refspec>
         <url>https://gitlab.freedesktop.org/majanes/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
       <hudson.plugins.git.UserRemoteConfig>
         <name>local</name>
+        <refspec>+refs/heads/*:refs/remotes/local/*</refspec>
         <url>git://otc-mesa-ci.local/git/mesa_jenkins</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
@@ -195,7 +200,9 @@
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
     <submoduleCfg class="list"/>
-    <extensions/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.PruneStaleBranch/>
+    </extensions>
   </scm>
   <scmCheckoutRetryCount>5</scmCheckoutRetryCount>
   <canRoam>true</canRoam>
@@ -208,7 +215,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>echo project:${project} arch:${arch} result_path:${result_path} config:${config} type:${type} revision:${revision} hardware:${hardware} hash:${hash}
-python -u fetch_sources.py ${revision}
+python3 -u fetch_sources.py --project=${project} ${revision}
 ls /mnt/jenkins/results &gt; /dev/null
 mkdir -p /tmp/jenkins/${BUILD_NUMBER}
 if [ &quot;${hardware}&quot; = &quot;builder&quot; ]
@@ -219,7 +226,7 @@ then
     unshare -m -r /bin/bash -c &quot;
 mount -o bind /tmp/jenkins/${BUILD_NUMBER} /tmp
 unset revision
-python -u ${project}/build.py --arch ${arch} --result_path ${result_path} --config ${config} --type ${type} --hardware ${hardware} --action clean,build,test --shard ${shard} --env \&quot;${env}\&quot; ${extra_arg}
+python3 -u ${project}/build.py --arch ${arch} --result_path ${result_path} --config ${config} --type ${type} --hardware ${hardware} --action clean,build,test --shard ${shard} --env \&quot;${env}\&quot; ${extra_arg}
 &quot;
     exit 0
 fi
@@ -230,7 +237,7 @@ rm -rf /tmp/build_root
 sleep 5  # Xorg doesn&apos;t always settle before starting piglit and that causes problems
 DISPLAY=:0 xset dpms force on || true # turn off X monitor power control, which limits fps to 1
 DISPLAY=:0 xset s off || true         # turn off the X screensaver
-python -u ${project}/build.py --arch ${arch} --result_path ${result_path} --config ${config} --type ${type} --hardware ${hardware} --action clean,build,test --shard ${shard} --env &quot;DISPLAY=:0 ${env}&quot; ${extra_arg}
+python3 -u ${project}/build.py --arch ${arch} --result_path ${result_path} --config ${config} --type ${type} --hardware ${hardware} --action clean,build,test --shard ${shard} --env &quot;DISPLAY=:0 ${env}&quot; ${extra_arg}
 killall Xorg || true
 rm -rf /tmp/build_root
 </command>

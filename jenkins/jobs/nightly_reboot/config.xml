@@ -43,7 +43,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1538747921127</time>
+                    <time>1548727857308</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -112,8 +112,8 @@
       <command>rm -rf results/test
 rm -rf summary.xml
 rm -rf test_summary.txt
-python -u fetch_sources.py
-python -u reboot-slave/build.py
+python3 -u fetch_sources.py --branch=mesa_master
+python3 -u reboot-slave/build.py
 </command>
     </hudson.tasks.Shell>
   </builders>

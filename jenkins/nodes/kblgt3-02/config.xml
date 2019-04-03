@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
   <name>kblgt3-02</name>
-  <description>(2A-1C)(X3-Y1-Z2)</description>
+  <description>bay 1, 1B-1C</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
@@ -14,6 +14,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>kblgt3 kbl fastgpu</label>
+  <label>kblgt3 kbl fastgpu kbl_iris gen9 gen9_iris</label>
   <nodeProperties/>
 </slave>

@@ -65,7 +65,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1537465850631</time>
+                    <time>1552518001053</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -136,8 +136,8 @@
   <concurrentBuild>true</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>MESA_CI_RESULT_HOST_PATH=/tmp/mesa_ci_results MESA_CI_RESULT_HOST=mesa-ci-results.jf.intel.com MESA_CI_RESULT_HOST_PORT=2222 python2 -u scripts/export_results.py --internal --url=${url}
-MESA_CI_RESULT_HOST_PATH=/tmp/mesa_ci_results MESA_CI_RESULT_HOST=mesaci-results-external python2 -u scripts/export_results.py --url=${url}</command>
+      <command>MESA_CI_RESULT_HOST_PATH=/tmp/mesa_ci_results MESA_CI_RESULT_HOST=mesa-ci-results.local MESA_CI_RESULT_HOST_PORT=2222 python3 -u scripts/export_results.py --internal --url=${url}
+MESA_CI_RESULT_HOST_PATH=/tmp/mesa_ci_results MESA_CI_RESULT_HOST=mesaci-results-external python3 -u scripts/export_results.py --url=${url}</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
@@ -150,7 +150,7 @@ MESA_CI_RESULT_HOST_PATH=/tmp/mesa_ci_results MESA_CI_RESULT_HOST=mesaci-results
   <buildWrappers>
     <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
     <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
-      <template>#${BUILD_NUMBER}-${job}-${build_num}</template>
+      <template>#${BUILD_NUMBER}-${ENV,var=&quot;name&quot;}</template>
       <runAtStart>true</runAtStart>
       <runAtEnd>true</runAtEnd>
     </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>

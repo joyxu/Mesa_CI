@@ -65,7 +65,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1532017265251</time>
+                    <time>1541046974419</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -130,8 +130,8 @@
       <command>rm -rf results/test
 rm -rf summary.xml
 rm -rf test_summary.txt
-python -u fetch_sources.py
-python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${type} --config=debug --hardware=bdwgt3e
+python3 -u fetch_sources.py --branch=${JOB_NAME}
+python3 -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${type} --config=debug --hardware=bdwgt3e
 </command>
     </hudson.tasks.Shell>
   </builders>

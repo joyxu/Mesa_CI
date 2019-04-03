@@ -14,6 +14,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>kblgt2 kbl</label>
+  <label>kblgt2 kbl kbl_iris gen9 gen9_iris</label>
   <nodeProperties/>
 </slave>

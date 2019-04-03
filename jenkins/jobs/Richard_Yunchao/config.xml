@@ -65,7 +65,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1534812429696</time>
+                    <time>1546470257821</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -82,7 +82,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -90,7 +90,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -119,7 +119,7 @@
   </scm>
   <assignedNode>master</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <authToken>noauth</authToken>
@@ -130,8 +130,8 @@
       <command>rm -rf results/test
 rm -rf summary.xml
 rm -rf test_summary.txt
-python -u fetch_sources.py
-python -u repos/mesa_ci/scripts/build_jenkins.py --branch=Richard_Yunchao --type=percheckin --config=debug --revision=&quot;$revision&quot;</command>
+python3 -u fetch_sources.py --branch=${JOB_NAME} $revision
+python3 -u repos/mesa_ci/scripts/build_jenkins.py --branch=Richard_Yunchao --type=percheckin --config=debug</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
@@ -199,7 +199,7 @@ python -u repos/mesa_ci/scripts/build_jenkins.py --branch=Richard_Yunchao --type
       </extraConfiguration>
     </xunit>
     <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.57.1">
-      <recipientList>yunchao.he@intel.com</recipientList>
+      <recipientList></recipientList>
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
           <email>

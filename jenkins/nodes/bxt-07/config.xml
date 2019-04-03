@@ -14,6 +14,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>bxt</label>
+  <label>bxt gen9atom gen9atom_iris</label>
   <nodeProperties/>
 </slave>

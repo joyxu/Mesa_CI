@@ -26,13 +26,18 @@
         <hudson.model.StringParameterDefinition>
           <name>type</name>
           <description>developer/daily/percheckin/release type specified to the test harnesses</description>
-          <defaultValue>developer</defaultValue>
+          <defaultValue>percheckin</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.BooleanParameterDefinition>
           <name>rebuild</name>
           <description></description>
           <defaultValue>false</defaultValue>
         </hudson.model.BooleanParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>revision</name>
+          <description></description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.9.0">
@@ -70,7 +75,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1533397269321</time>
+                    <time>1549915303545</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -135,8 +140,8 @@
       <command>rm -rf results/test
 rm -rf summary.xml
 rm -rf test_summary.txt
-python -u fetch_sources.py
-python -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${type} --config=debug --rebuild=${rebuild}</command>
+python3 -u fetch_sources.py --branch=${JOB_NAME} ${revision}
+python3 -u repos/mesa_ci/scripts/build_jenkins.py --branch=${JOB_NAME} --type=${type} --config=debug --rebuild=${rebuild}</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

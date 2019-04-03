@@ -70,7 +70,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1538420927231</time>
+                    <time>1551894589125</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -87,7 +87,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                     <metadata-string>
                       <name>full-name</name>
@@ -95,7 +95,7 @@
                       <parent class="metadata-tree" reference="../../.."/>
                       <generated>true</generated>
                       <exposedToEnvironment>false</exposedToEnvironment>
-                      <value>clayton craft</value>
+                      <value>Mark Janes</value>
                     </metadata-string>
                   </children>
                 </metadata-tree>
@@ -139,8 +139,8 @@
       <command>rm -rf results/test
 rm -rf summary.xml
 rm -rf test_summary.txt
-python -u fetch_sources.py
-python -u repos/mesa_ci/scripts/build_jenkins.py --branch=nir_torture_test --type=developer --config=debug --revision=&quot;$revision&quot; --project=piglit-test --hardware=skl --env=&quot;NIR_TEST_CLONE=true NIR_TEST_SERIALIZE=true&quot; --rebuild=${rebuild}</command>
+python3 -u fetch_sources.py --branch=nir_torture_test ${revision}
+python3 -u repos/mesa_ci/scripts/build_jenkins.py --branch=nir_torture_test --type=developer --config=debug --project=piglit-test --hardware=gen9 --env=&quot;NIR_TEST_CLONE=true NIR_TEST_SERIALIZE=true&quot; --rebuild=${rebuild}</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

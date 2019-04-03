@@ -112,8 +112,8 @@
       <command>rm -rf results/test
 rm -rf summary.xml
 rm -rf test_summary.txt
-python -u fetch_sources.py
-python -u clean-server/build.py
+python3 -u fetch_sources.py
+python3 -u clean-server/build.py
 </command>
     </hudson.tasks.Shell>
   </builders>

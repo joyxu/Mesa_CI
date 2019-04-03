@@ -80,7 +80,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1529426396748</time>
+                    <time>1551990513454</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -127,6 +127,10 @@
         <name>dcbaker</name>
         <url>git://github.com/dcbaker/mesa_jenkins</url>
       </hudson.plugins.git.UserRemoteConfig>
+      <hudson.plugins.git.UserRemoteConfig>
+        <name>majanes</name>
+        <url>https://gitlab.freedesktop.org/majanes/mesa_jenkins.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
@@ -151,8 +155,8 @@
       <command>rm -rf results/test
 rm -rf summary.xml
 rm -rf test_summary.txt
-python -u fetch_sources.py
-python -u repos/mesa_ci/scripts/bisect_project.py --good_rev=&quot;${good_revision}&quot; --result_path ${result_path} --to ${to} --dir &quot;${dir}&quot;</command>
+python3 -u fetch_sources.py --revspec ${result_path}/revisions.xml
+python3 -u repos/mesa_ci/scripts/bisect_project.py --good_rev=&quot;${good_revision}&quot; --result_path ${result_path} --to ${to} --dir &quot;${dir}&quot;</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

@@ -1,10 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
-  <temporaryOfflineCause class="hudson.slaves.OfflineCause$LaunchFailed">
-    <timestamp>1538699161387</timestamp>
-  </temporaryOfflineCause>
   <name>ivbgt2-01</name>
-  <description>1B-R1 Middle low</description>
+  <description>bay 1 center bottom laptop shelf</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
