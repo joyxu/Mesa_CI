@@ -1,0 +1,7 @@
+# https://bugs.freedesktop.org/show_bug.cgi?id=109655
+dEQP-GLES31.functional.copy_image.mixed.viewclass_128_bits_mixed.rgba8_etc2_eac_rgba32ui.texture2d_to_renderbuffer
+dEQP-GLES31.functional.copy_image.non_compressed.viewclass_128_bits.rgba32ui_rgba32i.renderbuffer_to_texture3d
+dEQP-GLES31.functional.copy_image.non_compressed.viewclass_32_bits.r32ui_rg16i.renderbuffer_to_texture3d
+dEQP-GLES31.functional.copy_image.non_compressed.viewclass_32_bits.r32ui_rgba8ui.renderbuffer_to_texture3d
+dEQP-GLES31.functional.copy_image.non_compressed.viewclass_64_bits.rg32ui_rg32ui.renderbuffer_to_texture2d_array
+dEQP-GLES31.functional.copy_image.non_compressed.viewclass_64_bits.rg32ui_rgba16ui.renderbuffer_to_texture3d
