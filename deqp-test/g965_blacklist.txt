@@ -4,3 +4,6 @@ dEQP-EGL.functional.multithread.pbuffer_single_window_context
 dEQP-GLES2.functional.shaders.indexing.matrix_subscript
 dEQP-GLES2.functional.shaders.struct.local.struct_array_dynamic_index_vertex
 dEQP-GLES2.functional.shaders.indexing.tmp_array.vec3_dynamic_loop_write_dynamic_read_vertex
+
+# flaky
+dEQP-GLES2.functional.shaders.random.exponential.vertex.89
