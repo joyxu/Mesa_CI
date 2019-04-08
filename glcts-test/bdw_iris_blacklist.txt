@@ -4,6 +4,10 @@ KHR-GL46.shader_subroutine.two_subroutines_single_subroutine_uniform
 # flaky
 GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
 GTF-GL46.gtf40.GL3Tests.transform_feedback2.transform_feedback2_pause_resume
+GTF-GL46.gtf40.GL3Tests.transform_feedback2.transform_feedback2_states
+KHR-GL46.arrays_of_arrays_gl.SubroutineArgumentAliasing1
 KHR-GL46.copy_image.incompatible_formats
+KHR-GL46.copy_image.invalid_target
+KHR-GL46.copy_image.target_miss_match
 KHR-GL46.robust_buffer_access_behavior.vertex_buffer_objects
 KHR-GL46.shader_image_load_store.advanced-copyImage
