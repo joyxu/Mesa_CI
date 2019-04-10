@@ -13,15 +13,14 @@ GTF-GL46.gtf42.GL3Tests.transform_feedback_instanced
 KHR-GL46.arrays_of_arrays_gl.AtomicUsage
 KHR-GL46.arrays_of_arrays_gl.SubroutineArgumentAliasing1
 KHR-GL46.arrays_of_arrays_gl.SubroutineFunctionCalls1
+KHR-GL46.compute_shader.resource-texture
 KHR-GL46.copy_image.functional
 KHR-GL46.copy_image.invalid_object
+KHR-GL46.geometry_shader.limits.max_combined_texture_units
 KHR-GL46.robust_buffer_access_behavior.vertex_buffer_objects
 KHR-GL46.shader_atomic_counters.basic-usage-tes
 KHR-GL46.shader_image_load_store
 KHR-GL46.shader_image_size
 KHR-GL46.shader_storage_buffer_object.advanced-write-tessellation
+KHR-GL46.shader_subroutine.control_flow_and_returned_subroutine_values_used_as_subroutine_input
 KHR-GL46.texture_cube_map_array
-KHR-GL46.compute_shader.resource-texture
-
-# flaky on iris
-KHR-GL46.geometry_shader.limits.max_combined_texture_units
