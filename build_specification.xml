@@ -696,7 +696,7 @@
     </branch>
 
     <branch name="antognolli_iris" project="all-test-iris">
-      <mesa branch="antognolli/jenkins_iris"/>
+      <mesa branch="rantogno/tgl/jenkins"/>
     </branch>
 
     <branch name="kwg_vulkan" project="vulkancts-full">
