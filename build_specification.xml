@@ -947,6 +947,11 @@
       <mesa branch="sagarghuge/jenkins"/>
     </branch>
 
+    <branch name="sagarghuge-tgl" project="test-single-arch-tgl">
+      <mesa branch="internal-gitlab/sghuge/jenkins/tgl"/>
+      <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
+    </branch>
+
     <branch name="yogesh-marathe" project="test-single-arch-vulkan">
       <mesa branch="yogesh-marathe/jenkins"/>
     </branch>
