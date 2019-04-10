@@ -240,7 +240,7 @@
       <prerequisite name="piglit-full"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
-      <!-- <prerequisite name="android-buildtest" hardware="builder"/> -->
+      <prerequisite name="android-buildtest" hardware="builder"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
       <prerequisite name="skqp-full"/>
@@ -281,7 +281,7 @@
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
-      <!-- <prerequisite name="android-buildtest" hardware="builder"/> -->
+      <prerequisite name="android-buildtest" hardware="builder"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
