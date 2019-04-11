@@ -206,4 +206,5 @@ class CrucibleTester(object):
         bs.check_gpu_hang()
         bs.Export().export_tests()
 
-bs.build(CrucibleTester())
+if __name__ == "__main__":
+    bs.build(CrucibleTester())
