@@ -471,6 +471,7 @@
                branch="origin/vulkan-cts-1.1.3">
       <remote name="khronos" repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"/>
       <remote name="janesma" repo="git@gitlab.freedesktop.org:majanes/vk-gl-cts.git"/>
+      <remote name="tpalli" repo="ssh://git@gitlab.devtools.intel.com:29418/tpalli/vk-gl-cts-tpalli.git"/>
     </vulkancts>
     
     <spirvtools repo="git://github.com/KhronosGroup/SPIRV-Tools.git"
@@ -733,6 +734,11 @@
 
     <branch name="tpalli" project="test-single-arch-vulkan">
       <mesa branch="tpalli/jenkins"/>
+    </branch>
+
+    <branch name="tpalli-vulkancts" project="test-single-arch-vulkan">
+      <mesa branch="tpalli/jenkins-vkglcts"/>
+      <vulkancts branch="tpalli/master"/>
     </branch>
 
     <branch name="curro" project="test-single-arch">
