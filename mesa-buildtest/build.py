@@ -30,7 +30,15 @@ class NoTest(bs.AutoBuilder):
         pass
     
 def main():
+    pm = bs.ProjectMap()
+    sd = pm.project_source_dir(pm.current_project())
+
     global_opts = bs.Options()
+
+    if not os.path.exists(os.path.join(sd, 'Makefile.am')):
+        print("This version of Mesa does not have autotools support, not "
+              "testing..")
+        return 0
 
     options = []
     if global_opts.arch == "m32":
