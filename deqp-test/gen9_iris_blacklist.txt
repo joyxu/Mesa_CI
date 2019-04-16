@@ -14,12 +14,7 @@ dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_at
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
 
 #flaky on iris
-dEQP-GLES3.functional.fbo.blit.depth_stencil.depth24_stencil8_stencil_only
-dEQP-GLES3.functional.fbo.blit.depth_stencil.depth32f_stencil8_basic
-dEQP-GLES3.functional.fbo.blit.depth_stencil.depth32f_stencil8_stencil_only
 dEQP-GLES3.functional.fbo.color.repeated_clear.blit
-dEQP-GLES3.functional.fbo.msaa.4_samples.stencil_index8
-dEQP-GLES3.functional.fbo.msaa.8_samples.stencil_index8
 
 # many tests in this group appear to be flaky on iris
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d
