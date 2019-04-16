@@ -23,9 +23,3 @@ dEQP-GLES3.functional.fbo.msaa.8_samples.stencil_index8
 
 # many tests in this group appear to be flaky on iris
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d
-
-# fixed on i965, but needs hack patch on iris
-# https://bugs.freedesktop.org/show_bug.cgi?id=103746
-dEQP-GLES31.functional.copy_image.non_compressed
-dEQP-GLES31.functional.copy_image.compressed
-dEQP-GLES31.functional.copy_image.mixed
