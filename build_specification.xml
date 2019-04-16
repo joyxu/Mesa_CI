@@ -114,6 +114,10 @@
       <prerequisite name="waffle" hardware="builder"/>
     </project>
 
+    <project name="mi_builder-test">
+      <prerequisite name="mesa" hardware="builder"/>
+    </project>
+
     <project name="glescts-full">
       <prerequisite name="glescts-test" hardware="bdw,gen9"/>
       <prerequisite name="glescts-test" hardware="hsw"/>
@@ -225,6 +229,11 @@
       <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="gen9atom,icl"/>
     </project>
 
+    <project name="mi_builder-full">
+      <prerequisite name="mi_builder-test" hardware="ivb,hsw,bdw,gen9"/>
+      <prerequisite name="mi_builder-test" only_for_type="daily" hardware="icl"/>
+    </project>
+
     <project name="vulkancts"/>
 
     <project name="all-test-vulkan">
@@ -285,6 +294,7 @@
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
       <prerequisite name="skqp-full"/>
+      <prerequisite name="mi_builder-full"/>
     </project>
 
     <!-- this is used for Nanley's percheckin build -->
