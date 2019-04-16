@@ -3,6 +3,8 @@
 import os
 import sys
 import os.path as path
+from mesonbuild import coredata
+from mesonbuild import optinterpreter
 sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
 import build_support as bs
 
@@ -58,6 +60,7 @@ class MesaBuilder(bs.AutoBuilder):
 
 def meson_build():
     global_opts = bs.Options()
+    sd = bs.ProjectMap().project_source_dir()
 
     options = [
         '-Ddri-drivers=i965,i915',
@@ -80,6 +83,13 @@ def meson_build():
     else:
         # WARN: 32 bit release builds will have -DDEBUG due to cross file (and be slow)
         options.extend(['-Dbuildtype=release', '-Db_ndebug=true'])
+
+    # Build/install mi_builder tests if this version of Mesa includes them
+    oi = optinterpreter.OptionInterpreter('')
+    oi.process(os.path.join(sd, 'meson_options.txt'))
+    if 'install-intel-gpu-tests' in oi.options:
+        options.append('-Dinstall-intel-gpu-tests=true')
+
     b = bs.builders.MesonBuilder(extra_definitions=options, install=True, cpp_args=cpp_args)
     bs.build(b)
 
