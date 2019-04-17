@@ -254,6 +254,7 @@
       <prerequisite name="glescts-full"/>
       <prerequisite name="skqp-full"/>
       <prerequisite name="webgl-full"/>
+      <prerequisite name="mi_builder-full"/>
     </project>
 
     <project name="test-single-arch-internal">
