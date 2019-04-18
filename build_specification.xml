@@ -529,7 +529,9 @@
     <skcms repo="https://skia.googlesource.com/skcms" />
     <zlib repo="https://chromium.googlesource.com/chromium/src/third_party/zlib" />
     <skqp_assets repo="https://gitlab.freedesktop.org/Mesa_CI/skqp_assets.git" />
+
     <webgl repo="https://github.com/KhronosGroup/WebGL.git"/>
+    <amber repo="https://github.com/google/amber.git"/>
   </repos>
 
 
