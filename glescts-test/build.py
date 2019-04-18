@@ -55,13 +55,6 @@ class GLESCTSList(object):
         bs.run_batch_command(["./glcts", "--deqp-runmode=xml-caselist"],
                              env=env)
 
-        must_pass_root = br + "/bin/es/modules/gl_cts/data/mustpass/"
-        must_pass_lookup = { "KHR-GLES2-cases.xml" : "gles/khronos_mustpass/3.2.5.x/gles2-khr-master.txt",
-                             "KHR-GLES3-cases.xml" : "gles/khronos_mustpass/3.2.5.x/gles3-khr-master.txt",
-                             "KHR-GLES31-cases.xml" : "gles/khronos_mustpass/3.2.5.x/gles31-khr-master.txt",
-                             "KHR-GLES32-cases.xml" : "gles/khronos_mustpass/3.2.5.x/gles32-khr-master.txt",
-                             "KHR-GLESEXT-cases.xml" : None }
-
         suites = ["KHR-GLES2-cases.xml", "KHR-GLES3-cases.xml"]
 
         if self.supports_gles_31():
@@ -75,10 +68,6 @@ class GLESCTSList(object):
         for a_list in suites:
             tmp_trie = bs.DeqpTrie()
             tmp_trie.add_xml(a_list)
-            if must_pass_lookup[a_list]:
-                tmp_whitelist = bs.DeqpTrie()
-                tmp_whitelist.add_txt(must_pass_root + must_pass_lookup[a_list])
-                tmp_trie.filter_whitelist(tmp_whitelist)
             all_tests.merge(tmp_trie)
 
         os.chdir(savedir)
