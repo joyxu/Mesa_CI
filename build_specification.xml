@@ -749,7 +749,7 @@
       <mesa branch="tpalli/jenkins"/>
     </branch>
 
-    <branch name="tpalli_vulkancts" project="test-single-arch-vulkan">
+    <branch name="tpalli_vulkancts" project="vulkancts-full">
       <mesa branch="tpalli/jenkins-vkglcts"/>
       <vulkancts branch="tpalli/master"/>
     </branch>
