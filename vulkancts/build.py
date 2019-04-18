@@ -53,7 +53,9 @@ class VulkanCtsBuilder(object):
         #    btype = "RelDeb"
         flags = "-m64"
         if self._options.arch == "m32":
-            flags = "-m32"
+            # sse flags are needed to fix FP math rounding issues on some vk
+            # cts tests
+            flags = "-m32 -msse2 -mfpmath=sse"
         cmd = ["cmake", "-GNinja", "-DCMAKE_BUILD_TYPE=" + btype,
                "-DCMAKE_C_COMPILER_LAUNCHER=ccache",
                "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache",
