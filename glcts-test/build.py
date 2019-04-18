@@ -14,6 +14,63 @@ import build_support as bs
 #         return optionstr
 
 
+class GLCTSLister(object):
+    def __init__(self):
+        self.pm = bs.ProjectMap()
+        self.o = bs.Options()
+
+    def tests(self, env=None):
+        br = self.pm.build_root()
+        env = {"MESA_GLES_VERSION_OVERRIDE" : "3.2",
+               "LD_LIBRARY_PATH" : bs.get_libdir(),
+               "LIBGL_DRIVERS_PATH" : bs.get_libgl_drivers(),
+               "MESA_GL_VERSION_OVERRIDE" : "4.6",
+               "MESA_GLSL_VERSION_OVERRIDE" : "460"}
+        self.o.update_env(env)
+
+        savedir = os.getcwd()
+        os.chdir(self.pm.build_root() + "/bin/gl/modules")
+        bs.run_batch_command(["./glcts", "--deqp-runmode=xml-caselist"],
+                             env=env)
+        all_tests = bs.DeqpTrie()
+        # Enable GL33 tests for supporting hw
+        # Note: ilk, g45, etc are all < GL30 and not supported in glcts
+        if self.o.hardware in ['snb', 'ivb', 'byt']:
+            all_tests.add_xml("KHR-GL33-cases.xml")
+            all_tests.add_xml("GTF-GL33-cases.xml")
+        else:
+            all_tests.add_xml("KHR-GL46-cases.xml")
+            all_tests.add_xml("GTF-GL46-cases.xml")
+            all_tests.add_xml("KHR-NoContext-cases.xml")
+        os.chdir(savedir)
+        return all_tests
+
+    def blacklist(self, all_tests):
+        blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware + "_blacklist.txt"
+        if not os.path.exists(blacklist_txt):
+            blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware[:3] + "_blacklist.txt"
+        if not os.path.exists(blacklist_txt):
+            return all_tests
+        blacklist = bs.DeqpTrie()
+        blacklist.add_txt(blacklist_txt)
+        all_tests.filter(blacklist)
+        if "17.3" in bs.mesa_version():
+            blacklist = bs.DeqpTrie()
+            blacklist.add_txt(self.pm.project_build_dir() + "/17_3_blacklist.txt")
+            all_tests.filter(blacklist)
+        if self.o.type != "daily" and not self.o.retest_path:
+            blacklist = bs.DeqpTrie()
+            blacklist.add_txt(self.pm.project_build_dir() + "/non-daily_blacklist.txt")
+            all_tests.filter(blacklist)
+        # Do not run GTF33 on hardware that supports >GL33
+        if self.o.hardware not in ['snb', 'ivb', 'byt']:
+            blacklist = bs.DeqpTrie()
+            blacklist.add_line("GTF-GL33")
+            all_tests.filter(blacklist)
+
+        return all_tests
+
+
 class GLCTSTester(object):
     def __init__(self):
         self.o = bs.Options()
@@ -30,7 +87,7 @@ class GLCTSTester(object):
         if "iris" in self.o.hardware:
             env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
         results = t.test(self.pm.build_root() + "/bin/gl/modules/glcts",
-                         bs.GLCTSLister(),
+                         GLCTSLister(),
                          env=env)
 
         o = bs.Options()
