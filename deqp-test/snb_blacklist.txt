@@ -7,5 +7,7 @@ dEQP-EGL.functional.robustness.create_context
 dEQP-EGL.functional.multithread.pbuffer_single_window
 dEQP-EGL.functional.multithread.pbuffer_single_window_context
 #flaky
-dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
+dEQP-EGL.functional.multithread.window_context
 dEQP-GLES3.functional.shaders.derivate.dfdy.texture.float_nicest
+dEQP-GLES3.functional.shaders.random.all_features.fragment.16
+dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit

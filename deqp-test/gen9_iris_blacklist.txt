@@ -18,3 +18,13 @@ dEQP-GLES3.functional.fbo.color.repeated_clear.blit
 
 # many tests in this group appear to be flaky on iris
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d
+
+# flaky due to removing mustpass whitelists
+dEQP-EGL.functional.multithread.window
+dEQP-GLES2.functional.shaders.random.all_features.fragment.16
+dEQP-GLES3.functional.shaders.random.all_features.fragment.16
+dEQP-GLES31.functional.image_load_store.2d.atomic.comp_swap_r32i_return_value
+dEQP-GLES31.functional.image_load_store.2d_array.atomic.comp_swap_r32i_return_value
+dEQP-GLES31.functional.image_load_store.2d_array.atomic.comp_swap_r32ui_return_value
+dEQP-GLES31.functional.image_load_store.3d.atomic.comp_swap_r32i_return_value
+dEQP-GLES31.functional.image_load_store.buffer.atomic.comp_swap_r32ui_return_value
