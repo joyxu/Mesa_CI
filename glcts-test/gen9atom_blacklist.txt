@@ -6,3 +6,8 @@ GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
 
 # flaky
 KHR-GL46.texture_buffer.texture_buffer_atomic_functions
+
+# flaky tests enabled after removing support for mustpass whitelists
+GTF-GL46.gtf32.GL3Tests.packed_pixels.packed_pixels_pbo
+GTF-GL46.gtf32.GL3Tests.packed_pixels.packed_pixels_pixelstore
+GTF-GL46.gtf32.GL3Tests.packed_pixels.packed_pixels

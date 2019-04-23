@@ -3,3 +3,8 @@ KHR-GL46.compute_shader.resource-texture
 KHR-GL46.vertex_attrib_64bit.limits_test
 # https://bugs.freedesktop.org/show_bug.cgi?id=104395
 GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
+
+# flaky tests enabled after removing support for mustpass whitelists
+GTF-GL46.gtf32.GL3Tests.packed_pixels.packed_pixels_pbo
+GTF-GL46.gtf32.GL3Tests.packed_pixels.packed_pixels_pixelstore
+GTF-GL46.gtf32.GL3Tests.packed_pixels.packed_pixels

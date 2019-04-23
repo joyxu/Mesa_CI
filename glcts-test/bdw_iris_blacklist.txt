@@ -13,3 +13,4 @@ KHR-GL46.copy_image.invalid_target
 KHR-GL46.copy_image.target_miss_match
 KHR-GL46.robust_buffer_access_behavior.vertex_buffer_objects
 KHR-GL46.shader_image_load_store.advanced-copyImage
+KHR-GL46.vertex_attrib_binding.advanced-iterations
