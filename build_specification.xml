@@ -1007,6 +1007,10 @@
       <mesa branch="global_logic/i965_ci"/>
     </branch>
 
+    <branch name="global_logic_2" project="test-single-arch-vulkan">
+      <mesa branch="global_logic/i965_second"/>
+    </branch>
+
     <branch name="karolherbst" project="test-single-arch-vulkan">
       <mesa branch="karolherbst/jenkins"/>
     </branch>
