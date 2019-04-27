@@ -7,9 +7,8 @@ KHR-GL46.vertex_attrib_64bit.limits_test
 GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
 
 # flaky on iris
-GTF-GL46.gtf40.GL3Tests.transform_feedback2
-GTF-GL46.gtf40.GL3Tests.transform_feedback3
-GTF-GL46.gtf42.GL3Tests.transform_feedback_instanced
+GTF-GL46.gtf40.GL3Tests.transform_feedback2_two_buffers
+GTF-GL46.gtf40.GL3Tests.transform_feedback3_draw_stream
 KHR-GL46.arrays_of_arrays_gl.AtomicUsage
 KHR-GL46.arrays_of_arrays_gl.SubroutineArgumentAliasing1
 KHR-GL46.arrays_of_arrays_gl.SubroutineFunctionCalls1
