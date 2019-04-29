@@ -193,16 +193,6 @@ class CrucibleTester(object):
                          "!func.cmd-buffer.large-secondary-no-simultaneous*",
                          "!func.cmd-buffer.small-secondaries*",
                         ]
-            # gpu hang: https://bugs.freedesktop.org/show_bug.cgi?id=110535
-            excludes += [
-                         "!func.miptree.r8g8b8a8-unorm.aspect-color.view-2d.levels02.array02.extent-512x512.upload-copy-with-draw.download-copy-with-draw.q0",
-                         "!func.miptree.r8g8b8a8-unorm.aspect-color.view-2d.levels02.array02.extent-512x512.upload-copy-with-draw.download-copy-to-linear-image.q0",
-                         "!func.miptree.r8g8b8a8-unorm.aspect-color.view-2d.levels02.array02.extent-512x512.upload-copy-with-draw.download-copy-to-buffer.q0",
-                         "!func.miptree.r8g8b8a8-unorm.aspect-color.view-2d.levels02.array01.extent-512x512.upload-copy-with-draw.download-copy-to-buffer.q0",
-                         "!func.miptree.r8g8b8a8-unorm.aspect-color.view-2d.levels01.array01.extent-512x512.upload-copy-with-draw.download-copy-with-draw.q0",
-                         "!func.miptree.r8g8b8a8-unorm.aspect-color.view-2d.levels01.array01.extent-512x512.upload-copy-with-draw.download-copy-to-linear-image.q0",
-                         "!func.miptree.r8g8b8a8-unorm.aspect-color.view-2d.levels01.array01.extent-512x512.upload-copy-with-draw.download-copy-to-buffer.q0",
-            ]
 
         bs.run_batch_command([ br + "/bin/crucible",
                                "run", "--fork", "--log-pids",
