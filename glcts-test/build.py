@@ -78,6 +78,7 @@ class GLCTSTester(object):
 
     def test(self):
         mv = bs.mesa_version()
+        cpus = multiprocessing.cpu_count()
         if "17.2" in mv or "17.1" in mv:
             print("NOTICE: GLCTS will NOT be run since the system has Mesa version <17.3")
             return
@@ -86,9 +87,13 @@ class GLCTSTester(object):
                "MESA_GLSL_VERSION_OVERRIDE" : "460"}
         if "iris" in self.o.hardware:
             env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
+        # Tests for fp64 can use a lot of memory on platforms with soft fp64,
+        # so the number run in parallel is limited
+        if "icl" in self.o.hardware:
+            cpus = 4
         results = t.test(self.pm.build_root() + "/bin/gl/modules/glcts",
                          GLCTSLister(),
-                         env=env)
+                         env=env, cpus=cpus)
 
         o = bs.Options()
         config = bs.get_conf_file(self.o.hardware, self.o.arch, project=self.pm.current_project())
