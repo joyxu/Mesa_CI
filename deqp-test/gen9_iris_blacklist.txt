@@ -14,6 +14,7 @@ dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_at
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
 
 #flaky on iris
+dEQP-EGL.functional.multithread.pbuffer_window_context
 dEQP-GLES3.functional.fbo.color.repeated_clear.blit
 
 # many tests in this group appear to be flaky on iris
