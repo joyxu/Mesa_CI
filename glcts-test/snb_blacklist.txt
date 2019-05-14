@@ -10,3 +10,6 @@ KHR-GL33.texture_swizzle.smoke
 
 # fails on snbgt1 systems
 KHR-GL33.transform_feedback.query_geometry_separate_test
+
+# fails intermittently
+GTF-GL33.gtf21.GL2FixedTests.color_ramp.color_ramp
