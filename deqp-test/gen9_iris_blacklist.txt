@@ -6,6 +6,8 @@ dEQP-EGL.functional.robustness.reset_context.fixed_function_pipeline.reset_statu
 dEQP-EGL.functional.multithread.pbuffer_single_window
 dEQP-EGL.functional.multithread.pbuffer_single_window_context
 
+dEQP-GLES3.functional.transform_feedback
+
 dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_atomic_counter_mixed_dispatch_100_calls_1k_invocations
 
 #flaky
