@@ -16,6 +16,7 @@ dEQP-GLES31.stress
 dEQP-EGL.functional.multithread.pbuffer_window
 dEQP-EGL.functional.multithread.pbuffer_window_context
 dEQP-EGL.functional.multithread.window
+dEQP-EGL.functional.multithread.window_context
 dEQP-GLES2.functional.shaders.random.all_features.fragment.16
 dEQP-GLES3.functional.shaders.random.all_features.fragment.16
 dEQP-GLES31.functional.image_load_store.2d.atomic.comp_swap_r32i_return_value
