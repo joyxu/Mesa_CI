@@ -191,7 +191,7 @@
     <project name="skqp" />
 
     <project name="skqp-test"
-             bisect_hardware="gen9atom,icl,gen9"
+             bisect_hardware="gen9atom,icl,gen9,gen9_iris,gen9atom_iris"
              bisect_arch="m64">
       <prerequisite name="waffle" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -199,8 +199,8 @@
     </project>
 
     <project name="skqp-full">
-      <prerequisite name="skqp-test" hardware="gen9" arch="m64"/>
-      <prerequisite only_for_type="daily" name="skqp-test" hardware="gen9atom,icl" arch="m64"/>
+      <prerequisite name="skqp-test" hardware="gen9,gen9_iris" arch="m64"/>
+      <prerequisite only_for_type="daily" name="skqp-test" hardware="gen9atom,icl,gen9atom_iris" arch="m64"/>
     </project>
 
     <project name="vulkancts-test" src_dir="vulkancts"
