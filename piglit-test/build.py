@@ -44,7 +44,7 @@ def main():
         piglit_test = o.piglit_test
 
     excludes = None
-    if bs.Options().hardware == "icl":
+    if bs.Options().hardware.startswith("icl"):
         excludes = ["dvec3", "dvec4", "dmat"]
 
     env = {}
