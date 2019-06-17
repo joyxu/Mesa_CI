@@ -172,6 +172,8 @@
                     arch="m64,m32"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="icl" arch="m64"
                     shard="4"/>
+      <prerequisite only_for_type="daily" name="piglit-test" hardware="icl_iris" arch="m64"
+                    shard="4"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="bdw_iris" arch="m64,m32"
                     shard="2"/>
     </project>
