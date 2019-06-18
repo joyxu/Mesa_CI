@@ -81,6 +81,9 @@ update-grub
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 sed -i 's|#HandleLidSwitch=suspend|HandleLidSwitch=ignore|' /etc/systemd/logind.conf
 
+# make sure users can execute 'ping'...
+chmod u+s /usr/bin/ping
+
 # Enable and disable some services
 systemctl enable systemd-networkd systemd-resolved avahi-daemon salt-minion
 systemctl disable networking
