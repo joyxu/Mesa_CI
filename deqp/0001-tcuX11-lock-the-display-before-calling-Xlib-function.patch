@@ -1,0 +1,70 @@
+From 288e404cba2aa31f7e180bb662d75786d4c22758 Mon Sep 17 00:00:00 2001
+From: Tapani P??lli <tapani.palli@intel.com>
+Date: Thu, 20 Jun 2019 10:51:38 -0700
+Subject: [PATCH] tcuX11: lock the display before calling Xlib functions
+
+This change protects possible simultaneous access to Xlib resources.
+Original motivation is that I spotted data races with colormap structure
+leading to crashes like:
+
+       #0  0x00007ffff7eabaf8 in XcmsFreeCCC (ccc=0x2865636166727553) at CCC.c:266
+       #1  0x00007ffff7eb6a32 in _XcmsFreeClientCmaps (dpy=0x88f900) at cmsCmap.c:387
+       #2  0x00007ffff7e5e4ff in _XFreeDisplayStructure (dpy=0x88f900) at OpenDis.c:599
+       #3  0x00007ffff7e4b77f in XCloseDisplay (dpy=0x88f900) at ClDisplay.c:72
+       #4  0x000000000045851c in tcu::lnx::x11::XlibDisplay::~XlibDisplay() ()
+
+These issues were detected using helgrind thread error detector:
+
+       ==18367== Possible data race during write of size 8 at 0x4FD3DD0 by thread #4
+       ==18367== Locks held: none
+       ==18367==    at 0x4939AB3: _XcmsAddCmapRec (cmsCmap.c:262)
+       ==18367==    by 0x48CF60A: XCreateColormap (CrCmap.c:55)
+       ...
+       ==18367== This conflicts with a previous write of size 8 by thread #3
+       ==18367== Locks held: none
+       ==18367==    at 0x493A029: _XcmsDeleteCmapRec (cmsCmap.c:354)
+       ==18367==    by 0x48D4A70: XFreeColormap (FreeCmap.c:48)
+
+Affects: dEQP-EGL.functional.multithread.*
+
+(This version of patch is modified to work without C++11)
+
+Component: Framework
+
+VK-GL-CTS issue: 1768
+
+Change-Id: I0439b6e2d97f8e6bd87a0c2f5d4fb9ac04394dfb
+Signed-off-by: Tapani P??lli <tapani.palli@intel.com>
+---
+ framework/platform/lnx/X11/tcuLnxX11.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/framework/platform/lnx/X11/tcuLnxX11.cpp b/framework/platform/lnx/X11/tcuLnxX11.cpp
+index 5aef054a8..b3680f18a 100644
+--- a/framework/platform/lnx/X11/tcuLnxX11.cpp
++++ b/framework/platform/lnx/X11/tcuLnxX11.cpp
+@@ -163,7 +163,9 @@ XlibWindow::XlibWindow (XlibDisplay& display, int width, int height, ::Visual* v
+ 		TCU_CHECK_INTERNAL(succ);
+ 
+ 		root				= RootWindow(dpy, info.screen);
++		XLockDisplay(dpy);
+ 		m_colormap			= XCreateColormap(dpy, root, visual, AllocNone);
++		XUnlockDisplay(dpy);
+ 		swa.colormap		= m_colormap;
+ 		mask |= CWColormap;
+ 	}
+@@ -261,9 +263,11 @@ void XlibWindow::processEvents (void)
+ 
+ XlibWindow::~XlibWindow (void)
+ {
++	XLockDisplay(m_display.getXDisplay());
+ 	XDestroyWindow(m_display.getXDisplay(), m_window);
+ 	if (m_colormap != None)
+ 		XFreeColormap(m_display.getXDisplay(), m_colormap);
++	XUnlockDisplay(m_display.getXDisplay());
+ }
+ 
+ } // x11
+-- 
+2.22.0
+

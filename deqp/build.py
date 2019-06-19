@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys, os, importlib, git
+import glob
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
 import build_support as bs
 
@@ -23,6 +24,16 @@ class DeqpBuilder(bs.CMakeBuilder):
                         + "/external/{}/src")
         bs.checkout_externals(project='deqp', revisions=revisions,
                               external_dir_format=external_dir)
+
+        # apply patches if they exist
+        for patch in sorted(glob.glob(self._pm.project_build_dir()
+                                      + "/*.patch")):
+            os.chdir(self._src_dir)
+            try:
+                bs.run_batch_command(["git", "am", patch])
+            except:
+                print("WARN: failed to apply patch: " + patch)
+                bs.run_batch_command(["git", "am", "--abort"])
 
         bs.CMakeBuilder.build(self)
         dest = self._pm.build_root() + "/opt/deqp/"
