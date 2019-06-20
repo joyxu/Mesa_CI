@@ -6,22 +6,12 @@ KHR-GL46.vertex_attrib_64bit.limits_test
 # https://bugs.freedesktop.org/show_bug.cgi?id=104395
 GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
 
-# flaky on iris
-GTF-GL46.gtf40.GL3Tests.transform_feedback2
-GTF-GL46.gtf40.GL3Tests.transform_feedback3
-GTF-GL46.gtf42.GL3Tests.transform_feedback_instanced
-KHR-GL46.arrays_of_arrays_gl.AtomicUsage
-KHR-GL46.arrays_of_arrays_gl.SubroutineArgumentAliasing1
-KHR-GL46.arrays_of_arrays_gl.SubroutineFunctionCalls1
-KHR-GL46.compute_shader.resource-texture
-KHR-GL46.copy_image.functional
-KHR-GL46.copy_image.invalid_object
-KHR-GL46.geometry_shader.limits.max_combined_texture_units
-KHR-GL46.robust_buffer_access_behavior.vertex_buffer_objects
-KHR-GL46.shader_atomic_counters.basic-usage-tes
-KHR-GL46.shader_image_load_store
-KHR-GL46.shader_image_size
-KHR-GL46.shader_storage_buffer_object.advanced-write-tessellation
+# flaky
+GTF-GL46.gtf40.GL3Tests.transform_feedback2.transform_feedback2_two_buffers
+GTF-GL46.gtf40.GL3Tests.transform_feedback3.transform_feedback3_draw_stream
+KHR-GL46.arrays_of_arrays_gl.InteractionFunctionCalls2
+KHR-GL46.arrays_of_arrays_gl.SubroutineFunctionCalls2
+KHR-GL46.shader_image_load_store.advanced-sync-textureUpdate
+KHR-GL46.shader_image_load_store.basic-api-bind
 KHR-GL46.shader_subroutine.control_flow_and_returned_subroutine_values_used_as_subroutine_input
-KHR-GL46.texture_cube_map_array
-KHR-GL46.vertex_attrib_binding.advanced-iterations
+dEQP-GLES3.functional.fbo.color.repeated_clear.blit.rbo.rg8
