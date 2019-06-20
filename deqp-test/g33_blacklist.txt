@@ -1,7 +1,7 @@
-dEQP-EGL.functional.sharing.gles2.multithread
+
 dEQP-EGL.functional.resize
-dEQP-EGL.functional.multithread.pbuffer_single_window
-dEQP-EGL.functional.multithread.pbuffer_single_window_context
+
+
 # hang forever when running bisect jobs
 dEQP-GLES2.functional.texture.filtering.cube.linear_mipmap_linear_linear_mirror_rgba8888
 dEQP-GLES2.functional.texture.filtering.cube.linear_mipmap_linear_linear_repeat_rgba8888
