@@ -68,7 +68,7 @@
          re-tested when a regression occurs.  See update_conf.py and
          bisect_project.py in scripts. -->
     <project name="deqp-test" src_dir="deqp"
-             bisect_hardware="ilk,g33,g45,g965,bdw,hsw,ivb,snb,byt,bsw,gen9atom,gen9,gen9_iris,icl"
+             bisect_hardware="ilk,g33,g45,g965,bdw,hsw,ivb,snb,byt,bsw,gen9atom,gen9,gen9_iris,icl,icl_iris"
              bisect_arch="m64,m32">
       <!-- deqp-test will be specificed for a test platform (eg skl),
            but the hardware for its prerequisites should be a builder
@@ -316,7 +316,7 @@
       <prerequisite name="deqp-test" hardware="hsw,bdw,snb,ivb,gen9,gen9_iris" shard="5"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
-                    hardware="ilk,g33,g45,g965,byt,bsw,gen9atom,icl" shard="4"/>
+                    hardware="ilk,g33,g45,g965,byt,bsw,gen9atom,icl,icl_iris" shard="4"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     arch="m32"
