@@ -81,11 +81,11 @@ def main():
     # commits overrides versions in revspec
     if args.revspec and os.path.exists(args.revspec):
         for c in bs.RevisionSpecification.from_xml_file(args.revspec).to_cmd_line_param().split():
-            repo, sha = c.split('=')
+            repo, sha = c.lower().split('=')
             limit_to_repos[repo] = sha
     if args.commits:
         for c in args.commits:
-            repo, sha = c.split('=')
+            repo, sha = c.lower().split('=')
             limit_to_repos[repo] = sha
     project = args.project
     branch = args.branch
