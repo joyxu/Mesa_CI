@@ -398,7 +398,6 @@
       <remote name="yogesh-marathe" repo="git://github.com/yogesh-marathe/external-mesa"/>
       <remote name="anholt" repo="https://gitlab.freedesktop.org/anholt/mesa.git"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
-      <remote name="cmarcelo" repo="https://gitlab.freedesktop.org/cmarcelo/mesa.git"/>
       <remote name="cmarcelo-internal" repo="ssh://git@gitlab.devtools.intel.com:29418/cmdeoliv/mesa.git"/>
       <remote name="sagarghuge" repo="https://gitlab.freedesktop.org/sagarghuge/mesa.git"/>
       <remote name="ldeks" repo="git://people.freedesktop.org/~ldeks/mesa"/>
@@ -982,11 +981,11 @@
     </branch>
 
     <branch name="cmarcelo_gl" project="test-single-arch">
-      <mesa branch="cmarcelo/jenkins_gl"/>
+      <mesa branch="ci_mesa_repo/cmarcelo_gl"/>
     </branch>
 
     <branch name="cmarcelo_vulkan" project="vulkancts-full">
-      <mesa branch="cmarcelo/jenkins_vk"/>
+      <mesa branch="ci_mesa_repo/cmarcelo_vulkan"/>
     </branch>
 
     <branch name="cmarcelo_tgl" project="test-single-arch-tgl">
@@ -995,7 +994,7 @@
     </branch>
 
     <branch name="cmarcelo_iris" project="all-test-iris">
-      <mesa branch="cmarcelo/jenkins_iris"/>
+      <mesa branch="ci_mesa_repo/cmarcelo_iris"/>
     </branch>
 
     <branch name="sagarghuge" project="test-single-arch-vulkan">
