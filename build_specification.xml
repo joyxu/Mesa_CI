@@ -399,7 +399,6 @@
       <remote name="yogesh-marathe" repo="git://github.com/yogesh-marathe/external-mesa"/>
       <remote name="anholt" repo="https://gitlab.freedesktop.org/anholt/mesa.git"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
-      <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa.git"/>
       <remote name="cmarcelo" repo="https://gitlab.freedesktop.org/cmarcelo/mesa.git"/>
       <remote name="cmarcelo-internal" repo="ssh://git@gitlab.devtools.intel.com:29418/cmdeoliv/mesa.git"/>
       <remote name="sagarghuge" repo="https://gitlab.freedesktop.org/sagarghuge/mesa.git"/>
@@ -1070,7 +1069,7 @@
     </branch>
 
     <branch name="craftyguy" project="test-single-arch-vulkan">
-      <mesa branch="craftyguy/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/craftyguy"/>
     </branch>
 
     <branch name="agoldmints" project="test-single-arch-vulkan">
