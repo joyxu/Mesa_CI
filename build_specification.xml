@@ -1008,6 +1008,10 @@
       <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
 
+    <branch name="sagarghuge_iris" project="all-test-iris">
+      <mesa branch="sagarghuge/iris_jenkins"/>
+    </branch>
+
     <branch name="yogesh-marathe" project="test-single-arch-vulkan">
       <mesa branch="yogesh-marathe/jenkins"/>
     </branch>
