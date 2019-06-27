@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import multiprocessing
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
@@ -87,11 +88,15 @@ class VulkanTester(object):
         params = ["--deqp-surface-type=fbo"]
         if os.path.exists(pm.project_source_dir("vulkancts") + "/external/vulkancts/mustpass/1.1.2"):
             params.append("--deqp-shadercache=disable")
+        o = bs.Options()
+        cpus = None
+        if 'icl' in o.hardware:
+            cpus = multiprocessing.cpu_count() // 2
+
         results = tester.test(binary,
                               VulkanTestList(),
                               params,
-                              env=env)
-        o = bs.Options()
+                              env=env, cpus=cpus)
         config = bs.get_conf_file(o.hardware, o.arch, project=pm.current_project())
         tester.generate_results(results, bs.ConfigFilter(config, o))
 
