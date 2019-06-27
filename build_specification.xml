@@ -272,8 +272,6 @@
                     hardware="icl_iris" shard="4"/>
       <prerequisite name="glcts-test"
                     hardware="gen9_iris,icl_iris"/>
-      <prerequisite name="glescts-test"
-                    hardware="gen9_iris,icl_iris"/>
     </project>
 
     <project name="test-single-arch-simdrm">
