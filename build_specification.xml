@@ -981,11 +981,11 @@
     </branch>
 
     <branch name="cmarcelo_gl" project="test-single-arch">
-      <mesa branch="ci_mesa_repo/cmarcelo_gl"/>
+      <mesa branch="ci_mesa_repo/dev/cmarcelo_gl"/>
     </branch>
 
     <branch name="cmarcelo_vulkan" project="vulkancts-full">
-      <mesa branch="ci_mesa_repo/cmarcelo_vulkan"/>
+      <mesa branch="ci_mesa_repo/dev/cmarcelo_vulkan"/>
     </branch>
 
     <branch name="cmarcelo_tgl" project="test-single-arch-tgl">
@@ -994,7 +994,7 @@
     </branch>
 
     <branch name="cmarcelo_iris" project="all-test-iris">
-      <mesa branch="ci_mesa_repo/cmarcelo_iris"/>
+      <mesa branch="ci_mesa_repo/dev/cmarcelo_iris"/>
     </branch>
 
     <branch name="sagarghuge" project="test-single-arch-vulkan">
