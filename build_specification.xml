@@ -370,7 +370,6 @@
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
       <remote name="kwg" repo="https://gitlab.freedesktop.org/kwg/mesa.git"/>
       <remote name="idr" repo="git://people.freedesktop.org/~idr/mesa"/>
-      <remote name="mattst88" repo="git://people.freedesktop.org/~mattst88/mesa"/>
       <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa.git"/>
       <remote name="jljusten" repo="git://people.freedesktop.org/~jljusten/mesa"/>
       <remote name="mperes" repo="git://people.freedesktop.org/~mperes/mesa"/>
@@ -757,7 +756,7 @@
     </branch>
 
     <branch name="mattst88" project="test-single-arch-vulkan">
-      <mesa branch="mattst88/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/mattst88"/>
     </branch>
 
     <branch name="majanes" project="test-single-arch">
