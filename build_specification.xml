@@ -368,7 +368,6 @@
       <!-- todo: add support for remotes.  -->
       <remote name="ci_mesa_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/mesa.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
-      <remote name="kwg" repo="https://gitlab.freedesktop.org/kwg/mesa.git"/>
       <remote name="idr" repo="git://people.freedesktop.org/~idr/mesa"/>
       <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa.git"/>
       <remote name="jljusten" repo="git://people.freedesktop.org/~jljusten/mesa"/>
@@ -727,7 +726,7 @@
     </branch>
 
     <branch name="kwg" project="test-single-arch">
-      <mesa branch="kwg/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/kwg"/>
     </branch>
 
     <branch name="antognolli" project="test-single-arch">
@@ -748,7 +747,7 @@
     </branch>
 
     <branch name="kwg_vulkan" project="vulkancts-full">
-      <mesa branch="kwg/vkjenkins"/>
+      <mesa branch="ci_mesa_repo/dev/kwg_vulkan"/>
     </branch>
 
     <branch name="idr" project="test-single-arch-vulkan">
