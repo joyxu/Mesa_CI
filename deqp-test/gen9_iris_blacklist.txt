@@ -3,3 +3,5 @@ dEQP-EGL.functional.query_context.simple.query_api
 dEQP-EGL.functional.robustness.reset_context.fixed_function_pipeline.reset_status.index_buffer_out_of_bounds
 dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_atomic_counter_mixed_dispatch_100_calls_1k_invocations
 
+# flaky
+dEQP-GLES3.functional.fbo.color.repeated_clear.blit.tex2d.r16f
