@@ -377,7 +377,6 @@
       <remote name="aphogat" repo="git://github.com/aphogat/mesa"/>
       <remote name="tpohjola" repo="https://gitlab.freedesktop.org/tpohjola/mesa.git"/>
       <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/mesa.git"/>
-      <remote name="nchery" repo="git://people.freedesktop.org/~nchery/mesa"/>
       <remote name="tarceri" repo="https://gitlab.freedesktop.org/tarceri/mesa.git"/>
       <remote name="evelikov" repo="git://github.com/evelikov/mesa"/>
       <remote name="pnmanolova" repo="git://github.com/pnmanolova/mesa"/>
@@ -808,11 +807,11 @@
     </branch>
 
     <branch name="nchery_vulkan" project="vulkancts-full">
-      <mesa branch="nchery/jenkins_vulkan"/>
+      <mesa branch="ci_mesa_repo/dev/nchery_vulkan"/>
     </branch>
 
     <branch name="nchery" project="test-single-arch-nchery">
-      <mesa branch="nchery/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/nchery"/>
     </branch>
 
     <branch name="tarceri" project="test-single-arch-vulkan">
