@@ -1,14 +1,11 @@
 dEQP-EGL.functional.buffer_age.no_preserve
-
 dEQP-EGL.functional.query_context.simple.query_api
-
-
 dEQP-EGL.functional.robustness.reset_context.fixed_function_pipeline.reset_status.index_buffer_out_of_bounds
-
 dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_atomic_counter_mixed_dispatch_100_calls_1k_invocations
 
 #flaky
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
+dEQP-EGL.functional.render.multi_context.gles3.rgba8888_pbuffer
 
 # flaky due to removing mustpass whitelists
 
