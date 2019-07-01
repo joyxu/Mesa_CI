@@ -385,7 +385,6 @@
       <remote name="igalia_release" repo="git://github.com/Igalia/release-mesa"/>
       <remote name="internal-gitlab" repo="ssh://git@gitlab.devtools.intel.com:29418/linux-gfx/mesa/mesa.git"/>
       <remote name="chadv" repo="git://github.com/chadversary/mesa"/>
-      <remote name="antognolli" repo="https://gitlab.freedesktop.org/rantogno/mesa.git"/>
       <remote name="hakzsam" repo="git://people.freedesktop.org/~hakzsam/mesa"/>
       <remote name="daniels" repo="https://gitlab.freedesktop.org/daniels/mesa.git"/>
       <remote name="chrisf" repo="git://github.com/chrisforbes/mesa"/>
@@ -728,7 +727,7 @@
     </branch>
 
     <branch name="antognolli" project="test-single-arch">
-      <mesa branch="antognolli/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/antognolli"/>
     </branch>
 
     <branch name="antognolli_tgl" project="test-single-arch-tgl">
@@ -737,11 +736,11 @@
     </branch>
 
     <branch name="antognolli_vulkan" project="vulkancts-full">
-      <mesa branch="antognolli/jenkins_vk"/>
+      <mesa branch="ci_mesa_repo/dev/antognolli_vulkan"/>
     </branch>
 
     <branch name="antognolli_iris" project="all-test-iris">
-      <mesa branch="antognolli/jenkins_iris"/>
+      <mesa branch="ci_mesa_repo/dev/antognolli_iris"/>
     </branch>
 
     <branch name="kwg_vulkan" project="vulkancts-full">
