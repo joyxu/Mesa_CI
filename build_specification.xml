@@ -381,7 +381,6 @@
       <remote name="evelikov" repo="git://github.com/evelikov/mesa"/>
       <remote name="pnmanolova" repo="git://github.com/pnmanolova/mesa"/>
       <remote name="imirkin" repo="git://github.com/imirkin/mesa"/>
-      <remote name="djdeath" repo="git://github.com/djdeath/mesa"/>
       <remote name="igalia" repo="git://github.com/Igalia/mesa"/>
       <remote name="igalia_release" repo="git://github.com/Igalia/release-mesa"/>
       <remote name="internal-gitlab" repo="ssh://git@gitlab.devtools.intel.com:29418/linux-gfx/mesa/mesa.git"/>
@@ -898,11 +897,11 @@
     </branch>
 
     <branch name="djdeath_vulkan" project="vulkancts-full">
-      <mesa branch="djdeath/jenkins_vulkan"/>
+      <mesa branch="ci_mesa_repo/dev/djdeath_jenkins"/>
     </branch>
 
     <branch name="djdeath" project="test-single-arch">
-      <mesa branch="djdeath/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/djdeath"/>
     </branch>
 
     <branch name="igalia" project="test-single-arch-vulkan">
