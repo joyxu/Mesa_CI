@@ -5,5 +5,4 @@ dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_at
 
 # flaky
 dEQP-EGL.functional.color_clears.multi_context.gles1.rgba8888_pbuffer
-dEQP-GLES3.functional.fbo.color.repeated_clear.blit.rbo.rgb565
-dEQP-GLES3.functional.fbo.color.repeated_clear.blit.tex2d
+dEQP-GLES3.functional.fbo.color.repeated_clear.blit
