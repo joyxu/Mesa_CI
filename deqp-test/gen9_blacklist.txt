@@ -1,13 +1,10 @@
 dEQP-EGL.functional.buffer_age.no_preserve
-
 dEQP-EGL.functional.query_context.simple.query_api
-
 dEQP-EGL.functional.robustness.reset_context.fixed_function_pipeline.reset_status.index_buffer_out_of_bounds
-
-
 dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_atomic_counter_mixed_dispatch_100_calls_1k_invocations
 
 #flaky
+dEQP-EGL.functional.sharing.gles2.multithread.simple_egl_sync.textures.copyteximage2d_texsubimage2d_render
 dEQP-GLES2.functional.shaders.random.all_features.fragment.16
 dEQP-GLES3.functional.shaders.random.all_features.fragment.16
 dEQP-GLES31.functional.copy_image.mixed.viewclass_128_bits_mixed.rg11_eac_rgba32ui.texture2d_to_texture3d
