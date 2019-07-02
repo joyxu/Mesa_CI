@@ -6,3 +6,4 @@ dEQP-GLES31.functional.debug.negative_coverage.callbacks.shader_storage.block_nu
 #flaky
 dEQP-GLES2.functional.shaders.random.all_features.fragment.16
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
+dEQP-GLES31.functional.geometry_shading.layered.render_with_default_layer_cubemap
