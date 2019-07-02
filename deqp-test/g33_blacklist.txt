@@ -1,6 +1,7 @@
-
 dEQP-EGL.functional.resize
 
+#flaky
+dEQP-EGL.functional.sharing.gles2.multithread.simple.textures.copyteximage2d_texsubimage2d_render
 
 # hang forever when running bisect jobs
 dEQP-GLES2.functional.texture.filtering.cube.linear_mipmap_linear_linear_mirror_rgba8888
