@@ -899,6 +899,10 @@
       <mesa branch="ci_mesa_repo/dev/djdeath_vulkan"/>
     </branch>
 
+    <branch name="djdeath_vulkan_internal" project="vulkancts-full">
+      <mesa branch="internal-gitlab/dev/djdeath_vulkan"/>
+    </branch>
+
     <branch name="djdeath" project="test-single-arch">
       <mesa branch="ci_mesa_repo/dev/djdeath"/>
     </branch>
