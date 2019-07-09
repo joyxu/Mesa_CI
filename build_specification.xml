@@ -369,7 +369,6 @@
       <remote name="ci_mesa_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/mesa.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
       <remote name="idr" repo="git://people.freedesktop.org/~idr/mesa"/>
-      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa.git"/>
       <remote name="jljusten" repo="git://people.freedesktop.org/~jljusten/mesa"/>
       <remote name="mperes" repo="git://people.freedesktop.org/~mperes/mesa"/>
       <remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/mesa"/>
@@ -412,7 +411,6 @@
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
       <remote name="aphogat" repo="git://github.com/aphogat/drm"/>
-      <remote name="janesma" repo="git://github.com/janesma/drm"/>
     </drm>
 
     <vkrunner repo="git://github.com/Igalia/vkrunner.git" branch="origin/master"/>
@@ -422,7 +420,6 @@
       <!-- Dylan's repository is more stable than the origin, and will
            not trigger builds unnecessarily -->
       <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/piglit.git"/>
-      <remote name="janesma" repo="git://github.com/janesma/piglit"/>
       <remote name="nchery-gitlab" repo="https://gitlab.freedesktop.org/nchery/piglit.git"/>
       <remote name="curro" repo="git://people.freedesktop.org/~currojerez/piglit"/>
       <remote name="idr" repo="git://people.freedesktop.org/~idr/piglit"/>
@@ -435,8 +432,6 @@
     </piglit>
 
     <waffle repo="git://github.com/waffle-gl/waffle">
-      <remote name="stable" repo="git://github.com/janesma/waffle"/>
-      <remote name="janesma" repo="git://github.com/janesma/waffle"/>
       <remote name="jekstrand" repo="git://github.com/jekstrand/waffle"/>
     </waffle>
 
@@ -464,7 +459,6 @@
 
     <glcts repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"
            branch="origin/opengl-cts-4.6.0">
-      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/vk-gl-cts.git"/>
     </glcts>
 
     <gtest repo="https://android.googlesource.com/platform/external/googletest"/>
@@ -474,14 +468,12 @@
 
     <crucible repo="https://gitlab.freedesktop.org/mesa/crucible.git"
               branch="origin/master">
-      <remote name="janesma" repo="git://github.com/janesma/crucible.git"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/crucible"/>
     </crucible>
 
     <vulkancts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
                branch="origin/vulkan-cts-1.1.3">
       <remote name="khronos" repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"/>
-      <remote name="janesma" repo="git@gitlab.freedesktop.org:majanes/vk-gl-cts.git"/>
       <remote name="tpalli" repo="ssh://git@gitlab.devtools.intel.com:29418/tpalli/vk-gl-cts-tpalli.git"/>
     </vulkancts>
     
@@ -756,7 +748,7 @@
     </branch>
 
     <branch name="majanes" project="test-single-arch">
-      <mesa branch="janesma/jenkins2"/>
+      <mesa branch="ci_mesa_repo/dev/janesma"/>
     </branch>
 
     <branch name="dcbaker" project="test-single-arch">
