@@ -896,7 +896,7 @@
     </branch>
 
     <branch name="djdeath_vulkan" project="vulkancts-full">
-      <mesa branch="ci_mesa_repo/dev/djdeath_jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/djdeath_vulkan"/>
     </branch>
 
     <branch name="djdeath" project="test-single-arch">
