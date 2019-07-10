@@ -370,7 +370,6 @@
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
       <remote name="idr" repo="git://people.freedesktop.org/~idr/mesa"/>
       <remote name="jljusten" repo="git://people.freedesktop.org/~jljusten/mesa"/>
-      <remote name="mperes" repo="git://people.freedesktop.org/~mperes/mesa"/>
       <remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/mesa"/>
       <remote name="curro" repo="git://people.freedesktop.org/~currojerez/mesa"/>
       <remote name="aphogat" repo="git://github.com/aphogat/mesa"/>
@@ -386,7 +385,6 @@
       <remote name="chadv" repo="git://github.com/chadversary/mesa"/>
       <remote name="hakzsam" repo="git://people.freedesktop.org/~hakzsam/mesa"/>
       <remote name="daniels" repo="https://gitlab.freedesktop.org/daniels/mesa.git"/>
-      <remote name="chrisf" repo="git://github.com/chrisforbes/mesa"/>
       <remote name="igalia_khronos" repo="git@gitlab.khronos.org:vulkan/mesa.git"/>
       <remote name="grigorig" repo="git://people.freedesktop.org/~grigorig/mesa"/>
       <remote name="yogesh-marathe" repo="git://github.com/yogesh-marathe/external-mesa"/>
@@ -394,7 +392,6 @@
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
       <remote name="cmarcelo-internal" repo="ssh://git@gitlab.devtools.intel.com:29418/cmdeoliv/mesa.git"/>
       <remote name="sagarghuge" repo="https://gitlab.freedesktop.org/sagarghuge/mesa.git"/>
-      <remote name="ldeks" repo="git://people.freedesktop.org/~ldeks/mesa"/>
       <remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>
       <remote name="airlied" repo="https://gitlab.freedesktop.org/airlied/mesa.git"/>
       <remote name="robclark" repo="git://github.com/freedreno/mesa"/>
@@ -763,10 +760,6 @@
       <mesa branch="jljusten/jenkins"/>
     </branch>
 
-    <branch name="mperes" project="test-single-arch">
-      <mesa branch="mperes/jenkins"/>
-    </branch>
-
     <branch name="tpalli" project="test-single-arch-vulkan">
       <mesa branch="tpalli/jenkins"/>
     </branch>
@@ -955,22 +948,10 @@
       <mesa branch="hakzsam/jenkins"/>
     </branch>
 
-    <branch name="hakzsam_piglit" project="piglit-full">
-      <piglit branch="hakzsam/jenkins"/>
-    </branch>
-
     <branch name="daniels" project="test-single-arch-vulkan">
       <mesa branch="daniels/ci/intel"/>
     </branch>
     
-    <branch name="chrisf" project="test-single-arch-vulkan">
-      <mesa branch="chrisf/ci"/>
-    </branch>
-
-    <branch name="grigorig" project="test-single-arch-vulkan">
-      <mesa branch="grigorig/intel_ci"/>
-    </branch>
-
     <branch name="cmarcelo_gl" project="test-single-arch">
       <mesa branch="ci_mesa_repo/dev/cmarcelo_gl"/>
     </branch>
@@ -1015,10 +996,6 @@
 
     <branch name="nroberts" project="test-single-arch-vulkan">
       <mesa branch="igalia/nroberts/jenkins"/>
-    </branch>
-
-    <branch name="ldeks" project="test-single-arch-vulkan">
-      <mesa branch="ldeks/jenkins"/>
     </branch>
 
     <branch name="frohlich" project="test-single-arch-vulkan">
