@@ -13,3 +13,7 @@ dEQP-VK.pipeline.render_to_image.core.3d.huge
 # runs out of memory
 dEQP-VK.pipeline.render_to_image.core.cube_array.huge.width_height_layers
 dEQP-VK.wsi.display.get_display_plane_capabilities2
+
+# hangs forever on bsw
+# https://bugs.freedesktop.org/show_bug.cgi?id=111120
+dEQP-VK.spirv_assembly.instruction.graphics.spirv_ids_abuse
