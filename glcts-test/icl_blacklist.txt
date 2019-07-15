@@ -24,9 +24,6 @@ KHR-GL46.gpu_shader_fp64.builtin.smoothstep_against_scalar_dvec2
 KHR-GL46.gpu_shader_fp64.builtin.smoothstep_double
 KHR-GL46.gpu_shader_fp64.builtin.smoothstep_dvec2
 KHR-GL46.gpu_shader_fp64.fp64.varyings
-KHR-GL46.shader_ballot_tests.ShaderBallotAvailability
-KHR-GL46.shader_ballot_tests.ShaderBallotBitmasks
-KHR-GL46.shader_ballot_tests.ShaderBallotFunctionRead
 KHR-GL46.tessellation_shader.tessellation_control_to_tessellation_evaluation.gl_MaxPatchVertices_Position_PointSize
 KHR-GL46.tessellation_shader.tessellation_invariance.invariance_rule6
 KHR-GL46.texture_swizzle.functional
