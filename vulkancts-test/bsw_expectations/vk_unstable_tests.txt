@@ -17,3 +17,4 @@ dEQP-VK.wsi.display.get_display_plane_capabilities2
 # hangs forever on bsw
 # https://bugs.freedesktop.org/show_bug.cgi?id=111120
 dEQP-VK.spirv_assembly.instruction.graphics.spirv_ids_abuse
+dEQP-VK.spirv_assembly.instruction.compute.spirv_ids_abuse
