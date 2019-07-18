@@ -140,7 +140,7 @@
     </project>
 
     <project name="piglit-test"
-             bisect_hardware="bdw,gen9,gen9_iris,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,gen9atom,gen9atom_iris,icl,bdw_iris"
+             bisect_hardware="bdw,gen9,gen9_iris,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,gen9atom,gen9atom_iris,icl,bdw_iris,icl_iris"
              bisect_arch="m64">
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
