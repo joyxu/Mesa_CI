@@ -736,7 +736,7 @@
     </branch>
 
     <branch name="idr" project="test-single-arch-vulkan">
-      <mesa branch="mesa_ci_repo/dev/idr/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/idr/jenkins"/>
     </branch>
 
     <branch name="mattst88" project="test-single-arch-vulkan">
