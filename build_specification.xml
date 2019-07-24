@@ -373,7 +373,6 @@
       <!-- todo: add support for remotes.  -->
       <remote name="ci_mesa_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/mesa.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
-      <remote name="idr" repo="git://people.freedesktop.org/~idr/mesa"/>
       <remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/mesa"/>
       <remote name="curro" repo="git://people.freedesktop.org/~currojerez/mesa"/>
       <remote name="aphogat" repo="git://github.com/aphogat/mesa"/>
@@ -737,7 +736,7 @@
     </branch>
 
     <branch name="idr" project="test-single-arch-vulkan">
-      <mesa branch="idr/jenkins"/>
+      <mesa branch="mesa_ci_repo/dev/idr/jenkins"/>
     </branch>
 
     <branch name="mattst88" project="test-single-arch-vulkan">
