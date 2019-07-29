@@ -147,7 +147,7 @@
     </project>
 
     <project name="piglit-test-internal"
-             bisect_hardware="tgl"
+             bisect_hardware="tgl_iris"
              bisect_arch="m64"
              src_dir="mesa_ci_internal">
       <prerequisite name="fulsim" arch="m64"/>
@@ -285,7 +285,7 @@
     </project>
 
     <project name="test-single-arch-tgl">
-      <prerequisite name="piglit-test-internal" hardware="tgl" shard="6" arch="m64"/>
+      <prerequisite name="piglit-test-internal" hardware="tgl,tgl_iris" shard="6" arch="m64"/>
     </project>
 
     <project name="test-single-arch-vulkan">
