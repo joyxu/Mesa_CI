@@ -284,14 +284,15 @@ class WebGLTester(object):
         env = { "LD_LIBRARY_PATH" : ':'.join([libdir, libdir + "/dri"]),
                       "LIBGL_DRIVERS_PATH": bs.get_libgl_drivers()}
         self._opts.update_env(env)
-        for k,v in env.items():
-            os.environ[k] = v
+        self._env = env
 
     def build(self):
         pass
     def clean(self):
         pass
     def test(self):
+        for k,v in self._env.items():
+            os.environ[k] = v
         server = serve_webgl_cts(self.pm.project_source_dir("webgl") + "/conformance-suites/2.0.0")
         port = server.server_address[1]
 
