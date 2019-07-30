@@ -25,42 +25,47 @@ class SlowTimeout:
         return 40
 
 
-# add the --piglit_test option to the standard options.  Parse the
-# options, and strip the piglit_test so the options will work as usual
-# for subsequent objects.
-o = bs.CustomOptions("piglit args allow a specific test")
-o.add_argument(arg='--piglit_test', type=str, default="",
-               help="single piglit test to run.")
-o.parse_args()
+def main():
+    # add the --piglit_test option to the standard options.  Parse the
+    # options, and strip the piglit_test so the options will work as usual
+    # for subsequent objects.
+    o = bs.CustomOptions("piglit args allow a specific test")
+    o.add_argument(arg='--piglit_test', type=str, default="",
+                   help="single piglit test to run.")
+    o.parse_args()
 
-piglit_test = ""
-if o.piglit_test:
-    piglit_test = o.piglit_test
+    piglit_test = ""
+    if o.piglit_test:
+        piglit_test = o.piglit_test
 
-piglit_timeout = None
-if base_hardware in fs.platform_keyfile:
-    if fs.is_supported():
-        piglit_timeout = 150
-    else:
-        print("Unable to run simulated hardware in this environment!")
-        sys.exit(1)
+    piglit_timeout = None
+    if base_hardware in fs.platform_keyfile:
+        if fs.is_supported():
+            piglit_timeout = 150
+        else:
+            print("Unable to run simulated hardware in this environment!")
+            sys.exit(1)
 
-jobs = int(multiprocessing.cpu_count() / 2)
+    jobs = int(multiprocessing.cpu_count() / 2)
 
-excludes = None
-if base_hardware in soft_fp64:
-    excludes = ["dvec3", "dvec4", "dmat"]
+    excludes = None
+    if base_hardware in soft_fp64:
+        excludes = ["dvec3", "dvec4", "dmat"]
 
-# sim-drm.py is invoked by bs.Fulsim.get_env, and requires build_root to be
-# populated. To work around this, import build_root now and call bs.build with
-# import_build=False so that the build_root is only imported once
-bs.Export().import_build_root()
+    # sim-drm.py is invoked by bs.Fulsim.get_env, and requires build_root to be
+    # populated. To work around this, import build_root now and call bs.build
+    # with import_build=False so that the build_root is only imported once
+    bs.Export().import_build_root()
 
-env = fs.get_env()
-if "iris" in bs.Options().hardware:
-    env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
+    env = fs.get_env()
+    if "iris" in bs.Options().hardware:
+        env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
 
-bs.build(bs.PiglitTester(_suite="gpu", env=env,
-                         timeout=piglit_timeout, piglit_test=piglit_test,
-                         jobs=jobs, excludes=excludes),
-         time_limit=SlowTimeout(), import_build=False)
+    bs.build(bs.PiglitTester(_suite="gpu", env=env,
+                             timeout=piglit_timeout, piglit_test=piglit_test,
+                             jobs=jobs, excludes=excludes),
+             time_limit=SlowTimeout(), import_build=False)
+
+
+if __name__ == "__main__":
+    main()
