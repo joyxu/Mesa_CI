@@ -338,8 +338,10 @@
 
     <project name="glcts-full">
       <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,gen9,gen9_iris" arch="m64"/>
-      <prerequisite name="glcts-test" only_for_type="daily" hardware="hsw,bdw,gen9,icl,icl_iris" arch="m32"/>
-      <prerequisite name="glcts-test" only_for_type="daily" hardware="icl,icl_iris,bsw,gen9atom,byt,bdw_iris"/>
+      <prerequisite name="glcts-test" only_for_type="daily" hardware="hsw,bdw,gen9" arch="m32"/>
+      <prerequisite name="glcts-test" only_for_type="daily" hardware="bsw,gen9atom,byt,bdw_iris"/>
+      <prerequisite name="glcts-test" only_for_type="daily" hardware="icl,icl_iris" shard="4"/>
+      <prerequisite name="glcts-test" only_for_type="daily" hardware="icl,icl_iris" arch="m32" shard="4"/>
     </project>
 
     <project name="vulkan-and-gl">
