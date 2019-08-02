@@ -90,7 +90,7 @@ class GLCTSTester(object):
         # Tests for fp64 can use a lot of memory on platforms with soft fp64,
         # so the number run in parallel is limited
         if "icl" in self.o.hardware:
-            cpus = 4
+            cpus = 2
         results = t.test(self.pm.build_root() + "/bin/gl/modules/glcts",
                          GLCTSLister(),
                          env=env, cpus=cpus)
