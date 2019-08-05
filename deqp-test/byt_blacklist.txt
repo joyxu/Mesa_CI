@@ -1,12 +1,9 @@
-
 dEQP-EGL.functional.query_context.simple.query_api
-
 dEQP-EGL.functional.robustness.reset_context.fixed_function_pipeline.reset_status.index_buffer_out_of_bounds
-
-
 dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_atomic_counter_mixed_dispatch_100_calls_1k_invocations
-#flaky
 
+#flaky
+dEQP-EGL.functional.color_clears.multi_thread.gles1.rgba8888_pbuffer
 dEQP-GLES2.functional.shaders.random.all_features.fragment.16
 dEQP-GLES3.functional.shaders.random.all_features.fragment.16
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
