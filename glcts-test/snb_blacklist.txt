@@ -3,9 +3,10 @@ GTF-GL46
 # flaky on SNB
 KHR-GL33.transform_feedback.query_geometry_interleaved_test
 # Fails intermittently
-GTF-GL33.gtf30.GL3Tests.transform_feedback.transform_feedback_geometry_primitive_types
-GTF-GL33.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
+GTF-GL33.gtf21.GL2FixedTests.buffer_color.buffer_color
 GTF-GL33.gtf21.GL3Tests.texture_lod_bias.texture_lod_bias_clamp_4
+GTF-GL33.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
+GTF-GL33.gtf30.GL3Tests.transform_feedback.transform_feedback_geometry_primitive_types
 KHR-GL33.texture_swizzle.smoke
 
 # fails on snbgt1 systems
