@@ -22,7 +22,7 @@ class SlowTimeout:
             return 120
         if self.hardware == "g33":
             return 120
-        if self.hardware == "icl":
+        if "icl" in self.hardware:
             return 120
         if self.hardware == "g965":
             return 50
