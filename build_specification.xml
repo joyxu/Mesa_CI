@@ -970,7 +970,7 @@
     </branch>
 
     <branch name="sagarghuge" project="test-single-arch-vulkan">
-      <mesa branch="sagarghuge/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/sagarghuge"/>
     </branch>
 
     <branch name="sagarghuge-tgl" project="test-single-arch-tgl">
@@ -979,7 +979,7 @@
     </branch>
 
     <branch name="sagarghuge_iris" project="all-test-iris">
-      <mesa branch="sagarghuge/iris_jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/sagarghuge_iris"/>
     </branch>
 
     <branch name="yogesh-marathe" project="test-single-arch-vulkan">
