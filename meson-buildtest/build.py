@@ -37,7 +37,7 @@ def main():
         '-Dgallium-va=true',
         '-Dgallium-nine=true',
         '-Dgallium-opencl=standalone',
-        '-Dtools=intel-ui,intel',
+        '-Dtools=all',
     ]
 
     # the knob for omx changed durring the 18.1 cycle, if tizonia support is
