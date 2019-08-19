@@ -1,23 +1,31 @@
-From 37111c35a5cf16e414967721045ec67c7bcefbf5 Mon Sep 17 00:00:00 2001
+From 8c68dd6e483255138cb056174f5133f1579303b3 Mon Sep 17 00:00:00 2001
 From: renchenglei <chenglei.ren@intel.com>
-Date: Fri, 8 Mar 2019 14:00:52 +0200
+Date: Thu, 1 Aug 2019 07:23:52 +0300
 Subject: [PATCH] use the private drm lib name
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+v2: add iris (Tapani)
 
 Change-Id: I567da1c48e588b1a65c883323e92c2a34822b5d8
 Signed-off-by: Yong Yao <yong.yao@intel.com>
 Signed-off-by: Ren Chenglei <chenglei.ren@intel.com>
+Signed-off-by: Tapani Pälli <tapani.palli@intel.com>
 ---
  Android.common.mk                      | 2 +-
+ src/gallium/drivers/iris/Android.mk    | 2 +-
  src/gallium/winsys/i915/drm/Android.mk | 2 +-
- src/intel/Android.vulkan.mk            | 4 ++--
+ src/gallium/winsys/iris/drm/Android.mk | 2 +-
+ src/intel/Android.vulkan.mk            | 2 +-
  src/mesa/drivers/dri/i915/Android.mk   | 2 +-
- 4 files changed, 5 insertions(+), 5 deletions(-)
+ 6 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/Android.common.mk b/Android.common.mk
-index 36d97c52dd..429f28a396 100644
+index 825b60381d..2431a69cc5 100644
 --- a/Android.common.mk
 +++ b/Android.common.mk
-@@ -112,7 +112,7 @@ LOCAL_CFLAGS_arm64 += -DUSE_AARCH64_ASM
+@@ -114,7 +114,7 @@ LOCAL_CFLAGS_arm64 += -DUSE_AARCH64_ASM
  
  ifneq ($(LOCAL_IS_HOST_MODULE),true)
  LOCAL_CFLAGS += -DHAVE_LIBDRM
@@ -26,6 +34,19 @@ index 36d97c52dd..429f28a396 100644
  endif
  
  LOCAL_CFLAGS_32 += -DDEFAULT_DRIVER_DIR=\"/vendor/lib/$(MESA_DRI_MODULE_REL_PATH)\"
+diff --git a/src/gallium/drivers/iris/Android.mk b/src/gallium/drivers/iris/Android.mk
+index 824ae7a0b1..70b9527bbf 100644
+--- a/src/gallium/drivers/iris/Android.mk
++++ b/src/gallium/drivers/iris/Android.mk
+@@ -154,7 +154,7 @@ LOCAL_C_INCLUDES := \
+ 	$(MESA_TOP)/include/drm-uapi \
+ 	$(MESA_TOP)/src/gallium/include
+ 
+-LOCAL_SHARED_LIBRARIES := libdrm_intel
++LOCAL_SHARED_LIBRARIES := libdrm_intel_pri
+ 
+ LOCAL_STATIC_LIBRARIES := \
+ 	libmesa_intel_common \
 diff --git a/src/gallium/winsys/i915/drm/Android.mk b/src/gallium/winsys/i915/drm/Android.mk
 index bab3e85c5d..bc8cd0ebe2 100644
 --- a/src/gallium/winsys/i915/drm/Android.mk
@@ -39,22 +60,26 @@ index bab3e85c5d..bc8cd0ebe2 100644
  LOCAL_MODULE := libmesa_winsys_i915
  
  include $(GALLIUM_COMMON_MK)
+diff --git a/src/gallium/winsys/iris/drm/Android.mk b/src/gallium/winsys/iris/drm/Android.mk
+index 820f32c3ec..4d1a3f2615 100644
+--- a/src/gallium/winsys/iris/drm/Android.mk
++++ b/src/gallium/winsys/iris/drm/Android.mk
+@@ -33,7 +33,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES := \
+ 	libmesa_isl \
+ 	libmesa_intel_dev
+ 
+-LOCAL_SHARED_LIBRARIES := libdrm_intel
++LOCAL_SHARED_LIBRARIES := libdrm_intel_pri
+ LOCAL_MODULE := libmesa_winsys_iris
+ 
+ include $(GALLIUM_COMMON_MK)
 diff --git a/src/intel/Android.vulkan.mk b/src/intel/Android.vulkan.mk
-index 05922afdbe..f471271e03 100644
+index f66ab5bdfa..092e73faef 100644
 --- a/src/intel/Android.vulkan.mk
 +++ b/src/intel/Android.vulkan.mk
-@@ -88,7 +88,7 @@ $(intermediates)/vulkan/anv_entrypoints.h: $(intermediates)/vulkan/dummy.c \
- LOCAL_EXPORT_C_INCLUDE_DIRS := \
-         $(intermediates)
- 
--LOCAL_SHARED_LIBRARIES := libdrm
-+LOCAL_SHARED_LIBRARIES := libdrm_pri
- 
- include $(MESA_COMMON_MK)
- include $(BUILD_STATIC_LIBRARY)
-@@ -100,7 +100,7 @@ ANV_INCLUDES := \
- 	$(call generated-sources-dir-for,STATIC_LIBRARIES,libmesa_vulkan_common,,)/vulkan \
- 	$(call generated-sources-dir-for,STATIC_LIBRARIES,libmesa_vulkan_util,,)/util
+@@ -57,7 +57,7 @@ ANV_STATIC_LIBRARIES := \
+ 	libmesa_genxml \
+ 	libmesa_nir
  
 -ANV_SHARED_LIBRARIES := libdrm
 +ANV_SHARED_LIBRARIES := libdrm_pri
