@@ -373,8 +373,8 @@
       <!-- todo: add support for remotes.  -->
       <remote name="ci_mesa_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/mesa.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
-      <remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/mesa"/>
-      <remote name="curro" repo="git://people.freedesktop.org/~currojerez/mesa"/>
+      <!--<remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/mesa"/>-->
+      <!--<remote name="curro" repo="git://people.freedesktop.org/~currojerez/mesa"/>-->
       <remote name="aphogat" repo="git://github.com/aphogat/mesa"/>
       <remote name="tpohjola" repo="https://gitlab.freedesktop.org/tpohjola/mesa.git"/>
       <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/mesa.git"/>
@@ -386,16 +386,16 @@
       <remote name="igalia_release" repo="git://github.com/Igalia/release-mesa"/>
       <remote name="internal-gitlab" repo="ssh://git@gitlab.devtools.intel.com:29418/linux-gfx/mesa/mesa.git"/>
       <remote name="chadv" repo="git://github.com/chadversary/mesa"/>
-      <remote name="hakzsam" repo="git://people.freedesktop.org/~hakzsam/mesa"/>
+      <!--<remote name="hakzsam" repo="git://people.freedesktop.org/~hakzsam/mesa"/>-->
       <remote name="daniels" repo="https://gitlab.freedesktop.org/daniels/mesa.git"/>
       <remote name="igalia_khronos" repo="git@gitlab.khronos.org:vulkan/mesa.git"/>
-      <remote name="grigorig" repo="git://people.freedesktop.org/~grigorig/mesa"/>
+      <!--<remote name="grigorig" repo="git://people.freedesktop.org/~grigorig/mesa"/>-->
       <remote name="yogesh-marathe" repo="git://github.com/yogesh-marathe/external-mesa"/>
       <remote name="anholt" repo="https://gitlab.freedesktop.org/anholt/mesa.git"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
       <remote name="cmarcelo-internal" repo="ssh://git@gitlab.devtools.intel.com:29418/cmdeoliv/mesa.git"/>
       <remote name="sagarghuge" repo="https://gitlab.freedesktop.org/sagarghuge/mesa.git"/>
-      <remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>
+      <!--<remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>-->
       <remote name="airlied" repo="https://gitlab.freedesktop.org/airlied/mesa.git"/>
       <remote name="robclark" repo="git://github.com/freedreno/mesa"/>
       <remote name="global_logic" repo="https://gitlab.freedesktop.org/GL/mesa.git"/>
@@ -421,13 +421,13 @@
            not trigger builds unnecessarily -->
       <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/piglit.git"/>
       <remote name="nchery-gitlab" repo="https://gitlab.freedesktop.org/nchery/piglit.git"/>
-      <remote name="curro" repo="git://people.freedesktop.org/~currojerez/piglit"/>
-      <remote name="idr" repo="git://people.freedesktop.org/~idr/piglit"/>
-      <remote name="kwg" repo="git://people.freedesktop.org/~kwg/piglit"/>
-      <remote name="jljusten" repo="git://people.freedesktop.org/~jljusten/piglit"/>
-      <remote name="mattst88" repo="git://people.freedesktop.org/~mattst88/piglit"/>
+      <!--<remote name="curro" repo="git://people.freedesktop.org/~currojerez/piglit"/>-->
+      <!--<remote name="idr" repo="git://people.freedesktop.org/~idr/piglit"/>-->
+      <!--<remote name="kwg" repo="git://people.freedesktop.org/~kwg/piglit"/>-->
+      <!--<remote name="jljusten" repo="git://people.freedesktop.org/~jljusten/piglit"/>-->
+      <!--<remote name="mattst88" repo="git://people.freedesktop.org/~mattst88/piglit"/>-->
       <remote name="antognolli" repo="https://gitlab.freedesktop.org/rantogno/piglit.git"/>
-      <remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/piglit"/>
+      <!--<remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/piglit"/>-->
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/piglit"/>
     </piglit>
 
