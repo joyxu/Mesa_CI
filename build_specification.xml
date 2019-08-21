@@ -374,7 +374,6 @@
       <remote name="ci_mesa_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/mesa.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
       <remote name="tpalli" repo="https://gitlab.freedesktop.org/tpalli/mesa.git"/>
-      <!--<remote name="curro" repo="git://people.freedesktop.org/~currojerez/mesa"/>-->
       <remote name="aphogat" repo="git://github.com/aphogat/mesa"/>
       <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/mesa.git"/>
       <remote name="tarceri" repo="https://gitlab.freedesktop.org/tarceri/mesa.git"/>
@@ -765,11 +764,11 @@
     </branch>
 
     <branch name="curro" project="test-single-arch">
-      <mesa branch="curro/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/curro"/>
     </branch>
 
     <branch name="curro_vulkan" project="vulkancts-full">
-      <mesa branch="curro/jenkins-vk"/>
+      <mesa branch="ci_mesa_repo/dev/curro-vk"/>
     </branch>
 
     <branch name="aphogat" project="test-single-arch">
