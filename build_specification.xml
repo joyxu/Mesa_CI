@@ -373,7 +373,7 @@
       <!-- todo: add support for remotes.  -->
       <remote name="ci_mesa_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/mesa.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
-      <!--<remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/mesa"/>-->
+      <remote name="tpalli" repo="https://gitlab.freedesktop.org/tpalli/mesa"/>
       <!--<remote name="curro" repo="git://people.freedesktop.org/~currojerez/mesa"/>-->
       <remote name="aphogat" repo="git://github.com/aphogat/mesa"/>
       <remote name="tpohjola" repo="https://gitlab.freedesktop.org/tpohjola/mesa.git"/>
