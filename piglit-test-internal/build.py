@@ -8,13 +8,10 @@ import build_support as bs
 fs = bs.Fulsim()
 
 soft_fp64 = ['tgl']
-# strip out '_iris' from hardware since many options/tests are independent of
-# whether iris or i965 is used
-base_hardware = bs.Options().hardware.replace('_iris', '')
 
 class SlowTimeout:
     def __init__(self):
-        self.hardware = base_hardware
+        self.hardware = bs.Options().hardware
 
     def GetDuration(self):
         # Simulated platforms need more time
@@ -39,7 +36,7 @@ def main():
         piglit_test = o.piglit_test
 
     piglit_timeout = None
-    if base_hardware in fs.platform_keyfile:
+    if bs.Options().hardware in fs.platform_keyfile:
         if fs.is_supported():
             piglit_timeout = 150
         else:
@@ -49,7 +46,7 @@ def main():
     jobs = int(multiprocessing.cpu_count() / 2)
 
     excludes = None
-    if base_hardware in soft_fp64:
+    if bs.Options().hardware in soft_fp64:
         excludes = ["dvec3", "dvec4", "dmat"]
 
     # sim-drm.py is invoked by bs.Fulsim.get_env, and requires build_root to be
@@ -58,8 +55,6 @@ def main():
     bs.Export().import_build_root()
 
     env = fs.get_env()
-    if "iris" in bs.Options().hardware:
-        env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
 
     bs.build(bs.PiglitTester(_suite="gpu", env=env,
                              timeout=piglit_timeout, piglit_test=piglit_test,
