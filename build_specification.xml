@@ -393,7 +393,6 @@
       <remote name="anholt" repo="https://gitlab.freedesktop.org/anholt/mesa.git"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
       <remote name="cmarcelo-internal" repo="ssh://git@gitlab.devtools.intel.com:29418/cmdeoliv/mesa.git"/>
-      <remote name="sagarghuge" repo="https://gitlab.freedesktop.org/sagarghuge/mesa.git"/>
       <!--<remote name="frohlich" repo="git://people.freedesktop.org/~frohlich/mesa"/>-->
       <remote name="airlied" repo="https://gitlab.freedesktop.org/airlied/mesa.git"/>
       <remote name="robclark" repo="git://github.com/freedreno/mesa"/>
