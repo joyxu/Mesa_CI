@@ -427,7 +427,7 @@
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/piglit"/>
     </piglit>
 
-    <waffle repo="git://github.com/waffle-gl/waffle">
+    <waffle repo="https://gitlab.freedesktop.org/mesa/waffle.git">
       <remote name="jekstrand" repo="git://github.com/jekstrand/waffle"/>
     </waffle>
 
