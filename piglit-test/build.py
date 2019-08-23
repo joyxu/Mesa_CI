@@ -44,8 +44,11 @@ def main():
         piglit_test = o.piglit_test
 
     excludes = None
-    if bs.Options().hardware.startswith("icl"):
-        excludes = ["dvec3", "dvec4", "dmat"]
+    # disable tests fp64-related tests on platforms with soft fp64 when not
+    # daily
+    if bs.Options().type != 'daily':
+        if bs.Options().hardware.startswith("icl"):
+            excludes = ["dvec3", "dvec4", "dmat"]
 
     env = {}
     # Override extensions on icl to enable additional tests
