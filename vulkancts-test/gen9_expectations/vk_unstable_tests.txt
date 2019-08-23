@@ -17,3 +17,4 @@ dEQP-VK.wsi.display.get_display_plane_capabilities2
 
 # flaky
 dEQP-VK.memory.pipeline_barrier.transfer_src_transfer_dst.1048576
+dEQP-VK.spirv_assembly.instruction.compute.signed_int_compare.uint_slessthanequal
