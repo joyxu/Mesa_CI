@@ -2,6 +2,8 @@ dEQP-EGL.functional.resize
 
 #flaky
 dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.copytexsubimage2d_render
+dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.teximage2d_render
+dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.texsubimage2d_render
 dEQP-EGL.functional.sharing.gles2.multithread.simple.textures.copyteximage2d_render
 dEQP-EGL.functional.sharing.gles2.multithread.simple.textures.copyteximage2d_texsubimage2d_render
 dEQP-EGL.functional.sharing.gles2.multithread.simple_egl_sync.images.texture_source.teximage2d_render

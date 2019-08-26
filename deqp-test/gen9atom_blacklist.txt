@@ -6,6 +6,7 @@ dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_at
 #flaky
 dEQP-EGL.functional.render.multi_context.gles3.rgba8888_pbuffer
 dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.copytexsubimage2d_render
+dEQP-EGL.functional.sharing.gles2.multithread.simple_egl_sync.textures.copyteximage2d_copytexsubimage2d_render
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
 
 # flaky due to removing mustpass whitelists
