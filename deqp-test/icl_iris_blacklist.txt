@@ -31,13 +31,3 @@ dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.isam
 dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.sampler2d
 dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.sampler3d
 dEQP-GLES31.functional.tessellation.invariance.primitive_set.quads_fractional_even_spacing_ccw_point_mode
-
-# flaky/failing due to https://bugs.freedesktop.org/show_bug.cgi?id=111431
-dEQP-GLES3.functional.texture.specification.texstorage2d.format.depth24_stencil8_2d
-dEQP-GLES3.functional.texture.specification.texstorage2d.format.depth32f_stencil8_2d
-dEQP-GLES3.functional.texture.specification.texstorage2d.format.depth_component24_2d
-dEQP-GLES3.functional.texture.specification.texstorage2d.format.depth_component32f_2d
-dEQP-GLES3.functional.texture.specification.texstorage3d.format.depth24_stencil8_2d_array
-dEQP-GLES3.functional.texture.specification.texstorage3d.format.depth32f_stencil8_2d_array
-dEQP-GLES3.functional.texture.specification.texstorage3d.format.depth_component24_2d_array
-dEQP-GLES3.functional.texture.specification.texstorage3d.format.depth_component32f_2d_array
