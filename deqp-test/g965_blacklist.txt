@@ -3,6 +3,7 @@ dEQP-GLES2.functional.shaders.struct.local.struct_array_dynamic_index_vertex
 dEQP-GLES2.functional.shaders.indexing.tmp_array.vec3_dynamic_loop_write_dynamic_read_vertex
 
 # flaky
+dEQP-EGL.functional.color_clears.single_context.gles1.rgba8888_pbuffer
+dEQP-GLES2.functional.shaders.indexing.tmp_array.vec3_static_loop_write_dynamic_read_vertex
 dEQP-GLES2.functional.shaders.random.all_features.fragment.16
 dEQP-GLES2.functional.shaders.random.exponential.vertex.89
-dEQP-GLES2.functional.shaders.indexing.tmp_array.vec3_static_loop_write_dynamic_read_vertex
