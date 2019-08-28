@@ -648,69 +648,6 @@
       <webgl branch="dcbb9e5d9e37857d57a9fc711577cf2489ca6197"/>
     </branch>
 
-    <branch name="mesa_18.2" project="all-test-vulkan">
-      <mesa branch="origin/18.2"/>
-      <piglit branch="bf8b9baebd"/>
-      <vulkancts branch="cfb8d0472"/>
-      <cts branch="d75b9a1a88df8033c6b9cc4ea1439c82a336f895"/>
-      <glslang branch="e826286f"/>
-      <waffle branch="1ded029"/>
-      <spirvheaders branch="3a4dbdd"/>
-      <spirvtools branch="b6319c3a"/>
-      <glcts branch="50efa5694"/>
-      <drm branch="87fdbfb6"/>
-      <deqp branch="e98bb687e"/>
-      <crucible branch="2cb700c"/>
-    </branch>
-
-    <branch name="mesa_18_3" project="all-test-vulkan">
-      <mesa branch="origin/18.3"/>
-      <piglit branch="5ae875ed3e"/>
-      <vulkancts branch="cfb8d0472"/>
-      <cts branch="8b0e94d8b"/>
-      <glslang branch="e826286f"/>
-      <waffle branch="1ded029"/>
-      <spirvheaders branch="3a4dbdd"/>
-      <spirvtools branch="b6319c3a"/>
-      <glcts branch="83666e46b"/>
-      <drm branch="b7a7a903"/>
-      <deqp branch="cc7f632a2"/>
-      <crucible branch="4557aa9"/>
-      <skqp branch="2441c92442"/>
-      <vkrunner branch="79229ee"/>
-      <webgl branch="dcbb9e5d9e37857d57a9fc711577cf2489ca6197"/>
-    </branch>
-
-    <branch name="mesa_18.2_staging" project="all-test-vulkan">
-      <mesa branch="origin/staging/18.2"/>
-      <piglit branch="bf8b9baebd"/>
-      <vulkancts branch="cfb8d0472"/>
-      <cts branch="d75b9a1a88df8033c6b9cc4ea1439c82a336f895"/>
-      <glslang branch="e826286f"/>
-      <waffle branch="1ded029"/>
-      <spirvheaders branch="3a4dbdd"/>
-      <spirvtools branch="b6319c3a"/>
-      <glcts branch="50efa5694"/>
-      <drm branch="87fdbfb6"/>
-      <deqp branch="e98bb687e"/>
-      <crucible branch="2cb700c"/>
-    </branch>
-
-    <branch name="mesa_18.2_staging_daily" project="all-test-vulkan">
-      <mesa branch="origin/staging/18.2-ci"/>
-      <piglit branch="bf8b9baebd"/>
-      <vulkancts branch="cfb8d0472"/>
-      <cts branch="d75b9a1a88df8033c6b9cc4ea1439c82a336f895"/>
-      <glslang branch="e826286f"/>
-      <waffle branch="1ded029"/>
-      <spirvheaders branch="3a4dbdd"/>
-      <spirvtools branch="b6319c3a"/>
-      <glcts branch="50efa5694"/>
-      <drm branch="87fdbfb6"/>
-      <deqp branch="e98bb687e"/>
-      <crucible branch="2cb700c"/>
-    </branch>
-
     <branch name="vulkancts" project="vulkancts-full">
       <mesa/>
       <vulkancts/>
