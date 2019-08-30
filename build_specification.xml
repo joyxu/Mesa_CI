@@ -572,7 +572,7 @@
     </branch>
 
     <branch name="mesa_19.2_staging" project="all-test-vulkan">
-      <mesa branch="origin/19.2"/>
+      <mesa branch="origin/staging/19.2"/>
       <cts branch="e67539f8f"/>
       <deqp branch="8804d6b51"/>
       <drm branch="14922551"/>
