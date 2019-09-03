@@ -8,7 +8,7 @@ import build_support as bs
 
 # Note: Override version with FULSIM_<HARDWARE>_VERSION env. variable
 fulsim_stable_versions = {
-    'tgl': '103429',
+    'tgl_sim': '103429',
 }
 
 
