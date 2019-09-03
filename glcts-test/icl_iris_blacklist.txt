@@ -9,4 +9,5 @@ KHR-GL46.arrays_of_arrays_gl.InteractionFunctionCalls2
 GTF-GL46.gtf32.GL3Tests.sync.sync_functionality_clientwaitsync_flush
 
 # flaky
+KHR-GL46.shader_subroutine.control_flow_and_returned_subroutine_values_used_as_subroutine_input
 KHR-GL46.sync.flush_commands
