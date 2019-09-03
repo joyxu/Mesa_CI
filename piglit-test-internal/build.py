@@ -7,7 +7,8 @@ import build_support as bs
 
 fs = bs.Fulsim()
 
-soft_fp64 = ['tgl']
+soft_fp64 = ['tgl', 'tgl_sim']
+
 
 class SlowTimeout:
     def __init__(self):
