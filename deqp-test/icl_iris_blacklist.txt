@@ -22,6 +22,7 @@ dEQP-GLES3.functional.shaders.random.all_features.fragment.16
 dEQP-GLES3.functional.texture.mipmap.2d
 dEQP-GLES3.functional.texture.mipmap.3d
 dEQP-GLES3.functional.texture.mipmap.cube
+dEQP-GLES31.functional.copy_image.mixed.viewclass_128_bits_mixed.srgb8_alpha8_astc_10x5_khr_rgba32i.texture2d_array_to_texture2d
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
 dEQP-GLES31.functional.image_load_store.buffer.atomic.comp_swap_r32i_return_value
 dEQP-GLES31.functional.image_load_store.buffer.atomic.comp_swap_r32ui_return_value
