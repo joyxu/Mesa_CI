@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
   <name>sklgt2-01</name>
-  <description>bay 1  top shelf laptop  far left</description>
+  <description>bay 1  top shelf laptop  silver middle left</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>

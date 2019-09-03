@@ -1,7 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
+  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+    <timestamp>1567528171820</timestamp>
+    <description>
+      <holder>
+        <owner>hudson.slaves.Messages</owner>
+      </holder>
+      <key>SlaveComputer.DisconnectedBy</key>
+      <args>
+        <string>craftyguy</string>
+        <string> : needs debug, not able to clone repos</string>
+      </args>
+    </description>
+    <userId>craftyguy</userId>
+  </temporaryOfflineCause>
   <name>hswgt2-05</name>
-  <description>bay 1 middle top laptop shelf</description>
+  <description>bay 1 middle top laptop shelf - mark can&apos;t find</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>

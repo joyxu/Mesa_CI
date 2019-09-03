@@ -1,5 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
+  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+    <timestamp>1557347164453</timestamp>
+    <description>
+      <holder>
+        <owner>hudson.slaves.Messages</owner>
+      </holder>
+      <key>SlaveComputer.DisconnectedBy</key>
+      <args>
+        <string>craftyguy</string>
+        <string> : piglit @ test 1961 crashes system. need debug</string>
+      </args>
+    </description>
+    <userId>craftyguy</userId>
+  </temporaryOfflineCause>
   <name>ilk-04</name>
   <description>(2A-2D)</description>
   <remoteFS>/home/jenkins</remoteFS>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
   <name>kblgt2-k01</name>
-  <description>(2A-R2)  middle of rack</description>
+  <description>2A-R2 middle of rack</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
@@ -14,6 +14,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>kblgt2 kbl kbl_iris gen9 gen9_iris</label>
+  <label>kbl kblgt2 kbl_iris gen9 gen9_iris</label>
   <nodeProperties/>
 </slave>

@@ -1,7 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
+  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+    <timestamp>1565974893782</timestamp>
+    <description>
+      <holder>
+        <owner>hudson.slaves.Messages</owner>
+      </holder>
+      <key>SlaveComputer.DisconnectedBy</key>
+      <args>
+        <string>craftyguy</string>
+        <string> : needs to be rebuilt.</string>
+      </args>
+    </description>
+    <userId>craftyguy</userId>
+  </temporaryOfflineCause>
   <name>sklgt4e-03</name>
-  <description>bay 2 top red shelf right</description>
+  <description>bay 2 2A-1E</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>

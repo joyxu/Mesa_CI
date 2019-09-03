@@ -54,44 +54,46 @@
           <description>project to build.  all-test targets all test machines.  piglit-test targets a specific platform.</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>test-single-arch</string>
-              <string>test-single-arch-ats</string>
-              <string>test-single-arch-simdrm</string>
-              <string>test-single-arch-tgl</string>
-              <string>test-single-arch-vulkan</string>
-              <string>mesa</string>
               <string>all-test</string>
-              <string>piglit-full</string>
-              <string>piglit-test</string>
-              <string>piglit-test-icl</string>
-              <string>piglit-test-internal</string>
-              <string>piglit-cpu-test</string>
+              <string>all-test-iris-gl</string>
+              <string>all-test-vulkan</string>
+              <string>android-buildtest</string>
               <string>clean-all-workspaces</string>
-              <string>deqp-full</string>
-              <string>deqp-test</string>
-              <string>cts-test</string>
-              <string>cts-full</string>
               <string>crucible-test</string>
               <string>crucible-test-internal</string>
-              <string>vulkancts-test</string>
-              <string>vulkancts-test-internal</string>
-              <string>vulkancts-full</string>
-              <string>perf-all</string>
+              <string>cts-full</string>
+              <string>cts-test</string>
+              <string>deqp-full</string>
+              <string>deqp-runtime-full</string>
+              <string>deqp-test</string>
+              <string>dota-pts</string>
               <string>glcts-full</string>
               <string>glcts-test</string>
               <string>glescts-full</string>
               <string>glescts-test</string>
-              <string>all-test-vulkan</string>
-              <string>dota-pts</string>
-              <string>deqp-runtime-full</string>
-              <string>android-buildtest</string>
+              <string>iris-full</string>
+              <string>mesa</string>
               <string>mesa-buildtest</string>
               <string>meson-buildtest</string>
-              <string>test-shader-cache</string>
-              <string>test-single-arch-tgl</string>
-              <string>iris-full</string>
-              <string>skqp-test</string>
+              <string>mi_builder-full</string>
+              <string>mi_builder-test</string>
+              <string>perf-all</string>
+              <string>piglit-cpu-test</string>
+              <string>piglit-full</string>
+              <string>piglit-test</string>
+              <string>piglit-test-internal</string>
               <string>skqp-full</string>
+              <string>skqp-test</string>
+              <string>test-shader-cache</string>
+              <string>test-single-arch</string>
+              <string>test-single-arch-ats</string>
+              <string>test-single-arch-dg1</string>
+              <string>test-single-arch-simdrm</string>
+              <string>test-single-arch-tgl</string>
+              <string>test-single-arch-vulkan</string>
+              <string>vulkancts-full</string>
+              <string>vulkancts-test</string>
+              <string>vulkancts-test-internal</string>
               <string>webgl-full</string>
             </a>
           </choices>
@@ -110,12 +112,15 @@
               <string>bxt</string>
               <string>byt</string>
               <string>cfl</string>
-              <string>cnl</string>
+              <string>cml</string>
+              <string>dg1</string>
               <string>g33</string>
               <string>g45</string>
               <string>g965</string>
               <string>gen9</string>
+              <string>gen9atom</string>
               <string>gen9_iris</string>
+              <string>gen9atom_iris</string>
               <string>glk</string>
               <string>glk-hd600</string>
               <string>hsw</string>
@@ -123,6 +128,7 @@
               <string>hswgt2</string>
               <string>hswgt3e</string>
               <string>icl</string>
+              <string>icl_iris</string>
               <string>ilk</string>
               <string>ivb</string>
               <string>ivbgt1</string>
@@ -219,7 +225,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1554257929943</time>
+                    <time>1561589884517</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -282,7 +288,9 @@
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
     <submoduleCfg class="list"/>
-    <extensions/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.PruneStaleBranch/>
+    </extensions>
   </scm>
   <assignedNode>master</assignedNode>
   <canRoam>false</canRoam>

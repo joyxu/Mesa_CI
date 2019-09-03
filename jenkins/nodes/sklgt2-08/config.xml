@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
   <name>sklgt2-08</name>
-  <description>bay 2 red shelf (2A-1C)</description>
+  <description>2A-R1 4th device down from top (Not At Listed Location)</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
@@ -14,6 +14,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>fastgpu gen9 gen9_iris skl sklgt2</label>
+  <label>sklgt2 skl fastgpu gen9 gen9_iris</label>
   <nodeProperties/>
 </slave>

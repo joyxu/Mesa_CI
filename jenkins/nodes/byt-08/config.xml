@@ -1,7 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
+  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+    <timestamp>1562613304050</timestamp>
+    <description>
+      <holder>
+        <owner>hudson.slaves.Messages</owner>
+      </holder>
+      <key>SlaveComputer.DisconnectedBy</key>
+      <args>
+        <string>vikrumox</string>
+        <string> : Not connecting</string>
+      </args>
+    </description>
+    <userId>vikrumox</userId>
+  </temporaryOfflineCause>
   <name>byt-08</name>
-  <description>(2A-R1) Bottom</description>
+  <description>(2A-R1) Bottom Need Debug</description>
   <remoteFS>/home/jenkins</remoteFS>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>

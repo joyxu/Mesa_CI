@@ -1,5 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
+  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+    <timestamp>1564777889263</timestamp>
+    <description>
+      <holder>
+        <owner>hudson.slaves.Messages</owner>
+      </holder>
+      <key>SlaveComputer.DisconnectedBy</key>
+      <args>
+        <string>vikrumox</string>
+        <string> : System to be removed and taken offline.</string>
+      </args>
+    </description>
+    <userId>vikrumox</userId>
+  </temporaryOfflineCause>
   <name>cfl-01</name>
   <description>bay 1 red shelf</description>
   <remoteFS>/home/jenkins</remoteFS>

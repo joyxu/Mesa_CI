@@ -1,5 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
+  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+    <timestamp>1556041745006</timestamp>
+    <description>
+      <holder>
+        <owner>hudson.slaves.Messages</owner>
+      </holder>
+      <key>SlaveComputer.DisconnectedBy</key>
+      <args>
+        <string>vikrumox</string>
+        <string> : Not booting up GRUB</string>
+      </args>
+    </description>
+    <userId>vikrumox</userId>
+  </temporaryOfflineCause>
   <name>kblgt2-03</name>
   <description>bay 1, bottom left laptop row</description>
   <remoteFS>/home/jenkins</remoteFS>

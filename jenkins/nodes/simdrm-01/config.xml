@@ -14,6 +14,6 @@
     <retryWaitTime>0</retryWaitTime>
     <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
   </launcher>
-  <label>tgl ats</label>
+  <label>tgl_sim ats_sim dg1_sim</label>
   <nodeProperties/>
 </slave>

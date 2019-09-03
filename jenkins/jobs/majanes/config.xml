@@ -38,23 +38,6 @@
           <description>space separate list of sha revisions, eg &quot;piglit-build=a0b2c1e waffle=9160580&quot;</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
-        <hudson.model.ChoiceParameterDefinition>
-          <name>project</name>
-          <description>project to build</description>
-          <choices class="java.util.Arrays$ArrayList">
-            <a class="string-array">
-              <string>test-single-arch</string>
-              <string>test-single-arch-vulkan</string>
-              <string>all-test</string>
-              <string>piglit-test</string>
-              <string>piglit-build</string>
-              <string>waffle</string>
-              <string>mesa</string>
-              <string>drm</string>
-              <string>mesa-buildtest</string>
-            </a>
-          </choices>
-        </hudson.model.ChoiceParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>build_support_branch</name>
           <description></description>
@@ -97,7 +80,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1531325538663</time>
+                    <time>1564091583173</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -167,7 +150,7 @@
 rm -rf summary.xml
 rm -rf test_summary.txt
 python3 -u fetch_sources.py --branch=${JOB_NAME} ${revision}
-python3 -u repos/mesa_ci/scripts/build_jenkins.py --strip_passes --branch=majanes --type=${type} --config=debug --rebuild=${rebuild} --project=${project} </command>
+python3 -u repos/mesa_ci/scripts/build_jenkins.py --strip_passes --branch=majanes --type=${type} --config=debug --rebuild=${rebuild} </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

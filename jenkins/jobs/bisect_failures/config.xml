@@ -21,7 +21,7 @@
         <hudson.model.StringParameterDefinition>
           <name>to</name>
           <description>resulting patch will be sent to this address</description>
-          <defaultValue>mark.a.janes@intel.com,clayton.a.craft@intel.com</defaultValue>
+          <defaultValue>clayton.a.craft@intel.com</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>good_revision</name>
@@ -80,7 +80,7 @@
                   <generated>true</generated>
                   <exposedToEnvironment>false</exposedToEnvironment>
                   <value>
-                    <time>1551990513454</time>
+                    <time>1559681485687</time>
                     <timezone>America/Los_Angeles</timezone>
                   </value>
                   <checked>false</checked>
@@ -130,6 +130,10 @@
       <hudson.plugins.git.UserRemoteConfig>
         <name>majanes</name>
         <url>https://gitlab.freedesktop.org/majanes/mesa_jenkins.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+      <hudson.plugins.git.UserRemoteConfig>
+        <name>craftyguy</name>
+        <url>https://gitlab.freedesktop.org/craftyguy/mesa_jenkins.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
