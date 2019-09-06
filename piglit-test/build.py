@@ -39,6 +39,8 @@ def main():
                         help="single piglit test to run.")
     o.parse_args()
     test_timeout = None
+    soft_fp64 = ['icl', 'icl_iris']
+    hardware = bs.Options().hardware
 
     piglit_test = ""
     if o.piglit_test:
@@ -48,13 +50,12 @@ def main():
     # disable tests fp64-related tests on platforms with soft fp64 when not
     # daily
     if bs.Options().type != 'daily':
-        if bs.Options().hardware.startswith("icl"):
+        if hardware in soft_fp64:
             excludes = ["dvec3", "dvec4", "dmat"]
 
     env = {}
     # Override extensions on icl to enable additional tests
-    hardware = bs.Options().hardware
-    if hardware == 'icl':
+    if 'icl' in hardware:
         env['MESA_EXTENSION_OVERRIDE'] = ('+GL_ARB_gpu_shader_fp64 '
                                           '+GL_ARB_vertex_attrib_64bit '
                                           '+GL_ARB_gpu_shader_int64 '
