@@ -54,12 +54,7 @@ def main():
             excludes = ["dvec3", "dvec4", "dmat"]
 
     env = {}
-    # Override extensions on icl to enable additional tests
-    if 'icl' in hardware:
-        env['MESA_EXTENSION_OVERRIDE'] = ('+GL_ARB_gpu_shader_fp64 '
-                                          '+GL_ARB_vertex_attrib_64bit '
-                                          '+GL_ARB_gpu_shader_int64 '
-                                          '+GL_ARB_shader_ballot')
+
     if "iris" in hardware:
         env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
         test_timeout = 600
