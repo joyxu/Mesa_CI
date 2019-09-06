@@ -146,7 +146,7 @@
       <prerequisite name="mesa" hardware="builder"/>
     </project>
 
-    <project name="piglit-test-internal"
+    <project name="piglit-test-internal-sim"
              bisect_hardware="tgl_sim"
              bisect_arch="m64"
              src_dir="mesa_ci_internal">
@@ -277,11 +277,14 @@
     </project>
 
     <project name="test-single-arch-simdrm">
-      <prerequisite name="test-single-arch-tgl"/>
+      <prerequisite name="test-single-arch-tgl-sim"/>
     </project>
 
     <project name="test-single-arch-tgl">
       <prerequisite name="piglit-test-internal" hardware="tgl_sim" shard="6" arch="m64"/>
+
+    <project name="test-single-arch-tgl-sim">
+      <prerequisite name="piglit-test-internal-sim" hardware="tgl_sim" shard="6" arch="m64"/>
     </project>
 
     <project name="test-single-arch-vulkan">
@@ -669,7 +672,7 @@
       <mesa branch="internal-gitlab/jljusten/jenkins/internal"/>
     </branch>
 
-    <branch name="jljusten_tgl" project="test-single-arch-tgl">
+    <branch name="jljusten_tgl" project="test-single-arch-tgl-sim">
       <mesa branch="internal-gitlab/jljusten/jenkins/tgl"/>
       <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
@@ -682,7 +685,7 @@
       <mesa branch="ci_mesa_repo/dev/antognolli"/>
     </branch>
 
-    <branch name="antognolli_tgl" project="test-single-arch-tgl">
+    <branch name="antognolli_tgl" project="test-single-arch-tgl-sim">
       <mesa branch="internal-gitlab/rantogno/tgl/jenkins"/>
       <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
@@ -919,7 +922,7 @@
       <mesa branch="ci_mesa_repo/dev/cmarcelo_vulkan"/>
     </branch>
 
-    <branch name="cmarcelo_tgl" project="test-single-arch-tgl">
+    <branch name="cmarcelo_tgl" project="test-single-arch-tgl-sim">
       <mesa branch="cmarcelo-internal/jenkins/tgl"/>
       <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
@@ -932,7 +935,7 @@
       <mesa branch="ci_mesa_repo/dev/sagarghuge"/>
     </branch>
 
-    <branch name="sagarghuge-tgl" project="test-single-arch-tgl">
+    <branch name="sagarghuge-tgl" project="test-single-arch-tgl-sim">
       <mesa branch="internal-gitlab/sghuge/jenkins/tgl"/>
       <drm branch="4f1c76539692253247fd2022111873601e50b1d9"/>
     </branch>
@@ -1013,7 +1016,7 @@
       <mesa branch="ci_mesa_repo/dev/pendingchaos"/>
     </branch>
 
-    <branch name="simdrm_tgl" project="test-single-arch-tgl">
+    <branch name="simdrm_tgl" project="test-single-arch-tgl-sim">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
 
