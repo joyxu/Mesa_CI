@@ -38,7 +38,7 @@ def main():
     o.add_argument(arg='--piglit_test', type=str, default="",
                         help="single piglit test to run.")
     o.parse_args()
-    timeout = None
+    test_timeout = None
 
     piglit_test = ""
     if o.piglit_test:
@@ -61,14 +61,14 @@ def main():
                                           '+GL_ARB_shader_ballot')
     if "iris" in hardware:
         env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
-        timeout = 600
+        test_timeout = 600
         if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
                               "/src/gallium/drivers/iris/meson.build"):
             # iris not supported
             sys.exit(0)
 
     bs.build(bs.PiglitTester(env=env, piglit_test=piglit_test,
-                             excludes=excludes, timeout=timeout),
+                             excludes=excludes, timeout=test_timeout),
              time_limit=SlowTimeout())
 
 
