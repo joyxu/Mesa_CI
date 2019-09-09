@@ -290,9 +290,9 @@
     </project>
 
     <project name="test-single-arch">
-      <prerequisite name="piglit-test" hardware="g33,ilk,g45,g965"/>
+      <prerequisite name="piglit-test" hardware="ilk,g45,g965"/>
       <prerequisite name="piglit-test" hardware="snb,ivb,hsw,bdw,gen9,gen9_iris" shard="2"/>
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="bsw,byt,gen9atom,gen9atom_iris,icl" shard="4"/>
+      <prerequisite only_for_type="daily" name="piglit-test" hardware="g33,bsw,byt,gen9atom,gen9atom_iris,icl" shard="4"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="mesa-buildtest" hardware="builder"/>
