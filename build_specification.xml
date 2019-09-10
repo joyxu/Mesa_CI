@@ -1025,8 +1025,12 @@
       <mesa branch="ci_mesa_repo/dev/pendingchaos"/>
     </branch>
 
-    <branch name="simdrm_tgl" project="test-single-arch-tgl-sim">
+    <branch name="internal_tgl" project="test-single-arch-tgl">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
+    </branch>
+
+    <branch name="simdrm_tgl" project="test-single-arch-tgl-sim">
+      <mesa branch="internal-gitlab/jljusten/jenkins/tgl_sim"/>
     </branch>
 
    <branch name="wip_18.3" project="test-single-arch-vulkan">
