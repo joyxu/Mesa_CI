@@ -44,6 +44,8 @@ def main():
         else:
             print("Unable to run simulated hardware in this environment!")
             sys.exit(1)
+    elif '_sim' not in hardware:
+        piglit_timeout = 500
 
     jobs = int(multiprocessing.cpu_count() / 2)
 
