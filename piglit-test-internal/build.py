@@ -37,7 +37,8 @@ def main():
         piglit_test = o.piglit_test
 
     piglit_timeout = None
-    if bs.Options().hardware in fs.platform_keyfile:
+    hardware = bs.Options().hardware
+    if hardware in fs.platform_keyfile:
         if fs.is_supported():
             piglit_timeout = 150
         else:
@@ -47,7 +48,9 @@ def main():
     jobs = int(multiprocessing.cpu_count() / 2)
 
     excludes = None
-    if bs.Options().hardware in soft_fp64:
+
+    # exclude fp64 tests on all simulated platforms
+    if hardware in soft_fp64 and '_sim' in hardware:
         excludes = ["dvec3", "dvec4", "dmat"]
 
     # sim-drm.py is invoked by bs.Fulsim.get_env, and requires build_root to be
