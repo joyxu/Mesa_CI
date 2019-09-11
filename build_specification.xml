@@ -1009,6 +1009,10 @@
       <mesa branch="ibriano/leeroy"/>
     </branch>
 
+    <branch name="pendingchaos" project="test-single-arch">
+      <mesa branch="ci_mesa_repo/dev/pendingchaos"/>
+    </branch>
+
     <branch name="simdrm_tgl" project="test-single-arch-tgl">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
