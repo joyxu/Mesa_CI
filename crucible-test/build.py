@@ -1,5 +1,4 @@
-#!/usr/bin/python
-
+#!/usr/bin/env python3
 import sys
 import os.path as path
 sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..",
