@@ -194,6 +194,15 @@
       <prerequisite name="waffle" hardware="builder"/>
     </project>
 
+    <project name="crucible-test-internal"
+             bisect_hardware="tgl"
+             bisect_arch="m64"
+             src_dir="mesa_ci_internal">
+      <prerequisite name="crucible" hardware="builder"/>
+      <prerequisite name="mesa" hardware="builder"/>
+      <prerequisite name="waffle" hardware="builder"/>
+    </project>
+
     <project name="crucible-full">
       <prerequisite name="crucible-test" hardware="bdw,bsw,hsw,gen9atom,gen9"/>
       <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="gen9atom,icl"/>
@@ -294,6 +303,7 @@
 
     <project name="test-single-arch-tgl">
       <prerequisite name="piglit-test-internal" hardware="tgl" shard="8" arch="m64"/>
+      <prerequisite name="crucible-test-internal" hardware="tgl" arch="m64"/>
     </project>
 
     <project name="test-single-arch-tgl-sim">
