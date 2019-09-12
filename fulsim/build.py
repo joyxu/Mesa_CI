@@ -17,8 +17,11 @@ def main():
         print("Unsupported arch (%s), not installing fulsim!"
               % bs.Options().arch)
         sys.exit(1)
-    # matching is done on base hardware name, so strip off '_iris'
     hardware = bs.Options().hardware.replace('_iris', '')
+    if hardware not in fulsim_stable_versions:
+        print("There is no fulsim for this platform!")
+        sys.exit(0)
+    # matching is done on base hardware name, so strip off '_iris'
     fulsim_ver = None
     # When run with build_local, the override var is in os.environ under the
     # var's name. When run in CI, the override var is in the 'env' variable in
