@@ -147,22 +147,11 @@
     </project>
 
     <project name="piglit-test-internal"
-             bisect_hardware="tgl"
-             bisect_arch="m64"
              src_dir="mesa_ci_internal">
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
-    </project>
-
-    <project name="piglit-test-internal-sim"
-             bisect_hardware="tgl_sim"
-             bisect_arch="m64"
-             src_dir="mesa_ci_internal">
-      <prerequisite name="fulsim" arch="m64"/>
       <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
       <prerequisite name="fulsim" arch="m64"/>
-      <prerequisite name="piglit" hardware="builder"/>
-      <prerequisite name="mesa" hardware="builder"/>
     </project>
 
     <project name="piglit-full">
