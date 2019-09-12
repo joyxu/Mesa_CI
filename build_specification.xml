@@ -194,6 +194,11 @@
       <prerequisite name="waffle" hardware="builder"/>
     </project>
 
+    <project name="crucible-full">
+      <prerequisite name="crucible-test" hardware="bdw,bsw,hsw,gen9atom,gen9"/>
+      <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="gen9atom,icl"/>
+    </project>
+
     <project name="skqp" />
 
     <project name="skqp-test"
@@ -236,8 +241,7 @@
                     arch="m64"
                     shard="10"/>
 
-      <prerequisite name="crucible-test" hardware="bdw,bsw,hsw,gen9atom,gen9"/>
-      <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="gen9atom,icl"/>
+      <prerequisite name="crucible-full"/>
     </project>
 
     <project name="mi_builder-full">
