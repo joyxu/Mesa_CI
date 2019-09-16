@@ -8,3 +8,6 @@ GTF-GL46.gtf30.GL3Tests.packed_depth_stencil.packed_depth_stencil_init
 GTF-GL46.gtf32.GL3Tests.packed_pixels.packed_pixels_pbo
 GTF-GL46.gtf32.GL3Tests.packed_pixels.packed_pixels_pixelstore
 GTF-GL46.gtf32.GL3Tests.packed_pixels.packed_pixels
+
+# flaky
+KHR-GLES31.core.geometry_shader.layered_rendering_boundary_condition.layered_rendering_boundary_condition_no_default_layer
