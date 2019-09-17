@@ -633,36 +633,6 @@
       <webgl branch="e2aa68814"/>
     </branch>
 
-    <branch name="mesa_19.0" project="all-test-vulkan">
-      <mesa branch="origin/19.0"/>
-      <cts branch="8b0e94d8b"/>
-      <deqp branch="d53a69aab"/>
-      <drm branch="b7a7a903"/>
-      <glcts branch="83666e46b"/>
-      <piglit branch="5ae875ed3e"/>
-      <skqp branch="2441c92442"/>
-      <vkrunner branch="79229ee"/>
-      <waffle branch="1ded029"/>
-      <spirvtools branch="0e68bb36"/>
-      <spirvheaders branch="a2c529b"/>
-      <webgl branch="dcbb9e5d9e37857d57a9fc711577cf2489ca6197"/>
-    </branch>
-
-    <branch name="mesa_19.0_staging" project="all-test-vulkan">
-      <mesa branch="origin/staging/19.0"/>
-      <cts branch="8b0e94d8b"/>
-      <deqp branch="d53a69aab"/>
-      <drm branch="b7a7a903"/>
-      <glcts branch="83666e46b"/>
-      <piglit branch="5ae875ed3e"/>
-      <skqp branch="2441c92442"/>
-      <vkrunner branch="79229ee"/>
-      <waffle branch="1ded029"/>
-      <spirvtools branch="0e68bb36"/>
-      <spirvheaders branch="a2c529b"/>
-      <webgl branch="dcbb9e5d9e37857d57a9fc711577cf2489ca6197"/>
-    </branch>
-
     <branch name="vulkancts" project="vulkancts-full">
       <mesa/>
       <vulkancts/>
@@ -777,66 +747,6 @@
 
     <branch name="evelikov" project="test-single-arch-vulkan">
       <mesa branch="evelikov/intel-ci"/>
-    </branch>
-
-    <branch name="evelikov_17.2" project="all-test-vulkan">
-      <mesa branch="evelikov/mesa_17_2/jenkins"/>
-      <piglit branch="84c528875"/>
-      <deqp branch="03c395c6"/>
-      <vulkancts branch="0e3c7aa3"/>
-      <cts branch="ff5e186d"/>
-      <crucible branch="2cb700c"/>
-      <glslang branch="53863a3a"/>
-    </branch>
-
-    <branch name="evelikov_17_3" project="all-test-vulkan">
-      <mesa branch="evelikov/mesa_17_3/jenkins"/>
-      <piglit branch="68ec8d2a1"/>
-      <deqp branch="e32e1433"/>
-      <vulkancts branch="bfa6f73d2"/>
-      <cts branch="ff5e186d"/>
-      <crucible branch="2cb700c"/>
-      <glslang branch="9cfc1551"/>
-    </branch>
-
-    <branch name="evelikov_18_0" project="all-test-vulkan">
-      <mesa branch="evelikov/jenkins/18.0"/>
-      <piglit branch="736496667"/>
-      <deqp branch="a73c1d93"/>
-      <vulkancts branch="bfa6f73d2"/>
-      <cts branch="ff5e186d"/>
-      <crucible branch="2cb700c"/>
-      <glslang branch="82ead04c"/>
-    </branch>
-    
-    <branch name="igalia_17.2" project="all-test-vulkan">
-      <mesa branch="igalia_release/igalia/17.2"/>
-      <piglit branch="84c528875"/>
-      <deqp branch="03c395c6"/>
-      <vulkancts branch="0e3c7aa3"/>
-      <cts branch="ff5e186d"/>
-      <crucible branch="2cb700c"/>
-      <glslang branch="53863a3a"/>
-    </branch>
-
-    <branch name="igalia_17.3" project="all-test-vulkan">
-      <mesa branch="igalia_release/igalia/17.3"/>
-      <piglit branch="68ec8d2a1"/>
-      <deqp branch="e32e1433"/>
-      <vulkancts branch="bfa6f73d2"/>
-      <cts branch="ff5e186d"/>
-      <crucible branch="2cb700c"/>
-      <glslang branch="9cfc1551"/>
-    </branch>
-
-    <branch name="igalia_18.0" project="all-test-vulkan">
-      <mesa branch="igalia_release/igalia/18.0"/>
-      <piglit branch="736496667"/>
-      <deqp branch="a73c1d93"/>
-      <vulkancts branch="bfa6f73d2"/>
-      <cts branch="ff5e186d"/>
-      <crucible branch="2cb700c"/>
-      <glslang branch="82ead04c"/>
     </branch>
 
     <!-- These branches exists to separate build results from
@@ -1036,19 +946,6 @@
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
 
-   <branch name="wip_18.3" project="test-single-arch-vulkan">
-      <mesa branch="origin/staging/18.3"/>
-      <piglit branch="d013d30472"/>
-      <vulkancts branch="13604dae3"/>
-      <cts branch="89051d617"/>
-      <glslang branch="a440fbb0"/>
-      <waffle branch="1ded029"/>
-      <spirvheaders branch="a2c529b"/>
-      <glcts branch="f75a5cccd"/>
-      <drm branch="b3dec018"/>
-      <deqp branch="6d7b02c40"/>
-      <crucible branch="4557aa9"/>
-    </branch>
   </branches>
 
 </build_specification>
