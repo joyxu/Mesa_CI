@@ -946,6 +946,10 @@
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
 
+    <branch name="pnmanolova_tgl" project="test-single-arch-tgl">
+      <mesa branch="internal-gitlab/pnmanolova/jenkins"/>
+    </branch>
+
   </branches>
 
 </build_specification>
