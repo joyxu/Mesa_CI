@@ -29,11 +29,13 @@ def main():
     env = os.environ.get('env')
     if env:
         for var in env.split():
-            if 'FULSIM_' + hardware.upper() + '_VERSION' in var:
+            if 'FULSIM_' + hardware.split('_sim')[0].upper() + '_VERSION' in var:
                 fulsim_ver = var.split('=')[1]
                 break
     else:
-        fulsim_ver = os.environ.get('FULSIM_' + hardware.upper() + '_VERSION')
+        fulsim_ver = os.environ.get('FULSIM_'
+                                    + hardware.split('_sim')[0].upper()
+                                    + '_VERSION')
     if not fulsim_ver:
         fulsim_ver = fulsim_stable_versions[hardware]
     b = bs.FulsimBuilder(buildnum=fulsim_ver)
