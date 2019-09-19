@@ -39,7 +39,6 @@ def main():
                         help="single piglit test to run.")
     o.parse_args()
     test_timeout = None
-    soft_fp64 = ['icl', 'icl_iris']
     hardware = bs.Options().hardware
 
     piglit_test = ""
@@ -49,10 +48,9 @@ def main():
     excludes = None
     # disable tests fp64-related tests on platforms with soft fp64 when not
     # daily
-    if bs.Options().type != 'daily':
-        if hardware in soft_fp64:
-            excludes = ["dvec3", "dvec4", "dmat"]
-            test_timeout = 120
+    if bs.Options().type != 'daily' and bs.is_soft_fp64(hardware):
+        excludes = ["fp64", "dvec", "dmat"]
+        test_timeout = 120
 
     env = {}
 

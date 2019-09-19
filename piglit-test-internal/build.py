@@ -7,8 +7,6 @@ import build_support as bs
 
 fs = bs.Fulsim()
 
-soft_fp64 = ['tgl', 'tgl_sim']
-
 
 class SlowTimeout:
     def __init__(self):
@@ -52,7 +50,7 @@ def main():
     excludes = None
 
     # exclude fp64 tests on all simulated platforms
-    if hardware in soft_fp64 and '_sim' in hardware:
+    if bs.is_soft_fp64(hardware) and '_sim' in hardware:
         excludes = ["dvec3", "dvec4", "dmat"]
 
     # sim-drm.py is invoked by bs.Fulsim.get_env, and requires build_root to be
