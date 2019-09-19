@@ -5,3 +5,4 @@ KHR-GLES31.core.sepshaderobjs.StateInteraction
 # flaky, but fix incoming:  https://bugs.freedesktop.org/show_bug.cgi?id=108571
 KHR-GLESEXT.geometry_shader.layered_rendering_boundary_condition.layered_rendering_boundary_condition_no_default_layer
 KHR-GLES32.core.geometry_shader.layered_rendering_boundary_condition.layered_rendering_boundary_condition_no_default_layer
+KHR-GLES31.core.geometry_shader.layered_rendering_boundary_condition.layered_rendering_boundary_condition_no_default_layer
