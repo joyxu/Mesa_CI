@@ -52,12 +52,14 @@ def main():
     if bs.Options().type != 'daily':
         if hardware in soft_fp64:
             excludes = ["dvec3", "dvec4", "dmat"]
+            test_timeout = 120
 
     env = {}
 
     if "iris" in hardware:
         env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
-        test_timeout = 600
+        if not test_timeout:
+            test_timeout = 600
         if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
                               "/src/gallium/drivers/iris/meson.build"):
             # iris not supported
