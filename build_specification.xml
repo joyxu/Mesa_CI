@@ -864,8 +864,12 @@
       <mesa branch="ci_mesa_repo/dev/sagarghuge"/>
     </branch>
 
-    <branch name="sagarghuge-tgl" project="test-single-arch-tgl-sim">
+    <branch name="sagarghuge-tgl" project="test-single-arch-tgl">
       <mesa branch="internal-gitlab/sghuge/jenkins/tgl"/>
+    </branch>
+
+    <branch name="sagarghuge-tgl-sim" project="test-single-arch-tgl-sim">
+      <mesa branch="internal-gitlab/sghuge/jenkins/tgl-simdrm"/>
     </branch>
 
     <branch name="sagarghuge_iris" project="all-test-iris">
