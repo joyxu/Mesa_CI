@@ -741,6 +741,14 @@
       <mesa branch="ci_mesa_repo/dev/nchery"/>
     </branch>
 
+    <branch name="nchery_tgl" project="test-single-arch-tgl">
+      <mesa branch="internal-gitlab/nchery/wip/tgl"/>
+    </branch>
+
+    <branch name="nchery_tgl-sim" project="test-single-arch-tgl-sim">
+      <mesa branch="internal-gitlab/nchery/wip/tgl-simdrm"/>
+    </branch>
+
     <branch name="tarceri" project="test-single-arch-vulkan">
       <mesa branch="tarceri/intel_ci"/>
     </branch>
