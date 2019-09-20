@@ -13,10 +13,7 @@ dEQP-GLES3.stress
 dEQP-GLES31.stress
 
 # flaky on all platforms
-
-
-
-
+dEQP-EGL.functional.multithread.pbuffer_window
 dEQP-GLES2.functional.shaders.random.all_features.fragment.16
 dEQP-GLES3.functional.shaders.random.all_features.fragment.16
 dEQP-GLES31.functional.image_load_store.2d.atomic.comp_swap_r32i_return_value
