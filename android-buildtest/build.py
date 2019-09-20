@@ -24,7 +24,7 @@ def main():
 
     bs.build(bs.AndroidBuilder(src_location="~/android-ia",
                                modules=["libGLES_mesa",
-                                        "vulkan.project-celadon"]))
+                                        "vulkan.broxton"]))
 
 
 if __name__ == '__main__':
