@@ -360,12 +360,12 @@
       <prerequisite name="vulkancts-full"/>
     </project>
 
-    <project name="webgl" bisect_hardware="gen9">
+    <project name="webgl" bisect_hardware="gen9,gen9_iris">
       <prerequisite name="mesa" hardware="builder"/>
     </project>
 
     <project name="webgl-full">
-      <prerequisite name="webgl" hardware="gen9" shard="6"/>
+      <prerequisite name="webgl" hardware="gen9,gen9_iris" shard="6"/>
     </project>
     
     <project name="reboot-slave"/>
