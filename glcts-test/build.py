@@ -67,6 +67,13 @@ class GLCTSLister(object):
             blacklist = bs.DeqpTrie()
             blacklist.add_line("GTF-GL33")
             all_tests.filter(blacklist)
+        # blacklist for non-daily + soft-fp64
+        blacklist_txt = self.pm.project_build_dir() + "/soft-fp64_blacklist.txt"
+        if (self.o.type != "daily" and bs.is_soft_fp64(self.o.hardware) and
+                os.path.exists(blacklist_txt)):
+            blacklist = bs.DeqpTrie()
+            blacklist.add_txt(blacklist_txt)
+            all_tests.filter(blacklist)
 
         return all_tests
 
