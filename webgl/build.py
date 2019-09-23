@@ -283,6 +283,9 @@ class WebGLTester(object):
         libdir = bs.get_libdir()
         env = { "LD_LIBRARY_PATH" : ':'.join([libdir, libdir + "/dri"]),
                       "LIBGL_DRIVERS_PATH": bs.get_libgl_drivers()}
+        if "iris" in self._opts.hardware:
+            env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
+
         self._opts.update_env(env)
         self._env = env
 
