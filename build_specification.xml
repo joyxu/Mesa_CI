@@ -160,7 +160,7 @@
                     shard="2"/>
       <prerequisite name="piglit-test"
                     hardware="icl,icl_iris"
-                    shard="4"/>
+                    shard="6"/>
       <prerequisite name="piglit-test"
                     only_for_type="daily"
                     hardware="snb,ivb,hsw,bdw,gen9,gen9_iris"
@@ -170,8 +170,6 @@
                     arch="m64,m32" shard="4"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="ilk,g965,g45,g33"
                     arch="m64,m32"/>
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="icl,icl_iris" arch="m64"
-                    shard="8"/>
     </project>
     
     <project name="crucible">
