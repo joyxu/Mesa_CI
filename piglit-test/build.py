@@ -48,7 +48,8 @@ def main():
     excludes = None
     # disable tests fp64-related tests on platforms with soft fp64 when not
     # daily
-    if bs.Options().type != 'daily' and bs.is_soft_fp64(hardware):
+    if (bs.Options().type != 'daily' and bs.is_soft_fp64(hardware) and not
+            bs.Options().retest_path):
         excludes = ["fp64", "dvec", "dmat"]
         test_timeout = 120
 
