@@ -70,7 +70,7 @@ class GLCTSLister(object):
         # blacklist for non-daily + soft-fp64
         blacklist_txt = self.pm.project_build_dir() + "/soft-fp64_blacklist.txt"
         if (self.o.type != "daily" and bs.is_soft_fp64(self.o.hardware) and
-                os.path.exists(blacklist_txt)):
+                os.path.exists(blacklist_txt) and not self.o.retest_path):
             blacklist = bs.DeqpTrie()
             blacklist.add_txt(blacklist_txt)
             all_tests.filter(blacklist)
