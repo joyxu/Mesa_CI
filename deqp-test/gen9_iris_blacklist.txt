@@ -7,3 +7,4 @@ dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_at
 dEQP-EGL.functional.color_clears.multi_context.gles1.rgba8888_pbuffer
 dEQP-EGL.functional.color_clears.multi_thread.gles2.rgb888_pbuffer
 dEQP-GLES3.functional.fbo.color.repeated_clear.blit
+dEQP-EGL.functional.multithread.window_context
