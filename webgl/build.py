@@ -294,6 +294,10 @@ class WebGLTester(object):
     def clean(self):
         pass
     def test(self):
+        version = bs.mesa_version()
+        if "19.2" in version or "19.1" in version:
+            if "iris" in bs.Options().hardware:
+                return
         for k,v in self._env.items():
             os.environ[k] = v
         server = serve_webgl_cts(self.pm.project_source_dir("webgl") + "/conformance-suites/2.0.0")
@@ -330,10 +334,6 @@ class Timeout:
         return 90
     
 def main():
-    version = bs.mesa_version()
-    if "19.2" in version or "19.1" in version:
-        if "iris" in bs.Options().hardware:
-            return
     bs.build(WebGLTester(),time_limit=Timeout())
 
 if __name__ == '__main__':
