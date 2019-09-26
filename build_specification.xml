@@ -363,6 +363,7 @@
 
     <project name="webgl" bisect_hardware="gen9,gen9_iris">
       <prerequisite name="mesa" hardware="builder"/>
+      <prerequisite name="waffle" hardware="builder"/>
     </project>
 
     <project name="webgl-full">

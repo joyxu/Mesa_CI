@@ -330,6 +330,10 @@ class Timeout:
         return 90
     
 def main():
+    version = bs.mesa_version()
+    if "19.2" in version or "19.1" in version:
+        if "iris" in bs.Options().hardware:
+            return
     bs.build(WebGLTester(),time_limit=Timeout())
 
 if __name__ == '__main__':
