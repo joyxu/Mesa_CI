@@ -10,3 +10,5 @@ dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_at
 dEQP-GLES2.functional.shaders.random.all_features.fragment.16
 dEQP-GLES3.functional.shaders.random.all_features.fragment.16
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
+dEQP-EGL.functional.multithread.window_context
+dEQP-EGL.functional.multithread.window

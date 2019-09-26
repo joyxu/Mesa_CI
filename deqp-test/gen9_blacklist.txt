@@ -17,3 +17,4 @@ dEQP-GLES31.functional.copy_image.non_compressed.viewclass_64_bits.rgba16f_rgba1
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
 dEQP-GLES31.functional.image_load_store.buffer.atomic.comp_swap_r32i_return_value
 dEQP-EGL.functional.multithread.window_context
+dEQP-EGL.functional.multithread.window
