@@ -54,10 +54,6 @@ class GLCTSLister(object):
         blacklist = bs.DeqpTrie()
         blacklist.add_txt(blacklist_txt)
         all_tests.filter(blacklist)
-        if "17.3" in bs.mesa_version():
-            blacklist = bs.DeqpTrie()
-            blacklist.add_txt(self.pm.project_build_dir() + "/17_3_blacklist.txt")
-            all_tests.filter(blacklist)
         if self.o.type != "daily" and not self.o.retest_path:
             blacklist = bs.DeqpTrie()
             blacklist.add_txt(self.pm.project_build_dir() + "/non-daily_blacklist.txt")
@@ -86,9 +82,6 @@ class GLCTSTester(object):
     def test(self):
         mv = bs.mesa_version()
         cpus = multiprocessing.cpu_count()
-        if "17.2" in mv or "17.1" in mv:
-            print("NOTICE: GLCTS will NOT be run since the system has Mesa version <17.3")
-            return
         t = bs.DeqpTester()
         env = {"MESA_GL_VERSION_OVERRIDE" : "4.6",
                "MESA_GLSL_VERSION_OVERRIDE" : "460"}

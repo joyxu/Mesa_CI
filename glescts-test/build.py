@@ -91,8 +91,6 @@ class GLESCTSTester(object):
 
     def test(self):
         mv = bs.mesa_version()
-        if "17.2" in mv or "17.1" in mv:
-            return
         t = bs.DeqpTester()
         results = t.test(self.pm.build_root() + "/bin/es/modules/glcts",
                          GLESCTSList(),
