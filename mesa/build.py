@@ -9,56 +9,7 @@ sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..", "repos"
 import build_support as bs
 
 
-class MesaBuilder(bs.AutoBuilder):
-    """Provides mesa-specific customizations to AutoBuilder"""
-    def __init__(self):
-        global_opts = bs.Options()
-
-        options = []
-        options = options + ["--enable-gbm",
-                             "--with-egl-platforms=x11,drm",
-                             "--enable-glx-tls", 
-                             "--enable-gles1",
-                             "--enable-gles2",
-                             "--with-dri-drivers=i965,swrast,i915",
-
-                             # disable video drivers:
-                             # bbe6f7f865cd4316b5f885507ee0b128a20686eb
-                             # caused build failure unrelated to intel mesa
-                             # team.
-                             "--disable-xvmc",
-                             "--disable-vdpau",
-
-                             # gallium tested with mesa-buildtest
-                             "--without-gallium-drivers"]
-        if os.path.exists(bs.ProjectMap().project_source_dir() + "/src/intel/vulkan"):
-            options.append("--with-vulkan-drivers=intel")
-
-        if global_opts.config == 'debug':
-            options.append('--enable-debug')
-
-        # always enable optimizations in mesa because tests are too slow
-        # without them.
-        bs.AutoBuilder.__init__(self, configure_options=options, opt_flags="-O2")
-
-    def test(self):
-        """Provide gtests as available"""
-        # override the test method, because tests have moved
-        gtests = ["src/glx/tests/glx-test",
-                  "src/mesa/main/tests/main-test",
-                  "./src/mapi/shared-glapi-test",
-                  "src/compiler/glsl/tests/general-ir-test",
-                  "src/compiler/glsl/tests/sampler-types-test",
-                  "src/compiler/glsl/tests/uniform-initializer-test"]
-
-        if path.exists(self._src_dir + "/src/intel/compiler/test_vec4_copy_propagation.cpp"):
-            gtests += ["src/intel/compiler/test_vec4_copy_propagation",
-                       "src/intel/compiler/test_vec4_register_coalesce"]
-        self.SetGtests(gtests)
-        bs.AutoBuilder.test(self)
-
-
-def meson_build():
+def main():
     global_opts = bs.Options()
     sd = bs.ProjectMap().project_source_dir()
 
@@ -81,7 +32,8 @@ def meson_build():
         # DEBUG was removed from debugoptimized because it is slow.
         cpp_args = "-DDEBUG"
     else:
-        # WARN: 32 bit release builds will have -DDEBUG due to cross file (and be slow)
+        # WARN: 32 bit release builds will have -DDEBUG due to cross file (and
+        # be slow)
         options.extend(['-Dbuildtype=release', '-Db_ndebug=true'])
 
     # Build/install mi_builder tests if this version of Mesa includes them
@@ -90,17 +42,9 @@ def meson_build():
     if 'install-intel-gpu-tests' in oi.options:
         options.append('-Dinstall-intel-gpu-tests=true')
 
-    b = bs.builders.MesonBuilder(extra_definitions=options, install=True, cpp_args=cpp_args)
+    b = bs.builders.MesonBuilder(extra_definitions=options, install=True,
+                                 cpp_args=cpp_args)
     bs.build(b)
-
-
-def main():
-    pm = bs.ProjectMap()
-    sd = pm.project_source_dir(pm.current_project())
-    if os.path.exists(os.path.join(sd, 'src/mesa/drivers/osmesa/meson.build')):
-        meson_build()
-    else:
-        bs.build(MesaBuilder())
 
 
 if __name__ == '__main__':
