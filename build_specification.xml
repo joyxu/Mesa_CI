@@ -205,7 +205,7 @@
     </project>
 
     <project name="skqp-full">
-      <prerequisite name="skqp-test" hardware="gen9,gen9_iris,icl,icl_iris" arch="m64"/>
+      <prerequisite name="skqp-test" hardware="gen9,gen9_iris,icl,icl_iris,bdw,bdw_iris" arch="m64"/>
       <prerequisite only_for_type="daily" name="skqp-test" hardware="gen9atom,gen9atom_iris" arch="m64"/>
     </project>
 
