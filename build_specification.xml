@@ -348,11 +348,6 @@
       <prerequisite name="glcts-test" only_for_type="daily" hardware="icl,icl_iris" arch="m32" shard="4"/>
     </project>
 
-    <project name="vulkan-and-gl">
-      <prerequisite name="test-single-arch"/>
-      <prerequisite name="vulkancts-full"/>
-    </project>
-
     <project name="webgl" bisect_hardware="gen9,gen9_iris">
       <prerequisite name="mesa" hardware="builder"/>
       <prerequisite name="waffle" hardware="builder"/>
