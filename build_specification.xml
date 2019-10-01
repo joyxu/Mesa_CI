@@ -57,10 +57,6 @@
       <prerequisite name="drm"/>
     </project>
 
-    <project name="meson-buildtest" src_dir="mesa">
-      <prerequisite name="drm"/>
-    </project>
-
     <project name="waffle"/>
 
     <!-- test projects should specify bisect_hardware and bisect_arch,
@@ -259,7 +255,6 @@
          dependency relationships. -->
     <project name="all-test">
       <prerequisite name="scons-buildtest" hardware="builder"/>
-      <prerequisite name="meson-buildtest" hardware="builder"/>
       <prerequisite name="piglit-full"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
@@ -276,7 +271,6 @@
     </project>
 
     <project name="all-test-iris">
-      <prerequisite name="meson-buildtest" hardware="builder"/>
       <prerequisite name="piglit-test"
                     hardware="gen9_iris,bdw_iris"
                     shard="2"/>
@@ -310,8 +304,7 @@
       <prerequisite name="piglit-test" hardware="snb,ivb,hsw,bdw,gen9,gen9_iris" shard="2"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="g33,bsw,byt,gen9atom,gen9atom_iris,icl" shard="4"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
-      <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
-      <prerequisite name="mesa-buildtest" hardware="builder"/>
+      <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="android-buildtest" hardware="builder"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
@@ -325,8 +318,7 @@
       <prerequisite name="piglit-full"/>
       <prerequisite name="piglit-test" hardware="icl"/>
       <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
-      <prerequisite name="meson-buildtest" hardware="builder" arch="m64"/>
-      <prerequisite name="mesa-buildtest" hardware="builder"/>
+      <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
