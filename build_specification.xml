@@ -287,6 +287,7 @@
 
     <project name="test-single-arch-tgl">
       <prerequisite name="piglit-test-internal" hardware="tgl" shard="8" arch="m64"/>
+      <prerequisite name="glcts-test" hardware="tgl" shard="6" arch="m64"/>
       <prerequisite name="crucible-test-internal" hardware="tgl" arch="m64"/>
     </project>
 
