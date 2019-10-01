@@ -1,73 +1,125 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
-import os
-import os.path as path
-import subprocess
 import sys
-sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
+import os
+import subprocess
+from mesonbuild import coredata
+from mesonbuild import optinterpreter
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
 import build_support as bs
 
-
-class LongTimeout:
-    def __init__(self, options=None):
-        self._options = options
-        if not options:
-            self._options = bs.Options()
-
-    def GetDuration(self):
-        return 45
-
-
-class NoTest(bs.AutoBuilder):
-    def __init__(self, configure_options):
-        bs.AutoBuilder.__init__(self,
-                                configure_options=configure_options,
-                                install=False,
-                                export=False)
-
-    def test(self):
-        # llvmpipe fails make test, and who cares?
-        pass
-    
 def main():
     pm = bs.ProjectMap()
     sd = pm.project_source_dir(pm.current_project())
+    if not os.path.exists(os.path.join(sd, 'src/mesa/drivers/osmesa/meson.build')):
+        return 0
+
+    save_dir = os.getcwd()
 
     global_opts = bs.Options()
 
-    if not os.path.exists(os.path.join(sd, 'Makefile.am')):
-        print("This version of Mesa does not have autotools support, not "
-              "testing..")
-        return 0
+    # Autodetect valid gallium drivers in Mesa source
+    gallium_drivers = []
+    gallium_drivers_exclude = ['i915']
+    oi = optinterpreter.OptionInterpreter('')
+    oi.process(os.path.join(sd, 'meson_options.txt'))
+    for driver in oi.options['gallium-drivers'].choices:
+        if (driver not in gallium_drivers_exclude
+                and driver not in ['auto', '']):
+            gallium_drivers.append(driver)
 
-    options = []
-    if global_opts.arch == "m32":
-        # m32 build not supported
-        return
+    options = [
+        '-Dbuild-tests=true',
+        '-Dgallium-drivers={}'.format(','.join(gallium_drivers)),
+        '-Dgallium-vdpau=true',
+        '-Dgallium-xvmc=true',
+        '-Dgallium-xa=true',
+        '-Dgallium-va=true',
+        '-Dgallium-nine=true',
+        '-Dgallium-opencl=standalone',
+        '-Dtools=all',
+    ]
 
-    options = options + ["--enable-gbm",
-                         "--enable-llvm",
-                         "--with-egl-platforms=x11,drm",
-                         "--enable-glx-tls", 
-                         "--enable-gles1",
-                         "--enable-gles2",
-                         "--with-gallium-drivers=svga,swrast,r300,r600,radeonsi,nouveau",
-                         "--with-vulkan-drivers=intel,radeon",
-                         "--enable-autotools"]
+    # the knob for omx changed durring the 18.1 cycle, if tizonia support is
+    # present we need to use bellagio, otherwise we need true.
+    with open(os.path.join(sd, 'meson_options.txt')) as f:
+        for l in f:
+            if 'tizonia' in l:
+                options.append('-Dgallium-omx=bellagio')
+                break
+        else:
+            options.append('-Dgallium-omx=true')
+    if global_opts.config != 'debug':
+        options.extend(['-Dbuildtype=release', '-Db_ndebug=true'])
+    b = bs.builders.MesonBuilder(extra_definitions=options, install=False)
 
-    if global_opts.config == 'debug':
-        options.append('--enable-debug')
+    b.tests += [
+        # TODO: These need runtime discovery, probably using `find` or to point
+        # at the DSOs in the install directory
+        #
+        #'es1-ABI-check',
+        #'es2-ABI-check',
+        #'gbm-symbols-check',
+        #'wayland-egl-symbols-check',
+        #'wayland-egl-abi-check',
+        #'egl-symbols-check',
+        #'egl-entrypoint-check',
 
-    # builder = bs.AutoBuilder(configure_options=options, export=False)
-    builder = NoTest(configure_options=options)
+        'anv_block_pool_no_free',
+        'anv_state_pool',
+        'anv_state_pool_free_list_only',
+        'anv_state_pool_no_free',
+        'blob_test',
+        'cache_test',
+        'clear',
+        'collision',
+        'delete_and_lookup',
+        'delete_management',
+        'destroy_callback',
+        'eu_compact',
+        'glx-dispatch-index-check',
+        'insert_and_lookup',
+        'insert_many',
+        'isl_surf_get_image_offset',
+        'lp_test_arit',
+        'lp_test_blend',
+        'lp_test_conv',
+        'lp_test_format',
+        'lp_test_printf',
+        'mesa-sha1',
+        'null_destroy',
+        'random_entry',
+        'remove_null',
+        'replacement',
+        'roundeven',
+        'u_atomic',
+    ]
 
-    save_dir = os.getcwd()
+    b.gtests += [
+        'eu_validate',
+        'fs_cmod_propagation',
+        'fs_copy_propagation',
+        'fs_saturate_propagation',
+        'general_ir_test',
+        'glx-test',
+        'main-test',
+        'nir_control_flow',
+        'sampler_types_test',
+        'shared-glapi-test',
+        'string_buffer',
+        'uniform_initializer_test',
+        'vec4_cmod_propagation',
+        'vec4_copy_propagation',
+        'vec4_register_coalesce',
+        'vf_float_conversions',
+    ]
+
     try:
-        bs.build(builder, time_limit=LongTimeout())
+        bs.build(b)
     except subprocess.CalledProcessError as e:
         # build may have taken us to a place where ProjectMap doesn't work
         os.chdir(save_dir)
-        bs.Export().create_failing_test("mesa-buildtest", str(e))
+        bs.Export().create_failing_test("mesa-meson-buildtest", str(e))
 
 if __name__ == '__main__':
     main()
