@@ -938,7 +938,7 @@
       <mesa branch="ibriano/leeroy"/>
     </branch>
 
-    <branch name="pendingchaos" project="test-single-arch">
+    <branch name="pendingchaos" project="test-single-arch-vulkan">
       <mesa branch="ci_mesa_repo/dev/pendingchaos"/>
     </branch>
 
