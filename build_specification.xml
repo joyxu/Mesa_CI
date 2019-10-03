@@ -240,8 +240,7 @@
     </project>
 
     <project name="mi_builder-full">
-      <prerequisite name="mi_builder-test" hardware="ivb,hsw,bdw,gen9"/>
-      <prerequisite name="mi_builder-test" only_for_type="daily" hardware="icl"/>
+      <prerequisite name="mi_builder-test" hardware="ivb,hsw,bdw,gen9,icl"/>
     </project>
 
     <project name="vulkancts"/>
