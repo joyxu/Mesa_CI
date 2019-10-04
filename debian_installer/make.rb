@@ -25,7 +25,7 @@
 #  **********************************************************************/
 
 require 'fileutils'
-require 'trollop'
+require 'optimist'
 
 # Helper for setting the ISOLINUX constant
 def _set_isolinux
@@ -47,7 +47,7 @@ end
 
 # Parse command line options
 def parser
-  parser = Trollop::Parser.new do
+  parser = Optimist::Parser.new do
     banner <<-EOS
     Generator for mesa-jenkins installer
 
@@ -65,8 +65,8 @@ def parser
     opt(:target_disk, 'the disk to install debian onto', default: 'sda')
   end
 
-  opts = Trollop.with_standard_exception_handling(parser) do
-    fail Trollop.HelpNeeded if ARGV.empty? # show help screen
+  opts = Optimist.with_standard_exception_handling(parser) do
+    fail Optimist::HelpNeeded if ARGV.empty? # show help screen
     parser.parse ARGV
   end
 
