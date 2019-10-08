@@ -112,6 +112,7 @@
 
     <project name="mi_builder-test">
       <prerequisite name="mesa" hardware="builder"/>
+      <prerequisite name="waffle" hardware="builder"/>
     </project>
 
     <project name="glescts-full">
