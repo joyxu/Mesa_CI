@@ -57,28 +57,50 @@ if not os.path.exists(build_support_dir):
                 print("ERROR: could not clone sources")
                 sys.exit(1)
 bs_repo = git.Repo(build_support_dir)
-bs_repo.git.checkout(["origin/master"])
 
+parser = argparse.ArgumentParser(description="checks out branches and commits")
+parser.add_argument('--branch', type=str, default="",
+                    help="The branch to base the checkout on. (default: %(default)s)")
+parser.add_argument('--project', type=str, default="",
+                    help="Limit commits to repos required by the project. (default: none)")
+parser.add_argument('--revspec', type=str, default="",
+                    help=("XML file containing revision spec listing out "
+                          "projects and revisions to fetch (default: none)"))
+parser.add_argument('commits', metavar='commits', type=str, nargs='*',
+                    help='commits to check out, in repo=sha format')
+args = parser.parse_args()
+# 'Commits' parameter is searched for mesa_ci repo, which fetch sources uses to
+# check out instead of 'origin/master'
+build_support_branch = 'origin/master'
+if args.commits:
+    for c in args.commits:
+        repo, sha = c.lower().split('=')
+        if repo == 'mesa_ci':
+            build_support_branch = sha
+fail = True
+for i in range(15):
+    bs_repo.remotes['origin'].fetch()
+    try:
+        print("Checking out mesa_ci commit (try {}/15)".format(i+1))
+        bs_repo.git.checkout([build_support_branch])
+        fail = False
+    except git.GitCommandError:
+        print("Unable to checkout mesa_ci commit, retrying in 15s..")
+        time.sleep(15)
+    else:
+        break
+if fail:
+    raise Exception("ERROR: Unable to checkout mesa_ci commit.")
+
+# Load build_support modules
+sys.path.insert(0, os.path.join(build_support_dir, "build_support"))
 from dependency_graph import DependencyGraph
 from project_invoke import RevisionSpecification
 from project_map import ProjectMap
 from repo_set import RepoSet, BuildSpecification
 from options import Options
 
-
 def main():
-    parser = argparse.ArgumentParser(description="checks out branches and commits")
-    parser.add_argument('--branch', type=str, default="",
-                        help="The branch to base the checkout on. (default: %(default)s)")
-    parser.add_argument('--project', type=str, default="",
-                        help="Limit commits to repos required by the project. (default: none)")
-    parser.add_argument('--revspec', type=str, default="",
-                        help=("XML file containing revision spec listing out "
-                              "projects and revisions to fetch (default: none)"))
-    parser.add_argument('commits', metavar='commits', type=str, nargs='*',
-                        help='commits to check out, in repo=sha format')
-    args = parser.parse_args()
-
     repos = RepoSet()
     spec = BuildSpecification(repo_set=repos)
 
