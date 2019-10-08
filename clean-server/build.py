@@ -31,8 +31,9 @@ import sys
 import os
 import time
 import stat
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from utils.command import rmtree
 
 
 # from http://stackoverflow.com/questions/6879364/print-file-age-in-seconds-using-python
@@ -55,4 +56,4 @@ for a_dir in os.listdir(result_path):
         if os.path.islink(build_dir):
             continue
         if file_age_in_days(build_dir) > 50:
-            bs.rmtree(build_dir)
+            rmtree(build_dir)

@@ -1,16 +1,19 @@
 #!/usr/bin/python
 
-import os
 import sys
-import subprocess
-
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
+import os
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from testers import DeqpTester, DeqpSuiteLister, DeqpTrie, ConfigFilter
+from build_support import build
+from options import Options
+from project_map import ProjectMap
+from utils.utils import get_conf_file
 
 
 class SlowTimeout:
     def __init__(self):
-        self.hardware = bs.Options().hardware
+        self.hardware = Options().hardware
 
     def GetDuration(self):
         return 500
@@ -18,8 +21,8 @@ class SlowTimeout:
         
 class DeqpBuilder(object):
     def __init__(self):
-        self.pm = bs.ProjectMap()
-        self.o = bs.Options()
+        self.pm = ProjectMap()
+        self.o = Options()
         self.env = {}
         if "iris" in self.o.hardware:
             self.env = { "MESA_LOADER_DRIVER_OVERRIDE" : "iris" }
@@ -47,8 +50,8 @@ class DeqpBuilder(object):
     def test(self):
         if "hsw" in self.o.hardware or "byt" in self.o.hardware or "ivb" in self.o.hardware:
             self.env["MESA_GLES_VERSION_OVERRIDE"] = "3.1"
-        t = bs.DeqpTester()
-        all_results = bs.DeqpTrie()
+        t = DeqpTester()
+        all_results = DeqpTrie()
 
         modules = ["gles2", "egl"]
         if self.supports_gles_3():
@@ -59,20 +62,20 @@ class DeqpBuilder(object):
         for module in modules:
             binary = self.pm.build_root() + "/opt/deqp/modules/" + module + "/deqp-" + module
             results = t.test(binary,
-                             bs.DeqpSuiteLister(binary),
+                             DeqpSuiteLister(binary),
                              [],
                              self.env)
             all_results.merge(results)
 
-        config = bs.get_conf_file(self.o.hardware, self.o.arch, project=self.pm.current_project())
-        t.generate_results(all_results, bs.ConfigFilter(config, self.o))
+        config = get_conf_file(self.o.hardware, self.o.arch, project=self.pm.current_project())
+        t.generate_results(all_results, ConfigFilter(config, self.o))
         
-if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
+if not os.path.exists(ProjectMap().project_source_dir("mesa") +
                       "/src/gallium/drivers/iris/meson.build"):
     # iris not supported
-    if "iris" in bs.Options().hardware:
+    if "iris" in Options().hardware:
         sys.exit(0)
 
 if __name__ == '__main__':
-    bs.build(DeqpBuilder(), time_limit=SlowTimeout())
+    build(DeqpBuilder(), time_limit=SlowTimeout())
         

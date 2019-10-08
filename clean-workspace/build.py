@@ -26,18 +26,22 @@
 #  *   Mark Janes <mark.a.janes@intel.com>
 #  **********************************************************************/
 
-import sys, os
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from utils.command import run_batch_command, rmtree
+from build_support import build
+
 
 class Cleaner(object):
     def __init__(self):
         pass
 
     def clean(self):
-        bs.run_batch_command(["git", "clean", "-xfd"])
-        bs.run_batch_command(["git", "reset", "--hard", "HEAD"])
-        bs.rmtree("repos")
+        run_batch_command(["git", "clean", "-xfd"])
+        run_batch_command(["git", "reset", "--hard", "HEAD"])
+        rmtree("repos")
 
     def build(self):
         pass
@@ -45,6 +49,6 @@ class Cleaner(object):
     def test(self):
         pass
 
-bs.build(Cleaner())
+build(Cleaner())
 
         

@@ -1,12 +1,16 @@
 #!/usr/bin/python
-
-#import ConfigParser
-import multiprocessing
 import os
 import sys
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from build_support import build
+from testers import DeqpTester, DeqpTrie, ConfigFilter
+from options import Options
+from project_map import ProjectMap
+from utils.command import run_batch_command
+from utils.utils import (get_libdir, get_libgl_drivers, mesa_version,
+                         get_conf_file)
 
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
 
 # needed to preserve case in the options
 # class CaseConfig(ConfigParser.SafeConfigParser):
@@ -15,8 +19,8 @@ import build_support as bs
 
 class GLESCTSList(object):
     def __init__(self):
-        self.pm = bs.ProjectMap()
-        self.o = bs.Options()
+        self.pm = ProjectMap()
+        self.o = Options()
 
     def supports_gles_31(self):
         if ("g33" in self.o.hardware or
@@ -44,16 +48,16 @@ class GLESCTSList(object):
     def tests(self, env=None):
         br = self.pm.build_root()
         env = {"MESA_GLES_VERSION_OVERRIDE" : "3.2",
-               "LD_LIBRARY_PATH" : bs.get_libdir(),
+               "LD_LIBRARY_PATH" : get_libdir(),
                "MESA_GL_VERSION_OVERRIDE" : "4.6",
                "MESA_GLSL_VERSION_OVERRIDE" : "460",
-               "LIBGL_DRIVERS_PATH" : bs.get_libgl_drivers()}
+               "LIBGL_DRIVERS_PATH" : get_libgl_drivers()}
         self.o.update_env(env)
 
         savedir = os.getcwd()
         os.chdir(self.pm.build_root() + "/bin/es/modules")
-        bs.run_batch_command(["./glcts", "--deqp-runmode=xml-caselist"],
-                             env=env)
+        run_batch_command(["./glcts", "--deqp-runmode=xml-caselist"],
+                          env=env)
 
         suites = ["KHR-GLES2-cases.xml", "KHR-GLES3-cases.xml"]
 
@@ -64,9 +68,9 @@ class GLESCTSList(object):
             suites.append("KHR-GLES32-cases.xml")
             suites.append("KHR-GLESEXT-cases.xml")
 
-        all_tests = bs.DeqpTrie()
+        all_tests = DeqpTrie()
         for a_list in suites:
-            tmp_trie = bs.DeqpTrie()
+            tmp_trie = DeqpTrie()
             tmp_trie.add_xml(a_list)
             all_tests.merge(tmp_trie)
 
@@ -79,25 +83,26 @@ class GLESCTSList(object):
             blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware[:3] + "_blacklist.txt"
         if not os.path.exists(blacklist_txt):
             return all_tests
-        blacklist = bs.DeqpTrie()
+        blacklist = DeqpTrie()
         blacklist.add_txt(blacklist_txt)
         all_tests.filter(blacklist)
         return all_tests
 
 class GLESCTSTester(object):
     def __init__(self):
-        self.o = bs.Options()
-        self.pm = bs.ProjectMap()
+        self.o = Options()
+        self.pm = ProjectMap()
 
     def test(self):
-        mv = bs.mesa_version()
-        t = bs.DeqpTester()
+        mv = mesa_version()
+        t = DeqpTester()
         results = t.test(self.pm.build_root() + "/bin/es/modules/glcts",
                          GLESCTSList(),
                          env = {"MESA_GLES_VERSION_OVERRIDE" : "3.2"}) 
-        o = bs.Options()
-        config = bs.get_conf_file(self.o.hardware, self.o.arch, project=self.pm.current_project())
-        t.generate_results(results, bs.ConfigFilter(config, o))
+        o = Options()
+        config = get_conf_file(self.o.hardware, self.o.arch,
+                               project=self.pm.current_project())
+        t.generate_results(results, ConfigFilter(config, o))
 
     def build(self):
         pass
@@ -106,10 +111,10 @@ class GLESCTSTester(object):
 
 class SlowTimeout:
     def __init__(self):
-        self.hardware = bs.Options().hardware
+        self.hardware = Options().hardware
 
     def GetDuration(self):
         return 120
 
 if __name__ == '__main__':
-    bs.build(GLESCTSTester(), time_limit=SlowTimeout())
+    build(GLESCTSTester(), time_limit=SlowTimeout())

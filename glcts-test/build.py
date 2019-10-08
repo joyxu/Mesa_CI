@@ -1,12 +1,18 @@
 #!/usr/bin/python
 
-#import ConfigParser
 import multiprocessing
 import os
 import sys
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from build_support import build
+from options import Options
+from project_map import ProjectMap
+from testers import DeqpTester, DeqpTrie, ConfigFilter
+from utils.command import run_batch_command
+from utils.utils import (is_soft_fp64, mesa_version, get_libdir,
+                         get_libgl_drivers, get_conf_file)
 
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
 
 # needed to preserve case in the options
 # class CaseConfig(ConfigParser.SafeConfigParser):
@@ -16,23 +22,23 @@ import build_support as bs
 
 class GLCTSLister(object):
     def __init__(self):
-        self.pm = bs.ProjectMap()
-        self.o = bs.Options()
+        self.pm = ProjectMap()
+        self.o = Options()
 
     def tests(self, env=None):
         br = self.pm.build_root()
         env = {"MESA_GLES_VERSION_OVERRIDE" : "3.2",
-               "LD_LIBRARY_PATH" : bs.get_libdir(),
-               "LIBGL_DRIVERS_PATH" : bs.get_libgl_drivers(),
+               "LD_LIBRARY_PATH" : get_libdir(),
+               "LIBGL_DRIVERS_PATH" : get_libgl_drivers(),
                "MESA_GL_VERSION_OVERRIDE" : "4.6",
                "MESA_GLSL_VERSION_OVERRIDE" : "460"}
         self.o.update_env(env)
 
         savedir = os.getcwd()
         os.chdir(self.pm.build_root() + "/bin/gl/modules")
-        bs.run_batch_command(["./glcts", "--deqp-runmode=xml-caselist"],
-                             env=env)
-        all_tests = bs.DeqpTrie()
+        run_batch_command(["./glcts", "--deqp-runmode=xml-caselist"],
+                          env=env)
+        all_tests = DeqpTrie()
         # Enable GL33 tests for supporting hw
         # Note: ilk, g45, etc are all < GL30 and not supported in glcts
         if self.o.hardware in ['snb', 'ivb', 'byt']:
@@ -51,23 +57,23 @@ class GLCTSLister(object):
             blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware[:3] + "_blacklist.txt"
         if not os.path.exists(blacklist_txt):
             return all_tests
-        blacklist = bs.DeqpTrie()
+        blacklist = DeqpTrie()
         blacklist.add_txt(blacklist_txt)
         all_tests.filter(blacklist)
         if self.o.type != "daily" and not self.o.retest_path:
-            blacklist = bs.DeqpTrie()
+            blacklist = DeqpTrie()
             blacklist.add_txt(self.pm.project_build_dir() + "/non-daily_blacklist.txt")
             all_tests.filter(blacklist)
         # Do not run GTF33 on hardware that supports >GL33
         if self.o.hardware not in ['snb', 'ivb', 'byt']:
-            blacklist = bs.DeqpTrie()
+            blacklist = DeqpTrie()
             blacklist.add_line("GTF-GL33")
             all_tests.filter(blacklist)
         # blacklist for non-daily + soft-fp64
         blacklist_txt = self.pm.project_build_dir() + "/soft-fp64_blacklist.txt"
-        if (self.o.type != "daily" and bs.is_soft_fp64(self.o.hardware) and
+        if (self.o.type != "daily" and is_soft_fp64(self.o.hardware) and
                 os.path.exists(blacklist_txt) and not self.o.retest_path):
-            blacklist = bs.DeqpTrie()
+            blacklist = DeqpTrie()
             blacklist.add_txt(blacklist_txt)
             all_tests.filter(blacklist)
 
@@ -76,13 +82,13 @@ class GLCTSLister(object):
 
 class GLCTSTester(object):
     def __init__(self):
-        self.o = bs.Options()
-        self.pm = bs.ProjectMap()
+        self.o = Options()
+        self.pm = ProjectMap()
 
     def test(self):
-        mv = bs.mesa_version()
+        mv = mesa_version()
         cpus = multiprocessing.cpu_count()
-        t = bs.DeqpTester()
+        t = DeqpTester()
         env = {"MESA_GL_VERSION_OVERRIDE" : "4.6",
                "MESA_GLSL_VERSION_OVERRIDE" : "460"}
         if "iris" in self.o.hardware:
@@ -95,9 +101,10 @@ class GLCTSTester(object):
                          GLCTSLister(),
                          env=env, cpus=cpus)
 
-        o = bs.Options()
-        config = bs.get_conf_file(self.o.hardware, self.o.arch, project=self.pm.current_project())
-        t.generate_results(results, bs.ConfigFilter(config, o))
+        o = Options()
+        config = get_conf_file(self.o.hardware, self.o.arch,
+                               project=self.pm.current_project())
+        t.generate_results(results, ConfigFilter(config, o))
 
     def build(self):
         pass
@@ -106,7 +113,7 @@ class GLCTSTester(object):
 
 class SlowTimeout:
     def __init__(self):
-        self.hardware = bs.Options().hardware
+        self.hardware = Options().hardware
 
     def GetDuration(self):
         if "icl" in self.hardware:
@@ -114,10 +121,10 @@ class SlowTimeout:
         return 120
 
 if __name__ == '__main__':
-    if not os.path.exists(bs.ProjectMap().project_source_dir("mesa") +
+    if not os.path.exists(ProjectMap().project_source_dir("mesa") +
                           "/src/gallium/drivers/iris/meson.build"):
         # iris not supported
-        if "iris" in bs.Options().hardware:
+        if "iris" in Options().hardware:
             sys.exit(0)
 
-    bs.build(GLCTSTester(), time_limit=SlowTimeout())
+    build(GLCTSTester(), time_limit=SlowTimeout())

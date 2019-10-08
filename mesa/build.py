@@ -3,15 +3,18 @@
 import os
 import sys
 import os.path as path
-from mesonbuild import coredata
 from mesonbuild import optinterpreter
-sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
+sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..",
+                          "repos", "mesa_ci", "build_support"))
+from build_support import build
+from builders import MesonBuilder
+from options import Options
+from project_map import ProjectMap
 
 
 def main():
-    global_opts = bs.Options()
-    sd = bs.ProjectMap().project_source_dir()
+    global_opts = Options()
+    sd = ProjectMap().project_source_dir()
 
     options = [
         '-Ddri-drivers=i965,i915',
@@ -19,7 +22,7 @@ def main():
         '-Dplatforms=x11,drm',
         '-Dtools=intel',
     ]
-    if (os.path.exists(bs.ProjectMap().project_source_dir() +
+    if (os.path.exists(ProjectMap().project_source_dir() +
                        "/src/gallium/drivers/iris")):
         options += ['-Dgallium-drivers=iris',
                     '-Dllvm=false']
@@ -42,9 +45,9 @@ def main():
     if 'install-intel-gpu-tests' in oi.options:
         options.append('-Dinstall-intel-gpu-tests=true')
 
-    b = bs.builders.MesonBuilder(extra_definitions=options, install=True,
-                                 cpp_args=cpp_args)
-    bs.build(b)
+    b = MesonBuilder(extra_definitions=options, install=True,
+                     cpp_args=cpp_args)
+    build(b)
 
 
 if __name__ == '__main__':

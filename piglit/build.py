@@ -1,9 +1,11 @@
 #!/usr/bin/python
 
-
-import sys, os
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from build_support import build
+from builders import CMakeBuilder
 
 
 def main():
@@ -17,9 +19,9 @@ def main():
         '-DPIGLIT_BUILD_CL_TESTS=0',
     ]
 
-    builder = bs.CMakeBuilder(extra_definitions=opts)
+    builder = CMakeBuilder(extra_definitions=opts)
 
-    bs.build(builder)
+    build(builder)
 
 if __name__ == '__main__':
     main()

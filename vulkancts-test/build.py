@@ -3,13 +3,20 @@
 import multiprocessing
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from build_support import build
+from options import Options
+from project_map import ProjectMap
+from testers import DeqpTester, DeqpTrie, ConfigFilter
+from utils.command import run_batch_command
+from utils.utils import get_conf_file
+
 
 class SlowTimeout:
     def __init__(self):
         self.timeout = 60
-        hardware = bs.Options().hardware
+        hardware = Options().hardware
         if hardware in ["gen9atom", "bsw"]:
             self.timeout = 90
 
@@ -18,7 +25,7 @@ class SlowTimeout:
 
 class VulkanTestList(object):
     def __init__(self):
-        self.pm = bs.ProjectMap()
+        self.pm = ProjectMap()
 
     def tests(self, env):
         # provide a DeqpTrie with all tests
@@ -26,8 +33,8 @@ class VulkanTestList(object):
         os.chdir(deqp_dir)
         cmd = ["./" + os.path.basename(self.binary()),
                "--deqp-runmode=xml-caselist"]
-        bs.run_batch_command(cmd, env=env)
-        trie = bs.DeqpTrie()
+        run_batch_command(cmd, env=env)
+        trie = DeqpTrie()
         trie.add_xml("dEQP-VK-cases.xml")
         os.chdir(self.pm.project_build_dir())
         # Detect the latest mustpass file to use, and use it
@@ -50,7 +57,7 @@ class VulkanTestList(object):
             whitelist_txt = (mustpass_dir + '/' + latest_version
                              + "/vk-default.txt")
             print("Using whitelist for %s" % latest_version)
-        whitelist = bs.DeqpTrie()
+        whitelist = DeqpTrie()
         whitelist.add_txt(whitelist_txt)
         trie.filter_whitelist(whitelist)
         return trie
@@ -60,14 +67,14 @@ class VulkanTestList(object):
 
     def blacklist(self, all_tests):
         # filter tests for the platform
-        o = bs.Options()
+        o = Options()
         blacklist_file = self.pm.project_build_dir() + o.hardware + "_expectations/vk_unstable_tests.txt"
         if not os.path.exists(blacklist_file):
             blacklist_file = self.pm.project_build_dir() + o.hardware[:3] + "_expectations/vk_unstable_tests.txt"
-        blacklist = bs.DeqpTrie()
+        blacklist = DeqpTrie()
         blacklist.add_txt(blacklist_file)
         all_tests.filter(blacklist)
-        blacklist = bs.DeqpTrie()
+        blacklist = DeqpTrie()
         global_blacklist_file = (self.pm.project_build_dir() + '/'
                                  + "blacklist.txt")
         blacklist.add_txt(global_blacklist_file)
@@ -82,8 +89,8 @@ class VulkanTester(object):
     def clean(self):
         pass
     def test(self):
-        pm = bs.ProjectMap()
-        global_opts = bs.Options()
+        pm = ProjectMap()
+        global_opts = Options()
         if global_opts.arch == "m64":
             icd_name = "intel_icd.x86_64.json"
         elif global_opts.arch == "m32":
@@ -91,12 +98,12 @@ class VulkanTester(object):
         env = {"VK_ICD_FILENAMES" : pm.build_root() + \
                "/share/vulkan/icd.d/" + icd_name,
                "ANV_ABORT_ON_DEVICE_LOSS" : "true"}
-        tester = bs.DeqpTester()
+        tester = DeqpTester()
         binary = pm.build_root() + "/opt/deqp/modules/vulkan/deqp-vk"
         params = ["--deqp-surface-type=fbo"]
         if os.path.exists(pm.project_source_dir("vulkancts") + "/external/vulkancts/mustpass/1.1.2"):
             params.append("--deqp-shadercache=disable")
-        o = bs.Options()
+        o = Options()
         cpus = None
         if 'icl' in o.hardware:
             cpus = multiprocessing.cpu_count() // 2
@@ -105,10 +112,10 @@ class VulkanTester(object):
                               VulkanTestList(),
                               params,
                               env=env, cpus=cpus)
-        config = bs.get_conf_file(o.hardware, o.arch, project=pm.current_project())
-        tester.generate_results(results, bs.ConfigFilter(config, o))
+        config = get_conf_file(o.hardware, o.arch, project=pm.current_project())
+        tester.generate_results(results, ConfigFilter(config, o))
 
 if __name__ == '__main__':
-    bs.build(VulkanTester(),
-             time_limit=SlowTimeout())
+    build(VulkanTester(),
+          time_limit=SlowTimeout())
 

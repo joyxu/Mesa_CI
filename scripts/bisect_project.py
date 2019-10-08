@@ -8,10 +8,14 @@ import os
 import smtplib
 import sys
 import time
+from bisect_test import retest_failures, TestLister
+from project_invoke import RevisionSpecification
+from project_map import ProjectMap
+from repo_set import RepoSet
+from utils.command import run_batch_command
 
 current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 sys.path.append(current_dir + "/..")
-import build_support as bs
 
 parser = argparse.ArgumentParser(description="bisects failures")
 parser.add_argument("--result_path", type=os.path.abspath)
@@ -29,20 +33,20 @@ if not os.path.exists(test_dir):
     print("ERROR: no tests in --result_path: " + test_dir)
     sys.exit(-1)
 
-pm = bs.ProjectMap()
+pm = ProjectMap()
 spec_xml = pm.build_spec()
 results_dir = spec_xml.find("build_master").attrib["results_dir"]
 
-repos = bs.RepoSet()
+repos = RepoSet()
 try:
-    _revspec = bs.RevisionSpecification.from_xml_file(
+    _revspec = RevisionSpecification.from_xml_file(
         os.path.join(os.path.abspath(args.result_path), 'revisions.xml'))
 except IOError:
     # Bisecting across the conversion from parsing the directory name to using
     # revisions.xml file, allow fallback to the old method.
     # This can be removed after a couple of months when all pre-revisions.xml
     # builds are flushed from the history
-    _revspec = bs.RevisionSpecification.from_cmd_line_param(
+    _revspec = RevisionSpecification.from_cmd_line_param(
         test_dir.split('/')[5].split('_'))
 _revspec.checkout()
 
@@ -69,14 +73,14 @@ if bisect_dir == "":
     bisect_dir = results_dir + "/bisect/" + datetime.datetime.now().isoformat()
 
 cmd = ["rsync", "-rlptD", "--exclude", "/*test/", args.result_path, bisect_dir]
-bs.run_batch_command(cmd)
+run_batch_command(cmd)
 
-if not bs.retest_failures(args.result_path, bisect_dir):
+if not retest_failures(args.result_path, bisect_dir):
     print("ERROR: retest failed")
 
 # make sure there is enough time for the test files to sync to nfs
 time.sleep(20)
-new_failures = bs.TestLister(bisect_dir + "/test/")
+new_failures = TestLister(bisect_dir + "/test/")
 
 if not new_failures.Tests():
     print("All tests fixed")
@@ -85,17 +89,17 @@ if not new_failures.Tests():
 print("Found failures:")
 new_failures.Print()
 
-revspec = bs.RevisionSpecification(revisions={proj: commits[-1].hexsha})
+revspec = RevisionSpecification(revisions={proj: commits[-1].hexsha})
 revspec.checkout()
-revspec = bs.RevisionSpecification()
+revspec = RevisionSpecification()
 hashstr = revspec.to_cmd_line_param().replace(" ", "_")
 old_out_dir = "/".join([bisect_dir, hashstr])
 
 print("Building old mesa to: " + old_out_dir)
-bs.retest_failures(bisect_dir, old_out_dir)
+retest_failures(bisect_dir, old_out_dir)
 
 time.sleep(20)
-tl = bs.TestLister(old_out_dir + "/test/")
+tl = TestLister(old_out_dir + "/test/")
 print("old failures:")
 tl.Print()
 print("failures due to " + proj + ":")
@@ -116,4 +120,3 @@ if args.to:
     s = smtplib.SMTP('or-out.intel.com')
     to = args.to.split(",")
     s.sendmail(msg["From"], to, msg.as_string())
-

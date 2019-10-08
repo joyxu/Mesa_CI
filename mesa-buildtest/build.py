@@ -3,20 +3,25 @@
 import sys
 import os
 import subprocess
-from mesonbuild import coredata
 from mesonbuild import optinterpreter
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from builders import MesonBuilder
+from build_support import build
+from export import Export
+from options import Options
+from project_map import ProjectMap
+
 
 def main():
-    pm = bs.ProjectMap()
+    pm = ProjectMap()
     sd = pm.project_source_dir(pm.current_project())
     if not os.path.exists(os.path.join(sd, 'src/mesa/drivers/osmesa/meson.build')):
         return 0
 
     save_dir = os.getcwd()
 
-    global_opts = bs.Options()
+    global_opts = Options()
 
     # Autodetect valid gallium drivers in Mesa source
     gallium_drivers = []
@@ -51,7 +56,7 @@ def main():
             options.append('-Dgallium-omx=true')
     if global_opts.config != 'debug':
         options.extend(['-Dbuildtype=release', '-Db_ndebug=true'])
-    b = bs.builders.MesonBuilder(extra_definitions=options, install=False)
+    b = MesonBuilder(extra_definitions=options, install=False)
 
     b.tests += [
         # TODO: These need runtime discovery, probably using `find` or to point
@@ -115,11 +120,11 @@ def main():
     ]
 
     try:
-        bs.build(b)
+        build(b)
     except subprocess.CalledProcessError as e:
         # build may have taken us to a place where ProjectMap doesn't work
         os.chdir(save_dir)
-        bs.Export().create_failing_test("mesa-meson-buildtest", str(e))
+        Export().create_failing_test("mesa-meson-buildtest", str(e))
 
 if __name__ == '__main__':
     main()

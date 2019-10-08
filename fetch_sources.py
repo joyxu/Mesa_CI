@@ -34,6 +34,7 @@ import time
 
 build_support_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "repos", "mesa_ci"))
 
+
 def try_clone(repo):
     print('Trying to clone build support from {}'.format(repo))
     git.Repo.clone_from(repo, build_support_dir)
@@ -58,8 +59,12 @@ if not os.path.exists(build_support_dir):
 bs_repo = git.Repo(build_support_dir)
 bs_repo.git.checkout(["origin/master"])
 
-sys.path.insert(0, build_support_dir)
-import build_support as bs
+from dependency_graph import DependencyGraph
+from project_invoke import RevisionSpecification
+from project_map import ProjectMap
+from repo_set import RepoSet, BuildSpecification
+from options import Options
+
 
 def main():
     parser = argparse.ArgumentParser(description="checks out branches and commits")
@@ -74,13 +79,13 @@ def main():
                         help='commits to check out, in repo=sha format')
     args = parser.parse_args()
 
-    repos = bs.RepoSet()
-    spec = bs.BuildSpecification(repo_set=repos)
+    repos = RepoSet()
+    spec = BuildSpecification(repo_set=repos)
 
     limit_to_repos = {}
     # commits overrides versions in revspec
     if args.revspec and os.path.exists(args.revspec):
-        for c in bs.RevisionSpecification.from_xml_file(args.revspec).to_cmd_line_param().split():
+        for c in RevisionSpecification.from_xml_file(args.revspec).to_cmd_line_param().split():
             repo, sha = c.lower().split('=')
             limit_to_repos[repo] = sha
     if args.commits:
@@ -100,9 +105,9 @@ def main():
     deps = []
     if project:
         # only fetch sources that are required for the project
-        deps = bs.DependencyGraph(project,
-                                  bs.Options(args = [sys.argv[0]]),
-                                  repo_set=repos).all_sources(allow_missing=True)
+        deps = DependencyGraph(project,
+                               Options(args =[sys.argv[0]]),
+                               repo_set=repos).all_sources(allow_missing=True)
         # the project will not be a prerequisite of itself, but we do
         # need to get its sources.
         deps.append(project)
@@ -120,8 +125,8 @@ def main():
 
     if cloned_new_repo:
         # recreate objects based on new sources
-        repos = bs.RepoSet()
-        spec = bs.BuildSpecification(repo_set=repos)
+        repos = RepoSet()
+        spec = BuildSpecification(repo_set=repos)
         if branchspec:
             branchspec = spec.branch_specification(branch)
         
@@ -148,7 +153,7 @@ def main():
     # externals in the target projects.  They need to be in the cached
     # repo so that the component can check out the required commit
     # within its source tree.
-    s_root = bs.ProjectMap().source_root()
+    s_root = ProjectMap().source_root()
     sys.path.append(s_root)
     external_revisions = {}
     for project in deps:
@@ -169,7 +174,7 @@ def main():
     cloned_new_repo = repos.clone(external_revisions.keys())
     if cloned_new_repo:
         # recreate objects based on new sources
-        repos = bs.RepoSet()
+        repos = RepoSet()
 
     for project, tags in external_revisions.items():
         if type(tags) != type([]):

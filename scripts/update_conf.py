@@ -9,8 +9,14 @@ import smtplib
 import sys
 import time
 
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), ".."))
-import build_support as bs
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from bisect_test import TestLister, retest_failures
+from export import convert_rsync_path
+from project_map import ProjectMap
+from project_invoke import RevisionSpecification
+from repo_set import RepoSet
+from utils.command import run_batch_command
 
 parser = argparse.ArgumentParser(description="updates expected failures")
 
@@ -50,7 +56,7 @@ if not rev_hash.has_key(blame[0]):
     print("ERROR: acceptable projects: " + ",".join(rev_hash.keys()))
     sys.exit(-1)
 
-pm = bs.ProjectMap()
+pm = ProjectMap()
 spec_xml = pm.build_spec()
 results_dir = spec_xml.find("build_master").attrib["results_dir"]
 retest_dir = args.dir
@@ -60,30 +66,30 @@ if retest_dir == "":
 if rev_hash[blame[0]] == blame[1]:
     # rsync to save build if the blame is the same as the build
     src_dir = "/".join(dirnames[:-1]) + "/"
-    dest_dir = bs.convert_rsync_path(retest_dir)
+    dest_dir = convert_rsync_path(retest_dir)
     cmd = ["rsync", "-rlptD", "--exclude", "/*test/", src_dir, dest_dir]
-    bs.run_batch_command(cmd)
+    run_batch_command(cmd)
 else:
     rev_hash[blame[0]] = blame[1]
 
 # retest the set of failed tests on the specified blame revision
-repos = bs.RepoSet()
-_revspec = bs.RevisionSpecification.from_xml_file(
+repos = RepoSet()
+_revspec = RevisionSpecification.from_xml_file(
     os.path.join(os.path.abspath(args.result_path), 'revisions.xml'))
 _revspec.checkout()
-_revspec = bs.RevisionSpecification()
+_revspec = RevisionSpecification()
 
 # use the full sha for the blame, so it can be looked up in a map when
 # processing the config file
 blame[1] = str(repos.repo(blame[0]).git.rev_parse(blame[1]))
 
-if not bs.retest_failures(args.result_path, retest_dir):
+if not retest_failures(args.result_path, retest_dir):
     print("ERROR: retest failed")
     sys.exit(-1)
         
 # make sure there is enough time for the test files to sync to nfs
 time.sleep(20)
-reproduced_failures = bs.TestLister(retest_dir + "/test/")
+reproduced_failures = TestLister(retest_dir + "/test/")
 
 print("Found failures:")
 reproduced_failures.Print()

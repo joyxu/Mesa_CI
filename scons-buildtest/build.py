@@ -1,15 +1,21 @@
 #!/usr/bin/python
 
-import sys
 import os
-import os.path as path
 import subprocess
-sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
+import sys
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from build_support import build
+from options import Options
+from project_map import ProjectMap
+from utils.command import run_batch_command
+from utils.utils import cpu_count
+from export import Export
+
 
 class SconsBuilder(object):
     def __init__(self):
-        self.src_dir = bs.ProjectMap().source_root() + "/repos/mesa"
+        self.src_dir = ProjectMap().source_root() + "/repos/mesa"
 
     def clean(self):
         pass
@@ -24,25 +30,25 @@ class SconsBuilder(object):
         # scons build is broken, will occasionally fail if temporaries
         # are still around.  Use git's nuclear clean method instead of
         # the clean targets.
-        bs.run_batch_command(["git", "clean", "-dfx"])
+        run_batch_command(["git", "clean", "-dfx"])
 
         env = {}
-        bs.Options().update_env(env)
-        bs.run_batch_command(["scons", "-j",
-                              str(bs.cpu_count())], env=env)
+        Options().update_env(env)
+        run_batch_command(["scons", "-j",
+                              str(cpu_count())], env=env)
 
-        bs.run_batch_command(["git", "clean", "-dfx"])
+        run_batch_command(["git", "clean", "-dfx"])
         os.chdir(save_dir)
         
 def main():
     b = SconsBuilder()
     save_dir = os.getcwd()
     try:
-        bs.build(b)
+        build(b)
     except subprocess.CalledProcessError as e:
         # build may have taken us to a place where ProjectMap doesn't work
         os.chdir(save_dir)  
-        bs.Export().create_failing_test("mesa-scons-buildtest", str(e))
+        Export().create_failing_test("mesa-scons-buildtest", str(e))
 
 if __name__ == '__main__':
     main()

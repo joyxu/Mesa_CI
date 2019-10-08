@@ -2,15 +2,19 @@ import os
 import os.path as path
 import subprocess
 import sys
-sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..",
-                          "repos", "mesa_ci"))
-import build_support as bs
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from build_support import build
+from export import Export
+from gtest import GTest
+from options import Options
+from project_map import ProjectMap
 
 
 class MiBuilderTest():
     def __init__(self):
-        self._o = bs.Options()
-        self._pm = bs.ProjectMap()
+        self._o = Options()
+        self._pm = ProjectMap()
         self._build_root = self._pm.build_root()
         self._hw = self._o.hardware
 
@@ -35,13 +39,13 @@ class MiBuilderTest():
         if not os.path.exists(os.path.join(self._build_root, 'bin', mi_bin)):
             print('No mi_builder was built/installed for this platform.')
             return 0
-        gtest = bs.GTest(self._build_root + '/bin', [mi_bin])
+        gtest = GTest(self._build_root + '/bin', [mi_bin])
         gtest.run_tests()
-        bs.Export().export_tests()
+        Export().export_tests()
 
     def clean(self):
         pass
 
 
 if __name__ == "__main__":
-    bs.build(MiBuilderTest())
+    build(MiBuilderTest())

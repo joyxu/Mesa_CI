@@ -3,8 +3,10 @@ import sys
 import os
 import os.path as path
 sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..",
-                          "repos", "mesa_ci"))
-import build_support as bs
+                          "repos", "mesa_ci", "build_support"))
+from build_support import build
+from builders import FulsimBuilder
+from options import Options
 
 # Note: Override version with FULSIM_<HARDWARE>_VERSION env. variable
 fulsim_stable_versions = {
@@ -13,11 +15,11 @@ fulsim_stable_versions = {
 
 
 def main():
-    if bs.Options().arch != "m64":
+    if Options().arch != "m64":
         print("Unsupported arch (%s), not installing fulsim!"
-              % bs.Options().arch)
+              % Options().arch)
         sys.exit(1)
-    hardware = bs.Options().hardware.replace('_iris', '')
+    hardware = Options().hardware.replace('_iris', '')
     if hardware not in fulsim_stable_versions:
         print("There is no fulsim for this platform!")
         sys.exit(0)
@@ -38,8 +40,8 @@ def main():
                                     + '_VERSION')
     if not fulsim_ver:
         fulsim_ver = fulsim_stable_versions[hardware]
-    b = bs.FulsimBuilder(buildnum=fulsim_ver)
-    bs.build(b)
+    b = FulsimBuilder(buildnum=fulsim_ver)
+    build(b)
 
 
 if __name__ == '__main__':

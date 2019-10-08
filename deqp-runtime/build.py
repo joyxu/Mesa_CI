@@ -1,17 +1,20 @@
 #!/usr/bin/python
 
-import os
 import sys
-import subprocess
-
+import os
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
-                             "..", "repos", "mesa_ci"))
-import build_support as bs
+                             "..", "repos", "mesa_ci", "build_support"))
+from testers import DeqpTester, DeqpTrie, ConfigFilter
+from build_support import build
+from options import Options
+from project_map import ProjectMap
+from utils.command import run_batch_command
+from utils.utils import get_conf_file, mesa_version
 
 
 class SlowTimeout:
     def __init__(self):
-        self.hardware = bs.Options().hardware
+        self.hardware = Options().hardware
 
     def GetDuration(self):
         return 500
@@ -20,8 +23,8 @@ class SlowTimeout:
 class DeqpRuntimeLister():
     def __init__(self, binary):
         self.binary = binary
-        self.o = bs.Options()
-        self.pm = bs.ProjectMap()
+        self.o = Options()
+        self.pm = ProjectMap()
         self.blacklist_txt = None
         self.version = None
         bd = self.pm.project_build_dir()
@@ -71,10 +74,10 @@ class DeqpRuntimeLister():
         os.chdir(deqp_dir)
         cmd = [self.binary,
                "--deqp-runmode=xml-caselist"]
-        bs.run_batch_command(cmd, env=env)
-        all_tests = bs.DeqpTrie()
+        run_batch_command(cmd, env=env)
+        all_tests = DeqpTrie()
         all_tests.add_xml(cases_xml)
-        whitelist = bs.DeqpTrie()
+        whitelist = DeqpTrie()
         whitelist.add_txt(whitelist_txt)
         all_tests.filter_whitelist(whitelist)
         os.chdir(self.pm.project_build_dir())
@@ -82,7 +85,7 @@ class DeqpRuntimeLister():
 
     def blacklist(self, all_tests):
         if self.blacklist_txt:
-            blacklist = bs.DeqpTrie()
+            blacklist = DeqpTrie()
             blacklist.add_txt(self.blacklist_txt)
             all_tests.filter(blacklist)
         # The following test exceeds 30 seconds on all platforms, so
@@ -93,8 +96,8 @@ class DeqpRuntimeLister():
 
 class DeqpRuntimeBuilder(object):
     def __init__(self):
-        self.pm = bs.ProjectMap()
-        self.o = bs.Options()
+        self.pm = ProjectMap()
+        self.o = Options()
         self.env = {}
         self.version = None
 
@@ -105,11 +108,11 @@ class DeqpRuntimeBuilder(object):
         pass
 
     def test(self):
-        t = bs.DeqpTester(runtime=30)
-        all_results = bs.DeqpTrie()
+        t = DeqpTester(runtime=30)
+        all_results = DeqpTrie()
 
         if not self.version:
-            self.version = bs.mesa_version()
+            self.version = mesa_version()
 
         modules = ["gles2", "gles3", "gles31"]
 
@@ -122,9 +125,9 @@ class DeqpRuntimeBuilder(object):
                              self.env)
             all_results.merge(results)
 
-        config = bs.get_conf_file(self.o.hardware, self.o.arch,
+        config = get_conf_file(self.o.hardware, self.o.arch,
                                   project=self.pm.current_project())
-        t.generate_results(all_results, bs.ConfigFilter(config, self.o))
+        t.generate_results(all_results, ConfigFilter(config, self.o))
 
 
-bs.build(DeqpRuntimeBuilder(), time_limit=SlowTimeout())
+build(DeqpRuntimeBuilder(), time_limit=SlowTimeout())

@@ -1,18 +1,20 @@
 #!/usr/bin/python
+import os
 import sys
-import os.path as path
-sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..",
-                          "repos", "mesa_ci"))
-import build_support as bs
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from build_support import build
+from builders import MesonBuilder
+from options import Options
 
 
 def main():
-    if bs.Options().arch != "m64":
+    if Options().arch != "m64":
         print("Unsupported arch (%s), not building sim-drm!"
-              % bs.Options().arch)
+              % Options().arch)
         sys.exit(1)
-    b = bs.builders.MesonBuilder(install=True)
-    bs.build(b)
+    b = MesonBuilder(install=True)
+    build(b)
 
 
 if __name__ == '__main__':

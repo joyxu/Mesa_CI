@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
+import os
 import sys
-import os.path as path
-sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..",
-                          "repos", "mesa_ci"))
-import build_support as bs
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from build_support import build
+from testers import CrucibleTester
 
 
 if __name__ == "__main__":
-    bs.build(bs.CrucibleTester())
+    build(CrucibleTester())

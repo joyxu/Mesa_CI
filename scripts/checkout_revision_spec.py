@@ -3,8 +3,10 @@
 import argparse
 import os
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "..")))
-import build_support as bs
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from repo_set import RepoSet, BuildSpecification
+
 
 parser = argparse.ArgumentParser(description="checks out branches and commits")
 parser.add_argument('--branch', type=str, default="mesa_master",
@@ -13,9 +15,9 @@ parser.add_argument('commits', metavar='commits', type=str, nargs='*',
                     help='commits to check out, in repo=sha format')
 args = parser.parse_args()
 
-repos = bs.RepoSet()
+repos = RepoSet()
 repos.clone()
 repos.fetch()
-bs.BuildSpecification().checkout(args.branch, args.commits)
+BuildSpecification().checkout(args.branch, args.commits)
 
 

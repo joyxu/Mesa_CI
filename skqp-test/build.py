@@ -1,13 +1,16 @@
 import sys
 import os
-import os.path as path
-sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..",
-                          "repos", "mesa_ci"))
-import build_support as bs
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from testers import SkqpTester
+from build_support import build
+from options import Options
+
+
 if __name__ == "__main__":
     env = {}
-    if 'iris' in bs.Options().hardware:
+    if 'iris' in Options().hardware:
         env['MESA_LOADER_DRIVER_OVERRIDE'] = 'iris'
 
-    bs.Options().update_env(env)
-    bs.build(bs.SkqpTester(env=env))
+    Options().update_env(env)
+    build(SkqpTester(env=env))

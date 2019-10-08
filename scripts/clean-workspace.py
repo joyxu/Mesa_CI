@@ -5,9 +5,11 @@ import sys
 import urllib2
 import ast
 import time
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), ".."))
-import build_support as bs
-server = bs.ProjectMap().build_spec().find("build_master").attrib["host"]
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from project_map import ProjectMap
+
+server = ProjectMap().build_spec().find("build_master").attrib["host"]
 
 url = "http://" + server + "/computer/api/python"
 f=urllib2.urlopen(url)

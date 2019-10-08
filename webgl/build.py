@@ -16,10 +16,20 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import http.server
 import socketserver
-import sys
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci", "build_support"))
+from build_support import build
+from dependency_graph import DependencyGraph
+from export import Export
+from options import Options
+from project_map import ProjectMap
+from repo_set import RepoSet
+from testers import ConfigFilter
+from utils.check_gpu_hang import check_gpu_hang
+from utils.command import run_batch_command
+from utils.utils import (get_libdir, get_libgl_drivers, mesa_version,
+                         get_conf_file)
 
-sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..", "repos", "mesa_ci"))
-import build_support as bs
 
 class QuietServer(http.server.SimpleHTTPRequestHandler):
     def log_request(self, code='-', size='-'):
@@ -129,8 +139,8 @@ class TestLister(object):
         self._opts = options
         self._workers = []
         self._mutex = threading.Lock()
-        conf_filename = bs.get_conf_file(options.hardware, options.arch, project="webgl")
-        self._conf_file = bs.ConfigFilter(conf_filename, self._opts)
+        conf_filename = get_conf_file(options.hardware, options.arch, project="webgl")
+        self._conf_file = ConfigFilter(conf_filename, self._opts)
         self._blacklist_file = path.splitext(conf_filename)[0] + "_blacklist.conf"
         test_dir = project_map.build_root() + "/../test"
         if not os.path.exists(test_dir):
@@ -155,7 +165,7 @@ class TestLister(object):
             t.join()
 
         if self._opts.retest_path:
-            self._tests = bs.TestLister(self._opts.retest_path + "/test/").RetestIncludes("webgl")
+            self._tests = TestLister(self._opts.retest_path + "/test/").RetestIncludes("webgl")
         else:
             self._tests = self._workers[0].tests()
         self._test_count = len(self._tests)
@@ -250,10 +260,10 @@ class TestLister(object):
         self._mutex.release()
             
     def write_junit(self):
-        deps = bs.DependencyGraph("webgl",
-                                  bs.Options(args=[sys.argv[0]]),
+        deps = DependencyGraph("webgl",
+                                  Options(args=[sys.argv[0]]),
                                   repo_set=None)
-        missing_commits = bs.RepoSet().branch_missing_revisions(deps)
+        missing_commits = RepoSet().branch_missing_revisions(deps)
         with open(self._result_file, "w") as out_xml:
             out_xml.write(' <testsuites>\n')
             for suite, tests in self._suites.items():
@@ -276,13 +286,13 @@ class WebGLTester(object):
     """tests webgl via chromium/selenium"""
     def __init__(self):
         self._driver = None
-        self._opts = bs.Options()
-        self.pm = bs.ProjectMap()
+        self._opts = Options()
+        self.pm = ProjectMap()
         self._lister = TestLister(self._opts, self.pm)
         build_root = self.pm.build_root()
-        libdir = bs.get_libdir()
+        libdir = get_libdir()
         env = { "LD_LIBRARY_PATH" : ':'.join([libdir, libdir + "/dri"]),
-                      "LIBGL_DRIVERS_PATH": bs.get_libgl_drivers()}
+                      "LIBGL_DRIVERS_PATH": get_libgl_drivers()}
         if "iris" in self._opts.hardware:
             env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
 
@@ -294,9 +304,9 @@ class WebGLTester(object):
     def clean(self):
         pass
     def test(self):
-        version = bs.mesa_version()
+        version = mesa_version()
         if "19.2" in version or "19.1" in version:
-            if "iris" in bs.Options().hardware:
+            if "iris" in Options().hardware:
                 return
         for k,v in self._env.items():
             os.environ[k] = v
@@ -322,10 +332,10 @@ class WebGLTester(object):
         # jenkins can access it.
         cmd = ["cp", "-a",
                self.pm.build_root() + "/../test", self.pm.source_root()]
-        bs.run_batch_command(cmd)
+        run_batch_command(cmd)
 
-        bs.check_gpu_hang()
-        bs.Export().export_tests()
+        check_gpu_hang()
+        Export().export_tests()
 
 class Timeout:
     def __init__(self):
@@ -334,7 +344,7 @@ class Timeout:
         return 90
     
 def main():
-    bs.build(WebGLTester(),time_limit=Timeout())
+    build(WebGLTester(),time_limit=Timeout())
 
 if __name__ == '__main__':
     main()
