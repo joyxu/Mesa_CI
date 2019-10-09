@@ -373,7 +373,6 @@
         <string>jekstrand_gl</string>
         <string>jekstrand_vulkan</string>
         <string>jljusten</string>
-        <string>jljusten_ats</string>
         <string>jljusten_internal</string>
         <string>jljusten_tgl</string>
         <string>jmcasanova</string>
@@ -437,8 +436,6 @@
         <string>nir_shader_cache_test_daily</string>
         <string>nir_torture_daily</string>
         <string>shader_cache_test</string>
-        <string>simdrm_ats</string>
-        <string>simdrm_dg1</string>
         <string>simdrm_tgl</string>
         <string>vulkancts</string>
         <string>vulkancts_daily</string>

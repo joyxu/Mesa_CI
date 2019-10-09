@@ -55,7 +55,6 @@
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
               <string>test-single-arch</string>
-              <string>test-single-arch-ats</string>
               <string>test-single-arch-tgl</string>
               <string>test-single-arch-vulkan</string>
               <string>mesa</string>
@@ -97,7 +96,6 @@
             <a class="string-array">
               <string>bdwgt2</string>
               <string>bdwgt3e</string>
-              <string>ats</string>
               <string>bsw</string>
               <string>builder</string>
               <string>bxt</string>

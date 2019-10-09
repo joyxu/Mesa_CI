@@ -86,8 +86,6 @@
               <string>skqp-test</string>
               <string>test-shader-cache</string>
               <string>test-single-arch</string>
-              <string>test-single-arch-ats</string>
-              <string>test-single-arch-dg1</string>
               <string>test-single-arch-simdrm</string>
               <string>test-single-arch-tgl</string>
               <string>test-single-arch-vulkan</string>
@@ -106,14 +104,12 @@
               <string>bdwgt2</string>
               <string>bdwgt3e</string>
               <string>bdw_iris</string>
-              <string>ats</string>
               <string>bsw</string>
               <string>builder</string>
               <string>bxt</string>
               <string>byt</string>
               <string>cfl</string>
               <string>cml</string>
-              <string>dg1</string>
               <string>g33</string>
               <string>g45</string>
               <string>g965</string>
