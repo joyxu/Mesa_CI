@@ -18,6 +18,7 @@ import http.server
 import socketserver
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
                              "..", "repos", "mesa_ci", "build_support"))
+from bisect_test import TestLister
 from build_support import build
 from dependency_graph import DependencyGraph
 from export import Export
@@ -131,7 +132,7 @@ class TestExecutor:
                                        test_out)
 
         
-class TestLister(object):
+class WebGLTestLister(object):
     def __init__(self, options, project_map):
         self._test_count = 0
         self._percentage = 0
@@ -288,7 +289,7 @@ class WebGLTester(object):
         self._driver = None
         self._opts = Options()
         self.pm = ProjectMap()
-        self._lister = TestLister(self._opts, self.pm)
+        self._lister = WebGLTestLister(self._opts, self.pm)
         build_root = self.pm.build_root()
         libdir = get_libdir()
         env = { "LD_LIBRARY_PATH" : ':'.join([libdir, libdir + "/dri"]),
