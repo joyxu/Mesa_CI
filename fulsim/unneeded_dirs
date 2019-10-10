@@ -1,0 +1,18 @@
+#per jljusten
+AgentBond
+ALiX
+AxeCommonLib
+Dom
+grits
+lily
+LilyFramework
+LiLySimplificationTool
+LiLyX
+python
+
+#unneeded dlls (windows stuff?)
+AxeCommon.dll
+CSharpUtilities.dll
+
+#large txt file (presumably unneeded)
+TestCategories.txt
