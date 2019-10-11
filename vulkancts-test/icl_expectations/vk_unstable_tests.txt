@@ -20,6 +20,7 @@ dEQP-VK.wsi.xcb.swapchain
 dEQP-VK.wsi.xlib.incremental_present
 dEQP-VK.wsi.xlib.surface
 dEQP-VK.wsi.xlib.swapchain
+dEQP-VK.texture.filtering.2d_array.sizes.63x63x63.linear_mipmap_nearest
 
 # gpu hang, due to kernel regression (https://jira.devtools.intel.com/browse/MD5-591)
 dEQP-VK.binding_model.shader_access.secondary_cmd_buf.with_template.sampler_immutable.tess_eval.multiple_discontiguous_descriptors
