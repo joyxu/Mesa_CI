@@ -7,11 +7,19 @@ sys.path.append(path.join(path.dirname(path.abspath(sys.argv[0])), "..",
 from build_support import build
 from builders import FulsimBuilder
 from options import Options
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
+                             "..", "repos", "mesa_ci_internal"))
+try:
+    import internal_build_support.vars as internal_vars
+except ModuleNotFoundError:
+    internal_vars = None
 
 # Note: Override version with FULSIM_<HARDWARE>_VERSION env. variable
 fulsim_stable_versions = {
     'tgl_sim': '103429',
 }
+if internal_vars:
+    fulsim_stable_versions.update(internal_vars.fulsim_stable_versions)
 
 
 def main():
