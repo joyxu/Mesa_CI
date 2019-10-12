@@ -33,6 +33,7 @@ import sys
 import time
 
 build_support_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "repos", "mesa_ci"))
+internal_build_support_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "repos", "mesa_ci_internal"))
 
 
 def try_clone(repo, repo_dir):
@@ -82,6 +83,25 @@ if not os.path.exists(build_support_dir):
                 sys.exit(1)
 bs_repo = git.Repo(build_support_dir)
 
+if not os.path.exists(internal_build_support_dir):
+    repo_dir = os.path.dirname(internal_build_support_dir)
+    if not os.path.exists(repo_dir):
+        os.makedirs(repo_dir)
+    try:
+        try_clone("git://otc-mesa-ci.local/git/mesa_ci_internal",
+                  internal_build_support_dir)
+    except git.exc.GitCommandError:
+        try:
+            try_clone("ssh://git@gitlab.devtools.intel.com:29418/mesa_ci/mesa_ci_internal.git",
+                      internal_build_support_dir)
+        except git.exc.GitCommandError:
+            print("WARN: could not clone mesa_ci_internal")
+
+# Don't initialize an empty dir as a repo (i.e. if clone failed)
+internal_bs_repo = None
+if os.path.exists(internal_build_support_dir):
+    internal_bs_repo = git.Repo(internal_build_support_dir)
+
 parser = argparse.ArgumentParser(description="checks out branches and commits")
 parser.add_argument('--branch', type=str, default="",
                     help="The branch to base the checkout on. (default: %(default)s)")
@@ -96,12 +116,18 @@ args = parser.parse_args()
 # 'Commits' parameter is searched for mesa_ci repo, which fetch sources uses to
 # check out instead of 'origin/master'
 build_support_branch = 'origin/master'
+internal_build_support_branch = 'origin/master'
 if args.commits:
     for c in args.commits:
         repo, sha = c.lower().split('=')
         if repo == 'mesa_ci':
             build_support_branch = sha
+        if repo == 'mesa_ci_internal':
+            internal_build_support_branch = sha
+
 retry_checkout(bs_repo, build_support_branch, fatal=True)
+if internal_bs_repo:
+    retry_checkout(internal_bs_repo, internal_build_support_branch)
 
 # Load build_support modules
 sys.path.insert(0, os.path.join(build_support_dir, "build_support"))
