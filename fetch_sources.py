@@ -35,9 +35,9 @@ import time
 build_support_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "repos", "mesa_ci"))
 
 
-def try_clone(repo):
+def try_clone(repo, repo_dir):
     print('Trying to clone build support from {}'.format(repo))
-    git.Repo.clone_from(repo, build_support_dir)
+    git.Repo.clone_from(repo, repo_dir)
 
 
 if not os.path.exists(build_support_dir):
@@ -46,13 +46,15 @@ if not os.path.exists(build_support_dir):
         os.makedirs(repo_dir)
 
     try:
-        try_clone("git://otc-mesa-ci.local/git/mesa_ci")
+        try_clone("git://otc-mesa-ci.local/git/mesa_ci", build_support_dir)
     except git.exc.GitCommandError:
         try:
-            try_clone("git://otc-mesa-ci.jf.intel.com/git/mesa_ci")
+            try_clone("git://otc-mesa-ci.jf.intel.com/git/mesa_ci",
+                      build_support_dir)
         except git.exc.GitCommandError:
             try:
-                try_clone("https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git")
+                try_clone("https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git",
+                          build_support_dir)
             except git.exc.GitCommandError:
                 print("ERROR: could not clone sources")
                 sys.exit(1)
