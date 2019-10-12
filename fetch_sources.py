@@ -40,6 +40,28 @@ def try_clone(repo, repo_dir):
     git.Repo.clone_from(repo, repo_dir)
 
 
+def retry_checkout(repo, branch, fatal=False):
+    repo_name = repo.git.working_dir.split('/')[-1]
+    fail = True
+    for i in range(15):
+        repo.remotes['origin'].fetch()
+        try:
+            print("Checking out " + repo_name
+                  + " commit (try {}/15)".format(i+1))
+            repo.git.checkout([branch])
+            fail = False
+        except git.GitCommandError:
+            print("Unable to checkout " + repo_name
+                  + " commit, retrying in 15s..")
+            time.sleep(15)
+        else:
+            break
+    if fail and fatal:
+        raise Exception("ERROR: Unable to checkout " + repo_name + " commit.")
+    elif fail:
+        print("Warn: Unable to checkout " + repo_name + " commit.")
+
+
 if not os.path.exists(build_support_dir):
     repo_dir = os.path.dirname(build_support_dir)
     if not os.path.exists(repo_dir):
@@ -79,20 +101,7 @@ if args.commits:
         repo, sha = c.lower().split('=')
         if repo == 'mesa_ci':
             build_support_branch = sha
-fail = True
-for i in range(15):
-    bs_repo.remotes['origin'].fetch()
-    try:
-        print("Checking out mesa_ci commit (try {}/15)".format(i+1))
-        bs_repo.git.checkout([build_support_branch])
-        fail = False
-    except git.GitCommandError:
-        print("Unable to checkout mesa_ci commit, retrying in 15s..")
-        time.sleep(15)
-    else:
-        break
-if fail:
-    raise Exception("ERROR: Unable to checkout mesa_ci commit.")
+retry_checkout(bs_repo, build_support_branch, fatal=True)
 
 # Load build_support modules
 sys.path.insert(0, os.path.join(build_support_dir, "build_support"))
