@@ -100,7 +100,7 @@ class VulkanTester(object):
                "ANV_ABORT_ON_DEVICE_LOSS" : "true"}
         tester = DeqpTester()
         binary = pm.build_root() + "/opt/deqp/modules/vulkan/deqp-vk"
-        params = ["--deqp-surface-type=fbo"]
+        params = ["--deqp-surface-type=fbo", "--deqp-shadercache=disable"]
         if os.path.exists(pm.project_source_dir("vulkancts") + "/external/vulkancts/mustpass/1.1.2"):
             params.append("--deqp-shadercache=disable")
         o = Options()
