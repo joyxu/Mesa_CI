@@ -608,6 +608,7 @@
       <spirvtools branch="0e68bb36"/>
       <spirvheaders branch="a2c529b"/>
       <webgl branch="e2aa68814"/>
+      <crucible branch="f59322f"/>
     </branch>
 
     <branch name="mesa_19.1_staging" project="all-test-vulkan">
@@ -623,6 +624,7 @@
       <spirvtools branch="0e68bb36"/>
       <spirvheaders branch="a2c529b"/>
       <webgl branch="e2aa68814"/>
+      <crucible branch="f59322f"/>
     </branch>
 
     <branch name="vulkancts" project="vulkancts-full">
