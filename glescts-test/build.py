@@ -78,13 +78,22 @@ class GLESCTSList(object):
         return all_tests
 
     def blacklist(self, all_tests):
+        blacklist = DeqpTrie()
         blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware + "_blacklist.txt"
         if not os.path.exists(blacklist_txt):
             blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware[:3] + "_blacklist.txt"
-        if not os.path.exists(blacklist_txt):
-            return all_tests
-        blacklist = DeqpTrie()
-        blacklist.add_txt(blacklist_txt)
+        if os.path.exists(blacklist_txt):
+            blacklist.add_txt(blacklist_txt)
+        internal_conf_dir = (self.pm.source_root()
+                             + "/repos/mesa_ci_internal/glescts-test/")
+        internal_blacklist_txt = internal_conf_dir + "blacklist.conf"
+        if os.path.exists(internal_blacklist_txt):
+            blacklist.add_txt(internal_blacklist_txt)
+        internal_platform_blacklist_txt = (internal_conf_dir + self.o.hardware
+                                           + "_blacklist.conf")
+        if os.path.exists(internal_platform_blacklist_txt):
+            blacklist.add_txt(internal_platform_blacklist_txt)
+
         all_tests.filter(blacklist)
         return all_tests
 
