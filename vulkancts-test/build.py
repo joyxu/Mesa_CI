@@ -68,20 +68,26 @@ class VulkanTestList(object):
     def blacklist(self, all_tests):
         # filter tests for the platform
         o = Options()
-        blacklist_file = self.pm.project_build_dir() + o.hardware + "_expectations/vk_unstable_tests.txt"
-        if not os.path.exists(blacklist_file):
-            blacklist_file = self.pm.project_build_dir() + o.hardware[:3] + "_expectations/vk_unstable_tests.txt"
         blacklist = DeqpTrie()
-        blacklist.add_txt(blacklist_file)
-        all_tests.filter(blacklist)
-        blacklist = DeqpTrie()
-        global_blacklist_file = (self.pm.project_build_dir() + '/'
-                                 + "blacklist.txt")
-        blacklist.add_txt(global_blacklist_file)
+        blacklist_files = {
+            self.pm.project_build_dir() + o.hardware + "_blacklist.conf",
+            self.pm.project_build_dir() + o.hardware[:3] + "_blacklist.conf",
+            self.pm.project_build_dir() + '/' + "blacklist.conf",
+            self.pm.source_root() + ("/repos/mesa_ci_internal/vulkancts-test/"
+                                     + "blacklist.conf"),
+            self.pm.source_root() + ("/repos/mesa_ci_internal/vulkancts-test/"
+                                     + o.hardware + "_blacklist.conf"),
+        }
+
         if o.type != "daily" and not o.retest_path:
-            blacklist.add_txt(self.pm.project_build_dir()
-                              + "/non-daily_blacklist.txt")
+            blacklist_files.add(self.pm.project_build_dir()
+                                + "/non-daily_blacklist.conf")
+
+        for blacklist_file in blacklist_files:
+            if os.path.exists(blacklist_file):
+                blacklist.add_txt(blacklist_file)
         all_tests.filter(blacklist)
+
 
 class VulkanTester(object):
     def build(self):
