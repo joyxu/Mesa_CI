@@ -16,6 +16,7 @@ dEQP-GLES31.functional.ssbo.atomic.compswap
 dEQP-GLES31.functional.tessellation.shader_input_output.barrier
 
 # flaky on ICL
+dEQP-EGL.functional.multithread.window
 dEQP-GLES2.functional.shaders.random.all_features.fragment.16
 dEQP-GLES3.functional.fbo.blit.depth_stencil.stencil_index8_scale
 dEQP-GLES3.functional.shaders.random.all_features.fragment.16
