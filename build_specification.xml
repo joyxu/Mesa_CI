@@ -955,6 +955,10 @@
       <mesa branch="internal-gitlab/pnmanolova/jenkins"/>
     </branch>
 
+    <branch name="anholt" project="test-single-arch-vulkan">
+      <mesa branch="ci_mesa_repo/dev/anholt"/>
+    </branch>
+
   </branches>
 
 </build_specification>
