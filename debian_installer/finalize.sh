@@ -49,6 +49,8 @@ echo 'startup_states: highstate' > /etc/salt/minion.d/startup.conf
 
 # Add our nfs mount to fstab
 echo 'otc-mesa-ci.local:/srv/jenkins       /mnt/jenkins    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
+# Add fulsim_cache mount
+echo 'otc-mesa-ci.local:/mnt/space/fulsim_cache       /mnt/fulsim_cache    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
 
 # Enable DHCP on any existing and future ethernet interfaces
 mkdir -p /etc/systemd/network
