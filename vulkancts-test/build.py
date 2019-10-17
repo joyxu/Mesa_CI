@@ -69,24 +69,29 @@ class VulkanTestList(object):
         # filter tests for the platform
         o = Options()
         blacklist = DeqpTrie()
-        blacklist_files = {
-            self.pm.project_build_dir() + o.hardware + "_blacklist.conf",
-            self.pm.project_build_dir() + o.hardware[:3] + "_blacklist.conf",
+
+        hw_blacklist = (self.pm.project_build_dir() + o.hardware
+                        + "_blacklist.conf")
+        if not os.path.exists(hw_blacklist):
+            hw_blacklist = (self.pm.project_build_dir() + o.hardware[:3] +
+                            "_blacklist.conf")
+        blacklist_files = [
+            hw_blacklist,
             self.pm.project_build_dir() + '/' + "blacklist.conf",
             self.pm.source_root() + ("/repos/mesa_ci_internal/vulkancts-test/"
                                      + "blacklist.conf"),
             self.pm.source_root() + ("/repos/mesa_ci_internal/vulkancts-test/"
                                      + o.hardware + "_blacklist.conf"),
-        }
+        ]
 
         if o.type != "daily" and not o.retest_path:
-            blacklist_files.add(self.pm.project_build_dir()
-                                + "/non-daily_blacklist.conf")
+            blacklist_files.append(self.pm.project_build_dir()
+                                   + "/non-daily_blacklist.conf")
 
         for blacklist_file in blacklist_files:
             if os.path.exists(blacklist_file):
                 blacklist.add_txt(blacklist_file)
-        all_tests.filter(blacklist)
+                all_tests.filter(blacklist)
 
 
 class VulkanTester(object):
