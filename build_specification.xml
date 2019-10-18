@@ -329,7 +329,7 @@
     </project>
 
     <project name="deqp-full">
-      <prerequisite name="deqp-test" hardware="hsw,bdw,snb,ivb,gen9,gen9_iris,icl,icl_iris" shard="5"/>
+      <prerequisite name="deqp-test" hardware="hsw,bdw,snb,ivb,gen9,icl" shard="5"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     hardware="ilk,g33,g45,g965,byt,bsw,gen9atom" shard="4"/>
