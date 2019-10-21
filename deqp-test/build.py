@@ -54,6 +54,9 @@ class DeqpBuilder(object):
         all_results = DeqpTrie()
 
         modules = ["gles2", "egl"]
+        if "iris" in self.o.hardware:
+            modules = ["gles2"]
+
         if self.supports_gles_3():
             modules += ["gles3"]
         if self.supports_gles_31():
