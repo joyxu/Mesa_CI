@@ -404,7 +404,6 @@
       <remote name="global_logic" repo="https://gitlab.freedesktop.org/GL/mesa.git"/>
       <remote name="karolherbst" repo="https://github.com/karolherbst/mesa.git"/>
       <remote name="cwabbott" repo="https://gitlab.freedesktop.org/cwabbott0/mesa.git"/>
-      <remote name="pzanoni" repo="https://gitlab.freedesktop.org/pzanoni/mesa.git"/>
       <!-- Erik Faye-Lund erik.faye-lund@collabora.com -->
       <remote name="kusma" repo="https://gitlab.freedesktop.org/kusma/mesa"/>
       <!-- Gert Wollny gw.fossdev@gmail.com -->
@@ -933,7 +932,7 @@
     </branch>
 
     <branch name="pzanoni" project="test-single-arch-vulkan">
-      <mesa branch="pzanoni/for-ci"/>
+      <mesa branch="ci_mesa_repo/dev/pzanoni"/>
     </branch>
 
     <branch name="ibriano" project="test-single-arch-vulkan">
