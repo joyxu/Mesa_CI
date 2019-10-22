@@ -63,6 +63,22 @@ Name=e*
 DHCP=yes
 EOF
 
+#re-enabling debian stable to get salt minion dependencies
+echo "deb http://linux-ftp.jf.intel.com/pub/mirrors/debian stable main" >> /etc/apt/sources.list.d/debian_stable.list
+proxy="http://proxy-jf.intel.com:911"
+cat > /etc/apt/apt.conf.d/99proxy << EOF
+Acquire::http::Proxy "http://proxy-jf.intel.com:911";
+Acquire::http::Proxy::linux-ftp.jf.intel.com DIRECT;
+EOF
+apt install gpg -y
+https_proxy=$proxy wget https://repo.saltstack.com/apt/debian/9/amd64/latest/SALTSTACK-GPG-KEY.pub
+apt-key add SALTSTACK-GPG-KEY.pub
+echo "deb http://repo.saltstack.com/apt/debian/9/amd64/latest stretch main" > /etc/apt/sources.list.d/saltstack.list
+apt update
+apt install salt-minion salt-common -y
+unset proxy
+
+
 # setup resolve for systemd-resolved
 rm /etc/resolv.conf
 ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
