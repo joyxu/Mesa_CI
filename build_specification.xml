@@ -408,7 +408,6 @@
       <remote name="kusma" repo="https://gitlab.freedesktop.org/kusma/mesa"/>
       <!-- Gert Wollny gw.fossdev@gmail.com -->
       <remote name= "gerddie" repo="https://gitlab.freedesktop.org/gerddie/mesa"/>
-      <remote name= "ibriano" repo="https://gitlab.freedesktop.org/ibriano/mesa"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
@@ -936,7 +935,7 @@
     </branch>
 
     <branch name="ibriano" project="test-single-arch-vulkan">
-      <mesa branch="ibriano/leeroy"/>
+      <mesa branch="ci_mesa_repo/dev/Sachiel"/>
     </branch>
 
     <branch name="pendingchaos" project="test-single-arch-vulkan">
