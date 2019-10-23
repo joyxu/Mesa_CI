@@ -112,8 +112,6 @@ class VulkanTester(object):
         tester = DeqpTester()
         binary = pm.build_root() + "/opt/deqp/modules/vulkan/deqp-vk"
         params = ["--deqp-surface-type=fbo", "--deqp-shadercache=disable"]
-        if os.path.exists(pm.project_source_dir("vulkancts") + "/external/vulkancts/mustpass/1.1.2"):
-            params.append("--deqp-shadercache=disable")
         o = Options()
         cpus = None
         if 'icl' in o.hardware:
