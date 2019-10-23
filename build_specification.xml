@@ -398,7 +398,6 @@
       <remote name="yogesh-marathe" repo="git://github.com/yogesh-marathe/external-mesa"/>
       <remote name="anholt" repo="https://gitlab.freedesktop.org/anholt/mesa.git"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
-      <remote name="cmarcelo-internal" repo="ssh://git@gitlab.devtools.intel.com:29418/cmdeoliv/mesa.git"/>
       <remote name="airlied" repo="https://gitlab.freedesktop.org/airlied/mesa.git"/>
       <remote name="robclark" repo="git://github.com/freedreno/mesa"/>
       <remote name="global_logic" repo="https://gitlab.freedesktop.org/GL/mesa.git"/>
@@ -847,7 +846,7 @@
     </branch>
 
     <branch name="cmarcelo_tgl" project="test-single-arch-tgl">
-      <mesa branch="cmarcelo-internal/jenkins/tgl"/>
+      <mesa branch="internal-gitlab/cmarcelo/jenkins/tgl"/>
     </branch>
 
     <branch name="cmarcelo_iris" project="all-test-iris">
