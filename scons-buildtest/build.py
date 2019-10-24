@@ -34,8 +34,8 @@ class SconsBuilder(object):
 
         env = {}
         Options().update_env(env)
-        run_batch_command(["scons", "-j",
-                              str(cpu_count())], env=env)
+        run_batch_command(["scons", "force_scons=1",
+                           "-j", str(cpu_count())], env=env)
 
         run_batch_command(["git", "clean", "-dfx"])
         os.chdir(save_dir)
