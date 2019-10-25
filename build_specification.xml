@@ -254,7 +254,7 @@
     <!-- all-test has no build.py, and exists only to provide
          dependency relationships. -->
     <project name="all-test">
-      <prerequisite name="scons-buildtest" hardware="builder"/>
+      <!-- <prerequisite name="scons-buildtest" hardware="builder"/> -->
       <prerequisite name="piglit-full"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
@@ -307,7 +307,7 @@
       <prerequisite name="piglit-test" hardware="ilk,g45,g965"/>
       <prerequisite name="piglit-full"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="g33,bsw,byt,gen9atom,gen9atom_iris,icl" shard="4"/>
-      <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
+      <!-- <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/> -->
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="android-buildtest" hardware="builder"/>
       <prerequisite name="deqp-full"/>
@@ -322,7 +322,7 @@
     <project name="test-single-arch-nchery">
       <prerequisite name="piglit-full"/>
       <prerequisite name="piglit-test" hardware="icl"/>
-      <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
+      <!-- <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/> -->
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
