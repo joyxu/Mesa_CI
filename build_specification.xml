@@ -407,6 +407,7 @@
       <remote name="kusma" repo="https://gitlab.freedesktop.org/kusma/mesa"/>
       <!-- Gert Wollny gw.fossdev@gmail.com -->
       <remote name= "gerddie" repo="https://gitlab.freedesktop.org/gerddie/mesa"/>
+      <remote name= "lepton" repo="https://gitlab.freedesktop.org/lepton/mesa.git"/>
     </mesa>
 
     <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
@@ -957,6 +958,9 @@
       <mesa branch="ci_mesa_repo/dev/anholt"/>
     </branch>
 
+    <branch name="lepton" project="test-single-arch-vulkan">
+      <mesa branch="lepton/intel_ci"/>
+    </branch>
   </branches>
 
 </build_specification>
