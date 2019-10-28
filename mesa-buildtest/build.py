@@ -33,6 +33,10 @@ def main():
                 and driver not in ['auto', '']):
             gallium_drivers.append(driver)
 
+    # Temporarily remove panfrost from build until this is merged:
+    # https://gitlab.freedesktop.org/mesa/mesa/merge_requests/2487
+    if 'panfrost' in gallium_drivers:
+        gallium_drivers.remove('panfrost')
     options = [
         '-Dbuild-tests=true',
         '-Dgallium-drivers={}'.format(','.join(gallium_drivers)),
