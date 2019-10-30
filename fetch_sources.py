@@ -169,7 +169,8 @@ def main():
                                repo_set=repos).all_sources(allow_missing=True)
         # the project will not be a prerequisite of itself, but we do
         # need to get its sources.
-        deps.append(project)
+        if project not in deps:
+            deps.append(project)
         repo_names = list(limit_to_repos.keys())
         for repo in repo_names:
             if repo not in deps:
