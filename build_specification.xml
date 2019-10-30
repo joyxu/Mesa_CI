@@ -143,6 +143,12 @@
       <prerequisite name="mesa" hardware="builder"/>
     </project>
 
+    <project name="piglit-test-sim" src_dir="piglit-test">
+      <prerequisite name="sim-drm" hardware="builder"/>
+      <prerequisite name="fulsim"/>
+      <prerequisite name="piglit-test"/>
+    </project>
+
     <project name="piglit-full">
       <prerequisite name="piglit-test"
                     hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris"
@@ -287,9 +293,7 @@
     </project>
 
     <project name="test-single-arch-tgl-sim">
-        <prerequisite name="sim-drm" hardware="builder" arch="m64"/>
-        <prerequisite name="fulsim" hardware="tgl_sim" arch="m64"/>
-        <prerequisite name="piglit-test" hardware="tgl_sim" shard="6" arch="m64"/>
+        <prerequisite name="piglit-test-sim" hardware="tgl_sim" shard="6" arch="m64"/>
     </project>
 
     <project name="test-single-arch-vulkan">
