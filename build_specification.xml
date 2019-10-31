@@ -248,7 +248,14 @@
       <prerequisite name="all-test"/>
       <prerequisite name="vulkancts-full"/>
     </project>
-    
+
+    <project name="test-vulkan">
+      <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
+      <prerequisite name="android-buildtest" hardware="builder"/>
+      <prerequisite name="vulkancts-full"/>
+      <prerequisite name="crucible-full"/>
+    </project>
+
     <!-- all-test has no build.py, and exists only to provide
          dependency relationships. -->
     <project name="all-test">
@@ -644,7 +651,7 @@
       <mesa branch="jekstrand/jenkins_gl"/>
     </branch>
 
-    <branch name="jekstrand_vulkan" project="vulkancts-full">
+    <branch name="jekstrand_vulkan" project="test-vulkan">
       <mesa branch="jekstrand/jenkins_vulkan"/>
     </branch>
 
@@ -668,7 +675,7 @@
       <mesa branch="internal-gitlab/rantogno/tgl/jenkins"/>
     </branch>
 
-    <branch name="antognolli_vulkan" project="vulkancts-full">
+    <branch name="antognolli_vulkan" project="test-vulkan">
       <mesa branch="ci_mesa_repo/dev/antognolli_vulkan"/>
     </branch>
 
@@ -676,7 +683,7 @@
       <mesa branch="ci_mesa_repo/dev/antognolli_iris"/>
     </branch>
 
-    <branch name="kwg_vulkan" project="vulkancts-full">
+    <branch name="kwg_vulkan" project="test-vulkan">
       <mesa branch="ci_mesa_repo/dev/kwg_vulkan"/>
     </branch>
 
@@ -708,7 +715,7 @@
       <mesa branch="tpalli/jenkins"/>
     </branch>
 
-    <branch name="tpalli_vulkancts" project="vulkancts-full">
+    <branch name="tpalli_vulkancts" project="test-vulkan">
       <mesa branch="tpalli/jenkins-vkglcts"/>
       <vulkancts branch="tpalli/master"/>
     </branch>
@@ -717,7 +724,7 @@
       <mesa branch="ci_mesa_repo/dev/curro"/>
     </branch>
 
-    <branch name="curro_vulkan" project="vulkancts-full">
+    <branch name="curro_vulkan" project="test-vulkan">
       <mesa branch="ci_mesa_repo/dev/curro-vk"/>
     </branch>
 
@@ -725,11 +732,11 @@
       <mesa branch="aphogat/jenkins"/>
     </branch>
 
-    <branch name="aphogat_vulkan" project="vulkancts-full">
+    <branch name="aphogat_vulkan" project="test-vulkan">
       <mesa branch="aphogat/jenkins-vulkan"/>
     </branch>
 
-    <branch name="nchery_vulkan" project="vulkancts-full">
+    <branch name="nchery_vulkan" project="test-vulkan">
       <mesa branch="ci_mesa_repo/dev/nchery_vulkan"/>
     </branch>
 
@@ -768,11 +775,11 @@
       <mesa branch="imirkin/jenkins"/>
     </branch>
 
-    <branch name="djdeath_vulkan" project="vulkancts-full">
+    <branch name="djdeath_vulkan" project="test-vulkan">
       <mesa branch="ci_mesa_repo/dev/djdeath_vulkan"/>
     </branch>
 
-    <branch name="djdeath_vulkan_internal" project="vulkancts-full">
+    <branch name="djdeath_vulkan_internal" project="test-vulkan">
       <mesa branch="internal-gitlab/dev/djdeath_vulkan"/>
     </branch>
 
@@ -844,7 +851,7 @@
       <mesa branch="ci_mesa_repo/dev/cmarcelo_gl"/>
     </branch>
 
-    <branch name="cmarcelo_vulkan" project="vulkancts-full">
+    <branch name="cmarcelo_vulkan" project="test-vulkan">
       <mesa branch="ci_mesa_repo/dev/cmarcelo_vulkan"/>
     </branch>
 
