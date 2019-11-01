@@ -676,10 +676,6 @@
       <mesa branch="ci_mesa_repo/dev/antognolli_vulkan"/>
     </branch>
 
-    <branch name="antognolli_iris" project="all-test-iris">
-      <mesa branch="ci_mesa_repo/dev/antognolli_iris"/>
-    </branch>
-
     <branch name="kwg_vulkan" project="test-vulkan">
       <mesa branch="ci_mesa_repo/dev/kwg_vulkan"/>
     </branch>
@@ -870,10 +866,6 @@
 
     <branch name="sagarghuge-tgl-sim" project="test-single-arch-tgl-sim">
       <mesa branch="internal-gitlab/sghuge/jenkins/tgl-simdrm"/>
-    </branch>
-
-    <branch name="sagarghuge_iris" project="all-test-iris">
-      <mesa branch="ci_mesa_repo/dev/sagarghuge_iris"/>
     </branch>
 
     <branch name="yogesh-marathe" project="test-single-arch-vulkan">
