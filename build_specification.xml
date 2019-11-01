@@ -179,13 +179,10 @@
       <prerequisite name="waffle" hardware="builder"/>
     </project>
 
-    <project name="crucible-test-internal"
-             bisect_hardware="tgl"
-             bisect_arch="m64"
-             src_dir="mesa_ci_internal">
-      <prerequisite name="crucible" hardware="builder"/>
-      <prerequisite name="mesa" hardware="builder"/>
-      <prerequisite name="waffle" hardware="builder"/>
+    <project name="crucible-test-sim" src_dir="crucible-test">
+      <prerequisite name="sim-drm" hardware="builder"/>
+      <prerequisite name="fulsim"/>
+      <prerequisite name="crucible-test"/>
     </project>
 
     <project name="crucible-full">
