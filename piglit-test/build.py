@@ -77,6 +77,15 @@ def main():
             Export().import_build_root()
             env.update(fs.get_env())
             jobs = int(multiprocessing.cpu_count() / 2)
+            # Limit # of jobs running piglit/simdrm based on system RAM size.
+            ram_size = ((os.sysconf('SC_PAGE_SIZE') *
+                         os.sysconf('SC_PHYS_PAGES'))/1024**3)
+            # ratio of RAM size to job count is taken from stable simdrm
+            # servers
+            max_jobs = int(ram_size * (3/8))
+            if jobs > max_jobs:
+                jobs = max_jobs
+
         else:
             print("Unable to run simulated hardware in this environment!")
             sys.exit(1)
