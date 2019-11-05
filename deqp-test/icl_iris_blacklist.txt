@@ -33,3 +33,4 @@ dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.isam
 dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.sampler2d
 dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.sampler3d
 dEQP-GLES31.functional.tessellation.invariance.primitive_set.quads_fractional_even_spacing_ccw_point_mode
+dEQP-GLES31.functional.copy_image.mixed.viewclass_128_bits_mixed.srgb8_alpha8_astc_8x5_khr_rgba32ui.texture2d_array_to_texture2d
