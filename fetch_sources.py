@@ -132,9 +132,8 @@ if internal_bs_repo:
 # Load build_support modules
 sys.path.insert(0, os.path.join(build_support_dir, "build_support"))
 from dependency_graph import DependencyGraph
-from project_invoke import RevisionSpecification
 from project_map import ProjectMap
-from repo_set import RepoSet, BuildSpecification
+from repo_set import RepoSet, BuildSpecification, RevisionSpecification
 from options import Options
 
 def main():

@@ -9,9 +9,8 @@ import smtplib
 import sys
 import time
 from bisect_test import retest_failures, TestLister
-from project_invoke import RevisionSpecification
 from project_map import ProjectMap
-from repo_set import RepoSet
+from repo_set import RepoSet, RevisionSpecification
 from utils.command import run_batch_command
 
 current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))

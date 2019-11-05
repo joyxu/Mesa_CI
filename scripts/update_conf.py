@@ -14,8 +14,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
 from bisect_test import TestLister, retest_failures
 from export import convert_rsync_path
 from project_map import ProjectMap
-from project_invoke import RevisionSpecification
-from repo_set import RepoSet
+from repo_set import RepoSet, RevisionSpecification
 from utils.command import run_batch_command
 
 parser = argparse.ArgumentParser(description="updates expected failures")
