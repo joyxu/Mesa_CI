@@ -16,7 +16,7 @@
         "otc-gfxtest-tgl-05.local": {"switch": 2, "outlet": 5},
         "otc-gfxtest-tgl-06.local": {"switch": 2, "outlet": 6},
         "otc-gfxtest-tgl-07.local": {"switch": 2, "outlet": 7},
-        "otc-gfxtest-tgl-08.local": {"switch": 2, "outlet": 8},
+        "otc-gfxtest-tgl-08.local": {"switch": 2, "outlet": 8}
     },
     "switches": {
         "1": {
