@@ -20,13 +20,13 @@ url = "http://" + server + "/computer/api/python"
 f = urlopen(url)
 host_dict = ast.literal_eval(f.read().decode('utf-8'))
 
-def is_excluded():
+def is_excluded(host):
     if ("builder" in host or host == "master" or "simdrm" in host):
         return True
 
 for a_host in host_dict['computer']:
     host = a_host['displayName']
-    if is_excluded():
+    if is_excluded(host):
         continue
     f = { 'token' : 'noauth', 'label' : host}
     url = "http://" + server + "/job/reboot_single/buildWithParameters?" + urlencode(f)
