@@ -664,7 +664,7 @@
       <mesa branch="internal-gitlab/jljusten/jenkins/internal"/>
     </branch>
 
-    <branch name="jljusten_tgl" project="test-single-arch-tgl-gl">
+    <branch name="jljusten_tgl" project="test-single-arch-tgl">
       <mesa branch="internal-gitlab/jljusten/jenkins/tgl"/>
     </branch>
 
