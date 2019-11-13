@@ -113,6 +113,11 @@ parser.add_argument('--revspec', type=str, default="",
 parser.add_argument('commits', metavar='commits', type=str, nargs='*',
                     help='commits to check out, in repo=sha format')
 args = parser.parse_args()
+
+# defensively set sys.argv to a default string, in case an object
+# attempts to instantiate Options()
+sys.argv = ["fetch_sources.py"]
+
 # 'Commits' parameter is searched for mesa_ci repo, which fetch sources uses to
 # check out instead of 'origin/master'
 build_support_branch = 'origin/master'
