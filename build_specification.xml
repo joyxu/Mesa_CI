@@ -427,6 +427,7 @@
     <vkrunner repo="git://github.com/Igalia/vkrunner.git" branch="origin/master"/>
 
     <piglit repo="git://github.com/mesa3d/piglit.git">
+      <remote name="ci_mesa_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/piglit.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/piglit.git"/>
       <!-- Dylan's repository is more stable than the origin, and will
            not trigger builds unnecessarily -->
