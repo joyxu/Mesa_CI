@@ -580,7 +580,7 @@
       <deqp branch="63eb34539"/>
       <drm branch="0a7ad7df"/>
       <glcts branch="9d382ce55"/>
-      <piglit branch="18c2f9965f"/>
+      <piglit branch="26a5583c396b2bcff1d56f69daba05ee939967d2"/>
       <skqp branch="2441c92442"/>
       <vkrunner branch="501009d"/>
       <waffle branch="8a5f502"/>
@@ -598,7 +598,7 @@
       <deqp branch="63eb34539"/>
       <drm branch="0a7ad7df"/>
       <glcts branch="9d382ce55"/>
-      <piglit branch="18c2f9965f"/>
+      <piglit branch="26a5583c396b2bcff1d56f69daba05ee939967d2"/>
       <skqp branch="2441c92442"/>
       <vkrunner branch="501009d"/>
       <waffle branch="8a5f502"/>
