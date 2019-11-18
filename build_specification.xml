@@ -151,11 +151,8 @@
 
     <project name="piglit-full">
       <prerequisite name="piglit-test"
-                    hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris"
+                    hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris,icl,icl_iris"
                     shard="2"/>
-      <prerequisite name="piglit-test"
-                    hardware="icl,icl_iris"
-                    shard="6"/>
       <prerequisite name="piglit-test"
                     only_for_type="daily"
                     hardware="snb,ivb,hsw,bdw,gen9,gen9_iris"
