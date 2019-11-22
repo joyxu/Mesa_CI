@@ -965,6 +965,11 @@
     <branch name="lepton" project="test-single-arch-vulkan">
       <mesa branch="lepton/intel_ci"/>
     </branch>
+
+    <branch name="mareko" project="test-single-arch-vulkan">
+      <mesa branch="ci_mesa_repo/dev/mareko"/>
+    </branch>
+
   </branches>
 
 </build_specification>
