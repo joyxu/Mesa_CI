@@ -86,6 +86,7 @@ def main():
             if jobs > max_jobs:
                 jobs = max_jobs
 
+            test_timeout = 150
         else:
             print("Unable to run simulated hardware in this environment!")
             sys.exit(1)
