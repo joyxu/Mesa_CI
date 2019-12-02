@@ -10,5 +10,4 @@ dEQP-EGL.functional.color_clears.multi_thread.gles2.rgb888_pbuffer
 dEQP-EGL.functional.multithread.window
 dEQP-EGL.functional.multithread.window_context
 dEQP-GLES3.functional.fbo.color.repeated_clear.blit
-dEQP-GLES3.functional.fbo.color.repeated_clear.blit.rbo.rg8
 dEQP-GLES3.functional.fbo.color.repeated_clear.sample.tex2d.rgba16i
