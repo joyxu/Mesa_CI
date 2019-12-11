@@ -27,6 +27,28 @@
 
 mkdir -p /etc/salt/minion.d/
 
+# Options for roles are
+# conformance : jenkins test nodes (deqp, piglit, cts, etc)
+# performance : jenkins performance testing (trex, etc)
+# builder     : jenkins build node
+# jenkins     : Jenkins server
+if [ `cat /etc/hostname | grep ^otc-gfxperf-` ]; then
+# Add the master to point at to the machine
+cat > /etc/salt/minion.d/master.conf << EOF
+master: 192.168.1.1
+master_finger: 1f:69:bc:a8:31:0f:c5:75:17:bc:4f:d6:9e:ab:35:fb:f1:11:19:52:ee:63:27:7f:e8:4b:b1:59:8d:d3:cb:82
+EOF
+
+cat > /etc/salt/minion.d/grain.conf << EOF
+grains:
+  roles:
+    - performance
+EOF
+
+# Add our nfs mount to fstab
+echo 'otc-mesa-android.local:/srv/jenkins       /mnt/jenkins    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
+
+elif [ `cat /etc/hostname | grep ^otc-gfxtest-` ]; then
 # Add the master to point at to the machine
 cat > /etc/salt/minion.d/master.conf << EOF
 master: 192.168.1.1
@@ -34,23 +56,23 @@ master_finger: ba:42:e5:d8:e6:3f:ec:ff:a4:7b:c3:cd:24:74:2a:8b
 hash_type: md5
 EOF
 
-# Options for roles are
-# conformance : jenkins test nodes (deqp, piglit, cts, etc)
-# performance : jenkins performance testing (trex, etc)
-# builder     : jenkins build node
-# jenkins     : Jenkins server
 cat > /etc/salt/minion.d/grain.conf << EOF
 grains:
   roles:
     - conformance
 EOF
 
-echo 'startup_states: highstate' > /etc/salt/minion.d/startup.conf
-
 # Add our nfs mount to fstab
 echo 'otc-mesa-ci.local:/srv/jenkins       /mnt/jenkins    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
 # Add fulsim_cache mount
 echo 'otc-mesa-ci.local:/mnt/space/fulsim_cache       /mnt/fulsim_cache    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
+
+else
+    echo "Unrecognized hostname. Exiting."
+    exit 1
+fi
+
+echo 'startup_states: highstate' > /etc/salt/minion.d/startup.conf
 
 # Enable DHCP on any existing and future ethernet interfaces
 mkdir -p /etc/systemd/network
