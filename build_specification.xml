@@ -103,7 +103,7 @@
     </project>
 
     <project name="glescts-test"
-             bisect_hardware="g33,g45,ilk,g965,byt,bsw,bdw,hsw,snb,ivb,gen9atom,gen9,icl"
+             bisect_hardware="g33,g45,ilk,g965,byt,bsw,bdw,hsw,snb,ivb,gen9atom,gen9,icl,bdw_iris,gen9_iris,icl_iris,gen9atom_iris"
              bisect_arch="m64">
       <prerequisite name="mesa" hardware="builder"/>
       <prerequisite name="glescts" hardware="builder"/>
@@ -116,12 +116,12 @@
     </project>
 
     <project name="glescts-full">
-      <prerequisite name="glescts-test" hardware="bdw,gen9"/>
+      <prerequisite name="glescts-test" hardware="bdw,gen9,bdw_iris,gen9_iris"/>
       <prerequisite name="glescts-test" hardware="hsw"/>
       <!-- only_for_type enforces the prerequisite when type matches
            the value. -->
-      <prerequisite name="glescts-test" hardware="bsw,byt,gen9atom" only_for_type="daily"/>
-      <prerequisite name="glescts-test" hardware="g33,g45,ilk,g965,ivb,snb,icl" only_for_type="daily"/>
+      <prerequisite name="glescts-test" hardware="bsw,byt,gen9atom,gen9atom_iris" only_for_type="daily"/>
+      <prerequisite name="glescts-test" hardware="g33,g45,ilk,g965,ivb,snb,icl,icl_iris" only_for_type="daily"/>
       <prerequisite name="glescts-test"
                     only_for_type="daily"
                     arch="m32"
