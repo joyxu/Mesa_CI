@@ -62,7 +62,8 @@ class TestExecutor:
                 print("Failed to launch Chrome")
         url = "http://localhost:" + str(self._port) + "/webgl-conformance-tests.html"
         self._driver.get(url)
-        retry = 5
+        retry = 10
+        case_elements = None
         while retry > 0:
             try:
                 element = WebDriverWait(self._driver, 60).until(lambda driver: driver.find_element_by_id('page0'))
@@ -71,6 +72,7 @@ class TestExecutor:
                 break
             except:
                 retry -= 1
+        assert case_elements != None, "ERROR: Unable to get list of tests"
         for case_element in case_elements:
             test_name = case_element.text
             test_name = test_name.replace("/", ".")
