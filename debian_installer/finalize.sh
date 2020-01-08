@@ -48,6 +48,11 @@ EOF
 # Add our nfs mount to fstab
 echo 'otc-mesa-android.local:/srv/jenkins       /mnt/jenkins    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
 
+# Install libpng needed for synmark benchmark
+cd /tmp && wget "http://otc-mesa-android.jf.intel.com/userContent/benchmarks/linux/libpng12-0_1.2.54-6_amd64.deb"
+dpkg -i /tmp/libpng12-0_1.2.54-6_amd64.deb
+cd -
+
 elif [ `cat /etc/hostname | grep ^otc-gfxtest-` ]; then
 # Add the master to point at to the machine
 cat > /etc/salt/minion.d/master.conf << EOF
