@@ -607,40 +607,6 @@
       <crucible branch="a598d90"/>
     </branch>
 
-    <branch name="mesa_19.2" project="all-test-vulkan">
-      <mesa branch="origin/19.2"/>
-      <cts branch="e67539f8f"/>
-      <deqp branch="8804d6b51"/>
-      <drm branch="14922551"/>
-      <glcts branch="9d382ce55"/>
-      <piglit branch="b9c7f59d3a"/>
-      <skqp branch="2441c92442"/>
-      <vkrunner branch="501009d"/>
-      <waffle branch="1ded029"/>
-      <spirvtools branch="f2803c4a"/>
-      <spirvheaders branch="c4f8f65"/>
-      <webgl branch="e2aa68814"/>
-      <vulkancts branch="3064c5ca7"/>
-      <crucible branch="e7aca1a"/>
-    </branch>
-
-    <branch name="mesa_19.2_staging" project="all-test-vulkan">
-      <mesa branch="origin/staging/19.2"/>
-      <cts branch="e67539f8f"/>
-      <deqp branch="8804d6b51"/>
-      <drm branch="14922551"/>
-      <glcts branch="9d382ce55"/>
-      <piglit branch="b9c7f59d3a"/>
-      <skqp branch="2441c92442"/>
-      <vkrunner branch="501009d"/>
-      <waffle branch="1ded029"/>
-      <spirvtools branch="f2803c4a"/>
-      <spirvheaders branch="c4f8f65"/>
-      <webgl branch="e2aa68814"/>
-      <vulkancts branch="3064c5ca7"/>
-      <crucible branch="e7aca1a"/>
-    </branch>
-
     <branch name="vulkancts" project="vulkancts-full">
       <mesa/>
       <vulkancts/>
