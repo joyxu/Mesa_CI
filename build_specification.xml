@@ -265,10 +265,6 @@
       <prerequisite name="mi_builder-full"/>
     </project>
 
-    <project name="test-single-arch-internal">
-      <prerequisite name="piglit-test-internal" hardware="tgl" shard="6" arch="m64"/>
-    </project>
-
     <project name="all-test-iris">
       <prerequisite name="piglit-test"
                     hardware="gen9_iris,bdw_iris"
@@ -281,6 +277,12 @@
     </project>
 
     <project name="test-single-arch-simdrm">
+      <prerequisite name="test-single-arch-tgl-sim"/>
+    </project>
+
+    <!-- For testing internal mesa branch -->
+    <project name="test-single-arch-internal">
+      <prerequisite name="test-single-arch-tgl"/>
       <prerequisite name="test-single-arch-tgl-sim"/>
     </project>
 
@@ -912,11 +914,7 @@
       <mesa branch="ci_mesa_repo/dev/pendingchaos"/>
     </branch>
 
-    <branch name="internal_tgl" project="test-single-arch-tgl">
-      <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
-    </branch>
-
-    <branch name="simdrm_tgl" project="test-single-arch-tgl-sim">
+    <branch name="internal" project="test-single-arch-internal">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
 
