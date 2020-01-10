@@ -212,17 +212,13 @@
 
     <project name="vulkancts-full">
       <prerequisite name="vulkancts-test" hardware="gen9" shard="4"/>
+      <prerequisite name="vulkancts-test" hardware="icl" shard="6"/>
       <prerequisite name="vulkancts-test" hardware="hsw,bdw" shard="6"/>
       <prerequisite name="vulkancts-test"
                     only_for_type="daily"
-                    hardware="bdw,hsw,gen9"
+                    hardware="bdw,hsw,gen9,icl"
                     arch="m32"
                     shard="4"/>
-      <prerequisite name="vulkancts-test"
-                    only_for_type="daily"
-                    hardware="icl"
-                    arch="m64"
-                    shard="6"/>
       <prerequisite name="vulkancts-test"
                     only_for_type="daily"
                     hardware="bsw,gen9atom"
