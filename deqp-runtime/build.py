@@ -28,9 +28,7 @@ class DeqpRuntimeLister():
         self.blacklist_txt = None
         self.version = None
         bd = self.pm.project_build_dir()
-        hw_prefix = self.o.hardware[:3]
-        if self.o.hardware == "g965":
-            hw_prefix = self.o.hardware
+        hw_prefix = self.o.hardware
         # Note: bsw has known failures that need to be resolved
         # first: https://bugs.freedesktop.org/show_bug.cgi?id=104981
         if hw_prefix in ['g33', 'g45', 'ilk', 'g965', 'hsw', 'byt', 'bsw']:
