@@ -75,7 +75,7 @@
     </project>
 
     <project name="deqp-runtime"
-	    bisect_hardware="bdw,gen9,gen9atom"
+	    bisect_hardware="bdw,gen9,gen9atom,bsw"
 	    bisect_arch="m32,m64">
       <prerequisite name="deqp" hardware="builder"/>
       <prerequisite name="waffle" hardware="builder"/>
@@ -347,7 +347,7 @@
 
     <project name="deqp-runtime-full">
       <prerequisite name="deqp-runtime" hardware="bdw,gen9" shard="5"/>
-      <prerequisite name="deqp-runtime" hardware="gen9atom" shard="8"/>
+      <prerequisite name="deqp-runtime" hardware="gen9atom,bsw" shard="8"/>
     </project>
 
     <project name="glcts-full">
