@@ -257,7 +257,7 @@
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
       <prerequisite name="skqp-full"/>
-      <prerequisite name="webgl-full"/>
+      <!-- prerequisite name="webgl-full"/ -->
       <prerequisite name="mi_builder-full"/>
     </project>
 
@@ -320,7 +320,7 @@
       <prerequisite name="glescts-full"/>
       <prerequisite name="skqp-full"/>
       <prerequisite name="mi_builder-full"/>
-      <prerequisite name="webgl-full"/>
+      <!-- prerequisite name="webgl-full"/ -->
     </project>
 
     <!-- this is used for Nanley's percheckin build -->
