@@ -116,8 +116,6 @@ class VulkanTester(object):
         cpus = None
         if 'icl' in o.hardware:
             cpus = multiprocessing.cpu_count() // 2
-        elif o.hardware == 'tgl':
-            env["INTEL_DEBUG"] = "norbc"
 
         results = tester.test(binary,
                               VulkanTestList(),
