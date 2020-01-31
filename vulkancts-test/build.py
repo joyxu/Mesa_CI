@@ -108,7 +108,8 @@ class VulkanTester(object):
             icd_name = "intel_icd.i686.json"
         env = {"VK_ICD_FILENAMES" : pm.build_root() + \
                "/share/vulkan/icd.d/" + icd_name,
-               "ANV_ABORT_ON_DEVICE_LOSS" : "true"}
+               "ANV_ABORT_ON_DEVICE_LOSS" : "true",
+               "MESA_VK_WSI_PRESENT_MODE" : "immediate"}
         tester = DeqpTester()
         binary = pm.build_root() + "/opt/deqp/modules/vulkan/deqp-vk"
         params = ["--deqp-surface-type=fbo", "--deqp-shadercache=disable"]
