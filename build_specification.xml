@@ -283,7 +283,7 @@
     </project>
 
     <project name="test-single-arch-tgl-gl">
-      <prerequisite name="piglit-test" hardware="tgl" shard="8" arch="m64"/>
+      <prerequisite name="piglit-test" hardware="tgl" shard="2" arch="m64"/>
       <prerequisite name="deqp-test" hardware="tgl" shard="3" arch="m64"/>
       <prerequisite name="glcts-test" hardware="tgl" arch="m64"/>
       <prerequisite name="glescts-test" hardware="tgl" arch="m64"/>
