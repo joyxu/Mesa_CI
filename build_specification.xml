@@ -284,7 +284,7 @@
 
     <project name="test-single-arch-tgl-gl">
       <prerequisite name="piglit-test" hardware="tgl" shard="8" arch="m64"/>
-      <prerequisite name="deqp-test" hardware="tgl" shard="6" arch="m64"/>
+      <prerequisite name="deqp-test" hardware="tgl" shard="3" arch="m64"/>
       <prerequisite name="glcts-test" hardware="tgl" arch="m64"/>
       <prerequisite name="glescts-test" hardware="tgl" arch="m64"/>
     </project>
@@ -335,7 +335,7 @@
     </project>
 
     <project name="deqp-full">
-      <prerequisite name="deqp-test" hardware="hsw,bdw,snb,ivb,gen9,gen9_iris,icl,icl_iris" shard="5"/>
+      <prerequisite name="deqp-test" hardware="hsw,bdw,snb,ivb,gen9,gen9_iris,icl,icl_iris" shard="3"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     hardware="ilk,g33,g45,g965,byt,bsw,gen9atom" shard="4"/>
