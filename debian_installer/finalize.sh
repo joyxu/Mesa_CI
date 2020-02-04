@@ -1,4 +1,4 @@
-# Copyright (C) Intel Corp.  2014.  All Rights Reserved.
+# Copyright (C) Intel Corp.  2014-2020.  All Rights Reserved.
 
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -25,6 +25,48 @@
 #  *   Dylan Baker <dylanx.c.baker@intel.com>
 #  **********************************************************************/
 
+performance_setup() {
+        # Add the master to point at to the machine
+        cat > /etc/salt/minion.d/master.conf << EOF
+master: 192.168.1.1
+master_finger: 1f:69:bc:a8:31:0f:c5:75:17:bc:4f:d6:9e:ab:35:fb:f1:11:19:52:ee:63:27:7f:e8:4b:b1:59:8d:d3:cb:82
+EOF
+
+        cat > /etc/salt/minion.d/grain.conf << EOF
+grains:
+  roles:
+    - performance
+EOF
+
+        # Add our nfs mount to fstab
+        echo 'otc-mesa-android.local:/srv/jenkins       /mnt/jenkins    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
+
+        # Install libpng needed for synmark benchmark
+        cd /tmp && wget "http://otc-mesa-android.jf.intel.com/userContent/benchmarks/linux/libpng12-0_1.2.54-6_amd64.deb"
+        dpkg -i /tmp/libpng12-0_1.2.54-6_amd64.deb
+        cd -
+}
+
+conformance_setup() {
+        # Add the master to point at to the machine
+        cat > /etc/salt/minion.d/master.conf << EOF
+master: 192.168.1.1
+master_finger: ba:42:e5:d8:e6:3f:ec:ff:a4:7b:c3:cd:24:74:2a:8b
+hash_type: md5
+EOF
+
+        cat > /etc/salt/minion.d/grain.conf << EOF
+grains:
+  roles:
+    - conformance
+EOF
+
+        # Add our nfs mount to fstab
+        echo 'otc-mesa-ci.local:/srv/jenkins       /mnt/jenkins    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
+        # Add fulsim_cache mount
+        echo 'otc-mesa-ci.local:/mnt/space/fulsim_cache       /mnt/fulsim_cache    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
+}
+
 mkdir -p /etc/salt/minion.d/
 
 # Options for roles are
@@ -33,45 +75,9 @@ mkdir -p /etc/salt/minion.d/
 # builder     : jenkins build node
 # jenkins     : Jenkins server
 if [ `cat /etc/hostname | grep ^otc-gfxperf-` ]; then
-# Add the master to point at to the machine
-cat > /etc/salt/minion.d/master.conf << EOF
-master: 192.168.1.1
-master_finger: 1f:69:bc:a8:31:0f:c5:75:17:bc:4f:d6:9e:ab:35:fb:f1:11:19:52:ee:63:27:7f:e8:4b:b1:59:8d:d3:cb:82
-EOF
-
-cat > /etc/salt/minion.d/grain.conf << EOF
-grains:
-  roles:
-    - performance
-EOF
-
-# Add our nfs mount to fstab
-echo 'otc-mesa-android.local:/srv/jenkins       /mnt/jenkins    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
-
-# Install libpng needed for synmark benchmark
-cd /tmp && wget "http://otc-mesa-android.jf.intel.com/userContent/benchmarks/linux/libpng12-0_1.2.54-6_amd64.deb"
-dpkg -i /tmp/libpng12-0_1.2.54-6_amd64.deb
-cd -
-
+        performance_setup
 elif [ `cat /etc/hostname | grep ^otc-gfxtest-` ]; then
-# Add the master to point at to the machine
-cat > /etc/salt/minion.d/master.conf << EOF
-master: 192.168.1.1
-master_finger: ba:42:e5:d8:e6:3f:ec:ff:a4:7b:c3:cd:24:74:2a:8b
-hash_type: md5
-EOF
-
-cat > /etc/salt/minion.d/grain.conf << EOF
-grains:
-  roles:
-    - conformance
-EOF
-
-# Add our nfs mount to fstab
-echo 'otc-mesa-ci.local:/srv/jenkins       /mnt/jenkins    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
-# Add fulsim_cache mount
-echo 'otc-mesa-ci.local:/mnt/space/fulsim_cache       /mnt/fulsim_cache    nfs     _netdev,auto,async,comment=systemd.automount        0       0' >> /etc/fstab
-
+        conformance_setup
 else
     echo "Unrecognized hostname. Exiting."
     exit 1
