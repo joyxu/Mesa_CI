@@ -74,9 +74,9 @@ mkdir -p /etc/salt/minion.d/
 # performance : jenkins performance testing (trex, etc)
 # builder     : jenkins build node
 # jenkins     : Jenkins server
-if [ `cat /etc/hostname | grep ^otc-gfxperf-` ]; then
+if [  $(grep ^otc-gfxperf- /etc/hostname) ]; then
         performance_setup
-elif [ `cat /etc/hostname | grep ^otc-gfxtest-` ]; then
+elif [ $(grep ^otc-gfxtest- /etc/hostname) ]; then
         conformance_setup
 else
     echo "Unrecognized hostname. Exiting."
