@@ -402,7 +402,6 @@
       <remote name="igalia" repo="git://github.com/Igalia/mesa"/>
       <remote name="igalia_release" repo="git://github.com/Igalia/release-mesa"/>
       <remote name="internal-gitlab" repo="ssh://git@gitlab.devtools.intel.com:29418/linux-gfx/mesa/mesa.git"/>
-      <remote name="chadv" repo="git://github.com/chadversary/mesa"/>
       <!--<remote name="hakzsam" repo="git://people.freedesktop.org/~hakzsam/mesa"/>-->
       <remote name="daniels" repo="https://gitlab.freedesktop.org/daniels/mesa.git"/>
       <remote name="igalia_khronos" repo="git@gitlab.khronos.org:vulkan/mesa.git"/>
@@ -842,7 +841,7 @@
     </branch>
 
     <branch name="chadv" project="test-single-arch-vulkan">
-      <mesa branch="chadv/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/chadv/vulkan"/>
     </branch>
 
     <branch name="hakzsam" project="test-single-arch-vulkan">
