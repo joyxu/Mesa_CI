@@ -120,7 +120,7 @@
       <prerequisite name="glescts-test" hardware="hsw"/>
       <!-- only_for_type enforces the prerequisite when type matches
            the value. -->
-      <prerequisite name="glescts-test" hardware="bsw,byt,gen9atom,gen9atom_iris,icl,tgl" only_for_type="daily"/>
+      <prerequisite name="glescts-test" hardware="bsw,byt,gen9atom,gen9atom_iris,icl" only_for_type="daily"/>
       <prerequisite name="glescts-test" hardware="g33,g45,ilk,g965,ivb,snb" only_for_type="daily"/>
       <prerequisite name="glescts-test"
                     only_for_type="daily"
@@ -164,8 +164,6 @@
                     arch="m64,m32"/>
       <prerequisite only_for_type="daily" name="piglit-test" hardware="icl"
 		    arch="m64,m32" shard="2"/>
-      <prerequisite only_for_type="daily" name="piglit-test" hardware="tgl"
-          arch="m64" shard="2"/>
     </project>
     
     <project name="crucible">
@@ -350,7 +348,6 @@
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     hardware="icl" shard="3" arch="m64,m32"/>
-      <prerequisite name="deqp-test" only_for_type="daily" hardware="tgl" shard="3" arch="m64"/>
     </project>
 
     <project name="deqp-runtime-full">
@@ -365,7 +362,6 @@
       <prerequisite name="glcts-test" only_for_type="daily" hardware="bsw,gen9atom,byt"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="icl" shard="4"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="icl,icl_iris" arch="m32" shard="4"/>
-      <prerequisite name="glcts-test" only_for_type="daily" hardware="tgl" arch="m64"/>
     </project>
 
     <project name="webgl" bisect_hardware="gen9,gen9_iris">
