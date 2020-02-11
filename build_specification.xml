@@ -146,7 +146,7 @@
     <project name="piglit-test-sim" src_dir="piglit-test">
       <prerequisite name="sim-drm" hardware="builder"/>
       <prerequisite name="fulsim"/>
-      <prerequisite name="piglit-test"/>
+      <prerequisite name="piglit-test" shard="3"/>
     </project>
 
     <project name="piglit-full">
@@ -302,7 +302,7 @@
     </project>
 
     <project name="test-single-arch-tgl-sim">
-        <prerequisite name="piglit-test-sim" hardware="tgl_sim" shard="6" arch="m64"/>
+        <prerequisite name="piglit-test-sim" hardware="tgl_sim" arch="m64"/>
         <prerequisite name="crucible-test-sim" hardware="tgl_sim" arch="m64"/>
     </project>
 
