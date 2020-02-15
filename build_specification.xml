@@ -146,7 +146,7 @@
     <project name="piglit-test-sim" src_dir="piglit-test">
       <prerequisite name="sim-drm" hardware="builder"/>
       <prerequisite name="fulsim"/>
-      <prerequisite name="piglit-test" shard="3"/>
+      <prerequisite name="piglit" hardware="builder"/>
     </project>
 
     <project name="piglit-full">
@@ -181,7 +181,7 @@
     <project name="crucible-test-sim" src_dir="crucible-test">
       <prerequisite name="sim-drm" hardware="builder"/>
       <prerequisite name="fulsim"/>
-      <prerequisite name="crucible-test"/>
+      <prerequisite name="crucible" hardware="builder"/>
     </project>
 
     <project name="crucible-full">
@@ -282,7 +282,7 @@
     <project name="test-single-arch-internal">
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="test-single-arch-tgl"/>
-      <prerequisite name="test-single-arch-tgl-sim"/>
+      <prerequisite name="test-single-arch-simdrm"/>
     </project>
 
     <project name="test-single-arch-tgl-gl">
@@ -303,7 +303,7 @@
     </project>
 
     <project name="test-single-arch-tgl-sim">
-        <prerequisite name="piglit-test-sim" hardware="tgl_sim" arch="m64"/>
+        <prerequisite name="piglit-test-sim" hardware="tgl_sim" arch="m64" shard="3"/>
         <prerequisite name="crucible-test-sim" hardware="tgl_sim" arch="m64"/>
     </project>
 
