@@ -56,10 +56,11 @@ class GLCTSLister(object):
         if not os.path.exists(blacklist_txt):
             blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware[:3] + "_blacklist.txt"
         if not os.path.exists(blacklist_txt):
-            return all_tests
-        blacklist = DeqpTrie()
-        blacklist.add_txt(blacklist_txt)
-        all_tests.filter(blacklist)
+            blacklist_txt = self.pm.source_root() + "/repos/mesa_ci_internal/" + self.pm.current_project() + "/" + self.o.hardware[:3] + "_blacklist.conf"
+        if os.path.exists(blacklist_txt):
+            blacklist = DeqpTrie()
+            blacklist.add_txt(blacklist_txt)
+            all_tests.filter(blacklist)
         if self.o.type != "daily" and not self.o.retest_path:
             blacklist = DeqpTrie()
             blacklist.add_txt(self.pm.project_build_dir() + "/non-daily_blacklist.txt")
