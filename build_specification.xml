@@ -116,7 +116,7 @@
     </project>
 
     <project name="glescts-full">
-      <prerequisite name="glescts-test" hardware="bdw,gen9,bdw_iris,gen9_iris,icl_iris"/>
+      <prerequisite name="glescts-test" hardware="bdw,gen9,bdw_iris,gen9_iris,icl_iris,tgl"/>
       <prerequisite name="glescts-test" hardware="hsw"/>
       <!-- only_for_type enforces the prerequisite when type matches
            the value. -->
@@ -151,7 +151,7 @@
 
     <project name="piglit-full">
       <prerequisite name="piglit-test"
-                    hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris,icl_iris"
+                    hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris,icl_iris,tgl"
                     shard="2"/>
       <prerequisite name="piglit-test"
                     only_for_type="daily"
@@ -338,7 +338,7 @@
     </project>
 
     <project name="deqp-full">
-      <prerequisite name="deqp-test" hardware="hsw,bdw,snb,ivb,gen9,gen9_iris,icl_iris" shard="3"/>
+      <prerequisite name="deqp-test" hardware="hsw,bdw,snb,ivb,gen9,gen9_iris,icl_iris,tgl" shard="3"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     hardware="ilk,g33,g45,g965,byt,bsw,gen9atom" shard="4"/>
@@ -357,7 +357,7 @@
     </project>
 
     <project name="glcts-full">
-      <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris" arch="m64"/>
+      <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris,tgl" arch="m64"/>
       <prerequisite name="glcts-test" hardware="icl_iris" shard="4"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="hsw,bdw,gen9" arch="m32"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="bsw,gen9atom,byt"/>
