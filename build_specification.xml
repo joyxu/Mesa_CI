@@ -280,6 +280,7 @@
 
     <!-- For testing internal mesa branch -->
     <project name="test-single-arch-internal">
+      <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="test-single-arch-tgl"/>
       <prerequisite name="test-single-arch-tgl-sim"/>
     </project>
