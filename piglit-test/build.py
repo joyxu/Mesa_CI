@@ -24,7 +24,9 @@ fs = Fulsim()
 
 class SlowTimeout:
     def __init__(self):
-        self.hardware = Options().hardware
+        self.options = Options()
+        self.hardware = self.options.hardware
+        self.type = self.options.type
 
     def GetDuration(self):
         if self.hardware == "bsw":
@@ -45,6 +47,11 @@ class SlowTimeout:
             return 50
         # Simulated platforms need more time
         if self.hardware in fs.platform_keyfile:
+            return 120
+        # daily type enables more fp64 tests for hardware that doesn't have
+        # hardware support for fp64
+        if (self.type == 'daily' and is_soft_fp64(self.hardware)
+                and not self.options.retest_path):
             return 120
         # all other test suites finish in 10 minutes or less.
         # TODO: put back to 25 when curro's regression is fixed
