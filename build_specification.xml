@@ -327,17 +327,6 @@
       <!-- prerequisite name="webgl-full"/ -->
     </project>
 
-    <!-- this is used for Nanley's percheckin build -->
-    <project name="test-single-arch-nchery">
-      <prerequisite name="piglit-full"/>
-      <prerequisite name="piglit-test" hardware="icl"/>
-      <prerequisite name="scons-buildtest" hardware="builder" arch="m64"/>
-      <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
-      <prerequisite name="deqp-full"/>
-      <prerequisite name="glcts-full"/>
-      <prerequisite name="glescts-full"/>
-    </project>
-
     <project name="deqp-full">
       <prerequisite name="deqp-test" hardware="hsw,bdw,snb,ivb,gen9,gen9_iris,icl_iris,tgl" shard="4"/>
       <prerequisite name="deqp-test"
@@ -746,7 +735,7 @@
       <mesa branch="ci_mesa_repo/dev/nchery_vulkan"/>
     </branch>
 
-    <branch name="nchery" project="test-single-arch-nchery">
+    <branch name="nchery" project="test-single-arch">
       <mesa branch="ci_mesa_repo/dev/nchery"/>
     </branch>
 
