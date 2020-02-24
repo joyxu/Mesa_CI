@@ -8,8 +8,7 @@ from testers import DeqpTester, DeqpTrie, ConfigFilter
 from options import Options
 from project_map import ProjectMap
 from utils.command import run_batch_command
-from utils.utils import (get_libdir, get_libgl_drivers, mesa_version,
-                         get_conf_file)
+from utils.utils import (get_libdir, get_libgl_drivers, get_conf_file)
 
 
 # needed to preserve case in the options
@@ -103,11 +102,12 @@ class GLESCTSTester(object):
         self.pm = ProjectMap()
 
     def test(self):
-        mv = mesa_version()
         t = DeqpTester()
+        env = {"MESA_GLES_VERSION_OVERRIDE" : "3.2"}
+        if "iris" in self.o.hardware:
+            env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
         results = t.test(self.pm.build_root() + "/bin/es/modules/glcts",
-                         GLESCTSList(),
-                         env = {"MESA_GLES_VERSION_OVERRIDE" : "3.2"}) 
+                         GLESCTSList(), env=env)
         o = Options()
         config = get_conf_file(self.o.hardware, self.o.arch,
                                project=self.pm.current_project())
