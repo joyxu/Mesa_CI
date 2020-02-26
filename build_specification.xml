@@ -141,12 +141,8 @@
              bisect_arch="m64,m32">
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
-    </project>
-
-    <project name="piglit-test-sim" src_dir="piglit-test">
-      <prerequisite name="sim-drm" hardware="builder"/>
-      <prerequisite name="fulsim"/>
-      <prerequisite name="piglit" hardware="builder"/>
+      <prerequisite name="sim-drm" hardware="builder" only_for_hardware="tgl_sim"/>
+      <prerequisite name="fulsim" only_for_hardware="tgl_sim"/>
     </project>
 
     <project name="piglit-full">
@@ -176,12 +172,8 @@
       <prerequisite name="crucible" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
       <prerequisite name="waffle" hardware="builder"/>
-    </project>
-
-    <project name="crucible-test-sim" src_dir="crucible-test">
-      <prerequisite name="sim-drm" hardware="builder"/>
-      <prerequisite name="fulsim"/>
-      <prerequisite name="crucible" hardware="builder"/>
+      <prerequisite name="sim-drm" hardware="builder" only_for_hardware="tgl_sim"/>
+      <prerequisite name="fulsim" only_for_hardware="tgl_sim"/>
     </project>
 
     <project name="crucible-full">
@@ -275,7 +267,8 @@
     </project>
 
     <project name="test-single-arch-simdrm">
-      <prerequisite name="test-single-arch-tgl-sim"/>
+      <prerequisite name="piglit-test" hardware="tgl_sim" arch="m64" shard="3"/>
+      <prerequisite name="crucible-test" hardware="tgl_sim" arch="m64"/>
     </project>
 
     <!-- For testing internal mesa branch -->
@@ -303,8 +296,8 @@
     </project>
 
     <project name="test-single-arch-tgl-sim">
-        <prerequisite name="piglit-test-sim" hardware="tgl_sim" arch="m64" shard="3"/>
-        <prerequisite name="crucible-test-sim" hardware="tgl_sim" arch="m64"/>
+        <prerequisite name="piglit-test" hardware="tgl_sim" arch="m64" shard="3"/>
+        <prerequisite name="crucible-test" hardware="tgl_sim" arch="m64"/>
     </project>
 
     <project name="test-single-arch-vulkan">
