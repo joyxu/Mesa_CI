@@ -12,3 +12,4 @@ dEQP-GLES3.functional.shaders.random.all_features.fragment.16
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
 dEQP-EGL.functional.multithread.window_context
 dEQP-EGL.functional.multithread.window
+dEQP-EGL.functional.render.single_context.gles2.rgb888_pbuffer
