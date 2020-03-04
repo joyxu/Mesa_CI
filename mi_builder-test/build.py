@@ -9,6 +9,12 @@ from export import Export
 from gtest import GTest
 from options import Options
 from project_map import ProjectMap
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             "..", "repos", "mesa_ci_internal"))
+try:
+    import internal_build_support.vars as internal_vars
+except ModuleNotFoundError:
+    internal_vars = None
 
 
 class MiBuilderTest():
@@ -32,6 +38,8 @@ class MiBuilderTest():
             'icl': 'gen11',
             'tgl': 'gen12',
         }
+        if internal_vars:
+            mi_hw.update(internal_vars.mi_hw)
 
         if self._hw not in mi_hw:
             print('This platform does not have a supporting mi_builder binary')
