@@ -223,7 +223,7 @@
     </project>
 
     <project name="mi_builder-full">
-      <prerequisite name="mi_builder-test" hardware="ivb,hsw,bdw,gen9,icl"/>
+      <prerequisite name="mi_builder-test" hardware="ivb,hsw,bdw,gen9,icl,tgl"/>
     </project>
 
     <project name="vulkancts"/>
@@ -283,6 +283,7 @@
       <prerequisite name="deqp-test" hardware="tgl" shard="3" arch="m64"/>
       <prerequisite name="glcts-test" hardware="tgl" arch="m64"/>
       <prerequisite name="glescts-test" hardware="tgl" arch="m64"/>
+      <prerequisite name="mi_builder-test" hardware="tgl"/>
     </project>
 
     <project name="test-single-arch-tgl-vulkan">

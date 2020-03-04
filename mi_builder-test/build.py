@@ -30,6 +30,7 @@ class MiBuilderTest():
             'bdw': 'gen8',
             'gen9': 'gen9',
             'icl': 'gen11',
+            'tgl': 'gen12',
         }
 
         if self._hw not in mi_hw:
