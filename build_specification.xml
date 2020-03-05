@@ -192,7 +192,7 @@
     </project>
 
     <project name="skqp-full">
-      <prerequisite name="skqp-test" hardware="gen9,gen9_iris,icl_iris,bdw,bdw_iris" arch="m64"/>
+      <prerequisite name="skqp-test" hardware="gen9,gen9_iris,icl_iris,bdw,bdw_iris,tgl" arch="m64"/>
       <prerequisite only_for_type="daily" name="skqp-test" hardware="gen9atom,gen9atom_iris,icl" arch="m64"/>
     </project>
 
@@ -284,6 +284,7 @@
       <prerequisite name="glcts-test" hardware="tgl" arch="m64"/>
       <prerequisite name="glescts-test" hardware="tgl" arch="m64"/>
       <prerequisite name="mi_builder-test" hardware="tgl"/>
+      <prerequisite name="skqp-test" hardware="tgl"/>
     </project>
 
     <project name="test-single-arch-tgl-vulkan">
