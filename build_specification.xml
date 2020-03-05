@@ -125,7 +125,7 @@
       <prerequisite name="glescts-test"
                     only_for_type="daily"
                     arch="m32"
-                    hardware="snb,ivb,hsw,bdw,gen9"/>
+                    hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris,icl_iris"/>
     </project>
 
     <project name="vkrunner"/>
@@ -329,7 +329,7 @@
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     arch="m32"
-                    hardware="snb,ivb,hsw,bdw,gen9atom,bsw,gen9" shard="4"/>
+                    hardware="snb,ivb,hsw,bdw,bdw_iris,gen9atom,bsw,gen9,gen9_iris" shard="4"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     hardware="icl" shard="3" arch="m64,m32"/>
@@ -343,7 +343,7 @@
     <project name="glcts-full">
       <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris,tgl" arch="m64"/>
       <prerequisite name="glcts-test" hardware="icl_iris" shard="4"/>
-      <prerequisite name="glcts-test" only_for_type="daily" hardware="hsw,bdw,gen9" arch="m32"/>
+      <prerequisite name="glcts-test" only_for_type="daily" hardware="hsw,bdw,gen9,bdw_iris" arch="m32"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="bsw,gen9atom,byt"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="icl" shard="4"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="icl,icl_iris" arch="m32" shard="4"/>
