@@ -3,6 +3,7 @@ dEQP-EGL.functional.robustness.reset_context.fixed_function_pipeline.reset_statu
 dEQP-GLES31.functional.debug.negative_coverage.get_error.shader_storage.block_number_limits
 
 #flaky
+dEQP-EGL.functional.multithread.window
 dEQP-EGL.functional.render.multi_thread.gles2_gles3.rgba8888_pbuffer
 dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.copytexsubimage2d_render
 dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.teximage2d_render

@@ -24,6 +24,8 @@ dEQP-GLES3.functional.texture.mipmap.2d
 dEQP-GLES3.functional.texture.mipmap.3d
 dEQP-GLES3.functional.texture.mipmap.cube
 dEQP-GLES31.functional.copy_image.mixed.viewclass_128_bits_mixed.srgb8_alpha8_astc_10x5_khr_rgba32i.texture2d_array_to_texture2d
+dEQP-GLES31.functional.copy_image.mixed.viewclass_128_bits_mixed.srgb8_alpha8_astc_6x6_khr_rgba32i.texture2d_array_to_texture2d
+dEQP-GLES31.functional.copy_image.mixed.viewclass_128_bits_mixed.srgb8_alpha8_astc_8x5_khr_rgba32ui.texture2d_array_to_texture2d
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
 dEQP-GLES31.functional.image_load_store.buffer.atomic.comp_swap_r32i_return_value
 dEQP-GLES31.functional.image_load_store.buffer.atomic.comp_swap_r32ui_return_value
@@ -33,4 +35,3 @@ dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.isam
 dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.sampler2d
 dEQP-GLES31.functional.shaders.opaque_type_indexing.sampler.uniform.compute.sampler3d
 dEQP-GLES31.functional.tessellation.invariance.primitive_set.quads_fractional_even_spacing_ccw_point_mode
-dEQP-GLES31.functional.copy_image.mixed.viewclass_128_bits_mixed.srgb8_alpha8_astc_8x5_khr_rgba32ui.texture2d_array_to_texture2d
