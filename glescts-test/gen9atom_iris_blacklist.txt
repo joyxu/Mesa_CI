@@ -1,0 +1,4 @@
+# flaky
+KHR-GLES31.core.texture_buffer.texture_buffer_atomic_functions
+KHR-GLES32.core.texture_buffer.texture_buffer_atomic_functions
+KHR-GLESEXT.texture_buffer.texture_buffer_atomic_functions
