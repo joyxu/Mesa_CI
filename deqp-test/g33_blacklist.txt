@@ -1,6 +1,7 @@
 dEQP-EGL.functional.resize
 
 #flaky
+dEQP-EGL.functional.sharing.gles2.multithread.random.programs.link.7
 dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.copytexsubimage2d_render
 dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.create_texture_render
 dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.teximage2d_render
@@ -8,6 +9,7 @@ dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.texsu
 dEQP-EGL.functional.sharing.gles2.multithread.simple.textures.copyteximage2d_render
 dEQP-EGL.functional.sharing.gles2.multithread.simple.textures.copyteximage2d_texsubimage2d_render
 dEQP-EGL.functional.sharing.gles2.multithread.simple_egl_sync.images.texture_source.teximage2d_render
+dEQP-EGL.functional.sharing.gles2.multithread.simple_egl_sync.textures.teximage2d_texsubimage2d_render
 
 # hang forever when running bisect jobs
 dEQP-GLES2.functional.texture.filtering.cube.linear_mipmap_linear_linear_mirror_rgba8888
