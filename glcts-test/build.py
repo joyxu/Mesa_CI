@@ -77,6 +77,12 @@ class GLCTSLister(object):
             blacklist = DeqpTrie()
             blacklist.add_txt(blacklist_txt)
             all_tests.filter(blacklist)
+        # blacklist for all platforms
+        blacklist_txt = self.pm.project_build_dir() + "/blacklist.txt"
+        if os.path.exists(blacklist_txt):
+            blacklist = DeqpTrie()
+            blacklist.add_txt(blacklist_txt)
+            all_tests.filter(blacklist)
 
         return all_tests
 
