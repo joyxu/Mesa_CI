@@ -7,6 +7,7 @@ dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_at
 dEQP-EGL.functional.multithread.window
 dEQP-EGL.functional.multithread.window_context
 dEQP-EGL.functional.sharing.gles2.multithread.simple.textures.copyteximage2d_render
+dEQP-EGL.functional.sharing.gles2.multithread.simple.textures.copyteximage2d_render
 dEQP-EGL.functional.sharing.gles2.multithread.simple_egl_sync.textures.copyteximage2d_texsubimage2d_render
 dEQP-GLES2.functional.shaders.random.all_features.fragment.16
 dEQP-GLES3.functional.shaders.random.all_features.fragment.16
