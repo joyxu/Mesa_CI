@@ -951,6 +951,10 @@
       <mesa branch="ci_mesa_repo/dev/mareko"/>
     </branch>
 
+    <branch name="scottph" project="test-single-arch-vulkan">
+      <mesa branch="ci_mesa_repo/dev/scottph"/>
+    </branch>
+
   </branches>
 
 </build_specification>
