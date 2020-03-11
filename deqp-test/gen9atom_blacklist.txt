@@ -4,13 +4,14 @@ dEQP-EGL.functional.robustness.reset_context.fixed_function_pipeline.reset_statu
 dEQP-GLES31.functional.synchronization.inter_call.without_memory_barrier.ssbo_atomic_counter_mixed_dispatch_100_calls_1k_invocations
 
 #flaky
+dEQP-EGL.functional.color_clears.multi_thread.gles1.rgba8888_pbuffer
 dEQP-EGL.functional.render.multi_context.gles3.rgba8888_pbuffer
 dEQP-EGL.functional.sharing.gles2.multithread.simple.images.texture_source.copytexsubimage2d_render
 dEQP-EGL.functional.sharing.gles2.multithread.simple_egl_sync.textures.copyteximage2d_copytexsubimage2d_render
 dEQP-GLES31.functional.debug.negative_coverage.callbacks.compute.exceed_atomic_counters_limit
 
-# flaky due to removing mustpass whitelists
 
+# flaky due to removing mustpass whitelists
 dEQP-GLES2.functional.shaders.random.all_features.fragment.16
 dEQP-GLES3.functional.shaders.random.all_features.fragment.16
 dEQP-GLES31.functional.image_load_store.2d.atomic.comp_swap_r32i_return_value
