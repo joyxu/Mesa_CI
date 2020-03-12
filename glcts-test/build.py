@@ -11,7 +11,7 @@ from project_map import ProjectMap
 from testers import DeqpTester, DeqpTrie, ConfigFilter
 from utils.command import run_batch_command
 from utils.utils import (is_soft_fp64, mesa_version, get_libdir,
-                         get_libgl_drivers, get_conf_file)
+                         get_libgl_drivers, get_conf_file, get_blacklists)
 
 
 # needed to preserve case in the options
@@ -52,36 +52,10 @@ class GLCTSLister(object):
         return all_tests
 
     def blacklist(self, all_tests):
-        blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware + "_blacklist.txt"
-        if not os.path.exists(blacklist_txt):
-            blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware[:3] + "_blacklist.txt"
-        if not os.path.exists(blacklist_txt):
-            blacklist_txt = self.pm.source_root() + "/repos/mesa_ci_internal/" + self.pm.current_project() + "/" + self.o.hardware[:3] + "_blacklist.conf"
-        if os.path.exists(blacklist_txt):
+        blacklist_files = get_blacklists()
+        for file in blacklist_files:
             blacklist = DeqpTrie()
-            blacklist.add_txt(blacklist_txt)
-            all_tests.filter(blacklist)
-        if self.o.type != "daily" and not self.o.retest_path:
-            blacklist = DeqpTrie()
-            blacklist.add_txt(self.pm.project_build_dir() + "/non-daily_blacklist.txt")
-            all_tests.filter(blacklist)
-        # Do not run GTF33 on hardware that supports >GL33
-        if self.o.hardware not in ['snb', 'ivb', 'byt']:
-            blacklist = DeqpTrie()
-            blacklist.add_line("GTF-GL33")
-            all_tests.filter(blacklist)
-        # blacklist for non-daily + soft-fp64
-        blacklist_txt = self.pm.project_build_dir() + "/soft-fp64_blacklist.txt"
-        if (self.o.type != "daily" and is_soft_fp64(self.o.hardware) and
-                os.path.exists(blacklist_txt) and not self.o.retest_path):
-            blacklist = DeqpTrie()
-            blacklist.add_txt(blacklist_txt)
-            all_tests.filter(blacklist)
-        # blacklist for all platforms
-        blacklist_txt = self.pm.project_build_dir() + "/blacklist.txt"
-        if os.path.exists(blacklist_txt):
-            blacklist = DeqpTrie()
-            blacklist.add_txt(blacklist_txt)
+            blacklist.add_txt(file)
             all_tests.filter(blacklist)
 
         return all_tests
