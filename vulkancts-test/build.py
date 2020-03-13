@@ -10,7 +10,7 @@ from options import Options
 from project_map import ProjectMap
 from testers import DeqpTester, DeqpTrie, ConfigFilter
 from utils.command import run_batch_command
-from utils.utils import get_conf_file
+from utils.utils import get_conf_file, get_blacklists
 
 
 class SlowTimeout:
@@ -67,31 +67,10 @@ class VulkanTestList(object):
 
     def blacklist(self, all_tests):
         # filter tests for the platform
-        o = Options()
-        blacklist = DeqpTrie()
-
-        hw_blacklist = (self.pm.project_build_dir() + o.hardware
-                        + "_blacklist.conf")
-        if not os.path.exists(hw_blacklist):
-            hw_blacklist = (self.pm.project_build_dir() + o.hardware[:3] +
-                            "_blacklist.conf")
-        blacklist_files = [
-            hw_blacklist,
-            self.pm.project_build_dir() + '/' + "blacklist.conf",
-            self.pm.source_root() + ("/repos/mesa_ci_internal/vulkancts-test/"
-                                     + "blacklist.conf"),
-            self.pm.source_root() + ("/repos/mesa_ci_internal/vulkancts-test/"
-                                     + o.hardware + "_blacklist.conf"),
-        ]
-
-        if o.type != "daily" and not o.retest_path:
-            blacklist_files.append(self.pm.project_build_dir()
-                                   + "/non-daily_blacklist.conf")
-
-        for blacklist_file in blacklist_files:
-            if os.path.exists(blacklist_file):
-                blacklist.add_txt(blacklist_file)
-                all_tests.filter(blacklist)
+        for blacklist_file in get_blacklists():
+            blacklist = DeqpTrie()
+            blacklist.add_txt(blacklist_file)
+            all_tests.filter(blacklist)
 
 
 class VulkanTester(object):
