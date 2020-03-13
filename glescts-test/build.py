@@ -8,7 +8,8 @@ from testers import DeqpTester, DeqpTrie, ConfigFilter
 from options import Options
 from project_map import ProjectMap
 from utils.command import run_batch_command
-from utils.utils import (get_libdir, get_libgl_drivers, get_conf_file)
+from utils.utils import (get_libdir, get_libgl_drivers, get_conf_file,
+                         get_blacklists)
 
 
 # needed to preserve case in the options
@@ -77,24 +78,14 @@ class GLESCTSList(object):
         return all_tests
 
     def blacklist(self, all_tests):
-        blacklist = DeqpTrie()
-        blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware + "_blacklist.txt"
-        if not os.path.exists(blacklist_txt):
-            blacklist_txt = self.pm.project_build_dir() + "/" + self.o.hardware[:3] + "_blacklist.txt"
-        if os.path.exists(blacklist_txt):
-            blacklist.add_txt(blacklist_txt)
-        internal_conf_dir = (self.pm.source_root()
-                             + "/repos/mesa_ci_internal/glescts-test/")
-        internal_blacklist_txt = internal_conf_dir + "blacklist.conf"
-        if os.path.exists(internal_blacklist_txt):
-            blacklist.add_txt(internal_blacklist_txt)
-        internal_platform_blacklist_txt = (internal_conf_dir + self.o.hardware
-                                           + "_blacklist.conf")
-        if os.path.exists(internal_platform_blacklist_txt):
-            blacklist.add_txt(internal_platform_blacklist_txt)
+        blacklist_files = get_blacklists()
+        for file in blacklist_files:
+            blacklist = DeqpTrie()
+            blacklist.add_txt(file)
+            all_tests.filter(blacklist)
 
-        all_tests.filter(blacklist)
         return all_tests
+
 
 class GLESCTSTester(object):
     def __init__(self):
