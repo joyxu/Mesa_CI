@@ -3,7 +3,7 @@
 import sys
 import re
 
-hang_match = re.compile(r"(.*\]).*\b(.+)\[(\d*)\]")
+hang_match = re.compile(r".*\](.*)\[(\d*)\]")
 while(True):
     line = sys.stdin.readline()
     if "gpu hang" not in line.lower():
@@ -13,12 +13,20 @@ while(True):
     if not found:
         print("ERROR: could not find PID in string")
         continue
+    msg = found.group(1)
+    proc = found.group(2)
     cmdline = open("/proc/" + found.group(3) + "/cmdline").read()
     print("Hanging process: " + cmdline.replace("\0", " "))
 
-    module = found.group(2)
-    if module == "vk":
-        module = "vulkan"
+    module = None
+    for token in msg.split():
+        if "deqp" not in msg:
+            continue
+        module = token.split("-")[-1]
+        if module == "vk":
+            module = "vulkan"
+    if not module:
+        print("Error: could not determine module from process name: " + msg)
 
     for arg in cmdline.split("\0"):
         if "qpa" not in arg:
