@@ -15,7 +15,7 @@ while(True):
         continue
     msg = found.group(1)
     proc = found.group(2)
-    cmdline = open("/proc/" + found.group(3) + "/cmdline").read()
+    cmdline = open("/proc/" + proc + "/cmdline").read()
     print("Hanging process: " + cmdline.replace("\0", " "))
 
     module = None
