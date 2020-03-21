@@ -200,7 +200,17 @@ class WebGLTestLister(object):
         blacklist_hash = {line.rstrip() : 1 for line in open(self._blacklist_file)}
         to_execute = []
         for test in self._tests:
-            if test not in blacklist_hash:
+            parts = test.split('.')
+            subgroup = None
+            blacklist = False
+            for part in parts[1:]:
+                if not subgroup:
+                    subgroup = 'webgl.' + part
+                else:
+                    subgroup += '.' + part
+                if subgroup in blacklist_hash:
+                    blacklist = True
+            if not blacklist:
                 to_execute.append(test)
             else:
                 print("blacklisted: " + test)
