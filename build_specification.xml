@@ -333,7 +333,7 @@
                     hardware="snb,ivb,hsw,bdw,bdw_iris,gen9atom,bsw,gen9,gen9_iris" shard="4"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
-                    hardware="icl" shard="3" arch="m64,m32"/>
+                    hardware="icl,icl_iris,tgl" shard="3" arch="m64,m32"/>
     </project>
 
     <project name="deqp-runtime-full">
