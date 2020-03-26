@@ -22,6 +22,7 @@ def main():
         '-Dplatforms=x11,drm',
         '-Dtools=intel',
         '-Dprefer-iris=false',
+        '-Dglvnd=true',
     ]
     if (os.path.exists(ProjectMap().project_source_dir() +
                        "/src/gallium/drivers/iris")):

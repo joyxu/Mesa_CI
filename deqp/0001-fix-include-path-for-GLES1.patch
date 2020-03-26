@@ -1,0 +1,44 @@
+From 95266ef411e928856f3e35cee95bac372a62d5d5 Mon Sep 17 00:00:00 2001
+From: Mark Janes <markjanes@swizzler.org>
+Date: Fri, 27 Mar 2020 14:10:11 -0700
+Subject: [PATCH] fix include path for GLES1
+
+On debian distributions, gles1 headers are not found in:
+
+  $libdir/../include
+
+because this path resolves to:
+
+  /usr/lib/x86_64-linux-gnu/../include
+    or
+  /usr/lib/include   <--- clearly wrong
+
+In the event that CMake cannot find this path, attempt to resolve it
+assuming the debian structure in /usr/lib
+---
+ targets/x11_egl/x11_egl.cmake | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/targets/x11_egl/x11_egl.cmake b/targets/x11_egl/x11_egl.cmake
+index dca529a49..9cbe79444 100644
+--- a/targets/x11_egl/x11_egl.cmake
++++ b/targets/x11_egl/x11_egl.cmake
+@@ -46,8 +46,13 @@ if (GLES1_LIBRARIES)
+ 		if (EXISTS ${GLES1_INCLUDE}/GLES/gl.h)
+ 			include_directories(${GLES1_INCLUDE})
+ 		else()
+-			message(FATAL_ERROR "Could not find include path for GLES1 headers")
+-		endif (EXISTS ${GLES1_INCLUDE}/GLES/gl.h)
++            set(GLES1_INCLUDE "${GLES1_LIBDIR}/../../include")
++            if (EXISTS ${GLES1_INCLUDE}/GLES/gl.h)
++                include_directories(${GLES1_INCLUDE})
++            else()
++                message(FATAL_ERROR "Could not find include path for GLES1 headers")
++            endif (EXISTS ${GLES1_INCLUDE}/GLES/gl.h)
++	    endif (EXISTS ${GLES1_INCLUDE}/GLES/gl.h)
+ 	endif ("${PKG_GLES1_INCLUDE_DIRS}" STREQUAL "")
+ endif (GLES1_LIBRARIES)
+ 
+-- 
+2.25.1
+
