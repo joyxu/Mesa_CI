@@ -181,20 +181,20 @@
       <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="gen9atom,icl,ivb,byt"/>
     </project>
 
-    <project name="skqp" />
+    <!-- <project name="skqp" /> -->
 
-    <project name="skqp-test"
-             bisect_hardware="gen9atom,icl,icl_iris,gen9,gen9_iris,gen9atom_iris"
-             bisect_arch="m64">
-      <prerequisite name="waffle" hardware="builder"/>
-      <prerequisite name="mesa" hardware="builder"/>
-      <prerequisite name="skqp" hardware="builder"/>
-    </project>
+    <!-- <project name="skqp-test" -->
+    <!--          bisect_hardware="gen9atom,icl,icl_iris,gen9,gen9_iris,gen9atom_iris" -->
+    <!--          bisect_arch="m64"> -->
+    <!--   <prerequisite name="waffle" hardware="builder"/> -->
+    <!--   <prerequisite name="mesa" hardware="builder"/> -->
+    <!--   <prerequisite name="skqp" hardware="builder"/> -->
+    <!-- </project> -->
 
-    <project name="skqp-full">
-      <prerequisite name="skqp-test" hardware="gen9,gen9_iris,icl_iris,bdw,bdw_iris,tgl" arch="m64"/>
-      <prerequisite only_for_type="daily" name="skqp-test" hardware="gen9atom,gen9atom_iris,icl" arch="m64"/>
-    </project>
+    <!-- <project name="skqp-full"> -->
+    <!--   <prerequisite name="skqp-test" hardware="gen9,gen9_iris,icl_iris,bdw,bdw_iris,tgl" arch="m64"/> -->
+    <!--   <prerequisite only_for_type="daily" name="skqp-test" hardware="gen9atom,gen9atom_iris,icl" arch="m64"/> -->
+    <!-- </project> -->
 
     <project name="vulkancts-test" src_dir="vulkancts"
              bisect_hardware="bdw,bsw,hsw,gen9atom,gen9,icl,tgl"
@@ -250,7 +250,7 @@
       <prerequisite name="android-buildtest" hardware="builder"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
-      <prerequisite name="skqp-full"/>
+      <!-- <prerequisite name="skqp-full"/> -->
       <!-- prerequisite name="webgl-full"/ -->
       <prerequisite name="mi_builder-full"/>
     </project>
@@ -263,7 +263,7 @@
                     hardware="icl_iris" shard="4"/>
       <prerequisite name="glcts-test"
                     hardware="gen9_iris,icl_iris,bdw_iris"/>
-      <prerequisite name="skqp-test" hardware="gen9_iris,icl_iris" arch="m64"/>
+      <!-- <prerequisite name="skqp-test" hardware="gen9_iris,icl_iris" arch="m64"/> -->
     </project>
 
     <project name="test-single-arch-simdrm">
@@ -284,7 +284,7 @@
       <prerequisite name="glcts-test" hardware="tgl" arch="m64"/>
       <prerequisite name="glescts-test" hardware="tgl" arch="m64"/>
       <prerequisite name="mi_builder-test" hardware="tgl"/>
-      <prerequisite name="skqp-test" hardware="tgl"/>
+      <!-- <prerequisite name="skqp-test" hardware="tgl"/> -->
     </project>
 
     <project name="test-single-arch-tgl-vulkan">
@@ -317,7 +317,7 @@
       <prerequisite name="deqp-full"/>
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
-      <prerequisite name="skqp-full"/>
+      <!-- <prerequisite name="skqp-full"/> -->
       <prerequisite name="mi_builder-full"/>
       <!-- prerequisite name="webgl-full"/ -->
     </project>
@@ -489,32 +489,32 @@
       <remote name="craftyguy" repo="git://github.intel.com/cacraft/sim-drm.git"/>
     </sim-drm>
 
-    <skqp repo="https://skia.googlesource.com/skia"
-      branch="2441c92442">
-    </skqp>
+    <!-- <skqp repo="https://skia.googlesource.com/skia" -->
+    <!--   branch="2441c92442"> -->
+    <!-- </skqp> -->
 
     <!-- The following are dependencies for SKQP -->
-    <google_buildtools repo="https://chromium.googlesource.com/chromium/buildtools.git" />
-    <google_common repo="https://skia.googlesource.com/common.git" />
-    <angle2 repo="https://chromium.googlesource.com/angle/angle.git" />
-    <dng_sdk repo="https://android.googlesource.com/platform/external/dng_sdk.git" />
-    <expat repo="https://android.googlesource.com/platform/external/expat.git" />
-    <freetype repo="https://skia.googlesource.com/third_party/freetype2.git" />
-    <harfbuzz repo="https://skia.googlesource.com/third_party/harfbuzz.git" />
-    <icu repo="https://chromium.googlesource.com/chromium/deps/icu.git" />
-    <imgui repo="https://skia.googlesource.com/external/github.com/ocornut/imgui.git" />
-    <jsoncpp repo="https://chromium.googlesource.com/external/github.com/open-source-parsers/jsoncpp.git" />
-    <libjpeg-turbo repo="https://skia.googlesource.com/external/github.com/libjpeg-turbo/libjpeg-turbo.git" />
-    <libpng repo="https://skia.googlesource.com/third_party/libpng.git" />
-    <libwebp repo="https://chromium.googlesource.com/webm/libwebp.git" />
-    <lua repo="https://skia.googlesource.com/external/github.com/lua/lua.git" />
-    <microhttpd repo="https://android.googlesource.com/platform/external/libmicrohttpd" />
-    <piex repo="https://android.googlesource.com/platform/external/piex.git" />
-    <sdl repo="https://skia.googlesource.com/third_party/sdl" />
-    <sfntly repo="https://chromium.googlesource.com/external/github.com/googlei18n/sfntly.git" />
-    <skcms repo="https://skia.googlesource.com/skcms" />
-    <zlib repo="https://chromium.googlesource.com/chromium/src/third_party/zlib" />
-    <skqp_assets repo="https://gitlab.freedesktop.org/Mesa_CI/skqp_assets.git" />
+    <!-- <google_buildtools repo="https://chromium.googlesource.com/chromium/buildtools.git" /> -->
+    <!-- <google_common repo="https://skia.googlesource.com/common.git" /> -->
+    <!-- <angle2 repo="https://chromium.googlesource.com/angle/angle.git" /> -->
+    <!-- <dng_sdk repo="https://android.googlesource.com/platform/external/dng_sdk.git" /> -->
+    <!-- <expat repo="https://android.googlesource.com/platform/external/expat.git" /> -->
+    <!-- <freetype repo="https://skia.googlesource.com/third_party/freetype2.git" /> -->
+    <!-- <harfbuzz repo="https://skia.googlesource.com/third_party/harfbuzz.git" /> -->
+    <!-- <icu repo="https://chromium.googlesource.com/chromium/deps/icu.git" /> -->
+    <!-- <imgui repo="https://skia.googlesource.com/external/github.com/ocornut/imgui.git" /> -->
+    <!-- <jsoncpp repo="https://chromium.googlesource.com/external/github.com/open-source-parsers/jsoncpp.git" /> -->
+    <!-- <libjpeg-turbo repo="https://skia.googlesource.com/external/github.com/libjpeg-turbo/libjpeg-turbo.git" /> -->
+    <!-- <libpng repo="https://skia.googlesource.com/third_party/libpng.git" /> -->
+    <!-- <libwebp repo="https://chromium.googlesource.com/webm/libwebp.git" /> -->
+    <!-- <lua repo="https://skia.googlesource.com/external/github.com/lua/lua.git" /> -->
+    <!-- <microhttpd repo="https://android.googlesource.com/platform/external/libmicrohttpd" /> -->
+    <!-- <piex repo="https://android.googlesource.com/platform/external/piex.git" /> -->
+    <!-- <sdl repo="https://skia.googlesource.com/third_party/sdl" /> -->
+    <!-- <sfntly repo="https://chromium.googlesource.com/external/github.com/googlei18n/sfntly.git" /> -->
+    <!-- <skcms repo="https://skia.googlesource.com/skcms" /> -->
+    <!-- <zlib repo="https://chromium.googlesource.com/chromium/src/third_party/zlib" /> -->
+    <!-- <skqp_assets repo="https://gitlab.freedesktop.org/Mesa_CI/skqp_assets.git" /> -->
 
     <webgl repo="https://github.com/KhronosGroup/WebGL.git"/>
     <amber repo="https://github.com/google/amber.git"/>
