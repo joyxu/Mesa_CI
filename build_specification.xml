@@ -376,16 +376,13 @@
       <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/mesa.git"/>
       <remote name="tarceri" repo="https://gitlab.freedesktop.org/tarceri/mesa.git"/>
       <remote name="evelikov" repo="git://github.com/evelikov/mesa"/>
-      <remote name="pnmanolova" repo="git://github.com/pnmanolova/mesa"/>
       <remote name="imirkin" repo="git://github.com/imirkin/mesa"/>
-      <remote name="igalia" repo="git://github.com/Igalia/mesa"/>
+      <!-- <remote name="igalia" repo="git://github.com/Igalia/mesa"/> -->
       <remote name="igalia_release" repo="git://github.com/Igalia/release-mesa"/>
       <remote name="internal-gitlab" repo="ssh://git@gitlab.devtools.intel.com:29418/linux-gfx/mesa/mesa.git"/>
-      <!--<remote name="hakzsam" repo="git://people.freedesktop.org/~hakzsam/mesa"/>-->
       <remote name="daniels" repo="https://gitlab.freedesktop.org/daniels/mesa.git"/>
-      <remote name="igalia_khronos" repo="git@gitlab.khronos.org:vulkan/mesa.git"/>
-      <!--<remote name="grigorig" repo="git://people.freedesktop.org/~grigorig/mesa"/>-->
-      <remote name="yogesh-marathe" repo="git://github.com/yogesh-marathe/external-mesa"/>
+      <!-- <remote name="igalia_khronos" repo="git@gitlab.khronos.org:vulkan/mesa.git"/> -->
+      <!-- <remote name="yogesh-marathe" repo="git://github.com/yogesh-marathe/external-mesa"/> -->
       <remote name="anholt" repo="https://gitlab.freedesktop.org/anholt/mesa.git"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
       <remote name="airlied" repo="https://gitlab.freedesktop.org/airlied/mesa.git"/>
@@ -413,13 +410,7 @@
            not trigger builds unnecessarily -->
       <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/piglit.git"/>
       <remote name="nchery-gitlab" repo="https://gitlab.freedesktop.org/nchery/piglit.git"/>
-      <!--<remote name="curro" repo="git://people.freedesktop.org/~currojerez/piglit"/>-->
-      <!--<remote name="idr" repo="git://people.freedesktop.org/~idr/piglit"/>-->
-      <!--<remote name="kwg" repo="git://people.freedesktop.org/~kwg/piglit"/>-->
-      <!--<remote name="jljusten" repo="git://people.freedesktop.org/~jljusten/piglit"/>-->
-      <!--<remote name="mattst88" repo="git://people.freedesktop.org/~mattst88/piglit"/>-->
       <remote name="antognolli" repo="https://gitlab.freedesktop.org/rantogno/piglit.git"/>
-      <!--<remote name="tpalli" repo="git://people.freedesktop.org/~tpalli/piglit"/>-->
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/piglit"/>
     </piglit>
 
@@ -751,10 +742,6 @@
     <branch name="mesa_custom" project="all-test"/>
     <branch name="deqp-runtime_test" project="test-single-arch"/>
 
-    <branch name="pnmanolova" project="test-single-arch">
-      <mesa branch="pnmanolova/jenkins"/>
-    </branch>
-
     <branch name="imirkin" project="test-single-arch">
       <mesa branch="imirkin/jenkins"/>
     </branch>
@@ -807,14 +794,6 @@
       <mesa branch="igalia/jasuarez/jenkins"/>
     </branch>
 
-    <branch name="elima" project="test-single-arch-vulkan">
-      <mesa branch="igalia/elima/jenkins"/>
-    </branch>
-
-    <branch name="estea" project="test-single-arch-vulkan">
-      <mesa branch="igalia/hikiko/jenkins"/>
-    </branch>
-
     <branch name="internal" project="test-single-arch">
       <mesa branch="internal-gitlab/internal"/>
     </branch>
@@ -823,11 +802,7 @@
       <mesa branch="ci_mesa_repo/dev/chadv/vulkan"/>
     </branch>
 
-    <branch name="hakzsam" project="test-single-arch-vulkan">
-      <mesa branch="hakzsam/jenkins"/>
-    </branch>
-
-    <branch name="daniels" project="test-single-arch-vulkan">
+   <branch name="daniels" project="test-single-arch-vulkan">
       <mesa branch="daniels/ci/intel"/>
     </branch>
     
@@ -933,10 +908,6 @@
 
     <branch name="internal" project="test-single-arch-internal">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
-    </branch>
-
-    <branch name="pnmanolova_tgl" project="test-single-arch-tgl">
-      <mesa branch="internal-gitlab/pnmanolova/jenkins"/>
     </branch>
 
     <branch name="anholt" project="test-single-arch-vulkan">
