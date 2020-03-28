@@ -104,11 +104,11 @@ Acquire::http::Proxy "http://proxy-jf.intel.com:911";
 Acquire::http::Proxy::linux-ftp.jf.intel.com DIRECT;
 EOF
 apt install gpg -y
-https_proxy=$proxy wget https://repo.saltstack.com/apt/debian/9/amd64/latest/SALTSTACK-GPG-KEY.pub
+https_proxy=$proxy wget https://repo.saltstack.com/apt/debian/9/amd64/2018.3/SALTSTACK-GPG-KEY.pub
 apt-key add SALTSTACK-GPG-KEY.pub
-echo "deb http://repo.saltstack.com/apt/debian/9/amd64/latest stretch main" > /etc/apt/sources.list.d/saltstack.list
+echo "deb http://repo.saltstack.com/apt/debian/9/amd64/2018.3 stretch main" > /etc/apt/sources.list.d/saltstack.list
 apt update
-apt install salt-minion salt-common -y
+apt install salt-minion/oldstable salt-common/oldstable -y
 unset proxy
 
 
