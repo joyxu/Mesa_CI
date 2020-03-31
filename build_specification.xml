@@ -758,40 +758,44 @@
       <mesa branch="ci_mesa_repo/dev/djdeath"/>
     </branch>
 
-    <branch name="igalia" project="test-single-arch-vulkan">
-      <mesa branch="igalia/jenkins"/>
-    </branch>
-
     <branch name="igalia_khronos" project="test-single-arch-vulkan">
       <mesa branch="igalia_khronos/wip/igalia/jenkins-khronos"/>
     </branch>
 
     <branch name="jmcasanova" project="test-single-arch-vulkan">
-      <mesa branch="igalia/jmcasanova/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/igalia/jmcasanova"/>
     </branch>
 
     <branch name="itoral" project="test-single-arch-vulkan">
-      <mesa branch="igalia/itoral/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/igalia/itoral"/>
     </branch>
 
     <branch name="agomez" project="test-single-arch-vulkan">
-      <mesa branch="igalia/wip/agomez/ci"/>
+      <mesa branch="ci_mesa_repo/dev/igalia/agomez"/>
     </branch>
 
     <branch name="siglesias" project="test-single-arch-vulkan">
-      <mesa branch="igalia/siglesias/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/igalia/siglesias"/>
     </branch>
 
     <branch name="apinheiro" project="test-single-arch-vulkan">
-      <mesa branch="igalia/apinheiro/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/igalia/apinheiro"/>
     </branch>
 
     <branch name="apuentes" project="test-single-arch-vulkan">
-      <mesa branch="igalia/apuentes/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/igalia/apuentes"/>
     </branch>
 
     <branch name="jasuarez" project="test-single-arch-vulkan">
-      <mesa branch="igalia/jasuarez/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/igalia/jasuarez"/>
+    </branch>
+
+    <branch name="elima" project="test-single-arch-vulkan">
+      <mesa branch="ci_mesa_repo/dev/igalia/elima"/>
+    </branch>
+
+    <branch name="estea" project="test-single-arch-vulkan">
+      <mesa branch="ci_mesa_repo/dev/igalia/hikiko"/>
     </branch>
 
     <branch name="internal" project="test-single-arch">
@@ -847,7 +851,7 @@
     </branch>
 
     <branch name="nroberts" project="test-single-arch-vulkan">
-      <mesa branch="igalia/nroberts/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/igalia/nroberts"/>
     </branch>
 
     <branch name="frohlich" project="test-single-arch-vulkan">
@@ -891,7 +895,7 @@
     </branch>
 
     <branch name="agoldmints" project="test-single-arch-vulkan">
-      <mesa branch="igalia/agoldmints/jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/igalia/agoldmints"/>
     </branch>
 
     <branch name="pzanoni" project="test-single-arch-vulkan">
