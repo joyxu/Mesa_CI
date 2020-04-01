@@ -104,11 +104,22 @@ Acquire::http::Proxy "http://proxy-jf.intel.com:911";
 Acquire::http::Proxy::linux-ftp.jf.intel.com DIRECT;
 EOF
 apt install gpg -y
+# retain saltstack repo paths in case salt
+# is dropped from debian repos in future
 https_proxy=$proxy wget https://repo.saltstack.com/apt/debian/9/amd64/2018.3/SALTSTACK-GPG-KEY.pub
 apt-key add SALTSTACK-GPG-KEY.pub
 echo "deb http://repo.saltstack.com/apt/debian/9/amd64/2018.3 stretch main" > /etc/apt/sources.list.d/saltstack.list
 apt update
-apt install salt-minion/oldstable salt-common/oldstable -y
+# install debian stable versions of salt packages now
+# that they have returned to the debian repos
+apt install salt-minion/stable salt-common/stable -y
+if [ $? -ne 0 ]; then
+        # attempt to install from salt repos as a backup
+        apt install salt-minion/oldstable salt-common/oldstable -y
+	if [ $? -ne 0 ]; then
+                echo "WARN: salt-minion and salt-common could not be installed"
+	fi
+fi
 unset proxy
 
 
