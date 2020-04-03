@@ -798,6 +798,10 @@
       <mesa branch="ci_mesa_repo/dev/igalia/hikiko"/>
     </branch>
 
+    <branch name="internal" project="test-single-arch">
+      <mesa branch="internal-gitlab/internal"/>
+    </branch>
+
     <branch name="chadv" project="test-single-arch-vulkan">
       <mesa branch="ci_mesa_repo/dev/chadv/vulkan"/>
     </branch>
@@ -904,6 +908,10 @@
 
     <branch name="pendingchaos" project="test-single-arch-vulkan">
       <mesa branch="ci_mesa_repo/dev/pendingchaos"/>
+    </branch>
+
+    <branch name="internal" project="test-single-arch-internal">
+      <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
 
     <branch name="anholt" project="test-single-arch-vulkan">
