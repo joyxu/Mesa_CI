@@ -110,6 +110,8 @@ https_proxy=$proxy wget https://repo.saltstack.com/apt/debian/9/amd64/2018.3/SAL
 apt-key add SALTSTACK-GPG-KEY.pub
 echo "deb http://repo.saltstack.com/apt/debian/9/amd64/2018.3 stretch main" > /etc/apt/sources.list.d/saltstack.list
 apt update
+# new dependency for salt modules
+apt install python3-distro -y
 # install debian stable versions of salt packages now
 # that they have returned to the debian repos
 apt install salt-minion/stable salt-common/stable -y
