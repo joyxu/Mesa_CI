@@ -20,6 +20,8 @@ def list_stuck_systems():
     for node in nodes:
         if node['_class'] != 'hudson.slaves.SlaveComputer':
             continue
+        if not node['offlineCause']:
+            continue
         if node['offline'] and node['offlineCause']['_class'] in offline_causes:
             try:
                 node_name = node['displayName']
