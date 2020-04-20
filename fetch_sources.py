@@ -36,6 +36,16 @@ build_support_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath
 internal_build_support_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "repos", "mesa_ci_internal"))
 
 
+ci_projects = {
+        'mesa_ci': ['git://otc-mesa-ci.local/git/mesa_ci',
+                    'git://otc-mesa-ci.jf.intel.com/git/mesa_ci',
+                    'https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git',],
+        'mesa_ci_internal': ['git://otc-mesa-ci.local/git/mesa_ci_internal',
+                            'ssh://git@gitlab.devtools.intel.com:29418/mesa_ci/mesa_ci_internal.git',
+            ]
+    }
+
+
 def try_clone(repo, repo_dir):
     print('Trying to clone build support from {}'.format(repo))
     git.Repo.clone_from(repo, repo_dir)
@@ -63,40 +73,28 @@ def retry_checkout(repo, branch, fatal=False):
         print("Warn: Unable to checkout " + repo_name + " commit.")
 
 
-if not os.path.exists(build_support_dir):
-    repo_dir = os.path.dirname(build_support_dir)
-    if not os.path.exists(repo_dir):
-        os.makedirs(repo_dir)
-
-    try:
-        try_clone("git://otc-mesa-ci.local/git/mesa_ci", build_support_dir)
-    except git.exc.GitCommandError:
-        try:
-            try_clone("git://otc-mesa-ci.jf.intel.com/git/mesa_ci",
-                      build_support_dir)
-        except git.exc.GitCommandError:
+def clone_ci_project(project, project_dir):
+    if not os.path.exists(project_dir):
+        repo_dir = os.path.dirname(os.path.abspath(project_dir))
+        if not os.path.exists(repo_dir):
+            os.makedirs(repo_dir)
+        success = False
+        for url in ci_projects[project]:
             try:
-                try_clone("https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git",
-                          build_support_dir)
+                try_clone(url, project_dir)
+                success = True
+                break
             except git.exc.GitCommandError:
-                print("ERROR: could not clone sources")
-                sys.exit(1)
+                continue
+
+        if not success:
+            print("ERROR: could not clone sources")
+            sys.exit(1)
+
+clone_ci_project('mesa_ci', build_support_dir)
 bs_repo = git.Repo(build_support_dir)
 
-if not os.path.exists(internal_build_support_dir):
-    repo_dir = os.path.dirname(internal_build_support_dir)
-    if not os.path.exists(repo_dir):
-        os.makedirs(repo_dir)
-    try:
-        try_clone("git://otc-mesa-ci.local/git/mesa_ci_internal",
-                  internal_build_support_dir)
-    except git.exc.GitCommandError:
-        try:
-            try_clone("ssh://git@gitlab.devtools.intel.com:29418/mesa_ci/mesa_ci_internal.git",
-                      internal_build_support_dir)
-        except git.exc.GitCommandError:
-            print("WARN: could not clone mesa_ci_internal")
-
+clone_ci_project('mesa_ci_internal', internal_build_support_dir)
 # Don't initialize an empty dir as a repo (i.e. if clone failed)
 internal_bs_repo = None
 if os.path.exists(internal_build_support_dir):
