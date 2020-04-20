@@ -29,6 +29,7 @@ import argparse
 import git
 import importlib
 import os
+import shutil
 import sys
 import time
 
@@ -55,7 +56,13 @@ def retry_checkout(repo, branch, fatal=False):
     repo_name = repo.git.working_dir.split('/')[-1]
     fail = True
     for i in range(15):
-        repo.remotes['origin'].fetch()
+        try:
+            repo.remotes['origin'].fetch()
+        except git.exc.GitCommandError:
+            shutil.rmtree(repo.working_dir)
+            clone_ci_project(repo_name, repo.working_dir)
+            repo = git.Repo(repo.working_dir)
+            repo.remotes['origin'].fetch()
         try:
             print("Checking out " + repo_name
                   + " commit (try {}/15)".format(i+1))
