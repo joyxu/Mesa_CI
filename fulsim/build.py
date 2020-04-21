@@ -16,7 +16,7 @@ except ModuleNotFoundError:
 
 # Note: Override version with FULSIM_<HARDWARE>_VERSION env. variable
 fulsim_stable_versions = {
-    'tgl_sim': '103429',
+    'tgl_sim': '103446',
 }
 if internal_vars:
     fulsim_stable_versions.update(internal_vars.fulsim_stable_versions)
