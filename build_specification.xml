@@ -64,7 +64,7 @@
          re-tested when a regression occurs.  See update_conf.py and
          bisect_project.py in scripts. -->
     <project name="deqp-test" src_dir="deqp"
-             bisect_hardware="ilk,g33,g45,g965,bdw,bdw_iris,hsw,ivb,snb,byt,bsw,gen9atom,gen9,gen9_iris,icl,icl_iris,tgl"
+             bisect_hardware="ilk,g33,g45,g965,bdw,bdw_iris,hsw,ivb,snb,byt,bsw,gen9atom,gen9,gen9_iris,icl,icl_iris"
              bisect_arch="m64,m32">
       <!-- deqp-test will be specificed for a test platform (eg skl),
            but the hardware for its prerequisites should be a builder
@@ -95,7 +95,7 @@
     </project>
 
     <project name="glcts-test"
-             bisect_hardware="snb,ivb,byt,hsw,bdw,bsw,gen9atom,gen9,gen9_iris,icl,icl_iris,bdw_iris,tgl"
+             bisect_hardware="snb,ivb,byt,hsw,bdw,bsw,gen9atom,gen9,gen9_iris,icl,icl_iris,bdw_iris"
              bisect_arch="m64,m32">
       <prerequisite name="glcts" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -103,7 +103,7 @@
     </project>
 
     <project name="glescts-test"
-             bisect_hardware="g33,g45,ilk,g965,byt,bsw,bdw,hsw,snb,ivb,gen9atom,gen9,icl,bdw_iris,gen9_iris,icl_iris,gen9atom_iris,tgl"
+             bisect_hardware="g33,g45,ilk,g965,byt,bsw,bdw,hsw,snb,ivb,gen9atom,gen9,icl,bdw_iris,gen9_iris,icl_iris,gen9atom_iris"
              bisect_arch="m64">
       <prerequisite name="mesa" hardware="builder"/>
       <prerequisite name="glescts" hardware="builder"/>
@@ -116,7 +116,7 @@
     </project>
 
     <project name="glescts-full">
-      <prerequisite name="glescts-test" hardware="bdw,gen9,bdw_iris,gen9_iris,icl_iris,tgl"/>
+      <prerequisite name="glescts-test" hardware="bdw,gen9,bdw_iris,gen9_iris,icl_iris"/>
       <prerequisite name="glescts-test" hardware="hsw"/>
       <!-- only_for_type enforces the prerequisite when type matches
            the value. -->
@@ -137,7 +137,7 @@
     </project>
 
     <project name="piglit-test"
-             bisect_hardware="bdw,gen9,gen9_iris,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,gen9atom,gen9atom_iris,icl,bdw_iris,icl_iris,tgl"
+             bisect_hardware="bdw,gen9,gen9_iris,hsw,ivb,snb,bsw,byt,g965,ilk,g33,g45,gen9atom,gen9atom_iris,icl,bdw_iris,icl_iris"
              bisect_arch="m64,m32">
       <prerequisite name="piglit" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -147,7 +147,7 @@
 
     <project name="piglit-full">
       <prerequisite name="piglit-test"
-                    hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris,icl_iris,tgl"
+                    hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris,icl_iris"
                     shard="2"/>
       <prerequisite name="piglit-test"
                     only_for_type="daily"
@@ -197,7 +197,7 @@
     <!-- </project> -->
 
     <project name="vulkancts-test" src_dir="vulkancts"
-             bisect_hardware="bdw,bsw,hsw,gen9atom,gen9,icl,tgl"
+             bisect_hardware="bdw,bsw,hsw,gen9atom,gen9,icl"
              bisect_arch="m64">
       <prerequisite name="vulkancts" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -205,7 +205,7 @@
     </project>
 
     <project name="vulkancts-full">
-      <prerequisite name="vulkancts-test" hardware="gen9,tgl" shard="4"/>
+      <prerequisite name="vulkancts-test" hardware="gen9" shard="4"/>
       <prerequisite name="vulkancts-test" hardware="icl" shard="6"/>
       <prerequisite name="vulkancts-test" hardware="hsw,bdw" shard="6"/>
       <prerequisite name="vulkancts-test"
@@ -223,7 +223,7 @@
     </project>
 
     <project name="mi_builder-full">
-      <prerequisite name="mi_builder-test" hardware="ivb,hsw,bdw,gen9,icl,tgl"/>
+      <prerequisite name="mi_builder-test" hardware="ivb,hsw,bdw,gen9,icl"/>
     </project>
 
     <project name="vulkancts"/>
@@ -323,7 +323,7 @@
     </project>
 
     <project name="deqp-full">
-      <prerequisite name="deqp-test" hardware="hsw,bdw,bdw_iris,snb,ivb,gen9,gen9_iris,icl_iris,tgl" shard="4"/>
+      <prerequisite name="deqp-test" hardware="hsw,bdw,bdw_iris,snb,ivb,gen9,gen9_iris,icl_iris" shard="4"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
                     hardware="ilk,g33,g45,g965,byt,bsw,gen9atom" shard="4"/>
@@ -333,7 +333,7 @@
                     hardware="snb,ivb,hsw,bdw,bdw_iris,gen9atom,bsw,gen9,gen9_iris" shard="4"/>
       <prerequisite name="deqp-test"
                     only_for_type="daily"
-                    hardware="icl,icl_iris,tgl" shard="3" arch="m64,m32"/>
+                    hardware="icl,icl_iris" shard="3" arch="m64,m32"/>
     </project>
 
     <project name="deqp-runtime-full">
@@ -342,7 +342,7 @@
     </project>
 
     <project name="glcts-full">
-      <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris,tgl" arch="m64"/>
+      <prerequisite name="glcts-test" hardware="snb,ivb,hsw,bdw,bdw_iris,gen9,gen9_iris" arch="m64"/>
       <prerequisite name="glcts-test" hardware="icl_iris" shard="4"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="hsw,bdw,gen9,bdw_iris" arch="m32"/>
       <prerequisite name="glcts-test" only_for_type="daily" hardware="bsw,gen9atom,byt"/>
