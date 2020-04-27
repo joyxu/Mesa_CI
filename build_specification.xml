@@ -675,11 +675,11 @@
     </branch>
 
     <branch name="dcbaker" project="test-single-arch">
-      <piglit branch="dcbaker/jenkins"/>
+      <piglit branch="ci_mesa_repo/dev/dcbaker"/>
     </branch>
 
     <branch name="dcbaker_mesa" project="test-single-arch">
-      <mesa branch="dcbaker/jenkins_gl"/>
+      <mesa branch="ci_mesa_repo/dev/dcbaker"/>
     </branch>
 
     <branch name="jljusten" project="test-single-arch">
