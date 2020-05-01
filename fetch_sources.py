@@ -175,7 +175,8 @@ def main():
         # only fetch sources that are required for the project
         deps = DependencyGraph(project,
                                Options(args =[sys.argv[0]]),
-                               repo_set=repos).all_sources(allow_missing=True)
+                               repo_set=repos,
+                               require_hw_support=False).all_sources(allow_missing=True)
         # the project will not be a prerequisite of itself, but we do
         # need to get its sources.
         if project not in deps:
