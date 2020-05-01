@@ -197,7 +197,7 @@
     <!-- </project> -->
 
     <project name="vulkancts-test" src_dir="vulkancts"
-             bisect_hardware="bdw,bsw,hsw,gen9atom,gen9,icl"
+             bisect_hardware="bdw,bsw,hsw,gen9atom,gen9,icl,tgl"
              bisect_arch="m64">
       <prerequisite name="vulkancts" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
@@ -205,7 +205,7 @@
     </project>
 
     <project name="vulkancts-full">
-      <prerequisite name="vulkancts-test" hardware="gen9" shard="4"/>
+      <prerequisite name="vulkancts-test" hardware="gen9,tgl" shard="4"/>
       <prerequisite name="vulkancts-test" hardware="icl" shard="6"/>
       <prerequisite name="vulkancts-test" hardware="hsw,bdw" shard="6"/>
       <prerequisite name="vulkancts-test"
