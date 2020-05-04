@@ -17,12 +17,19 @@ except ModuleNotFoundError:
     internal_vars = None
 
 
+class SlowTimeout:
+    def __init__(self):
+        self.hardware = Options().hardware
+
+    def GetDuration(self):
+        if "_sim" in self.hardware:
+            return 45
+        return 25
+
+
 fs = Fulsim()
 
-
 if __name__ == "__main__":
-
-    test_timeout = None
     env = {}
     hardware = Options().hardware
     jobs = multiprocessing.cpu_count()
@@ -43,4 +50,4 @@ if __name__ == "__main__":
         else:
             print("Unable to run simulated hardware in this environment!")
             sys.exit(1)
-    build(CrucibleTester(env=env, jobs=str(jobs)))
+    build(CrucibleTester(env=env, jobs=str(jobs)), time_limit=SlowTimeout())
