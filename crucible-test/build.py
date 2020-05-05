@@ -50,4 +50,5 @@ if __name__ == "__main__":
         else:
             print("Unable to run simulated hardware in this environment!")
             sys.exit(1)
-    build(CrucibleTester(env=env, jobs=str(jobs)), time_limit=SlowTimeout())
+    build(CrucibleTester(env=env, jobs=str(jobs)), time_limit=SlowTimeout(),
+          import_build=import_build)
