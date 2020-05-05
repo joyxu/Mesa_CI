@@ -23,7 +23,7 @@ class SlowTimeout:
 
     def GetDuration(self):
         if "_sim" in self.hardware:
-            return 45
+            return 90
         return 25
 
 
