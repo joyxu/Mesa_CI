@@ -6,22 +6,27 @@ import os
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
                              "..", "repos", "mesa_ci", "build_support"))
 from build_support import build
+from export import Export
 from options import Options
 from project_map import ProjectMap
 from testers import DeqpTester, DeqpTrie, ConfigFilter
 from utils.command import run_batch_command
+from utils.fulsim import Fulsim
 from utils.utils import get_conf_file, get_blacklists
 
 
 class SlowTimeout:
     def __init__(self):
         self.timeout = 60
-        hardware = Options().hardware
-        if hardware in ["gen9atom", "bsw"]:
-            self.timeout = 90
+        self.hardware = Options().hardware
 
     def GetDuration(self):
+        if self.hardware in ["gen9atom", "bsw"]:
+            self.timeout = 90
+        if "_sim" in self.hardware:
+            self.timeout = 120
         return self.timeout
+
 
 class VulkanTestList(object):
     def __init__(self):
@@ -88,6 +93,11 @@ class VulkanTestList(object):
 
 
 class VulkanTester(object):
+    def __init__(self, env):
+        if not env:
+            env = {}
+        self.env = env
+
     def build(self):
         pass
     def clean(self):
@@ -99,10 +109,11 @@ class VulkanTester(object):
             icd_name = "intel_icd.x86_64.json"
         elif global_opts.arch == "m32":
             icd_name = "intel_icd.i686.json"
-        env = {"VK_ICD_FILENAMES" : pm.build_root() + \
-               "/share/vulkan/icd.d/" + icd_name,
-               "ANV_ABORT_ON_DEVICE_LOSS" : "true",
-               "MESA_VK_WSI_PRESENT_MODE" : "immediate"}
+        self.env.update({"VK_ICD_FILENAMES": pm.build_root()
+                         + "/share/vulkan/icd.d/" + icd_name,
+                         "ANV_ABORT_ON_DEVICE_LOSS": "true",
+                         "MESA_VK_WSI_PRESENT_MODE" : "immediate"})
+
         tester = DeqpTester()
         binary = pm.build_root() + "/opt/deqp/modules/vulkan/deqp-vk"
         params = ["--deqp-surface-type=fbo", "--deqp-shadercache=disable"]
@@ -114,11 +125,31 @@ class VulkanTester(object):
         results = tester.test(binary,
                               VulkanTestList(),
                               params,
-                              env=env, cpus=cpus, log_mem_stats=True)
-        config = get_conf_file(o.hardware, o.arch, project=pm.current_project())
+                              env=self.env, cpus=cpus, log_mem_stats=True)
+        config = get_conf_file(o.hardware, o.arch,
+                               project=pm.current_project())
         tester.generate_results(results, ConfigFilter(config, o))
 
-if __name__ == '__main__':
-    build(VulkanTester(),
-          time_limit=SlowTimeout())
 
+if __name__ == '__main__':
+    hardware = Options().hardware
+    env = {}
+    fs = Fulsim()
+    import_build = True
+
+    if "_sim" in hardware and hardware in fs.platform_keyfile:
+        if fs.is_supported():
+            # sim-drm.py is invoked by Fulsim.get_env, and requires build_root
+            # to be populated. To work around this, import build_root now and
+            # call build with import_build=False so that the build_root is only
+            # imported once
+            import_build = False
+            Export().import_build_root()
+            env.update(fs.get_env())
+            cpus = multiprocessing.cpu_count() // 2
+        else:
+            print("Unable to run simulated hardware in this environment!")
+            sys.exit(1)
+
+    build(VulkanTester(env=env), time_limit=SlowTimeout(),
+          import_build=import_build)

@@ -202,6 +202,8 @@
       <prerequisite name="vulkancts" hardware="builder"/>
       <prerequisite name="mesa" hardware="builder"/>
       <prerequisite name="waffle" hardware="builder"/>
+      <prerequisite name="sim-drm" hardware="builder" only_for_hardware="tgl_sim"/>
+      <prerequisite name="fulsim" only_for_hardware="tgl_sim"/>
     </project>
 
     <project name="vulkancts-full">
@@ -269,6 +271,7 @@
     <project name="test-single-arch-simdrm">
       <prerequisite name="piglit-test" hardware="tgl_sim" arch="m64" shard="3"/>
       <prerequisite name="crucible-test" hardware="tgl_sim" arch="m64"/>
+      <prerequisite name="vulkancts-test" hardware="tgl_sim" arch="m64" shard="4"/>
     </project>
 
     <!-- For testing internal mesa branch -->
