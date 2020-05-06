@@ -535,6 +535,7 @@
            interfaces for running/results -->
       <skqp branch="2441c92442"/>
       <webgl/>
+      <glcts branch="origin/opengl-cts-4.6.0"/>
 
       <!-- the trigger attribute is used specify a branch that should
            be used, but prevent builds from triggering if the branch
