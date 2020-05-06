@@ -551,7 +551,7 @@
       <cts branch="d087fc678"/>
       <deqp branch="944fd036d"/>
       <drm branch="fd7f3746"/>
-      <glcts branch="9e8ab0a54"/>
+      <glcts branch="2f6a4e950"/>
       <glslang branch="1ff0c181"/>
       <piglit branch="f5bbd2ea7d"/>
       <skqp branch="2441c92442"/>
@@ -569,7 +569,7 @@
       <cts branch="d087fc678"/>
       <deqp branch="944fd036d"/>
       <drm branch="fd7f3746"/>
-      <glcts branch="9e8ab0a54"/>
+      <glcts branch="2f6a4e950"/>
       <glslang branch="1ff0c181"/>
       <piglit branch="f5bbd2ea7d"/>
       <skqp branch="2441c92442"/>
