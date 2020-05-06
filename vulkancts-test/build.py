@@ -26,6 +26,7 @@ class SlowTimeout:
 class VulkanTestList(object):
     def __init__(self):
         self.pm = ProjectMap()
+        self.hardware = Options().hardware
 
     def tests(self, env):
         # provide a DeqpTrie with all tests
@@ -37,26 +38,39 @@ class VulkanTestList(object):
         trie = DeqpTrie()
         trie.add_xml("dEQP-VK-cases.xml")
         os.chdir(self.pm.project_build_dir())
-        # Detect the latest mustpass file to use, and use it
-        mustpass_dir = (self.pm.project_source_dir("vulkancts")
-                        + "/external/vulkancts/mustpass/")
-        # The mustpass file in vk cts 1.1.5 changed to a single file for all vk
-        # cts versions
-        whitelist_txt = mustpass_dir + "/master/vk-default.txt"
-        if os.path.exists(whitelist_txt):
-            print("Using single whitelist")
+        whitelist = None
+        if self.hardware.endswith('_sim'):
+            if os.path.exists(self.pm.project_build_dir()
+                              + '/sim_whitelist.conf'):
+                whitelist_txt = (self.pm.project_build_dir()
+                                 + '/sim_whitelist.conf')
+                print("Using whitelist for simulated platforms: "
+                      + whitelist_txt)
         else:
-            # Use old vk cts mustpass file
-            versions = os.listdir(mustpass_dir)
-            if '.gitignore' in versions:
-                versions.remove('.gitignore')
-            # Convert versions to an int and compare to get latest version
-            versions.sort(key=lambda v: [int(i) for i in v.split('.')],
-                          reverse=True)
-            latest_version = versions[0]
-            whitelist_txt = (mustpass_dir + '/' + latest_version
-                             + "/vk-default.txt")
-            print("Using whitelist for %s" % latest_version)
+            # Detect the latest mustpass file to use, and use it
+            mustpass_dir = (self.pm.project_source_dir("vulkancts")
+                            + "/external/vulkancts/mustpass/")
+            # The mustpass file in vk cts 1.1.5 changed to a single file for all vk
+            # cts versions
+            whitelist_txt = mustpass_dir + "/master/vk-default.txt"
+            if os.path.exists(whitelist_txt):
+                print("Using single whitelist")
+            else:
+                # Use old vk cts mustpass file
+                versions = os.listdir(mustpass_dir)
+                if '.gitignore' in versions:
+                    versions.remove('.gitignore')
+                # Convert versions to an int and compare to get latest version
+                versions.sort(key=lambda v: [int(i) for i in v.split('.')],
+                              reverse=True)
+                latest_version = versions[0]
+                whitelist_txt = (mustpass_dir + '/' + latest_version
+                                 + "/vk-default.txt")
+                print("Using whitelist for %s" % latest_version)
+        if not whitelist_txt:
+            print("Unable to find a valid whitelist/mustpass to use!")
+            sys.exit(1)
+
         whitelist = DeqpTrie()
         whitelist.add_txt(whitelist_txt)
         trie.filter_whitelist(whitelist)
