@@ -93,10 +93,11 @@ class VulkanTestList(object):
 
 
 class VulkanTester(object):
-    def __init__(self, env):
+    def __init__(self, env, cpus=None):
         if not env:
             env = {}
         self.env = env
+        self.cpus = cpus
 
     def build(self):
         pass
@@ -118,14 +119,13 @@ class VulkanTester(object):
         binary = pm.build_root() + "/opt/deqp/modules/vulkan/deqp-vk"
         params = ["--deqp-surface-type=fbo", "--deqp-shadercache=disable"]
         o = Options()
-        cpus = None
         if 'icl' in o.hardware:
-            cpus = multiprocessing.cpu_count() // 2
+            self.cpus = multiprocessing.cpu_count() // 2
 
         results = tester.test(binary,
                               VulkanTestList(),
                               params,
-                              env=self.env, cpus=cpus, log_mem_stats=True)
+                              env=self.env, cpus=self.cpus, log_mem_stats=True)
         config = get_conf_file(o.hardware, o.arch,
                                project=pm.current_project())
         tester.generate_results(results, ConfigFilter(config, o))
@@ -136,6 +136,8 @@ if __name__ == '__main__':
     env = {}
     fs = Fulsim()
     import_build = True
+    # VulkanTester defaults to all CPUs when this is None
+    cpus = None
 
     if "_sim" in hardware and hardware in fs.platform_keyfile:
         if fs.is_supported():
@@ -146,10 +148,11 @@ if __name__ == '__main__':
             import_build = False
             Export().import_build_root()
             env.update(fs.get_env())
-            cpus = multiprocessing.cpu_count() // 2
+            if hardware == 'dg1_sim':
+                cpus = multiprocessing.cpu_count() // 2
         else:
             print("Unable to run simulated hardware in this environment!")
             sys.exit(1)
 
-    build(VulkanTester(env=env), time_limit=SlowTimeout(),
+    build(VulkanTester(env=env, cpus=cpus), time_limit=SlowTimeout(),
           import_build=import_build)
