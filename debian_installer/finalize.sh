@@ -96,31 +96,6 @@ Name=e*
 DHCP=yes
 EOF
 
-#re-enabling debian stable to get salt minion dependencies
-echo "deb http://linux-ftp.jf.intel.com/pub/mirrors/debian stable main" >> /etc/apt/sources.list.d/debian_stable.list
-proxy="http://proxy-jf.intel.com:911"
-cat > /etc/apt/apt.conf.d/99proxy << EOF
-Acquire::http::Proxy "http://proxy-jf.intel.com:911";
-Acquire::http::Proxy::linux-ftp.jf.intel.com DIRECT;
-EOF
-apt install gpg -y
-# add saltstack repo path
-# NB: stable versions salt packages in debian repos don't work
-# haven't root caused yet. Will investigate
-https_proxy=$proxy wget https://repo.saltstack.com/apt/debian/9/amd64/2018.3/SALTSTACK-GPG-KEY.pub
-apt-key add SALTSTACK-GPG-KEY.pub
-echo "deb http://repo.saltstack.com/apt/debian/9/amd64/2018.3 stretch main" > /etc/apt/sources.list.d/saltstack.list
-apt update
-# new dependency for salt modules
-apt install python3-distro -y
-# install saltstack repo versions of salt packages
-apt install salt-minion/oldstable salt-common/oldstable -y
-if [ $? -ne 0 ]; then
-        echo "WARN: salt-minion and salt-common could not be installed"
-fi
-unset proxy
-
-
 # setup resolve for systemd-resolved
 rm /etc/resolv.conf
 ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
@@ -145,5 +120,29 @@ sed -i 's|#HandleLidSwitch=suspend|HandleLidSwitch=ignore|' /etc/systemd/logind.
 chmod u+s /usr/bin/ping
 
 # Enable and disable some services
-systemctl enable systemd-networkd systemd-resolved avahi-daemon salt-minion
+systemctl enable systemd-networkd systemd-resolved avahi-daemon
 systemctl disable networking
+
+#re-enabling debian stable to get salt minion dependencies
+echo "deb http://linux-ftp.jf.intel.com/pub/mirrors/debian stable main" >> /etc/apt/sources.list.d/debian_stable.list
+proxy="http://proxy-jf.intel.com:911"
+cat > /etc/apt/apt.conf.d/99proxy << EOF
+Acquire::http::Proxy "http://proxy-jf.intel.com:911";
+Acquire::http::Proxy::linux-ftp.jf.intel.com DIRECT;
+EOF
+
+apt update
+# new dependency for salt modules
+apt install python3-distro -y
+# install saltstack repo versions of salt packages
+mkdir -p /tmp/salt
+wget http://otc-mesa-android.jf.intel.com/saltstack/salt-common.deb -O /tmp/salt/salt-common.deb
+wget http://otc-mesa-android.jf.intel.com/saltstack/salt-minion.deb -O /tmp/salt/salt-minion.deb
+
+dpkg -i /tmp/salt/salt-common.deb
+apt install --fix-broken -y #in case salt deps aren't installed automatically
+apt install dctrl-tools python3-systemd init-system-helpers -y #ensure salt-minion prereqs are installed
+dpkg -i /tmp/salt/salt-minion.deb
+
+systemctl enable salt-minion
+unset proxy
