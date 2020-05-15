@@ -97,7 +97,9 @@ DHCP=yes
 EOF
 
 # setup resolve for systemd-resolved
-rm /etc/resolv.conf
+# preserve existing resolv.conf so DNS can be resolved later in this script
+mkdir -p /run/systemd/resolve/
+mv /etc/resolv.conf /run/systemd/resolve/resolv.conf
 ln -s /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
 # Remove interfaces to keep debian's interfaces from coming up as well as systemd
