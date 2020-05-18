@@ -20,6 +20,8 @@ while(True):
 
     module = None
     for token in msg.split():
+        if "glcts" in msg:
+            module = "glcts"
         if "deqp" not in msg:
             continue
         module = token.split("-")[-1]
@@ -33,6 +35,8 @@ while(True):
             continue
         qpa = arg.split("=")[-1]
         qpa_path = "/tmp/build_root/m64/opt/deqp/modules/" + module + "/" + qpa
+        if module == "glcts":
+            qpa_path = "/tmp/build_root/m64/bin/gl/modules/" + qpa
         current_test = "none"
         for qpaline in open(qpa_path).readlines():
             if qpaline.startswith("#beginTestCaseResult"):
