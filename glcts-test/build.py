@@ -67,17 +67,12 @@ class GLCTSTester(object):
         self.pm = ProjectMap()
 
     def test(self):
-        mv = mesa_version()
         cpus = multiprocessing.cpu_count()
         t = DeqpTester()
         env = {"MESA_GL_VERSION_OVERRIDE" : "4.6",
                "MESA_GLSL_VERSION_OVERRIDE" : "460"}
         if "iris" in self.o.hardware:
             env["MESA_LOADER_DRIVER_OVERRIDE"] = "iris"
-        # Tests for fp64 can use a lot of memory on platforms with soft fp64,
-        # so the number run in parallel is limited
-        if "icl" in self.o.hardware:
-            cpus = 2
         results = t.test(self.pm.build_root() + "/bin/gl/modules/glcts",
                          GLCTSLister(),
                          env=env, cpus=cpus)
