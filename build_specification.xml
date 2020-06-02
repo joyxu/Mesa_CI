@@ -50,6 +50,8 @@
            For example, a build of mesa with arch=m32 will require a
            build of drm with arch=m32 -->
       <prerequisite name="drm"/>
+      <!-- X server on tgl requires m64 mesa -->
+      <prerequisite name="mesa" arch="m64" only_for_hardware="tgl" only_for_arch="m32"/>
     </project>
 
     <!-- only works on m64, due to llvm dependencies -->
