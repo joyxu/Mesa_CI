@@ -113,6 +113,9 @@ cp /boot/efi/EFI/debian/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 # linux-image-amd64 does not generate an initrd in all cases, for some reason.
 update-initramfs -c -k $(apt show linux-image-amd64 2>/dev/null| grep Depends| awk -F'image-' '{print $2}')
 update-grub
+# copy full grub.cfg to EFI partition to make booting on some systems more
+# reliable
+[ -d /boot/efi/EFI/debian ] && cp /boot/grub/grub.cfg /boot/efi/EFI/debian/grub.cfg
 
 # Disable S3/suspend/hibernate
 systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
