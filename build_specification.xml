@@ -533,7 +533,7 @@
       <!-- skqp is pinned since newer versions provide completely different
            interfaces for running/results -->
       <skqp branch="2441c92442"/>
-      <webgl/>
+      <!-- <webgl/> -->
       <glcts branch="origin/opengl-cts-4.6.0"/>
 
       <!-- the trigger attribute is used specify a branch that should
