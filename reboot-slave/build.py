@@ -25,6 +25,11 @@ def is_excluded(host):
         return True
 
 for a_host in host_dict['computer']:
+    offline = a_host['offline']
+    if offline:
+        print("Skipping system because it is offline: "
+              + a_host['displayName'])
+        continue
     host = a_host['displayName']
     if is_excluded(host):
         continue
