@@ -125,7 +125,8 @@ class VulkanTester(object):
         results = tester.test(binary,
                               VulkanTestList(),
                               params,
-                              env=self.env, cpus=self.cpus, log_mem_stats=True)
+                              env=self.env, cpus=self.cpus,
+                              log_mem_stats=False)
         config = get_conf_file(o.hardware, o.arch,
                                project=pm.current_project())
         tester.generate_results(results, ConfigFilter(config, o))
