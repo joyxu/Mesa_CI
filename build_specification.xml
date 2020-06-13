@@ -177,7 +177,7 @@
     </project>
 
     <project name="crucible-full">
-      <prerequisite name="crucible-test" hardware="bdw,bsw,hsw,gen9atom,gen9,icl,tgl,dg1"/>
+      <prerequisite name="crucible-test" hardware="bdw,bsw,hsw,gen9atom,gen9,icl,tgl"/>
       <prerequisite name="crucible-test" only_for_type="daily" arch="m64" hardware="gen9atom,ivb,byt"/>
     </project>
 
