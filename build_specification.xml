@@ -472,7 +472,7 @@
     </crucible>
 
     <vulkancts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
-               branch="origin/vulkan-cts-1.2.2">
+               branch="tags/vulkan-cts-1.2.2.0">
       <remote name="khronos" repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"/>
       <remote name="tpalli" repo="ssh://git@gitlab.devtools.intel.com:29418/tpalli/vk-gl-cts-tpalli.git"/>
     </vulkancts>
