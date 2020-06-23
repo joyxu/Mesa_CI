@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+import os
 import sys
 import re
 
@@ -15,6 +15,10 @@ while(True):
         continue
     msg = found.group(1)
     proc = found.group(2)
+    if not os.path.exists("/proc/" + proc + "/cmdline"):
+        print("Unable to determine hanging process, path doesn't exist: "
+              + "/proc/" + proc + "/cmdline")
+        continue
     cmdline = open("/proc/" + proc + "/cmdline").read()
     print("Hanging process: " + cmdline.replace("\0", " "))
 
