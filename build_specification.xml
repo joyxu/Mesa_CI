@@ -966,6 +966,10 @@
       <mesa branch="ci_mesa_repo/dev/scottph"/>
     </branch>
 
+    <branch name="shadeslayer" project="test-single-arch-vulkan">
+      <mesa branch="ci_mesa_repo/dev/shadeslayer"/>
+    </branch>
+
     <branch name="internal_dg1" project="test-single-arch-dg1">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
