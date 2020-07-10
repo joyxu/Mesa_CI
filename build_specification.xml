@@ -970,6 +970,10 @@
       <mesa branch="ci_mesa_repo/dev/shadeslayer"/>
     </branch>
 
+    <branch name="mslusarz" project="test-single-arch-vulkan">
+      <mesa branch="ci_mesa_repo/dev/mslusarz"/>
+    </branch>
+
     <branch name="internal_dg1" project="test-single-arch-dg1">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
