@@ -10,7 +10,8 @@ from build_support import build
 from builders import MesonBuilder
 from options import Options
 from project_map import ProjectMap
-
+from project_invoke import ProjectInvoke
+from repo_set import RevisionSpecification, RepoSet
 
 def main():
     global_opts = Options()
@@ -19,7 +20,6 @@ def main():
     options = [
         '-Ddri-drivers=i965,i915',
         '-Dvulkan-drivers=intel',
-        '-Dplatforms=x11,drm',
         '-Dtools=intel',
         '-Dprefer-iris=false',
         '-Dglvnd=true',
@@ -28,6 +28,13 @@ def main():
                        "/src/gallium/drivers/iris")):
         options += ['-Dgallium-drivers=iris',
                     '-Dllvm=false']
+
+    minor_version = tuple(ProjectInvoke().get_mesa_version().quad[0:2])
+    cmp_version = (20, 3)
+    platform_options = '-Dplatforms=x11'
+    if minor_version < cmp_version:
+        platform_options = ','.join([platform_options, 'drm'])
+    options += [platform_options]
 
     cpp_args = None
     if global_opts.config == 'debug':
