@@ -10,16 +10,24 @@ def main():
                                                   "hardware platform"))
     parser.add_argument('hw', help=('Platform to find unique failures in CI '
                                     'for, e.g. "gen9_iris"'))
+    parser.add_argument('--hw_config_path', help=('path to config file if different'
+                                                  'from mesa_jenkins'))
     opts = parser.parse_args()
     projects = glob.glob("*-test") + ['webgl']
 
     hw_config_file = opts.hw + '.conf'
+
+    if opts.hw_config_path is None:
+        opts.hw_config_path = ''
+    else:
+        opts.hw_config_path += '/'
+
     for project in projects:
         configs = [c for c in glob.glob(project + "/*.conf") if 'blacklist' not in c]
 
         c = configparser.ConfigParser(allow_no_value=True)
         try:
-            c.read(project + '/' + hw_config_file)
+            c.read(opts.hw_config_path + project + '/' + hw_config_file)
         except configparser.ParsingError as e:
             print("skipping file in project {} because it couldn't be "
                   "parsed: {}".format(project, hw_config_file))
