@@ -138,7 +138,7 @@ EOF
 
 apt update
 # new dependency for salt modules
-apt install python3-distro -y
+apt install python3-distro python3-crypto -y
 # install saltstack repo versions of salt packages
 mkdir -p /tmp/salt
 wget http://otc-mesa-android.jf.intel.com/saltstack/salt-common.deb -O /tmp/salt/salt-common.deb
