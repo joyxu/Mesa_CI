@@ -2,6 +2,7 @@ import argparse
 import configparser
 import glob
 
+import os.path
 
 def main():
     parser = argparse.ArgumentParser(description=("Parses platform conf "
@@ -20,10 +21,13 @@ def main():
     if opts.hw_config_path is None:
         opts.hw_config_path = ''
     else:
-        opts.hw_config_path += '/'
+        opts.hw_config_path = os.path.expanduser(opts.hw_config_path) + '/'
 
     for project in projects:
         configs = [c for c in glob.glob(project + "/*.conf") if 'blacklist' not in c]
+        if opts.hw_config_path:
+            configs += [c for c in glob.glob(opts.hw_config_path + project + "/*.conf") if 'blacklist' not in c]
+            #print(configs)
 
         c = configparser.ConfigParser(allow_no_value=True)
         try:
@@ -40,7 +44,7 @@ def main():
                 hw_project_failures.append(failure)
         unique_fails = [f for f in hw_project_failures]
         for config in configs:
-            if config == project + '/' + hw_config_file:
+            if config == opts.hw_config_path + project + '/' + hw_config_file:
                 continue
             c = configparser.ConfigParser(allow_no_value=True)
             try:
