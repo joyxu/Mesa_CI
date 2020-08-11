@@ -1,0 +1,36 @@
+From 4392facc87c2da80b5065f8663b9303fb1113e16 Mon Sep 17 00:00:00 2001
+From: Timothy Arceri <tarceri@itsqueeze.com>
+Date: Sun, 3 May 2020 15:57:02 +1000
+Subject: [PATCH] Fix some egl robustness tests
+
+Because the values of color were initially undefined an optimised
+compiler can simply set all components of the vector to the value
+being assigned to color[u_index] and eventually eliminate color and
+u_index completely.
+
+To avoid this we initialise color.
+
+Affects:
+dEQP-EGL.functional.robustness.reset_context.shaders*
+
+Components: OpenGL
+VK-GL-CTS issue: 2349
+
+Change-Id: I6eb929eec07b039afb247427af91aba65dbade9b
+---
+ modules/egl/teglRobustnessTests.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/modules/egl/teglRobustnessTests.cpp b/modules/egl/teglRobustnessTests.cpp
+index 452777f90..0953e3a99 100644
+--- a/modules/egl/teglRobustnessTests.cpp
++++ b/modules/egl/teglRobustnessTests.cpp
+@@ -1108,7 +1108,7 @@ std::string ShadersOOB::genVertexShader (const std::string& shaderDecl, const st
+ 								<<	shaderDecl << "\n"
+ 								<<	"void main (void)\n"
+ 								<<	"{\n"
+-								<<	"	highp vec4 color;\n"
++								<<	"	highp vec4 color = vec4(0.0f);\n"
+ 								<<	shaderBody << "\n"
+ 								<<	"	v_color = color;\n"
+ 								<<	"	gl_Position = a_position;\n"

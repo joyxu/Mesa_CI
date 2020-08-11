@@ -1,0 +1,130 @@
+From 64d344b60bb7b4324525e08766fdeb14bf1f18c6 Mon Sep 17 00:00:00 2001
+From: Timothy Arceri <tarceri@itsqueeze.com>
+Date: Thu, 30 Apr 2020 17:31:13 +1000
+Subject: [PATCH] Fix broken layout binding tests
+
+Some of the shaders being generated contain a misplaced ;
+
+An example of the code being gererated is as follows:
+
+  fragColor = vec4(float(atomicCounter(atomic0)), 1.0, 0.0, 1.0);
+  +vec4(float(atomicCounter(atomic1)), 1.0, 0.0, 1.0);
+  +vec4(float(atomicCounter(atomic2)), 1.0, 0.0, 1.0);
+  +vec4(float(atomicCounter(atomic3)), 1.0, 0.0, 1.0);
+
+Affects:
+
+KHR-GL46.layout_binding.atomic_uint_layout_binding_atomic_*
+
+Components: OpenGL
+
+VK-GL-CTS issue: 2348
+
+Change-Id: Ie209de8954c8b8e3920c17be9190030946c93354
+---
+ .../gles31/es31cLayoutBindingTests.cpp        | 49 ++++++++++++++-----
+ 1 file changed, 37 insertions(+), 12 deletions(-)
+
+diff --git a/external/openglcts/modules/gles31/es31cLayoutBindingTests.cpp b/external/openglcts/modules/gles31/es31cLayoutBindingTests.cpp
+index 4b8aef4b4..e4fc84c22 100644
+--- a/external/openglcts/modules/gles31/es31cLayoutBindingTests.cpp
++++ b/external/openglcts/modules/gles31/es31cLayoutBindingTests.cpp
+@@ -2476,9 +2476,9 @@ class AtomicCounterLayoutBindingCase : public LayoutBindingBaseCase
+ 		{
+ 			bool		 passed = true;
+ 			StringStream s;
+-			s << buildAccess(getDefaultUniformName()) << ";\n";
+-			s << "+" << buildAccess(getDefaultUniformName(1)) << ";\n";
+-			s << "+" << buildAccess(getDefaultUniformName(2)) << ";\n";
++			s << buildAccess(getDefaultUniformName()) << "\n";
++			s << "+" << buildAccess(getDefaultUniformName(1)) << "\n";
++			s << "+" << buildAccess(getDefaultUniformName(2)) << "\n";
+ 			s << "+" << buildAccess(getDefaultUniformName(3)) << ";\n";
+ 			setTemplateParam("UNIFORM_ACCESS", s.str());
+ 
+@@ -2571,10 +2571,16 @@ class AtomicCounterLayoutBindingCase : public LayoutBindingBaseCase
+ 				bool passed = true;
+ 
+ 				StringStream s;
+-				s << buildAccess(getDefaultUniformName()) << ";\n";
+-				s << "+" << buildAccess(getDefaultUniformName(1)) << ";\n";
++				s << buildAccess(getDefaultUniformName()) << "\n";
+ 				if (pass)
++				{
++					s << "+" << buildAccess(getDefaultUniformName(1)) << "\n";
+ 					s << "+" << buildAccess(getDefaultUniformName(2)) << ";\n";
++				}
++				else
++				{
++					s << "+" << buildAccess(getDefaultUniformName(1)) << ";\n";
++				}
+ 				setTemplateParam("UNIFORM_ACCESS", s.str());
+ 
+ 				s.reset();
+@@ -2613,10 +2619,16 @@ class AtomicCounterLayoutBindingCase : public LayoutBindingBaseCase
+ 				bool passed = true;
+ 
+ 				StringStream s;
+-				s << buildAccess(getDefaultUniformName()) << ";\n";
+-				s << "+" << buildAccess(getDefaultUniformName(1)) << ";\n";
++				s << buildAccess(getDefaultUniformName()) << "\n";
+ 				if (pass)
++				{
++					s << "+" << buildAccess(getDefaultUniformName(1)) << "\n";
+ 					s << "+" << buildAccess(getDefaultUniformName(2)) << ";\n";
++				}
++				else
++				{
++					s << "+" << buildAccess(getDefaultUniformName(1)) << ";\n";
++				}
+ 				setTemplateParam("UNIFORM_ACCESS", s.str());
+ 
+ 				s.reset();
+@@ -2687,9 +2699,9 @@ class AtomicCounterLayoutBindingCase : public LayoutBindingBaseCase
+ 		{
+ 			bool		 passed = true;
+ 			StringStream s;
+-			s << buildAccess(getDefaultUniformName()) << ";\n";
+-			s << "+" << buildAccess(getDefaultUniformName(1)) << ";\n";
+-			s << "+" << buildAccess(getDefaultUniformName(2)) << ";\n";
++			s << buildAccess(getDefaultUniformName()) << "\n";
++			s << "+" << buildAccess(getDefaultUniformName(1)) << "\n";
++			s << "+" << buildAccess(getDefaultUniformName(2)) << "\n";
+ 			s << "+" << buildAccess(getDefaultUniformName(3)) << ";\n";
+ 			setTemplateParam("UNIFORM_ACCESS", s.str());
+ 
+@@ -2780,9 +2792,16 @@ class AtomicCounterLayoutBindingCase : public LayoutBindingBaseCase
+ 			bool passed = true;
+ 
+ 			StringStream s;
+-			s << buildAccess(getDefaultUniformName()) << ";\n";
++
+ 			if (pass)
++			{
++				s << buildAccess(getDefaultUniformName()) << "\n";
+ 				s << "+" << buildAccess(getDefaultUniformName(1)) << ";\n";
++			}
++			else
++			{
++				s << buildAccess(getDefaultUniformName()) << ";\n";
++			}
+ 			setTemplateParam("UNIFORM_ACCESS", s.str());
+ 
+ 			s.reset();
+@@ -2817,9 +2836,15 @@ class AtomicCounterLayoutBindingCase : public LayoutBindingBaseCase
+ 			bool passed = true;
+ 
+ 			StringStream s;
+-			s << buildAccess(getDefaultUniformName()) << ";\n";
+ 			if (pass)
++			{
++				s << buildAccess(getDefaultUniformName()) << "\n";
+ 				s << "+" << buildAccess(getDefaultUniformName(1)) << ";\n";
++			}
++			else
++			{
++				s << buildAccess(getDefaultUniformName()) << ";\n";
++			}
+ 			setTemplateParam("UNIFORM_ACCESS", s.str());
+ 
+ 			s.reset();
