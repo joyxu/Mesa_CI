@@ -113,7 +113,7 @@ class TestExecutor:
                 self._lister.record_timeout(test)
                 continue
             result_frame = self._driver.find_element_by_xpath(".//iframe")
-            self._driver.switch_to_frame(result_frame)
+            self._driver.switch_to.frame(result_frame)
             test_out = ""
             try:
                 console = self._driver.find_element_by_id("console")
@@ -127,7 +127,7 @@ class TestExecutor:
                 except:
                     print("no console for test: " + test)
                     pass
-            self._driver.switch_to_default_content()
+            self._driver.switch_to.default_content()
             
             self._lister.record_result(test,
                                        element.find_element_by_xpath('./div').text,
@@ -145,13 +145,16 @@ class WebGLTestLister(object):
         conf_filename = get_conf_file(options.hardware, options.arch, project="webgl")
         self._conf_file = ConfigFilter(conf_filename, self._opts)
         self._blacklist_file = path.splitext(conf_filename)[0] + "_blacklist.conf"
+        self._suites = {}
+
+    def setup_testdir(self, project_map):
         test_dir = project_map.build_root() + "/../test"
+
         if not os.path.exists(test_dir):
             os.makedirs(test_dir)
-        self._result_file = (test_dir + "/piglit-webgl_" + \
+        self._result_file = (test_dir + "/piglit-webgl_" +
                              self._opts.hardware + "_" + self._opts.arch + "_" +
                              self._opts.shard + ".xml")
-        self._suites = {}
 
     def list_tests(self):
         threads = []
@@ -329,6 +332,7 @@ class WebGLTester(object):
         for _ in range(multiprocessing.cpu_count()):
             self._lister.spawn_worker(port)
 
+        self._lister.setup_testdir(self.pm)
         self._lister.list_tests()
         self._lister.blacklist()
         self._lister.shard()
@@ -338,7 +342,6 @@ class WebGLTester(object):
         # wait for worker
         server.shutdown()
         server.server_close()
-        
         self._lister.write_junit()
         
         # create a copy of the test xml in the source root, where
