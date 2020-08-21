@@ -405,6 +405,7 @@
     <mesa repo="https://gitlab.freedesktop.org/mesa/mesa.git">
       <!-- todo: add support for remotes.  -->
       <remote name="ci_mesa_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/mesa.git"/>
+      <remote name="ci_internal_rebase_mesa_repo" repo="ssh://git@gitlab.devtools.intel.com:29418/mesa_ci/repos/mesa-rebase-testing.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
       <remote name="tpalli" repo="https://gitlab.freedesktop.org/tpalli/mesa.git"/>
       <remote name="aphogat" repo="git://github.com/aphogat/mesa"/>
