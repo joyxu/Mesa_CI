@@ -50,7 +50,7 @@ def main():
     tries = 1
     while tries <= 5:
         try:
-            remote.push(1)
+            remote.push(tag_name)
             break
         except git.exc.GitCommandError:
             print("Unable to push tag, retrying in 5 seconds (attempt " +
