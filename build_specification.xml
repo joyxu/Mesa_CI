@@ -597,7 +597,7 @@
       <vkrunner branch="f688a74"/>
       <vulkancts branch="27e691f02"/>
       <waffle branch="a1215f4"/>
-      <webgl branch="3c364b001"/>
+      <webgl branch="cb02b8691"/>
     </branch>
 
     <branch name="mesa_20.2_staging" project="all-test-vulkan">
@@ -615,7 +615,7 @@
       <vkrunner branch="f688a74"/>
       <vulkancts branch="27e691f02"/>
       <waffle branch="a1215f4"/>
-      <webgl branch="3c364b001"/>
+      <webgl branch="cb02b8691"/>
     </branch>
 
     <branch name="mesa_20.1" project="all-test-vulkan">
