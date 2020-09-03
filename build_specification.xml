@@ -476,10 +476,12 @@
 
     <cts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
          branch="origin/opengl-es-cts-3.2.5">
+      <remote name="tpalli" repo="ssh://git@gitlab.devtools.intel.com:29418/tpalli/vk-gl-cts-tpalli.git"/>
     </cts>
 
     <glcts repo="git@gitlab.khronos.org:Tracker/vk-gl-cts.git"
            branch="origin/opengl-cts-4.6.0">
+      <remote name="tpalli" repo="ssh://git@gitlab.devtools.intel.com:29418/tpalli/vk-gl-cts-tpalli.git"/>
     </glcts>
 
     <gtest repo="https://android.googlesource.com/platform/external/googletest"/>
