@@ -771,7 +771,7 @@
     </branch>
 
     <branch name="nchery_piglit" project="piglit-gen12">
-      <piglit branch="nchery/dmubuf-files"/>
+      <piglit branch="nchery-gitlab/dmubuf-files"/>
     </branch>
 
     <branch name="tarceri" project="test-single-arch-vulkan">
