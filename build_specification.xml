@@ -398,6 +398,10 @@
     
     <project name="reboot-slave"/>
 
+    <project name="piglit-gen12">
+      <prerequisite name="piglit-test" hardware="dg1,tgl" shard="2" arch="m64"/>
+    </project>
+
   </projects>
 
   <!-- the following servers and remotes correspond to projects -->
@@ -764,6 +768,10 @@
 
     <branch name="nchery_tgl-sim" project="test-single-arch-tgl-sim">
       <mesa branch="internal-gitlab/nchery/wip/tgl-simdrm"/>
+    </branch>
+
+    <branch name="nchery_piglit" project="piglit-gen12">
+      <piglit branch="nchery/dmubuf-files"/>
     </branch>
 
     <branch name="tarceri" project="test-single-arch-vulkan">
