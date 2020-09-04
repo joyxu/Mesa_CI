@@ -399,7 +399,7 @@
     <project name="reboot-slave"/>
 
     <project name="piglit-gen12">
-      <prerequisite name="piglit-test" hardware="dg1,tgl" shard="2" arch="m64"/>
+      <prerequisite name="piglit-test" hardware="tgl" shard="2" arch="m64"/>
     </project>
 
   </projects>
