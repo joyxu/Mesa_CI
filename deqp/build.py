@@ -57,7 +57,6 @@ class DeqpBuilder(CMakeBuilder):
 
 if __name__ == '__main__':
     build(DeqpBuilder(extra_definitions=["-DDEQP_TARGET=x11_egl",
-                                            "-DPYTHON_EXECUTABLE=/usr/bin/python2",
                                             "-DDEQP_GLES1_LIBRARIES=/tmp/build_root/"
                                             + Options().arch + "/lib/libGL.so"]))
 
