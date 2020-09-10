@@ -393,7 +393,8 @@
     </project>
 
     <project name="webgl-full">
-      <prerequisite name="webgl" hardware="gen9,gen9_iris" shard="6"/>
+      <prerequisite name="webgl" hardware="gen9_iris" shard="6"/>
+      <prerequisite name="webgl" hardware="gen9" only_for_type="daily" shard="6"/>
     </project>
     
     <project name="reboot-slave"/>
