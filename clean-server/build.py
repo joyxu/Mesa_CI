@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # Copyright (C) Intel Corp.  2014.  All Rights Reserved.
 
 # Permission is hereby granted, free of charge, to any person obtaining
