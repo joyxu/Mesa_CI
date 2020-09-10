@@ -29,7 +29,7 @@ from testers import ConfigFilter
 from utils.check_gpu_hang import check_gpu_hang
 from utils.command import run_batch_command
 from utils.utils import (get_libdir, get_libgl_drivers, mesa_version,
-                         get_conf_file)
+                         get_conf_file, get_blacklists)
 
 
 class QuietServer(http.server.SimpleHTTPRequestHandler):
@@ -144,7 +144,6 @@ class WebGLTestLister(object):
         self._mutex = threading.Lock()
         conf_filename = get_conf_file(options.hardware, options.arch, project="webgl")
         self._conf_file = ConfigFilter(conf_filename, self._opts)
-        self._blacklist_file = path.splitext(conf_filename)[0] + "_blacklist.conf"
         self._suites = {}
 
     def setup_testdir(self, project_map):
@@ -200,7 +199,12 @@ class WebGLTestLister(object):
         return t
         
     def blacklist(self):
-        blacklist_hash = {line.rstrip() : 1 for line in open(self._blacklist_file)}
+        blacklist_files = get_blacklists()
+        blacklist_hash = {}
+        for blacklist_file in blacklist_files:
+            blacklist_hash.update({
+                line.rstrip(): 1 for line in open(blacklist_file)
+            })
         to_execute = []
         for test in self._tests:
             parts = test.split('.')
