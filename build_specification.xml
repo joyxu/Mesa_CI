@@ -387,13 +387,13 @@
       <prerequisite name="glcts-test" only_for_type="daily" hardware="icl,icl_iris" arch="m32" shard="4"/>
     </project>
 
-    <project name="webgl" bisect_hardware="gen9,gen9_iris,icl_iris,icl">
+    <project name="webgl" bisect_hardware="gen9,gen9_iris,icl_iris,icl,tgl">
       <prerequisite name="mesa" hardware="builder"/>
       <prerequisite name="waffle" hardware="builder"/>
     </project>
 
     <project name="webgl-full">
-      <prerequisite name="webgl" hardware="gen9_iris,icl_iris" shard="6"/>
+      <prerequisite name="webgl" hardware="gen9_iris,icl_iris,tgl" shard="6"/>
       <prerequisite name="webgl" hardware="gen9,icl" only_for_type="daily" shard="6"/>
     </project>
     
