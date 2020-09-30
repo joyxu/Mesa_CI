@@ -418,22 +418,16 @@
       <remote name="tarceri" repo="https://gitlab.freedesktop.org/tarceri/mesa.git"/>
       <remote name="evelikov" repo="git://github.com/evelikov/mesa"/>
       <remote name="imirkin" repo="git://github.com/imirkin/mesa"/>
-      <!-- <remote name="igalia" repo="git://github.com/Igalia/mesa"/> -->
       <remote name="igalia_release" repo="git://github.com/Igalia/release-mesa"/>
       <remote name="internal-gitlab" repo="ssh://git@gitlab.devtools.intel.com:29418/linux-gfx/mesa/mesa.git"/>
       <remote name="daniels" repo="https://gitlab.freedesktop.org/daniels/mesa.git"/>
-      <!-- <remote name="igalia_khronos" repo="git@gitlab.khronos.org:vulkan/mesa.git"/> -->
-      <!-- <remote name="yogesh-marathe" repo="git://github.com/yogesh-marathe/external-mesa"/> -->
       <remote name="anholt" repo="https://gitlab.freedesktop.org/anholt/mesa.git"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
       <remote name="airlied" repo="https://gitlab.freedesktop.org/airlied/mesa.git"/>
-      <remote name="robclark" repo="git://github.com/freedreno/mesa"/>
       <remote name="global_logic" repo="https://gitlab.freedesktop.org/GL/mesa.git"/>
       <remote name="karolherbst" repo="https://github.com/karolherbst/mesa.git"/>
       <remote name="cwabbott" repo="https://gitlab.freedesktop.org/cwabbott0/mesa.git"/>
-      <!-- Erik Faye-Lund erik.faye-lund@collabora.com -->
       <remote name="kusma" repo="https://gitlab.freedesktop.org/kusma/mesa"/>
-      <!-- Gert Wollny gw.fossdev@gmail.com -->
       <remote name= "gerddie" repo="https://gitlab.freedesktop.org/gerddie/mesa"/>
       <remote name= "lepton" repo="https://gitlab.freedesktop.org/lepton/mesa.git"/>
     </mesa>
@@ -798,16 +792,8 @@
       <mesa branch="ci_mesa_repo/dev/djdeath_vulkan"/>
     </branch>
 
-    <branch name="djdeath_vulkan_internal" project="test-vulkan">
-      <mesa branch="internal-gitlab/dev/djdeath_vulkan"/>
-    </branch>
-
     <branch name="djdeath" project="test-single-arch">
       <mesa branch="ci_mesa_repo/dev/djdeath"/>
-    </branch>
-
-    <branch name="igalia_khronos" project="test-single-arch-vulkan">
-      <mesa branch="igalia_khronos/wip/igalia/jenkins-khronos"/>
     </branch>
 
     <branch name="jmcasanova" project="test-single-arch-vulkan">
@@ -828,22 +814,6 @@
 
     <branch name="apinheiro" project="test-single-arch-vulkan">
       <mesa branch="ci_mesa_repo/dev/igalia/apinheiro"/>
-    </branch>
-
-    <branch name="apuentes" project="test-single-arch-vulkan">
-      <mesa branch="ci_mesa_repo/dev/igalia/apuentes"/>
-    </branch>
-
-    <branch name="jasuarez" project="test-single-arch-vulkan">
-      <mesa branch="ci_mesa_repo/dev/igalia/jasuarez"/>
-    </branch>
-
-    <branch name="elima" project="test-single-arch-vulkan">
-      <mesa branch="ci_mesa_repo/dev/igalia/elima"/>
-    </branch>
-
-    <branch name="estea" project="test-single-arch-vulkan">
-      <mesa branch="ci_mesa_repo/dev/igalia/hikiko"/>
     </branch>
 
     <branch name="chadv" project="test-single-arch-vulkan">
@@ -882,10 +852,6 @@
       <mesa branch="internal-gitlab/sghuge/jenkins/tgl-simdrm"/>
     </branch>
 
-    <branch name="yogesh-marathe" project="test-single-arch-vulkan">
-      <mesa branch="yogesh-marathe/jenkins"/>
-    </branch>
-
     <branch name="anholt" project="test-single-arch-anholt">
       <mesa branch="anholt/jenkins"/>
     </branch>
@@ -894,20 +860,12 @@
       <mesa branch="eric_engestrom/jenkins"/>
     </branch>
 
-    <branch name="nroberts" project="test-single-arch-vulkan">
-      <mesa branch="ci_mesa_repo/dev/igalia/nroberts"/>
-    </branch>
-
     <branch name="frohlich" project="test-single-arch-vulkan">
       <mesa branch="ci_mesa_repo/dev/frohlich"/>
     </branch>
 
     <branch name="airlied" project="test-single-arch-vulkan">
       <mesa branch="airlied/jenkins"/>
-    </branch>
-
-    <branch name="robclark" project="test-single-arch-vulkan">
-      <mesa branch="robclark/for_jenkins"/>
     </branch>
 
     <branch name="global_logic" project="test-single-arch-vulkan">
