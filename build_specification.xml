@@ -994,10 +994,6 @@
       <mesa branch="internal-gitlab/rantogno/dg1-jenkins"/>
     </branch>
 
-    <branch name="majanes_dg1" project="test-single-arch-dg1">
-      <mesa branch="internal-gitlab/janesma/dg1/test"/>
-      <mesa_ci_internal branch="origin/dg1_daily"/>
-    </branch>
   </branches>
 
 </build_specification>
