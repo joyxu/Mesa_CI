@@ -556,7 +556,7 @@
          Repositories default to origin/master -->
 
     <!-- jenkins has a build with same name as branch -->
-    <branch name="mesa_master" project="all-test">
+    <branch name="mesa_master" project="all-test" priority="2">
 
       <!-- these repo tags exist soley to trigger a master build when
            anything changes -->
@@ -654,7 +654,7 @@
       <webgl branch="3c364b001"/>
     </branch>
 
-    <branch name="vulkancts" project="vulkancts-full">
+    <branch name="vulkancts" project="vulkancts-full" priority="2">
       <mesa/>
       <vulkancts/>
       <crucible/>
@@ -663,116 +663,116 @@
       <spirvtools/>
     </branch>
 
-    <branch name="jekstrand_gl" project="test-single-arch">
+    <branch name="jekstrand_gl" project="test-single-arch" priority="2">
       <mesa branch="jekstrand/jenkins_gl"/>
     </branch>
 
-    <branch name="jekstrand_vulkan" project="test-vulkan">
+    <branch name="jekstrand_vulkan" project="test-vulkan" priority="2">
       <mesa branch="jekstrand/jenkins_vulkan"/>
     </branch>
 
-    <branch name="jljusten_internal" project="test-single-arch">
+    <branch name="jljusten_internal" project="test-single-arch" priority="2">
       <mesa branch="internal-gitlab/jljusten/jenkins/internal"/>
     </branch>
 
-    <branch name="jljusten_tgl" project="test-single-arch-tgl">
+    <branch name="jljusten_tgl" project="test-single-arch-tgl" priority="2">
       <mesa branch="internal-gitlab/jljusten/jenkins/tgl"/>
     </branch>
 
-    <branch name="kwg" project="test-single-arch">
+    <branch name="kwg" project="test-single-arch" priority="2">
       <mesa branch="ci_mesa_repo/dev/kwg"/>
     </branch>
 
-    <branch name="antognolli" project="test-single-arch">
+    <branch name="antognolli" project="test-single-arch" priority="2">
       <mesa branch="ci_mesa_repo/dev/antognolli"/>
     </branch>
 
-    <branch name="antognolli_tgl" project="test-single-arch-tgl">
+    <branch name="antognolli_tgl" project="test-single-arch-tgl" priority="2">
       <mesa branch="internal-gitlab/rantogno/tgl/jenkins"/>
     </branch>
 
-    <branch name="antognolli_vulkan" project="test-vulkan">
+    <branch name="antognolli_vulkan" project="test-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/antognolli_vulkan"/>
     </branch>
 
-    <branch name="kwg_vulkan" project="test-vulkan">
+    <branch name="kwg_vulkan" project="test-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/kwg_vulkan"/>
     </branch>
 
-    <branch name="idr" project="test-single-arch-vulkan">
+    <branch name="idr" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/idr/jenkins"/>
     </branch>
 
-    <branch name="mattst88" project="test-single-arch-vulkan">
+    <branch name="mattst88" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/mattst88"/>
     </branch>
 
-    <branch name="majanes" project="test-single-arch-vulkan">
+    <branch name="majanes" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/janesma"/>
     </branch>
 
-    <branch name="dcbaker" project="test-single-arch">
+    <branch name="dcbaker" project="test-single-arch" priority="2">
       <piglit branch="ci_mesa_repo/dev/dcbaker"/>
     </branch>
 
-    <branch name="dcbaker_mesa" project="test-single-arch">
+    <branch name="dcbaker_mesa" project="test-single-arch" priority="2">
       <mesa branch="ci_mesa_repo/dev/dcbaker"/>
     </branch>
 
-    <branch name="jljusten" project="test-single-arch">
+    <branch name="jljusten" project="test-single-arch" priority="2">
       <mesa branch="ci_mesa_repo/dev/jljusten"/>
     </branch>
 
-    <branch name="tpalli" project="test-single-arch-vulkan">
+    <branch name="tpalli" project="test-single-arch-vulkan" priority="2">
       <mesa branch="tpalli/jenkins"/>
     </branch>
 
-    <branch name="tpalli_vulkancts" project="test-vulkan">
+    <branch name="tpalli_vulkancts" project="test-vulkan" priority="2">
       <mesa branch="tpalli/jenkins-vkglcts"/>
       <vulkancts branch="tpalli/master"/>
     </branch>
 
-    <branch name="curro" project="test-single-arch">
+    <branch name="curro" project="test-single-arch" priority="2">
       <mesa branch="ci_mesa_repo/dev/curro"/>
     </branch>
 
-    <branch name="curro_vulkan" project="test-vulkan">
+    <branch name="curro_vulkan" project="test-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/curro-vk"/>
     </branch>
 
-    <branch name="aphogat" project="test-single-arch">
+    <branch name="aphogat" project="test-single-arch" priority="2">
       <mesa branch="aphogat/jenkins"/>
     </branch>
 
-    <branch name="aphogat_vulkan" project="test-vulkan">
+    <branch name="aphogat_vulkan" project="test-vulkan" priority="2">
       <mesa branch="aphogat/jenkins-vulkan"/>
     </branch>
 
-    <branch name="nchery_vulkan" project="test-vulkan">
+    <branch name="nchery_vulkan" project="test-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/nchery_vulkan"/>
     </branch>
 
-    <branch name="nchery" project="test-single-arch">
+    <branch name="nchery" project="test-single-arch" priority="2">
       <mesa branch="ci_mesa_repo/dev/nchery"/>
     </branch>
 
-    <branch name="nchery_tgl" project="test-single-arch-tgl">
+    <branch name="nchery_tgl" project="test-single-arch-tgl" priority="2">
       <mesa branch="internal-gitlab/nchery/wip/tgl"/>
     </branch>
 
-    <branch name="nchery_tgl-sim" project="test-single-arch-tgl-sim">
+    <branch name="nchery_tgl-sim" project="test-single-arch-tgl-sim" priority="2">
       <mesa branch="internal-gitlab/nchery/wip/tgl-simdrm"/>
     </branch>
 
-    <branch name="nchery_piglit" project="piglit-gen12">
+    <branch name="nchery_piglit" project="piglit-gen12" priority="2">
       <piglit branch="nchery-gitlab/dmabuf-files"/>
     </branch>
 
-    <branch name="tarceri" project="test-single-arch-vulkan">
+    <branch name="tarceri" project="test-single-arch-vulkan" priority="2">
       <mesa branch="tarceri/intel_ci"/>
     </branch>
 
-    <branch name="evelikov" project="test-single-arch-vulkan">
+    <branch name="evelikov" project="test-single-arch-vulkan" priority="2">
       <mesa branch="evelikov/intel-ci"/>
     </branch>
 
@@ -783,167 +783,167 @@
     <branch name="mesa_custom" project="all-test"/>
     <branch name="deqp-runtime_test" project="test-single-arch"/>
 
-    <branch name="imirkin" project="test-single-arch">
+    <branch name="imirkin" project="test-single-arch" priority="2">
       <mesa branch="imirkin/jenkins"/>
     </branch>
 
-    <branch name="djdeath_vulkan" project="test-vulkan">
+    <branch name="djdeath_vulkan" project="test-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/djdeath_vulkan"/>
     </branch>
 
-    <branch name="djdeath" project="test-single-arch">
+    <branch name="djdeath" project="test-single-arch" priority="2">
       <mesa branch="ci_mesa_repo/dev/djdeath"/>
     </branch>
 
-    <branch name="jmcasanova" project="test-single-arch-vulkan">
+    <branch name="jmcasanova" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/igalia/jmcasanova"/>
     </branch>
 
-    <branch name="itoral" project="test-single-arch-vulkan">
+    <branch name="itoral" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/igalia/itoral"/>
     </branch>
 
-    <branch name="agomez" project="test-single-arch-vulkan">
+    <branch name="agomez" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/igalia/agomez"/>
     </branch>
 
-    <branch name="siglesias" project="test-single-arch-vulkan">
+    <branch name="siglesias" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/igalia/siglesias"/>
     </branch>
 
-    <branch name="apinheiro" project="test-single-arch-vulkan">
+    <branch name="apinheiro" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/igalia/apinheiro"/>
     </branch>
 
-    <branch name="chadv" project="test-single-arch-vulkan">
+    <branch name="chadv" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/chadv/vulkan"/>
     </branch>
 
-   <branch name="daniels" project="test-single-arch-vulkan">
+   <branch name="daniels" project="test-single-arch-vulkan" priority="2">
       <mesa branch="daniels/ci/intel"/>
     </branch>
     
-    <branch name="cmarcelo_gl" project="test-single-arch">
+    <branch name="cmarcelo_gl" project="test-single-arch" priority="2">
       <mesa branch="ci_mesa_repo/dev/cmarcelo_gl"/>
     </branch>
 
-    <branch name="cmarcelo_vulkan" project="test-vulkan">
+    <branch name="cmarcelo_vulkan" project="test-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/cmarcelo_vulkan"/>
     </branch>
 
-    <branch name="cmarcelo_tgl" project="test-single-arch-tgl">
+    <branch name="cmarcelo_tgl" project="test-single-arch-tgl" priority="2">
       <mesa branch="internal-gitlab/cmarcelo/jenkins/tgl"/>
     </branch>
 
-    <branch name="cmarcelo_iris" project="all-test-iris">
+    <branch name="cmarcelo_iris" project="all-test-iris" priority="2">
       <mesa branch="ci_mesa_repo/dev/cmarcelo_iris"/>
     </branch>
 
-    <branch name="sagarghuge" project="test-single-arch-vulkan">
+    <branch name="sagarghuge" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/sagarghuge"/>
     </branch>
 
-    <branch name="sagarghuge-tgl" project="test-single-arch-tgl">
+    <branch name="sagarghuge-tgl" project="test-single-arch-tgl" priority="2">
       <mesa branch="internal-gitlab/sghuge/jenkins/tgl"/>
     </branch>
 
-    <branch name="sagarghuge-tgl-sim" project="test-single-arch-tgl-sim">
+    <branch name="sagarghuge-tgl-sim" project="test-single-arch-tgl-sim" priority="2">
       <mesa branch="internal-gitlab/sghuge/jenkins/tgl-simdrm"/>
     </branch>
 
-    <branch name="anholt" project="test-single-arch-anholt">
+    <branch name="anholt" project="test-single-arch-anholt" priority="2">
       <mesa branch="anholt/jenkins"/>
     </branch>
 
-    <branch name="eric_engestrom" project="test-single-arch-vulkan">
+    <branch name="eric_engestrom" project="test-single-arch-vulkan" priority="2">
       <mesa branch="eric_engestrom/jenkins"/>
     </branch>
 
-    <branch name="frohlich" project="test-single-arch-vulkan">
+    <branch name="frohlich" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/frohlich"/>
     </branch>
 
-    <branch name="airlied" project="test-single-arch-vulkan">
+    <branch name="airlied" project="test-single-arch-vulkan" priority="2">
       <mesa branch="airlied/jenkins"/>
     </branch>
 
-    <branch name="global_logic" project="test-single-arch-vulkan">
+    <branch name="global_logic" project="test-single-arch-vulkan" priority="2">
       <mesa branch="global_logic/i965_ci"/>
     </branch>
 
-    <branch name="global_logic_2" project="test-single-arch-vulkan">
+    <branch name="global_logic_2" project="test-single-arch-vulkan" priority="2">
       <mesa branch="global_logic/i965_second"/>
     </branch>
 
-    <branch name="karolherbst" project="test-single-arch-vulkan">
+    <branch name="karolherbst" project="test-single-arch-vulkan" priority="2">
       <mesa branch="karolherbst/jenkins"/>
     </branch>
 
-    <branch name="cwabbott" project="test-single-arch-vulkan">
+    <branch name="cwabbott" project="test-single-arch-vulkan" priority="2">
       <mesa branch="cwabbott/intel-jenkins"/>
     </branch>
     
-    <branch name="kusma" project="test-single-arch-vulkan">
+    <branch name="kusma" project="test-single-arch-vulkan" priority="2">
       <mesa branch="kusma/intel-ci"/>
     </branch>
     
-    <branch name="gerddie" project="test-single-arch-vulkan">
+    <branch name="gerddie" project="test-single-arch-vulkan" priority="2">
       <mesa branch="gerddie/intel-ci"/>
     </branch>
 
-    <branch name="craftyguy" project="test-single-arch-vulkan">
+    <branch name="craftyguy" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/craftyguy"/>
     </branch>
 
-    <branch name="agoldmints" project="test-single-arch-vulkan">
+    <branch name="agoldmints" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/igalia/agoldmints"/>
     </branch>
 
-    <branch name="pzanoni" project="test-single-arch-vulkan">
+    <branch name="pzanoni" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/pzanoni"/>
     </branch>
 
-    <branch name="ibriano" project="test-single-arch-vulkan">
+    <branch name="ibriano" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/Sachiel"/>
     </branch>
 
-    <branch name="pendingchaos" project="test-single-arch-vulkan">
+    <branch name="pendingchaos" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/pendingchaos"/>
     </branch>
 
-    <branch name="internal" project="test-single-arch-internal">
+    <branch name="internal" project="test-single-arch-internal" priority="2">
       <mesa branch="internal-gitlab/jljusten/jenkins/tgl"/>
     </branch>
 
-    <branch name="anholt" project="test-single-arch-vulkan">
+    <branch name="anholt" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/anholt"/>
     </branch>
 
-    <branch name="mareko" project="test-single-arch-vulkan">
+    <branch name="mareko" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/mareko"/>
     </branch>
 
-    <branch name="scottph" project="test-single-arch-vulkan">
+    <branch name="scottph" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/scottph"/>
     </branch>
 
-    <branch name="shadeslayer" project="test-single-arch-vulkan">
+    <branch name="shadeslayer" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/shadeslayer"/>
     </branch>
 
-    <branch name="mslusarz" project="test-single-arch-vulkan">
+    <branch name="mslusarz" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/mslusarz"/>
     </branch>
 
-    <branch name="jenatali" project="test-single-arch-vulkan">
+    <branch name="jenatali" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/jenatali"/>
     </branch>
 
-    <branch name="internal_dg1" project="test-single-arch-dg1">
+    <branch name="internal_dg1" project="test-single-arch-dg1" priority="2">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
     </branch>
 
-    <branch name="rantogno_dg1" project="test-single-arch-dg1">
+    <branch name="rantogno_dg1" project="test-single-arch-dg1" priority="2">
       <mesa branch="internal-gitlab/rantogno/dg1-jenkins"/>
     </branch>
 
