@@ -25,7 +25,7 @@ def main():
 
     # Autodetect valid gallium drivers in Mesa source
     gallium_drivers = []
-    gallium_drivers_exclude = ['i915']
+    gallium_drivers_exclude = ['i915', 'd3d12']
     oi = optinterpreter.OptionInterpreter('')
     oi.process(os.path.join(sd, 'meson_options.txt'))
     for driver in oi.options['gallium-drivers'].choices:
