@@ -420,6 +420,7 @@
       <remote name="imirkin" repo="git://github.com/imirkin/mesa"/>
       <remote name="igalia_release" repo="git://github.com/Igalia/release-mesa"/>
       <remote name="internal-gitlab" repo="ssh://git@gitlab.devtools.intel.com:29418/linux-gfx/mesa/mesa.git"/>
+      <remote name="internal-github" repo="git@github.com:intel-innersource/drivers.gpu.mesa.dev.git"/>
       <remote name="daniels" repo="https://gitlab.freedesktop.org/daniels/mesa.git"/>
       <remote name="anholt" repo="https://gitlab.freedesktop.org/anholt/mesa.git"/>
       <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/mesa"/>
@@ -514,6 +515,7 @@
 
     <sim-drm repo="ssh://git@gitlab.devtools.intel.com:29418/mesa/sim-drm.git">
       <remote name="craftyguy" repo="git://github.intel.com/cacraft/sim-drm.git"/>
+      <remote name="internal-github" repo="git@github.com:intel-innersource/drivers.gpu.mesa.sim-drm.git"/>
     </sim-drm>
 
     <!-- <skqp repo="https://skia.googlesource.com/skia" -->
