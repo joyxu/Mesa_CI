@@ -42,9 +42,10 @@ while(True):
         if module == "glcts":
             qpa_path = "/tmp/build_root/m64/bin/gl/modules/" + qpa
         current_test = "none"
-        for qpaline in open(qpa_path).readlines():
-            if qpaline.startswith("#beginTestCaseResult"):
-                current_test = qpaline.split(" ")[-1]
-            if qpaline.startswith("#endTestCaseResult"):
-                current_test = "none"
+        with open(qpa_path, 'r', errors='replace') as f:
+            for qpaline in f.readlines():
+                if qpaline.startswith("#beginTestCaseResult"):
+                    current_test = qpaline.split(" ")[-1]
+                if qpaline.startswith("#endTestCaseResult"):
+                    current_test = "none"
         print("Hanging test: " + current_test)
