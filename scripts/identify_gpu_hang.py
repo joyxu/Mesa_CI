@@ -47,7 +47,7 @@ while(True):
             b = f.read()
 
         if b is None:
-            print("ERROR: unable to open results file: " + qpa_path)
+            print("ERROR: results file is empty: " + qpa_path)
             continue
 
         try:
