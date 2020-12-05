@@ -42,10 +42,23 @@ while(True):
         if module == "glcts":
             qpa_path = "/tmp/build_root/m64/bin/gl/modules/" + qpa
         current_test = "none"
-        with open(qpa_path, 'r', errors='replace') as f:
-            for qpaline in f.readlines():
-                if qpaline.startswith("#beginTestCaseResult"):
-                    current_test = qpaline.split(" ")[-1]
-                if qpaline.startswith("#endTestCaseResult"):
-                    current_test = "none"
+        b = None
+        with open(qpa_path, 'rb') as f:
+            b = f.read()
+
+        if b is None:
+            print("ERROR: unable to open results file: " + qpa_path)
+            continue
+
+        try:
+            lines = b.decode()
+        except UnicodeDecodeError:
+            lines = b.decode("ISO-8859-1")
+
+        for qpaline in lines.split('\n'):
+            if qpaline.startswith("#beginTestCaseResult"):
+                current_test = qpaline.split(" ")[-1]
+            if qpaline.startswith("#endTestCaseResult"):
+                current_test = "none"
+
         print("Hanging test: " + current_test)
