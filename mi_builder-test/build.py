@@ -43,7 +43,7 @@ class MiBuilderTest():
 
         if self._hw not in mi_hw:
             print('This platform does not have a supporting mi_builder binary')
-            return 0
+            exit(1)
         mi_bin = 'intel_' + mi_hw[self._hw] + '_mi_builder_test'
         if not os.path.exists(os.path.join(self._build_root, 'bin', mi_bin)):
             print('No mi_builder was built/installed for this platform.')
