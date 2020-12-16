@@ -279,7 +279,6 @@
       <prerequisite name="test-single-arch-gen9"/>
       <prerequisite name="test-single-arch-tgl"/>
       <prerequisite name="test-single-arch-dg1"/>
-      <prerequisite name="test-single-arch-simdrm"/>
     </project>
 
     <project name="test-single-arch-tgl-gl">
