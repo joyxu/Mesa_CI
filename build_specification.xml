@@ -311,7 +311,7 @@
       <prerequisite name="deqp-test" hardware="gen9_iris" shard="4" arch="m64"/>
       <prerequisite name="glcts-test" hardware="gen9_iris" arch="m64"/>
       <prerequisite name="glescts-test" hardware="gen9_iris" arch="m64"/>
-      <prerequisite name="mi_builder-test" hardware="gen9_iris"/>
+      <prerequisite name="mi_builder-test" hardware="gen9"/>
       <!-- <prerequisite name="skqp-test" hardware="gen9_iris"/> -->
     </project>
 
