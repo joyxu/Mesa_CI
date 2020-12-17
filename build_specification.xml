@@ -110,7 +110,7 @@
       <prerequisite name="waffle" hardware="builder"/>
     </project>
 
-    <project name="mi_builder-test">
+    <project name="mi-builder-test">
       <prerequisite name="mesa" hardware="builder"/>
       <prerequisite name="waffle" hardware="builder"/>
     </project>
@@ -224,8 +224,8 @@
       <prerequisite name="crucible-full"/>
     </project>
 
-    <project name="mi_builder-full">
-      <prerequisite name="mi_builder-test" hardware="ivb,hsw,bdw,gen9,icl,tgl"/>
+    <project name="mi-builder-full">
+      <prerequisite name="mi-builder-test" hardware="ivb,hsw,bdw,gen9,icl,tgl"/>
     </project>
 
     <project name="vulkancts"/>
@@ -253,7 +253,7 @@
       <prerequisite name="glescts-full"/>
       <!-- <prerequisite name="skqp-full"/> -->
       <prerequisite name="webgl-full"/>
-      <prerequisite name="mi_builder-full"/>
+      <prerequisite name="mi-builder-full"/>
     </project>
 
     <project name="all-test-iris">
@@ -286,7 +286,7 @@
       <prerequisite name="deqp-test" hardware="tgl" shard="3" arch="m64"/>
       <prerequisite name="glcts-test" hardware="tgl" arch="m64"/>
       <prerequisite name="glescts-test" hardware="tgl" arch="m64"/>
-      <prerequisite name="mi_builder-test" hardware="tgl"/>
+      <prerequisite name="mi-builder-test" hardware="tgl"/>
       <!-- <prerequisite name="skqp-test" hardware="tgl"/> -->
     </project>
 
@@ -310,7 +310,7 @@
       <prerequisite name="deqp-test" hardware="gen9_iris" shard="4" arch="m64"/>
       <prerequisite name="glcts-test" hardware="gen9_iris" arch="m64"/>
       <prerequisite name="glescts-test" hardware="gen9_iris" arch="m64"/>
-      <prerequisite name="mi_builder-test" hardware="gen9"/>
+      <prerequisite name="mi-builder-test" hardware="gen9"/>
       <!-- <prerequisite name="skqp-test" hardware="gen9_iris"/> -->
     </project>
 
@@ -341,7 +341,7 @@
       <prerequisite name="glescts-test" hardware="dg1" arch="m64"/>
       <prerequisite name="deqp-test" hardware="dg1" shard="2" arch="m64"/>
       <prerequisite name="vulkancts-test" hardware="dg1" shard="6" arch="m64"/>
-      <prerequisite name="mi_builder-test" hardware="dg1"/>
+      <prerequisite name="mi-builder-test" hardware="dg1"/>
     </project>
 
     <project name="test-single-arch">
@@ -354,7 +354,7 @@
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
       <!-- <prerequisite name="skqp-full"/> -->
-      <prerequisite name="mi_builder-full"/>
+      <prerequisite name="mi-builder-full"/>
       <prerequisite name="webgl-full"/>
     </project>
 
