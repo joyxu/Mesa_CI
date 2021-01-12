@@ -921,7 +921,7 @@
     </branch>
 
     <branch name="cwabbott" project="test-single-arch-vulkan" priority="2">
-      <mesa branch="cwabbott/intel-jenkins"/>
+      <mesa branch="ci_mesa_repo/dev/cwabbott"/>
     </branch>
     
     <branch name="kusma" project="test-single-arch-vulkan" priority="2">
