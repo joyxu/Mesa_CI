@@ -473,7 +473,7 @@
     </deqp>
 
     <cts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
-         branch="origin/opengl-es-cts-3.2.5">
+         branch="origin/opengl-es-cts-3.2.7">
       <remote name="tpalli" repo="ssh://git@gitlab.devtools.intel.com:29418/tpalli/vk-gl-cts-tpalli.git"/>
     </cts>
 
