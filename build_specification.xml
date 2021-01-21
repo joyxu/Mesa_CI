@@ -438,7 +438,7 @@
     <vkrunner repo="git://github.com/Igalia/vkrunner.git" branch="origin/master"/>
 
     <piglit repo="https://gitlab.freedesktop.org/mesa/piglit.git">
-      <remote name="ci_mesa_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/piglit.git"/>
+      <remote name="ci_piglit_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/piglit.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/piglit.git"/>
       <!-- Dylan's repository is more stable than the origin, and will
            not trigger builds unnecessarily -->
@@ -749,7 +749,7 @@
     </branch>
 
     <branch name="dcbaker" project="test-single-arch" priority="2">
-      <piglit branch="ci_mesa_repo/dev/dcbaker"/>
+      <piglit branch="ci_piglit_repo/dev/dcbaker"/>
     </branch>
 
     <branch name="dcbaker_mesa" project="test-single-arch" priority="2">
