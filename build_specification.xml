@@ -489,7 +489,6 @@
 
     <crucible repo="https://gitlab.freedesktop.org/mesa/crucible.git"
               branch="origin/master">
-      <remote name="eric_engestrom" repo="https://gitlab.freedesktop.org/eric/crucible"/>
     </crucible>
 
     <vulkancts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
