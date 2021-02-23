@@ -720,18 +720,6 @@
       <mesa branch="ci_mesa_repo/dev/kwg"/>
     </branch>
 
-    <branch name="antognolli" project="test-single-arch" priority="2">
-      <mesa branch="ci_mesa_repo/dev/antognolli"/>
-    </branch>
-
-    <branch name="antognolli_tgl" project="test-single-arch-tgl" priority="2">
-      <mesa branch="internal-gitlab/rantogno/tgl/jenkins"/>
-    </branch>
-
-    <branch name="antognolli_vulkan" project="test-vulkan" priority="2">
-      <mesa branch="ci_mesa_repo/dev/antognolli_vulkan"/>
-    </branch>
-
     <branch name="kwg_vulkan" project="test-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/kwg_vulkan"/>
     </branch>
@@ -978,10 +966,6 @@
 
     <branch name="internal_dg1" project="test-single-arch-dg1" priority="2">
       <mesa branch="internal-gitlab/jljusten/wip/tgl"/>
-    </branch>
-
-    <branch name="rantogno_dg1" project="test-single-arch-dg1" priority="2">
-      <mesa branch="internal-gitlab/rantogno/dg1-jenkins"/>
     </branch>
 
   </branches>
