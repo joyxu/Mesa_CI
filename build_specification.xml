@@ -752,10 +752,6 @@
       <piglit branch="ci_piglit_repo/dev/dcbaker"/>
     </branch>
 
-    <branch name="dcbaker_mesa" project="test-single-arch" priority="2">
-      <mesa branch="ci_mesa_repo/dev/dcbaker"/>
-    </branch>
-
     <branch name="jljusten" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/jljusten"/>
     </branch>
