@@ -412,7 +412,6 @@
       <remote name="ci_internal_rebase_mesa_repo" repo="ssh://git@gitlab.devtools.intel.com:29418/mesa_ci/repos/mesa-rebase-testing.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
       <remote name="tpalli" repo="https://gitlab.freedesktop.org/tpalli/mesa.git"/>
-      <remote name="aphogat" repo="git://github.com/aphogat/mesa"/>
       <remote name="dcbaker" repo="https://gitlab.freedesktop.org/dbaker/mesa.git"/>
       <remote name="tarceri" repo="https://gitlab.freedesktop.org/tarceri/mesa.git"/>
       <remote name="evelikov" repo="git://github.com/evelikov/mesa"/>
@@ -761,12 +760,8 @@
       <mesa branch="ci_mesa_repo/dev/curro-vk"/>
     </branch>
 
-    <branch name="aphogat" project="test-single-arch" priority="2">
-      <mesa branch="aphogat/jenkins"/>
-    </branch>
-
-    <branch name="aphogat_vulkan" project="test-vulkan" priority="2">
-      <mesa branch="aphogat/jenkins-vulkan"/>
+    <branch name="aphogat" project="test-single-arch-vulkan" priority="2">
+      <mesa branch="ci_mesa_repo/aphogat"/>
     </branch>
 
     <branch name="nchery_vulkan" project="test-vulkan" priority="2">
