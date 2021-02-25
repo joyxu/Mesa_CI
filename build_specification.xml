@@ -764,6 +764,10 @@
       <mesa branch="ci_mesa_repo/aphogat"/>
     </branch>
 
+    <branch name="aphogat_internal" project="test-single-arch" priority="2">
+      <mesa branch="internal-gitlab/aphogat/jenkins"/>
+    </branch>
+
     <branch name="nchery_vulkan" project="test-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/nchery_vulkan"/>
     </branch>
