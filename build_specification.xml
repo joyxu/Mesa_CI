@@ -761,7 +761,7 @@
     </branch>
 
     <branch name="aphogat" project="test-single-arch-vulkan" priority="2">
-      <mesa branch="ci_mesa_repo/aphogat"/>
+      <mesa branch="ci_mesa_repo/dev/aphogat"/>
     </branch>
 
     <branch name="aphogat_internal" project="test-single-arch" priority="2">
