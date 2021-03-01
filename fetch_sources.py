@@ -206,7 +206,7 @@ def main():
 
     fail = True
     for i in range(15):
-        repos.fetch(limit_to_repos, prune=True)
+        repos.fetch(limit_to_repos)
         try:
             print("Checking out specified commit (try {}/15)".format(i+1))
             repos.checkout(limit_to_repos)
