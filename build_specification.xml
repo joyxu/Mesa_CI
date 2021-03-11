@@ -883,7 +883,7 @@
       <mesa branch="ci_mesa_repo/dev/frohlich"/>
     </branch>
 
-    <branch name="fjdegroo" project="test-single-arch" priority="2">
+    <branch name="fjdegroo" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/fjdegroo"/>
     </branch>
 
