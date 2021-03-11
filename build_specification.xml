@@ -618,42 +618,6 @@
       <webgl branch="680dc5464"/>
     </branch>
 
-    <branch name="mesa_20.2" project="all-test-vulkan">
-      <mesa branch="origin/20.2"/>
-      <crucible branch="ae2fae4"/>
-      <cts branch="01928c37e"/>
-      <deqp branch="ee2101f34"/>
-      <drm branch="669e1087"/>
-      <glcts branch="77ccafb56"/>
-      <glslang branch="b60e067b43744ce88adea33ab347ac9997b923d8"/>
-      <piglit branch="b7836091a4"/>
-      <skqp branch="2441c92442"/>
-      <spirvheaders branch="3fdabd0da2932c276b25b9b4a988ba134eba1aa6"/>
-      <spirvtools branch="7b2dd11dda7a44ecf0d3ef2a2e2205fba3f0f949"/>
-      <vkrunner branch="f688a74"/>
-      <vulkancts branch="27e691f02"/>
-      <waffle branch="a1215f4"/>
-      <webgl branch="cb02b8691"/>
-    </branch>
-
-    <branch name="mesa_20.2_staging" project="all-test-vulkan">
-      <mesa branch="origin/staging/20.2"/>
-      <crucible branch="ae2fae4"/>
-      <cts branch="01928c37e"/>
-      <deqp branch="ee2101f34"/>
-      <drm branch="669e1087"/>
-      <glcts branch="77ccafb56"/>
-      <glslang branch="b60e067b43744ce88adea33ab347ac9997b923d8"/>
-      <piglit branch="b7836091a4"/>
-      <skqp branch="2441c92442"/>
-      <spirvheaders branch="3fdabd0da2932c276b25b9b4a988ba134eba1aa6"/>
-      <spirvtools branch="7b2dd11dda7a44ecf0d3ef2a2e2205fba3f0f949"/>
-      <vkrunner branch="f688a74"/>
-      <vulkancts branch="27e691f02"/>
-      <waffle branch="a1215f4"/>
-      <webgl branch="cb02b8691"/>
-    </branch>
-
     <branch name="vulkancts" project="vulkancts-full" priority="2">
       <mesa/>
       <vulkancts/>
