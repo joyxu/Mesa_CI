@@ -903,9 +903,8 @@
       <mesa branch="ci_mesa_repo/dev/pendingchaos"/>
     </branch>
 
-    <branch name="internal" project="test-single-arch-internal" priority="2">
-      <mesa branch="internal-gitlab/jljusten/jenkins/tgl"/>
-    </branch>
+    <!-- Jobs for this branch are triggered manually -->
+    <branch name="internal" project="test-single-arch-internal" priority="2"/>
 
     <branch name="anholt" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/anholt"/>
