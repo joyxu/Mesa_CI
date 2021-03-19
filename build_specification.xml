@@ -703,7 +703,7 @@
       <mesa branch="ci_mesa_repo/dev/janesma"/>
     </branch>
 
-    <branch name="dcbaker" project="test-single-arch" priority="2">
+    <branch name="dcbaker" project="test-single-arch-vulkan" priority="2">
       <piglit branch="ci_piglit_repo/dev/dcbaker"/>
     </branch>
 
@@ -732,7 +732,7 @@
       <mesa branch="ci_mesa_repo/dev/aphogat"/>
     </branch>
 
-    <branch name="aphogat_internal" project="test-single-arch" priority="2">
+    <branch name="aphogat_internal" project="test-single-arch-vulkan" priority="2">
       <mesa branch="internal-gitlab/aphogat/jenkins"/>
     </branch>
 
@@ -771,7 +771,7 @@
     <branch name="mesa_custom" project="all-test"/>
     <branch name="deqp-runtime_test" project="test-single-arch"/>
 
-    <branch name="imirkin" project="test-single-arch" priority="2">
+    <branch name="imirkin" project="test-single-arch-vulkan" priority="2">
       <mesa branch="imirkin/jenkins"/>
     </branch>
 
