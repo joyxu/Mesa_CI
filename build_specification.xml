@@ -488,7 +488,7 @@
     </glslang>
 
     <crucible repo="https://gitlab.freedesktop.org/mesa/crucible.git"
-              branch="origin/master">
+              branch="origin/main">
       <remote name="ci_crucible_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/crucible.git"/>
     </crucible>
 
