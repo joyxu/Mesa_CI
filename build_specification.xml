@@ -436,7 +436,8 @@
 
     <vkrunner repo="git://github.com/Igalia/vkrunner.git" branch="origin/master"/>
 
-    <piglit repo="https://gitlab.freedesktop.org/mesa/piglit.git">
+    <piglit repo="https://gitlab.freedesktop.org/mesa/piglit.git"
+            branch="origin/main">
       <remote name="ci_piglit_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/piglit.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/piglit.git"/>
       <!-- Dylan's repository is more stable than the origin, and will
