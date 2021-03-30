@@ -896,6 +896,10 @@
       <mesa branch="ci_mesa_repo/dev/pzanoni"/>
     </branch>
 
+    <branch name="pzanoni_internal" project="test-single-arch-vulkan" priority="2">
+      <mesa branch="internal-gitlab/pzanoni/jenkins"/>
+    </branch>
+
     <branch name="ibriano" project="test-single-arch-vulkan" priority="2">
       <mesa branch="ci_mesa_repo/dev/Sachiel"/>
     </branch>
