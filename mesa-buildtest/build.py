@@ -3,7 +3,7 @@
 import sys
 import os
 import subprocess
-from mesonbuild import optinterpreter
+from mesonbuild import optinterpreter, coredata
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
                              "..", "repos", "mesa_ci", "build_support"))
 from builders import MesonBuilder
@@ -16,22 +16,32 @@ from project_map import ProjectMap
 def main():
     pm = ProjectMap()
     sd = pm.project_source_dir(pm.current_project())
-    if not os.path.exists(os.path.join(sd, 'src/mesa/drivers/osmesa/meson.build')):
-        return 0
 
     save_dir = os.getcwd()
 
     global_opts = Options()
 
     # Autodetect valid gallium drivers in Mesa source
-    gallium_drivers = []
-    gallium_drivers_exclude = ['i915', 'd3d12']
+    gallium_drivers = set()
+    gallium_drivers_exclude = set(['i915', 'd3d12'])
     oi = optinterpreter.OptionInterpreter('')
     oi.process(os.path.join(sd, 'meson_options.txt'))
-    for driver in oi.options['gallium-drivers'].choices:
-        if (driver not in gallium_drivers_exclude
-                and driver not in ['auto', '']):
-            gallium_drivers.append(driver)
+    for k, v in oi.options.items():
+        key = k
+        # k is OptionKey in newer Meson, but this type doesn't exist in older
+        # Meson, so testing for type == str is needed
+        if not isinstance(k, str):
+            key = k.name
+        if key != 'gallium-drivers':
+            continue
+        if not v.choices:
+            raise RuntimeError(f"ERROR: no meson choices for: {key}")
+        gallium_drivers = set(v.choices)
+        break
+    gallium_drivers -= gallium_drivers_exclude
+    if not gallium_drivers:
+        raise RuntimeError("ERROR: Failed to parse available gallium "
+                           "drivers from meson options")
 
     options = [
         '-Dbuild-tests=true',
