@@ -406,8 +406,8 @@
 
   <!-- the following servers and remotes correspond to projects -->
   <repos>
-    <mesa repo="https://gitlab.freedesktop.org/mesa/mesa.git">
-      <!-- todo: add support for remotes.  -->
+    <mesa repo="https://gitlab.freedesktop.org/mesa/mesa.git"
+            branch="origin/main">
       <remote name="ci_mesa_repo" repo="https://gitlab.freedesktop.org/Mesa_CI/repos/mesa.git"/>
       <remote name="ci_internal_rebase_mesa_repo" repo="ssh://git@gitlab.devtools.intel.com:29418/mesa_ci/repos/mesa-rebase-testing.git"/>
       <remote name="jekstrand" repo="https://gitlab.freedesktop.org/jekstrand/mesa.git"/>
@@ -561,7 +561,7 @@
 
       <!-- these repo tags exist soley to trigger a master build when
            anything changes -->
-      <mesa/>
+      <mesa branch="origin/main"/>
       <piglit/>
       <waffle/>
       <drm/>
@@ -694,7 +694,7 @@
     </branch>
 
     <branch name="vulkancts" project="vulkancts-full" priority="2">
-      <mesa/>
+      <mesa branch="origin/main"/>
       <vulkancts/>
       <crucible/>
       <glslang/>
