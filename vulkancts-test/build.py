@@ -43,41 +43,37 @@ class VulkanTestList(object):
         trie = DeqpTrie()
         trie.add_xml("dEQP-VK-cases.xml")
         os.chdir(self.pm.project_build_dir())
-        whitelist = None
+        mustpass_file = None
+        whitelist = DeqpTrie()
         if self.hardware.endswith('_sim'):
             if os.path.exists(self.pm.project_build_dir()
                               + '/sim_whitelist.conf'):
-                whitelist_txt = (self.pm.project_build_dir()
+                mustpass_file = (self.pm.project_build_dir()
                                  + '/sim_whitelist.conf')
-                print("Using whitelist for simulated platforms: "
-                      + whitelist_txt)
+                print("Using mustpass for simulated platforms: "
+                      + mustpass_file)
+                whitelist.add_txt(mustpass_file)
         else:
             # Detect the latest mustpass file to use, and use it
             mustpass_dir = (self.pm.project_source_dir("vulkancts")
-                            + "/external/vulkancts/mustpass/")
-            # The mustpass file in vk cts 1.1.5 changed to a single file for all vk
-            # cts versions
-            whitelist_txt = mustpass_dir + "/master/vk-default.txt"
-            if os.path.exists(whitelist_txt):
-                print("Using single whitelist")
-            else:
-                # Use old vk cts mustpass file
-                versions = os.listdir(mustpass_dir)
-                if '.gitignore' in versions:
-                    versions.remove('.gitignore')
-                # Convert versions to an int and compare to get latest version
-                versions.sort(key=lambda v: [int(i) for i in v.split('.')],
-                              reverse=True)
-                latest_version = versions[0]
-                whitelist_txt = (mustpass_dir + '/' + latest_version
-                                 + "/vk-default.txt")
-                print("Using whitelist for %s" % latest_version)
-        if not whitelist_txt:
-            print("Unable to find a valid whitelist/mustpass to use!")
-            sys.exit(1)
+                            + "/external/vulkancts/mustpass/master/")
+            mustpass_file = mustpass_dir + "/vk-default.txt"
+            if not mustpass_file:
+                print("Unable to find a valid whitelist/mustpass to use!")
+                sys.exit(1)
+            # mustpass file can be an index listing many mustpass files, or it
+            # can be a single huge list of all tests.
+            mustpass_file_is_index = True
+            with open(mustpass_file) as f:
+                for line in f:
+                    if not line.rstrip().endswith('.txt'):
+                        mustpass_file_is_index = False
+                        break
+                    else:
+                        whitelist.add_txt(mustpass_dir + '/' + line.rstrip())
+            if not mustpass_file_is_index:
+                whitelist.add_txt(mustpass_file)
 
-        whitelist = DeqpTrie()
-        whitelist.add_txt(whitelist_txt)
         trie.filter_whitelist(whitelist)
         return trie
 
