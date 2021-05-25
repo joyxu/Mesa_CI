@@ -456,13 +456,11 @@
     <mesa_jenkins repo="https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git">
       <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa_jenkins.git"/>
       <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa_jenkins.git"/>
-      <remote name="dcbaker" repo="https://github.com/dcbaker/mesa_jenkins.git"/>
       <remote name="ngcortes" repo="https://gitlab.freedesktop.org/ngcortes/mesa_jenkins.git"/>
     </mesa_jenkins>
 
     <mesa_ci repo="https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git">
       <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa_ci.git"/>
-      <remote name="dcbaker" repo="git://github.com/dcbaker/mesa_ci.git"/>
       <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa_ci.git"/>
       <remote name="ngcortes" repo="https://gitlab.freedesktop.org/ngcortes/mesa_ci.git"/>
     </mesa_ci>
