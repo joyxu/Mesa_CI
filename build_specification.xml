@@ -252,7 +252,7 @@
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
       <!-- <prerequisite name="skqp-full"/> -->
-      <prerequisite name="webgl-full"/>
+      <!-- <prerequisite name="webgl-full"/> -->
       <prerequisite name="mi-builder-full"/>
     </project>
 
@@ -355,7 +355,7 @@
       <prerequisite name="glescts-full"/>
       <!-- <prerequisite name="skqp-full"/> -->
       <prerequisite name="mi-builder-full"/>
-      <prerequisite name="webgl-full"/>
+      <!-- <prerequisite name="webgl-full"/> -->
     </project>
 
     <project name="deqp-full">
@@ -569,7 +569,7 @@
       <!-- skqp is pinned since newer versions provide completely different
            interfaces for running/results -->
       <skqp branch="2441c92442"/>
-      <webgl/>
+     <!-- <webgl/> -->
       <glcts branch="origin/opengl-cts-4.6.0"/>
 
       <!-- the trigger attribute is used specify a branch that should
@@ -595,7 +595,7 @@
       <vkrunner branch="1b4cc6b" />
       <vulkancts branch="27e691f02" />
       <waffle branch="6c28e5f" />
-      <webgl branch="1b5a6c9bb" />
+      <!-- <webgl branch="1b5a6c9bb" /> -->
     </branch>
 
     <branch name="mesa_21.1_staging" project="all-test-vulkan">
@@ -612,7 +612,7 @@
       <vkrunner branch="1b4cc6b" />
       <vulkancts branch="27e691f02" />
       <waffle branch="6c28e5f" />
-      <webgl branch="1b5a6c9bb" />
+      <!-- <webgl branch="1b5a6c9bb" /> -->
     </branch>
 
     <branch name="mesa_21.0" project="all-test-vulkan">
@@ -632,7 +632,7 @@
       <vkrunner branch="1b4cc6b"/>
       <vulkancts branch="27e691f02"/>
       <waffle branch="909c808"/>
-      <webgl branch="28c9702a1"/>
+      <!-- <webgl branch="28c9702a1"/> -->
     </branch>
 
     <branch name="mesa_21.0_staging" project="all-test-vulkan">
@@ -652,7 +652,7 @@
       <vkrunner branch="1b4cc6b"/>
       <vulkancts branch="27e691f02"/>
       <waffle branch="909c808"/>
-      <webgl branch="28c9702a1"/>
+      <!-- <webgl branch="28c9702a1"/> -->
     </branch>
 
     <branch name="mesa_20.3" project="all-test-vulkan">
@@ -670,7 +670,7 @@
       <vkrunner branch="f688a74"/>
       <vulkancts branch="27e691f02"/>
       <waffle branch="2485a41"/>
-      <webgl branch="680dc5464"/>
+      <!-- <webgl branch="680dc5464"/> -->
     </branch>
 
     <branch name="mesa_20.3_staging" project="all-test-vulkan">
@@ -688,7 +688,7 @@
       <vkrunner branch="f688a74"/>
       <vulkancts branch="27e691f02"/>
       <waffle branch="2485a41"/>
-      <webgl branch="680dc5464"/>
+      <!-- <webgl branch="680dc5464"/> -->
     </branch>
 
     <branch name="vulkancts" project="vulkancts-full" priority="2">
