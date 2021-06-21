@@ -700,6 +700,10 @@
       <spirvtools/>
     </branch>
 
+    <branch name="aswarup" project="test-single-arch" priority="2">
+      <mesa branch="ci_mesa_repo/dev/aswarup"/>
+    </branch>
+
     <branch name="jekstrand_gl" project="test-single-arch" priority="2">
       <mesa branch="jekstrand/jenkins_gl"/>
     </branch>
