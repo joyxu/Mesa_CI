@@ -581,6 +581,39 @@
       <prerelease trigger="false"/>
     </branch>
 
+
+    <branch name="mesa_21.2" project="all-test-vulkan">
+      <mesa branch="origin/21.2"/>
+      <crucible branch="12749db" />
+      <cts branch="07bc5346e" />
+      <deqp branch="91bf58c5a" />
+      <drm branch="9cef5dee" />
+      <glcts branch="8c439f307" />
+      <glslang branch="4b7b86d568b40f4b076259dc2fc4cdd006340f34" />
+      <piglit branch="e535c2726c" />
+      <spirvheaders branch="ddf3230c14c71e81fc0eae9b781cc4bcc2d1f0f5"/>
+      <spirvtools branch="2299b710de6cac0e883b5e4d5ef231ba8c01a9d9"/>
+      <vkrunner branch="1b4cc6b" />
+      <vulkancts branch="27e691f02" />
+      <waffle branch="6bf58d4" />
+    </branch>
+
+    <branch name="mesa_21.2_staging" project="all-test-vulkan">
+      <mesa branch="origin/staging/21.2"/>
+      <crucible branch="12749db" />
+      <cts branch="07bc5346e" />
+      <deqp branch="91bf58c5a" />
+      <drm branch="9cef5dee" />
+      <glcts branch="8c439f307" />
+      <glslang branch="4b7b86d568b40f4b076259dc2fc4cdd006340f34" />
+      <piglit branch="e535c2726c" />
+      <spirvheaders branch="ddf3230c14c71e81fc0eae9b781cc4bcc2d1f0f5"/>
+      <spirvtools branch="2299b710de6cac0e883b5e4d5ef231ba8c01a9d9"/>
+      <vkrunner branch="1b4cc6b" />
+      <vulkancts branch="27e691f02" />
+      <waffle branch="6bf58d4" />
+    </branch>
+
     <branch name="mesa_21.1" project="all-test-vulkan">
       <mesa branch="origin/21.1"/>
       <crucible branch="db7cc39" />
