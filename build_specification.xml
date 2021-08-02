@@ -430,7 +430,8 @@
       <remote name= "gerddie" repo="https://gitlab.freedesktop.org/gerddie/mesa"/>
     </mesa>
 
-    <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git">
+    <drm repo="http://anongit.freedesktop.org/git/mesa/drm.git"
+         branch="origin/main">
       <remote name="aphogat" repo="git://github.com/aphogat/drm"/>
     </drm>
 
