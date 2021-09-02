@@ -464,21 +464,12 @@
 
     <!-- just so the master can cache it for the builders -->
     <mesa_jenkins repo="https://gitlab.freedesktop.org/Mesa_CI/mesa_jenkins.git">
-      <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa_jenkins.git"/>
-      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa_jenkins.git"/>
       <remote name="ngcortes" repo="https://gitlab.freedesktop.org/ngcortes/mesa_jenkins.git"/>
     </mesa_jenkins>
 
     <mesa_ci repo="https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git">
-      <remote name="craftyguy" repo="https://gitlab.freedesktop.org/craftyguy/mesa_ci.git"/>
-      <remote name="janesma" repo="https://gitlab.freedesktop.org/majanes/mesa_ci.git"/>
       <remote name="ngcortes" repo="https://gitlab.freedesktop.org/ngcortes/mesa_ci.git"/>
     </mesa_ci>
-
-    <deqp repo="git://github.com/janesma/deqp.git"
-          branch="aosp/master">
-      <remote name="aosp" repo="https://android.googlesource.com/platform/external/deqp"/>
-    </deqp>
 
     <cts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
          branch="origin/opengl-es-cts-3.2.5">
@@ -521,7 +512,6 @@
     <mesa_ci_internal repo="ssh://git@gitlab.devtools.intel.com:29418/mesa_ci/mesa_ci_internal.git"/>
 
     <sim-drm repo="ssh://git@gitlab.devtools.intel.com:29418/mesa/sim-drm.git">
-      <remote name="craftyguy" repo="git://github.intel.com/cacraft/sim-drm.git"/>
       <remote name="internal-github" repo="git@github.com:intel-innersource/drivers.gpu.mesa.sim-drm.git"/>
     </sim-drm>
 
@@ -703,10 +693,6 @@
       <mesa branch="ci_mesa_repo/dev/mattst88"/>
     </branch>
 
-    <branch name="majanes" project="test-single-arch-vulkan" priority="2">
-      <mesa branch="ci_mesa_repo/dev/janesma"/>
-    </branch>
-
     <branch name="dcbaker" project="test-single-arch-vulkan" priority="2">
       <piglit branch="ci_piglit_repo/dev/dcbaker"/>
     </branch>
@@ -885,10 +871,6 @@
     
     <branch name="gerddie" project="test-single-arch-vulkan" priority="2">
       <mesa branch="gerddie/intel-ci"/>
-    </branch>
-
-    <branch name="craftyguy" project="test-single-arch-vulkan" priority="2">
-      <mesa branch="ci_mesa_repo/dev/craftyguy"/>
     </branch>
 
     <branch name="agoldmints" project="test-single-arch-vulkan" priority="2">
