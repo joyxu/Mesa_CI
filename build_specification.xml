@@ -471,6 +471,11 @@
       <remote name="ngcortes" repo="https://gitlab.freedesktop.org/ngcortes/mesa_ci.git"/>
     </mesa_ci>
 
+    <deqp repo="git://github.com/janesma/deqp.git"
+          branch="aosp/master">
+      <remote name="aosp" repo="https://android.googlesource.com/platform/external/deqp"/>
+    </deqp>
+
     <cts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
          branch="origin/opengl-es-cts-3.2.5">
       <remote name="tpalli" repo="ssh://git@gitlab.devtools.intel.com:29418/tpalli/vk-gl-cts-tpalli.git"/>
