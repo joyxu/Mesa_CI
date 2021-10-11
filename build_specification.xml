@@ -477,7 +477,7 @@
     </mesa_ci>
 
     <deqp repo="git://github.com/janesma/deqp.git"
-          branch="aosp/master">
+          branch="91bf58c5a">
       <remote name="aosp" repo="https://android.googlesource.com/platform/external/deqp"/>
     </deqp>
 
