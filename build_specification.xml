@@ -254,7 +254,8 @@
          dependency relationships. -->
     <project name="all-test">
       <prerequisite name="piglit-full"/>
-      <prerequisite name="deqp-full"/>
+      <!-- temporarily disable deqp until fixed in CI -->
+      <!-- <prerequisite name="deqp-full"/> -->
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="android-buildtest" hardware="builder"/>
       <prerequisite name="glcts-full"/>
@@ -358,7 +359,7 @@
       <prerequisite only_for_type="daily" name="piglit-test" hardware="g33,bsw,byt,gen9atom,gen9atom_iris,icl" shard="4"/>
       <prerequisite name="mesa-buildtest" hardware="builder" arch="m64"/>
       <prerequisite name="android-buildtest" hardware="builder"/>
-      <prerequisite name="deqp-full"/>
+      <!-- <prerequisite name="deqp-full"/> -->
       <prerequisite name="glcts-full"/>
       <prerequisite name="glescts-full"/>
       <!-- <prerequisite name="skqp-full"/> -->
