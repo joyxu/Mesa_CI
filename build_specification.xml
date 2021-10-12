@@ -574,7 +574,7 @@
       <waffle/>
       <drm/>
       <vkrunner/>
-      <deqp branch="aosp/master"/>
+      <deqp branch="91bf58c5a"/>
       <cts branch="origin/opengl-es-cts-3.2.5"/>
       <!-- skqp is pinned since newer versions provide completely different
            interfaces for running/results -->
