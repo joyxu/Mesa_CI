@@ -478,7 +478,6 @@
 
     <deqp repo="git://github.com/janesma/deqp.git"
           branch="91bf58c5a">
-      <remote name="aosp" repo="https://android.googlesource.com/platform/external/deqp"/>
     </deqp>
 
     <cts repo="https://github.com/KhronosGroup/VK-GL-CTS.git"
