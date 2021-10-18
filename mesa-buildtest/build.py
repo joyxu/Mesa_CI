@@ -91,7 +91,6 @@ def main():
         'delete_and_lookup',
         'delete_management',
         'destroy_callback',
-        'eu_compact',
         'glx-dispatch-index-check',
         'insert_and_lookup',
         'insert_many',
@@ -111,22 +110,15 @@ def main():
     ]
 
     b.gtests += [
-        'eu_validate',
-        'fs_cmod_propagation',
-        'fs_copy_propagation',
-        'fs_saturate_propagation',
         'general_ir_test',
         'glx-test',
+        'intel_compiler_tests'
         'main-test',
         'nir_control_flow',
         'sampler_types_test',
         'shared-glapi-test',
         'string_buffer',
         'uniform_initializer_test',
-        'vec4_cmod_propagation',
-        'vec4_copy_propagation',
-        'vec4_register_coalesce',
-        'vf_float_conversions',
     ]
 
     try:
