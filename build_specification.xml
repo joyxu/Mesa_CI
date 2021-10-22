@@ -474,6 +474,7 @@
 
     <mesa_ci repo="https://gitlab.freedesktop.org/Mesa_CI/mesa_ci.git">
       <remote name="ngcortes" repo="https://gitlab.freedesktop.org/ngcortes/mesa_ci.git"/>
+      <remote name="ybogdano" repo="https://gitlab.freedesktop.org/ybogdano/meson-flag-patch.git"/>
     </mesa_ci>
 
     <deqp repo="git://github.com/janesma/deqp.git"
