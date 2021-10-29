@@ -11,11 +11,14 @@ def main():
                                                   "hardware platform"))
     parser.add_argument('hw', help=('Platform to find unique failures in CI '
                                     'for, e.g. "gen9_iris"'))
-    parser.add_argument('--hw_config_path', help=('path to config file if different'
+    parser.add_argument('--hw_config_path', help=('path to config file if different '
                                                   'from mesa_jenkins'))
+    parser.add_argument('--non_unique',
+                        action='store_true',
+                        help=('just print the failures '
+                                              'for the specified hardware'))
     opts = parser.parse_args()
     projects = glob.glob("*-test") + ['webgl']
-
     hw_config_file = opts.hw + '.conf'
 
     if opts.hw_config_path is None:
@@ -27,7 +30,8 @@ def main():
         configs = [c for c in glob.glob(project + "/*.conf") if 'blacklist' not in c]
         if opts.hw_config_path:
             configs += [c for c in glob.glob(opts.hw_config_path + project + "/*.conf") if 'blacklist' not in c]
-            #print(configs)
+        if opts.non_unique:
+            configs = list(filter(lambda n: n.count(hw_config_file) > 0, configs))
 
         c = configparser.ConfigParser(allow_no_value=True)
         try:
